@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1080" viewBox="0 0 800 1080"
+     font-family="'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif">
+<defs>
+  <pattern id="grain" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.5" fill="#7a5c28" opacity="0.055"/>
+    <circle cx="3" cy="3" r="0.5" fill="#7a5c28" opacity="0.035"/>
+  </pattern>
+  <linearGradient id="featuredBg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#fffbf0"/>
+    <stop offset="100%" stop-color="#fdf0d5"/>
+  </linearGradient>
+  <linearGradient id="darkBadge" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#4a0808"/>
+    <stop offset="100%" stop-color="#2e0505"/>
+  </linearGradient>
+  <filter id="shadow">
+    <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000020"/>
+  </filter>
+</defs>
+
+<!-- ─── BACKGROUND ─── -->
+<rect width="800" height="1080" fill="#f7f3ec"/>
+<rect width="800" height="1080" fill="url(#grain)"/>
+
+<!-- top stripe -->
+<rect x="0" y="0" width="800" height="5" fill="#8b2e0e"/>
+<!-- bottom stripe -->
+<rect x="0" y="1075" width="800" height="5" fill="#8b2e0e"/>
+
+<!-- ════════════════════════════════════
+     HEADER  y=0–148
+════════════════════════════════════ -->
+<line x1="72" y1="34" x2="728" y2="34" stroke="#c8a87a" stroke-width="0.8"/>
+
+<text x="400" y="78" text-anchor="middle"
+      font-size="46" font-weight="bold" fill="#1c120a"
+      letter-spacing="8" style="font-variant:small-caps;">La Bella Pasta</text>
+
+<line x1="150" y1="90"  x2="650" y2="90"  stroke="#c8a87a" stroke-width="1.4"/>
+<line x1="190" y1="95"  x2="610" y2="95"  stroke="#8b2e0e" stroke-width="0.6"/>
+
+<text x="400" y="117" text-anchor="middle"
+      font-size="11.5" fill="#8b6940" font-style="italic" letter-spacing="3">
+  Autentica Cucina Italiana  ·  Est. 1987
+</text>
+
+<text x="400" y="136" text-anchor="middle"
+      font-size="10" fill="#a08060" letter-spacing="0.4">
+  Via Roma 12, Centro Storico  ·  12:00–22:30  ·  +39 055 123 4567
+</text>
+
+<!-- ════════════════════════════════════
+     ANTIPASTI  y=156–300
+     Ordered by distinctiveness — most differentiated first.
+     Section comes first: guests choose starters before pasta.
+════════════════════════════════════ -->
+<text x="400" y="170" text-anchor="middle"
+      font-size="10" fill="#8b2e0e" letter-spacing="6"
+      style="font-variant:small-caps;">Antipasti</text>
+<line x1="52" y1="177" x2="748" y2="177" stroke="#c8a87a" stroke-width="0.7"/>
+<text x="400" y="191" text-anchor="middle"
+      font-size="9.5" fill="#a08060" font-style="italic">
+  Pane a lievitazione naturale · Artisan sourdough baked and toasted to order
+</text>
+
+<!-- A1 — Bruschetta con Pomodori Heritage (most distinctive, worth promoting) -->
+<text x="52" y="211" font-size="13.5" font-weight="bold" fill="#1c120a">Bruschetta con Pomodori Heritage</text>
+<text x="748" y="211" text-anchor="end" font-size="11" fill="#7a5c30">7.50</text>
+<text x="52" y="227" font-size="11"   fill="#5c4020" font-style="italic">Slow-roasted heritage tomatoes, dried oregano, sea salt, stone-baked sourdough</text>
+
+<!-- A2 — Bruschetta con Pomodoro e Basilico -->
+<text x="52" y="251" font-size="13.5" font-weight="bold" fill="#1c120a">Bruschetta con Pomodoro e Basilico</text>
+<text x="748" y="251" text-anchor="end" font-size="11" fill="#7a5c30">7</text>
+<text x="52" y="267" font-size="11"   fill="#5c4020" font-style="italic">Marinated plum tomatoes, garlic, torn basil, cold-pressed extra virgin olive oil</text>
+
+<!-- A3 — Sourdough con Aglio e EVOO (simplest, cheapest — listed last) -->
+<text x="52" y="291" font-size="13.5" font-weight="bold" fill="#1c120a">Sourdough con Aglio e EVOO</text>
+<text x="748" y="291" text-anchor="end" font-size="11" fill="#7a5c30">6.50</text>
+<text x="52" y="307" font-size="11"   fill="#5c4020" font-style="italic">Stone-baked sourdough rubbed with fresh garlic, finished with cold-pressed Sicilian olive oil</text>
+
+<!-- ════════════════════════════════════
+     I PRIMI — PASTA  y=326–790
+     No two-column layout: single column, pasta type as subheading.
+     Within each group: highest-price item first (anchors expectations).
+     One featured box for the page's star (Carbonara — Linguine group).
+════════════════════════════════════ -->
+<text x="400" y="340" text-anchor="middle"
+      font-size="10" fill="#8b2e0e" letter-spacing="6"
+      style="font-variant:small-caps;">I Primi — Pasta</text>
+<line x1="52" y1="347" x2="748" y2="347" stroke="#c8a87a" stroke-width="0.7"/>
+<text x="400" y="361" text-anchor="middle"
+      font-size="9.5" fill="#a08060" font-style="italic">
+  All pasta rolled fresh in our kitchen daily
+</text>
+
+<!-- ─── RIGATONI ─── -->
+<text x="400" y="379" text-anchor="middle"
+      font-size="10.5" fill="#8b6940" font-style="italic" letter-spacing="2">— Rigatoni —</text>
+
+<!-- Bolognese (first — most popular, anchors the group) -->
+<text x="52" y="399" font-size="13.5" font-weight="bold" fill="#1c120a">Bolognese</text>
+<text x="748" y="399" text-anchor="end" font-size="11" fill="#7a5c30">15</text>
+<text x="52" y="415" font-size="11"   fill="#5c4020" font-style="italic">Slow-cooked beef &amp; pork ragù, San Marzano tomatoes, Parmigiano Reggiano — Nonna's recipe</text>
+
+<!-- Amatriciana -->
+<text x="52" y="439" font-size="13.5" font-weight="bold" fill="#1c120a">Amatriciana</text>
+<text x="748" y="439" text-anchor="end" font-size="11" fill="#7a5c30">13.50</text>
+<text x="52" y="455" font-size="11"   fill="#5c4020" font-style="italic">San Marzano tomatoes, guanciale, Pecorino Romano, white wine, crushed chilli</text>
+
+<!-- Arrabbiata (cheapest last) -->
+<text x="52" y="479" font-size="13.5" font-weight="bold" fill="#1c120a">Arrabbiata</text>
+<text x="218" y="479" font-size="10"   fill="#c04820">🌶 Piccante</text>
+<text x="748" y="479" text-anchor="end" font-size="11" fill="#7a5c30">12.50</text>
+<text x="52" y="495" font-size="11"   fill="#5c4020" font-style="italic">San Marzano tomatoes, garlic, fresh chilli, flat-leaf parsley — fiery, fragrant, authentic</text>
+
+<!-- ─── CASARECCIA ─── -->
+<line x1="52" y1="514" x2="748" y2="514" stroke="#c8a87a" stroke-width="0.5" opacity="0.6"/>
+<text x="400" y="530" text-anchor="middle"
+      font-size="10.5" fill="#8b6940" font-style="italic" letter-spacing="2">— Casareccia —</text>
+
+<!-- Puttanesca (most complex flavour, worth promoting) -->
+<text x="52" y="550" font-size="13.5" font-weight="bold" fill="#1c120a">Puttanesca</text>
+<text x="748" y="550" text-anchor="end" font-size="11" fill="#7a5c30">13.50</text>
+<text x="52" y="566" font-size="11"   fill="#5c4020" font-style="italic">Anchovies, capers, Gaeta olives, pepperoncino, garlic, tomato sauce</text>
+
+<!-- Pesto Genovese -->
+<text x="52" y="590" font-size="13.5" font-weight="bold" fill="#1c120a">Pesto Genovese</text>
+<text x="216" y="590" font-size="10"   fill="#2a7a2a">🌿 Vegetariano</text>
+<text x="748" y="590" text-anchor="end" font-size="11" fill="#7a5c30">13</text>
+<text x="52" y="606" font-size="11"   fill="#5c4020" font-style="italic">Fresh basil, toasted pine nuts, Parmigiano Reggiano, Pecorino, garlic, cold-pressed EVOO</text>
+
+<!-- Pomodoro e Basilico (simplest, cheapest — listed last) -->
+<text x="52" y="630" font-size="13.5" font-weight="bold" fill="#1c120a">Pomodoro e Basilico</text>
+<text x="234" y="630" font-size="10"   fill="#2a7a2a">🌿 Vegetariano</text>
+<text x="748" y="630" text-anchor="end" font-size="11" fill="#7a5c30">12</text>
+<text x="52" y="646" font-size="11"   fill="#5c4020" font-style="italic">San Marzano tomatoes, fresh basil, garlic, extra virgin olive oil — simple &amp; perfect</text>
+
+<!-- ─── LINGUINE ─── -->
+<line x1="52" y1="665" x2="748" y2="665" stroke="#c8a87a" stroke-width="0.5" opacity="0.6"/>
+<text x="400" y="681" text-anchor="middle"
+      font-size="10.5" fill="#8b6940" font-style="italic" letter-spacing="2">— Linguine —</text>
+
+<!-- Gamberetti Alfredo (anchor — highest price in group) -->
+<text x="52" y="701" font-size="13.5" font-weight="bold" fill="#1c120a">Gamberetti Alfredo</text>
+<text x="212" y="701" font-size="10"   fill="#1a5a8a">🦐 Pesce</text>
+<text x="748" y="701" text-anchor="end" font-size="11" fill="#7a5c30">17.50</text>
+<text x="52" y="717" font-size="11"   fill="#5c4020" font-style="italic">Tiger prawns, Parmigiano Reggiano, butter, garlic, white wine, flat-leaf parsley</text>
+
+<!-- Carbonara — FEATURED (star of the page, one box only) -->
+<rect  x="36"  y="732" width="728" height="68" rx="5" fill="url(#featuredBg)" stroke="#c8a87a" stroke-width="1.2" filter="url(#shadow)"/>
+<rect  x="218" y="739" width="118" height="16" rx="8" fill="url(#darkBadge)"/>
+<text  x="277" y="751" text-anchor="middle" font-size="9" font-weight="bold" fill="#f0c060" letter-spacing="0.4">⭐ HOUSE FAVOURITE</text>
+<text  x="52"  y="753" font-size="13.5" font-weight="bold" fill="#1c120a">Carbonara</text>
+<text  x="748" y="753" text-anchor="end"  font-size="11" fill="#7a5c30">14.50</text>
+<text  x="52"  y="769" font-size="11"   fill="#5c4020" font-style="italic">Guanciale, Pecorino Romano, Parmigiano Reggiano, egg yolk, freshly cracked black pepper</text>
+<text  x="52"  y="785" font-size="9.5"  fill="#8b6940">No cream, ever · Prepared strictly to order — the Roman way</text>
+
+<!-- Mascarpone Lemon -->
+<text x="52" y="820" font-size="13.5" font-weight="bold" fill="#1c120a">Mascarpone e Limone</text>
+<text x="232" y="820" font-size="10"   fill="#2a7a2a">🌿 Vegetariano</text>
+<text x="748" y="820" text-anchor="end" font-size="11" fill="#7a5c30">14</text>
+<text x="52" y="836" font-size="11"   fill="#5c4020" font-style="italic">Mascarpone, fresh lemon zest &amp; juice, Parmigiano Reggiano, cracked black pepper</text>
+
+<!-- ════════════════════════════════════
+     INSALATE  y=858–950
+════════════════════════════════════ -->
+<line x1="52" y1="858" x2="748" y2="858" stroke="#c8a87a" stroke-width="0.7"/>
+<text x="400" y="872" text-anchor="middle"
+      font-size="10" fill="#8b2e0e" letter-spacing="6"
+      style="font-variant:small-caps;">Insalate</text>
+<line x1="52" y1="878" x2="748" y2="878" stroke="#c8a87a" stroke-width="0.7"/>
+
+<!-- Rocket & Parmesan (higher price — listed first) -->
+<text x="52" y="898" font-size="13.5" font-weight="bold" fill="#1c120a">Rocket &amp; Parmesan</text>
+<text x="748" y="898" text-anchor="end" font-size="11" fill="#7a5c30">10.50</text>
+<text x="52" y="914" font-size="11"   fill="#5c4020" font-style="italic">Wild rocket, shaved Parmigiano Reggiano, lemon dressing, aged balsamic vinegar</text>
+
+<!-- Rocket, Olive & Cherry Tomato -->
+<text x="52" y="938" font-size="13.5" font-weight="bold" fill="#1c120a">Rocket, Olive &amp; Cherry Tomato</text>
+<text x="748" y="938" text-anchor="end" font-size="11" fill="#7a5c30">9.50</text>
+<text x="52" y="954" font-size="11"   fill="#5c4020" font-style="italic">Kalamata olives, cherry tomatoes, mixed peppers · Honey balsamic dressing</text>
+
+<!-- ════════════════════════════════════
+     FOOTER  y=974–1075
+════════════════════════════════════ -->
+<line x1="52" y1="974" x2="748" y2="974" stroke="#c8a87a" stroke-width="0.5"/>
+<text x="400" y="989" text-anchor="middle"
+      font-size="9.5" fill="#a08060" font-style="italic">
+  All pasta hand-made fresh daily  ·  Gluten-free pasta available on request (+2)
+</text>
+<text x="400" y="1004" text-anchor="middle"
+      font-size="9.5" fill="#a08060" font-style="italic">
+  Please inform your server of any allergies  ·  IVA inclusa
+</text>
+
+<line x1="168" y1="1032" x2="632" y2="1032" stroke="#c8a87a" stroke-width="0.8"/>
+<text x="400" y="1056" text-anchor="middle"
+      font-size="19" fill="#1c120a" letter-spacing="5"
+      style="font-variant:small-caps;">Benvenuti · Buon Appetito</text>
+<line x1="210" y1="1064" x2="590" y2="1064" stroke="#c8a87a" stroke-width="0.8"/>
+
+<text x="204" y="1075" text-anchor="middle" font-size="10" fill="#a08060">📍 Via Roma 12, Centro Storico</text>
+<text x="400" y="1075" text-anchor="middle" font-size="10" fill="#a08060">🌐 labellaspasta.it</text>
+<text x="596" y="1075" text-anchor="middle" font-size="10" fill="#a08060">📱 @labellaspasta</text>
+</svg>

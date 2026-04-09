@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1200" viewBox="0 0 800 1200">
+
+<defs>
+  <linearGradient id="headerGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%"   stop-color="#C8240A"/>
+    <stop offset="100%" stop-color="#E83820"/>
+  </linearGradient>
+  <linearGradient id="footerGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%"   stop-color="#111"/>
+    <stop offset="100%" stop-color="#1A0800"/>
+  </linearGradient>
+  <filter id="shadow">
+    <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#00000030"/>
+  </filter>
+  <filter id="textshadow">
+    <feDropShadow dx="1" dy="2" stdDeviation="2" flood-color="#00000060"/>
+  </filter>
+</defs>
+
+<!-- BACKGROUND -->
+<rect width="800" height="1200" fill="#FFFBF0"/>
+
+<!-- ════════════════════════════════════
+     ITALIAN FLAG — TOP
+════════════════════════════════════ -->
+<rect x="0" y="0" width="800" height="18" fill="#009246"/>
+<rect x="0" y="18" width="800" height="18" fill="#FFFFFF"/>
+<rect x="0" y="36" width="800" height="18" fill="#CE2B37"/>
+
+<!-- ════════════════════════════════════
+     HEADER  y=54–240
+════════════════════════════════════ -->
+<rect x="0" y="54" width="800" height="186" fill="url(#headerGrad)"/>
+
+<!-- decorative rings — top right -->
+<circle cx="700" cy="147" r="110" fill="white" opacity="0.05"/>
+<circle cx="700" cy="147" r="85"  fill="none" stroke="white" stroke-width="2.5" opacity="0.12"/>
+<circle cx="700" cy="147" r="58"  fill="none" stroke="#F5C430" stroke-width="2" opacity="0.35"/>
+<circle cx="700" cy="147" r="30"  fill="#F5C430" opacity="0.18"/>
+<text x="700" y="154" text-anchor="middle" font-size="26" fill="white" opacity="0.55">🍝</text>
+
+<!-- pasta swirl waves -->
+<path d="M55,80 Q90,62 125,80 Q160,98 195,80 Q230,62 265,80" stroke="white" stroke-width="2" fill="none" opacity="0.18"/>
+<path d="M55,95 Q90,77 125,95 Q160,113 195,95 Q230,77 265,95" stroke="white" stroke-width="2" fill="none" opacity="0.13"/>
+
+<!-- brand name -->
+<text x="55" y="148"
+      font-family="'Arial Black', 'Impact', Arial, sans-serif"
+      font-size="64" font-weight="900" fill="white"
+      filter="url(#textshadow)"
+      letter-spacing="2">LA BELLA PASTA</text>
+
+<text x="55" y="178"
+      font-family="Georgia, 'Times New Roman', serif"
+      font-size="14" font-style="italic" fill="#F5C430"
+      letter-spacing="3">Autentica Cucina Italiana dal 1987</text>
+
+<text x="55" y="215"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="12" fill="white" opacity="0.75" letter-spacing="1">
+  📍 Via Roma 12, Centro Storico  ·  12:00–22:30  ·  labellaspasta.it
+</text>
+
+<text x="55" y="233"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="17" fill="#F5C430" letter-spacing="6">★ ★ ★ ★ ★</text>
+
+<!-- HOOK STRIP  y=240–268 -->
+<rect x="0" y="240" width="800" height="28" fill="#1A0800"/>
+<text x="400" y="259"
+      text-anchor="middle"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="10.5" font-weight="900" fill="white" letter-spacing="2.5">
+  🥖  PASTA FATTA IN CASA · INGREDIENTI FRESCHI OGNI GIORNO · SINCE 1987  🥖
+</text>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 01 — BRUSCHETTA  y=268–440
+     Antipasti comes FIRST: guests choose starters before pasta.
+════════════════════════════════════════════════ -->
+<rect x="0" y="268" width="7" height="180" fill="#C8240A"/>
+
+<!-- watermark -->
+<text x="648" y="368"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="110" font-weight="900" fill="#EAE0D4">01</text>
+
+<!-- section heading -->
+<text x="28" y="298"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="30" font-weight="900" fill="#1A0800" letter-spacing="1">BRUSCHETTA</text>
+<line x1="28" y1="303" x2="772" y2="303" stroke="#C8C0B0" stroke-width="1"/>
+<text x="28" y="318"
+      font-family="Georgia, serif"
+      font-size="10" font-style="italic" fill="#7A6040" letter-spacing="1">
+  Pane a lievitazione naturale · Artisan sourdough baked and toasted to order
+</text>
+
+<!-- Bruschetta con Pomodori Heritage (most distinctive first) -->
+<text x="28" y="343"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Bruschetta con Pomodori Heritage</text>
+<text x="772" y="343" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">7.50</text>
+<text x="28" y="357"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Slow-roasted heritage tomatoes, dried oregano, sea salt, stone-baked sourdough
+</text>
+
+<!-- Bruschetta con Pomodoro e Basilico -->
+<text x="28" y="382"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Bruschetta con Pomodoro e Basilico</text>
+<text x="772" y="382" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">7</text>
+<text x="28" y="396"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Marinated plum tomatoes, garlic, torn basil, cold-pressed extra virgin olive oil
+</text>
+
+<!-- Sourdough con Aglio e EVOO -->
+<text x="28" y="421"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Sourdough con Aglio e EVOO</text>
+<text x="772" y="421" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">6.50</text>
+<text x="28" y="435"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Stone-baked sourdough rubbed with fresh garlic, cold-pressed Sicilian olive oil
+</text>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 02 — PASTA  y=448–855
+     Single-column layout. Pasta type as pill label.
+     Within each group: highest-price item first (anchor).
+     One featured box for page star (Carbonara).
+════════════════════════════════════════════════ -->
+<rect x="0" y="448" width="800" height="46" fill="#C8240A"/>
+<rect x="0" y="494" width="800" height="7"  fill="#1A0800"/>
+
+<text x="28" y="482"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="26" font-weight="900" fill="white" letter-spacing="2">02  PASTA</text>
+<text x="675" y="482"
+      font-family="Georgia, serif"
+      font-size="10" font-style="italic" fill="white" opacity="0.8">Pasta fresca fatta in casa ogni giorno</text>
+
+<rect x="0" y="501" width="7" height="362" fill="#C8240A"/>
+
+<!-- watermark -->
+<text x="640" y="620"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="110" font-weight="900" fill="#EAE0D4">02</text>
+
+<!-- ── RIGATONI pill ── -->
+<rect x="28" y="512" width="96" height="24" rx="12" fill="#1B6B30"/>
+<text x="76" y="528"
+      text-anchor="middle"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="10" font-weight="900" fill="white" letter-spacing="1.5">RIGATONI</text>
+
+<!-- Bolognese (anchor — most popular) -->
+<text x="28" y="556"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Bolognese</text>
+<text x="772" y="556" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">15</text>
+<text x="28" y="570"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Slow-cooked beef &amp; pork ragù, San Marzano tomatoes, Parmigiano Reggiano — Nonna's recipe
+</text>
+
+<!-- Amatriciana -->
+<text x="28" y="594"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Amatriciana</text>
+<text x="772" y="594" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">13.50</text>
+<text x="28" y="608"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  San Marzano tomatoes, guanciale, Pecorino Romano, white wine, crushed chilli
+</text>
+
+<!-- Arrabbiata -->
+<text x="28" y="632"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Arrabbiata</text>
+<text x="182" y="632"
+      font-family="Arial, sans-serif"
+      font-size="10" fill="#C8240A">🌶 Piccante</text>
+<text x="772" y="632" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">12.50</text>
+<text x="28" y="646"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  San Marzano tomatoes, garlic, fresh chilli, flat-leaf parsley — fiery, fragrant, authentic
+</text>
+
+<!-- ── CASARECCIA pill ── -->
+<rect x="28" y="660" width="110" height="24" rx="12" fill="#C8240A"/>
+<text x="83" y="676"
+      text-anchor="middle"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="10" font-weight="900" fill="white" letter-spacing="1.5">CASARECCIA</text>
+
+<!-- Puttanesca (most complex — listed first) -->
+<text x="28" y="702"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Puttanesca</text>
+<text x="772" y="702" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">13.50</text>
+<text x="28" y="716"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Anchovies, capers, Gaeta olives, pepperoncino, garlic, tomato sauce
+</text>
+
+<!-- Pesto Genovese -->
+<text x="28" y="740"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Pesto Genovese</text>
+<text x="182" y="740"
+      font-family="Arial, sans-serif"
+      font-size="10" fill="#1B6B30">🌿 Vegetariano</text>
+<text x="772" y="740" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">13</text>
+<text x="28" y="754"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Fresh basil, toasted pine nuts, Parmigiano Reggiano, Pecorino, garlic, cold-pressed EVOO
+</text>
+
+<!-- Pomodoro e Basilico -->
+<text x="28" y="778"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Pomodoro e Basilico</text>
+<text x="214" y="778"
+      font-family="Arial, sans-serif"
+      font-size="10" fill="#1B6B30">🌿 Vegetariano</text>
+<text x="772" y="778" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">12</text>
+<text x="28" y="792"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  San Marzano tomatoes, fresh basil, garlic, extra virgin olive oil — simple &amp; perfect
+</text>
+
+<!-- ── LINGUINE pill ── -->
+<rect x="28" y="806" width="95" height="24" rx="12" fill="#B8890A"/>
+<text x="75" y="822"
+      text-anchor="middle"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="10" font-weight="900" fill="white" letter-spacing="1.5">LINGUINE</text>
+
+<!-- Gamberetti Alfredo (anchor — highest price in group) -->
+<text x="28" y="848"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Gamberetti Alfredo</text>
+<text x="210" y="848"
+      font-family="Arial, sans-serif"
+      font-size="10" fill="#2A5A9A">🦐 Pesce</text>
+<text x="772" y="848" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">17.50</text>
+<text x="28" y="862"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Tiger prawns, Parmigiano Reggiano, butter, garlic, white wine, flat-leaf parsley
+</text>
+
+<!-- Carbonara — FEATURED BOX (one per page — the star) -->
+<rect x="20" y="876" width="760" height="68" rx="4"
+      fill="#FFF8E8" stroke="#C8920A" stroke-width="2" filter="url(#shadow)"/>
+<rect x="20" y="876" width="6" height="68" fill="#C8920A" rx="2"/>
+<rect x="258" y="882" width="148" height="18" rx="9" fill="#1A0800"/>
+<text x="332" y="894" text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="9" font-weight="bold" fill="#F5C430" letter-spacing="1">⭐ HOUSE FAVOURITE</text>
+<text x="38" y="896"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Carbonara</text>
+<text x="772" y="896" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">14.50</text>
+<text x="38" y="912"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Guanciale, Pecorino Romano, Parmigiano Reggiano, egg yolk, freshly cracked black pepper
+</text>
+<text x="38" y="928"
+      font-family="Arial, sans-serif"
+      font-size="9.5" fill="#8B6A20">No cream, ever · Prepared strictly to order — the Roman way</text>
+
+<!-- Mascarpone e Limone -->
+<text x="28" y="962"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Mascarpone e Limone</text>
+<text x="218" y="962"
+      font-family="Arial, sans-serif"
+      font-size="10" fill="#1B6B30">🌿 Vegetariano</text>
+<text x="772" y="962" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">14</text>
+<text x="28" y="976"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Mascarpone, fresh lemon zest &amp; juice, Parmigiano Reggiano, cracked black pepper
+</text>
+
+<!-- ════════════════════════════════════════════════
+     SECTION 03 — INSALATE  y=993–1100
+════════════════════════════════════════════════ -->
+<rect x="0" y="993" width="800" height="46" fill="#1B6B30"/>
+<rect x="0" y="1039" width="800" height="7"  fill="#1A0800"/>
+
+<text x="28" y="1025"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="26" font-weight="900" fill="white" letter-spacing="2">03  INSALATE</text>
+<text x="660" y="1025"
+      font-family="Georgia, serif"
+      font-size="10" font-style="italic" fill="white" opacity="0.8">Freshly prepared daily</text>
+
+<rect x="0" y="1046" width="7" height="100" fill="#1B6B30"/>
+
+<!-- Rocket & Parmesan (higher price — listed first) -->
+<text x="28" y="1069"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Rocket &amp; Parmesan</text>
+<text x="772" y="1069" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">10.50</text>
+<text x="28" y="1083"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Wild rocket, shaved Parmigiano Reggiano · Lemon dressing &amp; aged balsamic vinegar
+</text>
+
+<!-- Rocket, Olive & Cherry Tomato -->
+<text x="28" y="1107"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="14" font-weight="900" fill="#1A0800">Rocket, Olive &amp; Cherry Tomato</text>
+<text x="476" y="1107"
+      font-family="Arial, sans-serif"
+      font-size="10" fill="#1B6B30">🌿 Veggie</text>
+<text x="772" y="1107" text-anchor="end"
+      font-family="Georgia, serif"
+      font-size="11" fill="#7A5030">9.50</text>
+<text x="28" y="1121"
+      font-family="Georgia, serif"
+      font-size="10.5" font-style="italic" fill="#5A4030">
+  Kalamata olives, cherry tomatoes, mixed peppers · Honey balsamic dressing
+</text>
+
+<!-- ALLERGY NOTE -->
+<line x1="28" y1="1140" x2="772" y2="1140" stroke="#C8C0B0" stroke-width="1"/>
+<text x="400" y="1154" text-anchor="middle"
+      font-family="Arial, Helvetica, sans-serif"
+      font-size="10" fill="#7A6040">
+  All pasta hand-made fresh daily · Gluten-free pasta available on request · Please inform us of any allergies · IVA inclusa
+</text>
+
+<!-- FOOTER  y=1162–1194 -->
+<rect x="0" y="1162" width="800" height="38" fill="url(#footerGrad)"/>
+<text x="200" y="1185" text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="10" fill="#F5C430">📍 Via Roma 12, Centro Storico</text>
+<text x="400" y="1185" text-anchor="middle"
+      font-family="'Arial Black', Arial, sans-serif"
+      font-size="11" font-weight="900" fill="white" letter-spacing="2">BENVENUTI · BUON APPETITO!</text>
+<text x="600" y="1185" text-anchor="middle"
+      font-family="Arial, sans-serif"
+      font-size="10" fill="#F5C430">📱 @labellaspasta</text>
+
+<!-- ITALIAN FLAG — BOTTOM -->
+<rect x="0" y="1194" width="267" height="6" fill="#009246"/>
+<rect x="267" y="1194" width="267" height="6" fill="#FFFFFF"/>
+<rect x="534" y="1194" width="266" height="6" fill="#CE2B37"/>
+</svg>
