@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="580" viewBox="0 0 400 580"
+     font-family="'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#fdf8f0"/>
+    <stop offset="100%" stop-color="#f0e4cc"/>
+  </linearGradient>
+  <linearGradient id="hdr" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#4a0808"/>
+    <stop offset="100%" stop-color="#6b1010"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#f0c060"/>
+    <stop offset="100%" stop-color="#b8922a"/>
+  </linearGradient>
+  <linearGradient id="greenBand" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#1a5220"/>
+    <stop offset="100%" stop-color="#0e3a16"/>
+  </linearGradient>
+  <pattern id="grain" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1.5" cy="1.5" r="0.5" fill="#8b6914" opacity="0.06"/>
+  </pattern>
+  <filter id="shadow">
+    <feDropShadow dx="1" dy="2" stdDeviation="3" flood-color="#00000020"/>
+  </filter>
+</defs>
+
+<!-- background -->
+<rect width="400" height="580" fill="url(#bg)"/>
+<rect width="400" height="580" fill="url(#grain)"/>
+
+<!-- outer border double -->
+<rect x="7"  y="7"  width="386" height="566" rx="6" fill="none" stroke="#8b6914" stroke-width="2.2"/>
+<rect x="12" y="12" width="376" height="556" rx="4" fill="none" stroke="#c8a96e" stroke-width="0.9"/>
+
+<!-- ── HEADER: APERTO / OPEN ── -->
+<rect x="7" y="7" width="386" height="86" rx="5" fill="url(#hdr)"/>
+<rect x="7" y="7"  width="386" height="3" fill="url(#gold)"/>
+<rect x="7" y="90" width="386" height="3" fill="url(#gold)"/>
+
+<!-- Italian flag micro-strip inside header bottom -->
+<rect x="7"   y="83" width="129" height="10" fill="#009246" opacity="0.6"/>
+<rect x="136" y="83" width="129" height="10" fill="#ffffff" opacity="0.3"/>
+<rect x="265" y="83" width="128" height="10" fill="#ce2b37" opacity="0.6"/>
+
+<text x="200" y="50" text-anchor="middle" font-size="38" font-weight="bold"
+      fill="url(#gold)" letter-spacing="8" style="font-variant:small-caps;">APERTO</text>
+<text x="200" y="72" text-anchor="middle" font-size="12" fill="#e8c98a"
+      letter-spacing="4" font-style="italic">OPEN  ·  GEÖFFNET  ·  OUVERT</text>
+
+<!-- ── WALK-IN RIBBON ── -->
+<rect x="7" y="93" width="386" height="26" fill="#1a4820" opacity="0.9"/>
+<text x="200" y="111" text-anchor="middle" font-size="11" fill="#a8d888" letter-spacing="1.5">✓  No reservation needed  ·  Walk-ins always welcome  ✓</text>
+
+<!-- ── OGGI / TODAY SECTION ── -->
+<text x="200" y="150" text-anchor="middle" font-size="15" fill="#8b1a1a"
+      letter-spacing="3" style="font-variant:small-caps;">— Oggi / Today —</text>
+<line x1="25"  y1="158" x2="152" y2="158" stroke="#c8a96e" stroke-width="0.9"/>
+<line x1="248" y1="158" x2="375" y2="158" stroke="#c8a96e" stroke-width="0.9"/>
+
+<!-- Dish 1 — highlighted box -->
+<rect x="20" y="164" width="360" height="64" rx="5"
+      fill="#fffbf0" stroke="#d4a843" stroke-width="1.2" filter="url(#shadow)"/>
+<!-- arrow badge -->
+<rect x="20"  y="164" width="110" height="20" rx="4" fill="#c8360a"/>
+<rect x="122" y="164" width="14"  height="20" fill="#c8360a"/>
+<path d="M136,164 L148,174 L136,184 Z" fill="#c8360a"/>
+<text x="78"  y="178" text-anchor="middle" font-size="9" fill="white"
+      font-weight="bold" letter-spacing="0.8">⭐ CHEF'S CHOICE</text>
+<text x="32"  y="198" font-size="14" font-weight="bold" fill="#2c1a0e">Spaghetti alla Carbonara</text>
+<text x="370" y="198" text-anchor="end" font-size="16" font-weight="bold" fill="#8b1a1a">€14.50</text>
+<text x="32"  y="216" font-size="10" fill="#5c3d1e" font-style="italic">Guanciale, egg yolk, Pecorino Romano, cracked pepper — authentic Roman</text>
+
+<!-- Dish 2 -->
+<text x="32"  y="248" font-size="14" font-weight="bold" fill="#2c1a0e">Lasagna della Nonna</text>
+<rect x="236" y="235" width="80"  height="16" rx="8" fill="#4a0808"/>
+<text x="276" y="247" text-anchor="middle" font-size="8.5" fill="#f0c060"
+      font-weight="bold">🏆 SPECIALTY</text>
+<text x="370" y="248" text-anchor="end" font-size="16" font-weight="bold" fill="#8b1a1a">€15.50</text>
+<text x="32"  y="264" font-size="10" fill="#5c3d1e" font-style="italic">Hand-rolled pasta, slow ragù, béchamel, mozzarella</text>
+
+<!-- dotted separator -->
+<line x1="25" y1="276" x2="375" y2="276" stroke="#c8a96e" stroke-width="0.7" stroke-dasharray="4,4"/>
+
+<!-- Dish 3 -->
+<text x="32"  y="298" font-size="14" font-weight="bold" fill="#2c1a0e">Tagliatelle Bolognese</text>
+<text x="370" y="298" text-anchor="end" font-size="16" font-weight="bold" fill="#8b1a1a">€15.00</text>
+<text x="32"  y="314" font-size="10" fill="#5c3d1e" font-style="italic">Fresh egg pasta, slow meat ragù, Parmigiano Reggiano</text>
+
+<!-- dotted separator -->
+<line x1="25" y1="326" x2="375" y2="326" stroke="#c8a96e" stroke-width="0.7" stroke-dasharray="4,4"/>
+
+<!-- Dish 4 -->
+<text x="32"  y="348" font-size="14" font-weight="bold" fill="#2c1a0e">Risotto ai Frutti di Mare</text>
+<text x="370" y="348" text-anchor="end" font-size="16" font-weight="bold" fill="#8b1a1a">€19.00</text>
+<text x="32"  y="364" font-size="10" fill="#5c3d1e" font-style="italic">Clams, mussels, prawns, saffron, white wine</text>
+
+<!-- ── PERKS BAND ── -->
+<rect x="20" y="378" width="360" height="42" rx="5" fill="url(#greenBand)" opacity="0.9"/>
+<text x="200" y="395" text-anchor="middle" font-size="10.5" fill="#a8d888" letter-spacing="0.5">🥖 Complimentary bread &amp; olive oil with every meal</text>
+<text x="200" y="411" text-anchor="middle" font-size="10"   fill="#7acc7a" letter-spacing="0.5">🌿 Vegetarian options  ·  🌶 Spicy options  ·  GF pasta available</text>
+
+<!-- ── HOURS + SOCIAL ── -->
+<text x="200" y="442" text-anchor="middle" font-size="12.5" fill="#8b1a1a"
+      letter-spacing="2" style="font-variant:small-caps;">Orari / Opening Hours</text>
+<line x1="25" y1="450" x2="375" y2="450" stroke="#c8a96e" stroke-width="0.7"/>
+
+<text x="110" y="468" text-anchor="middle" font-size="11" font-weight="bold" fill="#2c1a0e">Lun – Ven</text>
+<text x="110" y="484" text-anchor="middle" font-size="11" fill="#5c3d1e">12:00 – 15:00</text>
+<text x="110" y="499" text-anchor="middle" font-size="11" fill="#5c3d1e">18:30 – 22:30</text>
+<line x1="200" y1="458" x2="200" y2="502" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+<text x="290" y="468" text-anchor="middle" font-size="11" font-weight="bold" fill="#2c1a0e">Sab – Dom</text>
+<text x="290" y="484" text-anchor="middle" font-size="11" fill="#5c3d1e">12:00 – 23:00</text>
+<text x="290" y="499" text-anchor="middle" font-size="11" fill="#5c3d1e" font-style="italic">non-stop</text>
+
+<line x1="25" y1="510" x2="375" y2="510" stroke="#c8a96e" stroke-width="0.7"/>
+
+<!-- Social + rating row -->
+<circle cx="60" cy="530" r="12" fill="#00aa6c"/>
+<text x="60" y="535" text-anchor="middle" font-size="12">🦉</text>
+<text x="82" y="526" font-size="9.5" font-weight="bold" fill="#2c1a0e">TripAdvisor #1</text>
+<text x="82" y="540" font-size="9"   fill="#5c3d1e">⭐ 4.8 · 3,200+ reviews</text>
+
+<line x1="200" y1="516" x2="200" y2="548" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+<text x="215" y="526" font-size="9.5" fill="#2c1a0e">📍 Via Roma 12</text>
+<text x="215" y="540" font-size="9.5" fill="#2c1a0e">🌐 labellaspasta.it</text>
+<text x="318" y="526" font-size="9.5" fill="#2c1a0e">📱 @labellaspasta</text>
+<text x="318" y="540" font-size="9.5" fill="#2c1a0e">📞 +39 055 123 4567</text>
+
+<!-- ── FOOTER ── -->
+<rect x="7" y="552" width="386" height="21" rx="4" fill="url(#hdr)"/>
+<rect x="7" y="552" width="386" height="2"  fill="url(#gold)"/>
+<text x="200" y="566" text-anchor="middle" font-size="10" fill="#f0c060"
+      letter-spacing="3" style="font-variant:small-caps;">Benvenuti · Buon Appetito!</text>
+</svg>

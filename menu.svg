@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="900" viewBox="0 0 800 900"
+     font-family="'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif">
+<defs>
+  <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%"   stop-color="#fdf8f0"/>
+    <stop offset="60%"  stop-color="#f7edda"/>
+    <stop offset="100%" stop-color="#ede0c0"/>
+  </linearGradient>
+  <linearGradient id="headerGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#4a0808"/>
+    <stop offset="50%"  stop-color="#7a1515"/>
+    <stop offset="100%" stop-color="#5c0e0e"/>
+  </linearGradient>
+  <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#f0c060"/>
+    <stop offset="50%"  stop-color="#d4a843"/>
+    <stop offset="100%" stop-color="#b8922a"/>
+  </linearGradient>
+  <linearGradient id="redBadge" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#c8360a"/>
+    <stop offset="100%" stop-color="#8b1a00"/>
+  </linearGradient>
+  <linearGradient id="darkBadge" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#4a0808"/>
+    <stop offset="100%" stop-color="#2e0505"/>
+  </linearGradient>
+  <linearGradient id="featuredBg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#fffbf0"/>
+    <stop offset="100%" stop-color="#fdf0d5"/>
+  </linearGradient>
+  <pattern id="grain" x="0" y="0" width="6" height="6" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.6" fill="#8b6914" opacity="0.07"/>
+    <circle cx="4" cy="4" r="0.6" fill="#8b6914" opacity="0.05"/>
+  </pattern>
+  <filter id="shadow">
+    <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#00000025"/>
+  </filter>
+</defs>
+
+<!-- BACKGROUND -->
+<rect width="800" height="900" fill="url(#bgGrad)"/>
+<rect width="800" height="900" fill="url(#grain)"/>
+
+<!-- borders -->
+<rect x="10" y="10" width="780" height="880" rx="7" fill="none" stroke="#8b6914" stroke-width="2.5" filter="url(#shadow)"/>
+<rect x="16" y="16" width="768" height="868" rx="5" fill="none" stroke="#c8a96e" stroke-width="1"/>
+
+<!-- Italian flag top -->
+<rect x="10"  y="10" width="260" height="9" rx="4" fill="#009246"/>
+<rect x="270" y="10" width="260" height="9"        fill="#ffffff" opacity="0.88"/>
+<rect x="530" y="10" width="260" height="9" rx="4" fill="#ce2b37"/>
+
+<!-- ════════════════════════════════════
+     HEADER  y=19–212
+════════════════════════════════════ -->
+<rect x="10" y="19" width="780" height="193" fill="url(#headerGrad)"/>
+<rect x="10" y="19"  width="780" height="3" fill="url(#goldGrad)"/>
+<rect x="10" y="209" width="780" height="3" fill="url(#goldGrad)"/>
+
+<!-- corner flourishes -->
+<text x="26"  y="58"  font-size="26" fill="#c8a96e" opacity="0.55">✦</text>
+<text x="750" y="58"  font-size="26" fill="#c8a96e" opacity="0.55">✦</text>
+<text x="26"  y="202" font-size="26" fill="#c8a96e" opacity="0.55">✦</text>
+<text x="750" y="202" font-size="26" fill="#c8a96e" opacity="0.55">✦</text>
+
+<!-- shield -->
+<g transform="translate(400,44)">
+  <path d="M0,-14 L30,-14 L30,22 Q30,42 0,54 Q-30,42 -30,22 L-30,-14 Z" fill="#8b1a00" stroke="#c8a96e" stroke-width="1.5"/>
+  <path d="M0,-8 L22,-8 L22,20 Q22,34 0,44 Q-22,34 -22,20 L-22,-8 Z" fill="none" stroke="#f0c060" stroke-width="0.8" opacity="0.55"/>
+  <text x="0" y="26" text-anchor="middle" font-size="24">🍝</text>
+</g>
+
+<!-- laurel left -->
+<g transform="translate(322,64)" opacity="0.8">
+  <line x1="0" y1="0" x2="-40" y2="12" stroke="#7abc3a" stroke-width="1.5"/>
+  <ellipse cx="-8"  cy="-4" rx="9" ry="4.5" fill="#5a9e2f" transform="rotate(-22,-8,-4)"/>
+  <ellipse cx="-19" cy="1"  rx="9" ry="4.5" fill="#4a8a22" transform="rotate(-10,-19,1)"/>
+  <ellipse cx="-30" cy="7"  rx="9" ry="4.5" fill="#5a9e2f" transform="rotate(2,-30,7)"/>
+  <ellipse cx="-40" cy="14" rx="8" ry="4"   fill="#4a8a22" transform="rotate(12,-40,14)"/>
+</g>
+<!-- laurel right -->
+<g transform="translate(478,64)" opacity="0.8">
+  <line x1="0" y1="0" x2="40" y2="12" stroke="#7abc3a" stroke-width="1.5"/>
+  <ellipse cx="8"  cy="-4" rx="9" ry="4.5" fill="#5a9e2f" transform="rotate(22,8,-4)"/>
+  <ellipse cx="19" cy="1"  rx="9" ry="4.5" fill="#4a8a22" transform="rotate(10,19,1)"/>
+  <ellipse cx="30" cy="7"  rx="9" ry="4.5" fill="#5a9e2f" transform="rotate(-2,30,7)"/>
+  <ellipse cx="40" cy="14" rx="8" ry="4"   fill="#4a8a22" transform="rotate(-12,40,14)"/>
+</g>
+
+<text x="400" y="126" text-anchor="middle" font-size="54" font-weight="bold" fill="url(#goldGrad)" letter-spacing="4" style="font-variant:small-caps;">La Bella Pasta</text>
+<text x="400" y="152" text-anchor="middle" font-size="13" fill="#e8c98a" font-style="italic" letter-spacing="4">· · · Autentica Cucina Italiana dal 1987 · · ·</text>
+<text x="400" y="176" text-anchor="middle" font-size="20" fill="#f0c060" letter-spacing="8">★ ★ ★ ★ ★</text>
+<text x="400" y="199" text-anchor="middle" font-size="11" fill="#c8a8a0" letter-spacing="1">Via Roma 12, Centro Storico  ·  Aperto ogni giorno 12:00–22:30  ·  +39 055 123 4567</text>
+
+<!-- ════════════════════════════════════
+     SOCIAL PROOF BAR  y=212–252
+════════════════════════════════════ -->
+<rect x="10" y="212" width="780" height="40" fill="#1e0a04"/>
+<rect x="10" y="212" width="780" height="1"  fill="#c8a96e"/>
+<rect x="10" y="252" width="780" height="1"  fill="#c8a96e"/>
+
+<circle cx="60" cy="232" r="13" fill="#00aa6c"/>
+<text x="60" y="237" text-anchor="middle" font-size="14">🦉</text>
+<text x="84" y="227" font-size="11" font-weight="bold" fill="#f0c060" letter-spacing="0.3">TripAdvisor Certificate of Excellence 2024</text>
+<text x="84" y="243" font-size="10" fill="#c8a96e">Rated #1 Restaurant in the Old Town  ·  "Best Pasta in the City" – La Cucina Magazine</text>
+<line x1="500" y1="218" x2="500" y2="246" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+<text x="516" y="227" font-size="11" fill="#f0c060">⭐ 4.8 / 5</text>
+<text x="516" y="243" font-size="10" fill="#c8a96e">3,200+ verified reviews</text>
+<line x1="630" y1="218" x2="630" y2="246" stroke="#c8a96e" stroke-width="0.7" opacity="0.5"/>
+<text x="646" y="227" font-size="11" fill="#f0c060">🏆 Award Winner</text>
+<text x="646" y="243" font-size="10" fill="#c8a96e">Gambero Rosso 2023</text>
+
+<!-- ════════════════════════════════════
+     FEATURED DISH  y=260–345
+════════════════════════════════════ -->
+<rect x="28" y="260" width="744" height="85" rx="6" fill="url(#featuredBg)" stroke="#d4a843" stroke-width="1.5" filter="url(#shadow)"/>
+
+<!-- arrow-tab badge -->
+<rect x="28"  y="260" width="195" height="26" rx="5" fill="url(#redBadge)"/>
+<rect x="213" y="260" width="20"  height="26"        fill="url(#redBadge)"/>
+<path d="M233,260 L250,273 L233,286 Z" fill="url(#redBadge)"/>
+<text x="128" y="277" text-anchor="middle" font-size="11" font-weight="bold" fill="white" letter-spacing="1.5">⭐  PIATTO DEL GIORNO  ⭐</text>
+
+<!-- pasta swirl deco -->
+<g transform="translate(730,310)" opacity="0.12" stroke="#8b6914" stroke-width="9" fill="none" stroke-linecap="round">
+  <path d="M0,0 Q18,-28 0,-48 Q-18,-68 0,-88"/>
+  <path d="M14,0 Q32,-28 14,-48 Q-4,-68 14,-88"/>
+  <path d="M-14,0 Q4,-28 -14,-48 Q-32,-68 -14,-88"/>
+</g>
+
+<text x="50" y="293" font-size="16" font-weight="bold" fill="#2c1a0e">Spaghetti alla Carbonara</text>
+<text x="308" y="293" font-size="10.5" fill="#8b6914" font-style="italic">· ricetta tradizionale romana</text>
+<text x="720" y="293" text-anchor="end" font-size="18" font-weight="bold" fill="#8b1a1a">€14.50</text>
+<text x="50" y="312" font-size="11" fill="#5c3d1e" font-style="italic">Spaghetti freschi, guanciale di Ariccia, tuorlo d'uovo, Pecorino Romano DOP, pepe nero</text>
+<text x="50" y="331" font-size="10.5" fill="#8b6914">👨‍🍳 Chef's Favourite  ·  Most ordered dish  ·  Prepared strictly to order — no cream, ever</text>
+
+<!-- ════════════════════════════════════
+     BREAD BANNER  y=352–374
+════════════════════════════════════ -->
+<rect x="28" y="352" width="744" height="23" rx="3" fill="#1a4820" opacity="0.9"/>
+<text x="400" y="368" text-anchor="middle" font-size="10.5" fill="#a8d888" letter-spacing="1.5">🥖  COMPLIMENTARY BREAD BASKET &amp; EXTRA VIRGIN OLIVE OIL WITH EVERY MEAL  🥖</text>
+
+<!-- ════════════════════════════════════
+     I PRIMI  y=385–802
+════════════════════════════════════ -->
+<!-- section title -->
+<line x1="45"  y1="395" x2="284" y2="395" stroke="#c8a96e" stroke-width="1"/>
+<line x1="516" y1="395" x2="755" y2="395" stroke="#c8a96e" stroke-width="1"/>
+<text x="273" y="400" font-size="14" fill="#c8a96e">◆</text>
+<text x="503" y="400" font-size="14" fill="#c8a96e">◆</text>
+<text x="400" y="400" text-anchor="middle" font-size="20" fill="#8b1a1a" letter-spacing="3" style="font-variant:small-caps;">I Primi</text>
+<text x="400" y="416" text-anchor="middle" font-size="10" fill="#8b6914" font-style="italic" letter-spacing="1">Pasta &amp; Risotto · All pasta made fresh in our kitchen daily</text>
+
+<!-- P1 — Spaghetti alla Carbonara ── y=430–474 -->
+<rect  x="272" y="431" width="78"  height="17" rx="8" fill="#b8922a"/>
+<text  x="311" y="443" text-anchor="middle" font-size="9" font-weight="bold" fill="white" letter-spacing="0.4">⭐ FEATURED</text>
+<text  x="48"  y="445" font-size="14.5" font-weight="bold" fill="#2c1a0e">Spaghetti alla Carbonara</text>
+<text  x="752" y="445" text-anchor="end" font-size="14.5" font-weight="bold" fill="#8b1a1a">€14.50</text>
+<text  x="48"  y="463" font-size="11" fill="#5c3d1e" font-style="italic">Guanciale di Ariccia, tuorlo d'uovo, Pecorino Romano, freshly cracked pepper</text>
+
+<!-- P2 — Tagliatelle al Ragù Bolognese ── y=480–524 -->
+<rect  x="304" y="481" width="98"  height="17" rx="8" fill="url(#redBadge)"/>
+<text  x="353" y="493" text-anchor="middle" font-size="9" font-weight="bold" fill="white" letter-spacing="0.4">▲ MOST POPULAR</text>
+<text  x="48"  y="495" font-size="14.5" font-weight="bold" fill="#2c1a0e">Tagliatelle al Ragù Bolognese</text>
+<text  x="752" y="495" text-anchor="end" font-size="14.5" font-weight="bold" fill="#8b1a1a">€15.00</text>
+<text  x="48"  y="513" font-size="11" fill="#5c3d1e" font-style="italic">Fresh egg tagliatelle, slow-cooked beef &amp; pork ragù, Parmigiano Reggiano — Nonna's recipe</text>
+
+<!-- P3 — Penne all'Arrabbiata ── y=530–574 -->
+<text  x="48"  y="545" font-size="14.5" font-weight="bold" fill="#2c1a0e">Penne all'Arrabbiata</text>
+<text  x="235" y="545" font-size="10"   fill="#c0392b">🌶 Piccante</text>
+<text  x="752" y="545" text-anchor="end" font-size="14.5" font-weight="bold" fill="#8b1a1a">€12.50</text>
+<text  x="48"  y="563" font-size="11" fill="#5c3d1e" font-style="italic">San Marzano tomatoes, garlic, fresh chilli, parsley — fiery, fragrant, authentic</text>
+
+<!-- P4 — Spaghetti Cacio e Pepe ── y=580–624 -->
+<text  x="48"  y="595" font-size="14.5" font-weight="bold" fill="#2c1a0e">Spaghetti Cacio e Pepe</text>
+<text  x="260" y="595" font-size="10"   fill="#2a7a2a">🌿 Vegetariano</text>
+<text  x="752" y="595" text-anchor="end" font-size="14.5" font-weight="bold" fill="#8b1a1a">€13.50</text>
+<text  x="48"  y="613" font-size="11" fill="#5c3d1e" font-style="italic">Pecorino Romano, Parmigiano Reggiano, coarsely cracked black pepper — three ingredients, perfection</text>
+
+<!-- P5 — Pappardelle ai Funghi Porcini ── y=630–674 -->
+<text  x="48"  y="645" font-size="14.5" font-weight="bold" fill="#2c1a0e">Pappardelle ai Funghi Porcini</text>
+<text  x="308" y="645" font-size="10"   fill="#2a7a2a">🌿 Vegetariano</text>
+<text  x="752" y="645" text-anchor="end" font-size="14.5" font-weight="bold" fill="#8b1a1a">€16.50</text>
+<text  x="48"  y="663" font-size="11" fill="#5c3d1e" font-style="italic">Wild porcini mushrooms, white truffle oil, fresh thyme, white wine, Parmigiano</text>
+
+<!-- P6 — Lasagna della Nonna ── y=678–742 (highlight box) -->
+<rect  x="32"  y="678" width="736" height="64" rx="5" fill="#fffbf0" stroke="#d4a843" stroke-width="1.2" filter="url(#shadow)"/>
+<rect  x="222" y="685" width="118" height="17" rx="8" fill="url(#darkBadge)"/>
+<text  x="281" y="697" text-anchor="middle" font-size="9" font-weight="bold" fill="#f0c060" letter-spacing="0.4">🏆 HOUSE SPECIALTY</text>
+<text  x="48"  y="699" font-size="14.5" font-weight="bold" fill="#2c1a0e">Lasagna della Nonna</text>
+<text  x="752" y="699" text-anchor="end" font-size="14.5" font-weight="bold" fill="#8b1a1a">€15.50</text>
+<text  x="48"  y="717" font-size="11" fill="#5c3d1e" font-style="italic">Hand-rolled pasta, slow ragù, home-made béchamel, mozzarella — Nonna Giulia's original recipe since 1987</text>
+<text  x="48"  y="733" font-size="10" fill="#8b6914" font-style="italic">"The best lasagna I've had outside Bologna" — Lonely Planet Traveller's Italy</text>
+
+<!-- P7 — Risotto ai Frutti di Mare ── y=752–796 -->
+<rect  x="282" y="753" width="92"  height="17" rx="8" fill="#b8922a"/>
+<text  x="328" y="765" text-anchor="middle" font-size="9" font-weight="bold" fill="white" letter-spacing="0.4">🌊 STAGIONALE</text>
+<text  x="48"  y="767" font-size="14.5" font-weight="bold" fill="#2c1a0e">Risotto ai Frutti di Mare</text>
+<text  x="752" y="767" text-anchor="end" font-size="14.5" font-weight="bold" fill="#8b1a1a">€19.00</text>
+<text  x="48"  y="785" font-size="11" fill="#5c3d1e" font-style="italic">Carnaroli rice, clams, mussels, prawns, white wine, saffron &amp; seafood bisque — seasonal</text>
+
+<!-- ════════════════════════════════════
+     ALLERGY NOTE  y=802–838
+════════════════════════════════════ -->
+<line x1="45" y1="802" x2="755" y2="802" stroke="#c8a96e" stroke-width="0.8"/>
+<text x="400" y="818" text-anchor="middle" font-size="10.5" fill="#6b4c1e" font-style="italic">All pasta is hand-made fresh daily  ·  Gluten-free pasta available on request (+€2)</text>
+<text x="400" y="834" text-anchor="middle" font-size="10.5" fill="#6b4c1e" font-style="italic">Please inform your server of any allergies  ·  All prices include VAT / IVA inclusa</text>
+
+<!-- ════════════════════════════════════
+     FOOTER  y=845–889
+════════════════════════════════════ -->
+<rect x="10" y="845" width="780" height="44" fill="url(#headerGrad)"/>
+<rect x="10" y="845" width="780" height="3"  fill="url(#goldGrad)"/>
+<text x="400" y="867" text-anchor="middle" font-size="16" fill="#f0c060" letter-spacing="4" style="font-variant:small-caps;">Benvenuti · Buon Appetito!</text>
+<text x="205" y="883" text-anchor="middle" font-size="10" fill="#e8c98a">📍 Via Roma 12, Centro Storico</text>
+<text x="400" y="883" text-anchor="middle" font-size="10" fill="#e8c98a">🌐 labellaspasta.it</text>
+<text x="595" y="883" text-anchor="middle" font-size="10" fill="#e8c98a">📱 @labellaspasta</text>
+
+<!-- Italian flag bottom -->
+<rect x="10"  y="889" width="260" height="10" rx="3" fill="#009246"/>
+<rect x="270" y="889" width="260" height="10"        fill="#ffffff" opacity="0.88"/>
+<rect x="530" y="889" width="260" height="10" rx="4" fill="#ce2b37"/>
+</svg>

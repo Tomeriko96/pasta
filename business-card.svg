@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Business card: 85.6 × 54 mm → 544 × 342 px at 162 dpi (2× for sharpness) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="544" height="342" viewBox="0 0 544 342"
+     font-family="'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif">
+<defs>
+  <linearGradient id="cardBg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%"   stop-color="#fdf8f0"/>
+    <stop offset="100%" stop-color="#ede0c0"/>
+  </linearGradient>
+  <linearGradient id="hdr" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#4a0808"/>
+    <stop offset="100%" stop-color="#6b1010"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%"   stop-color="#f0c060"/>
+    <stop offset="100%" stop-color="#b8922a"/>
+  </linearGradient>
+  <pattern id="grain" x="0" y="0" width="5" height="5" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.5" fill="#8b6914" opacity="0.06"/>
+  </pattern>
+  <filter id="s">
+    <feDropShadow dx="2" dy="3" stdDeviation="5" flood-color="#00000028"/>
+  </filter>
+</defs>
+
+<!-- FRONT CARD -->
+<g filter="url(#s)">
+  <!-- card background -->
+  <rect x="0" y="0" width="260" height="342" rx="10" fill="url(#cardBg)"/>
+  <rect x="0" y="0" width="260" height="342" rx="10" fill="url(#grain)"/>
+  <!-- border double -->
+  <rect x="5"  y="5"  width="250" height="332" rx="8" fill="none" stroke="#8b6914" stroke-width="1.8"/>
+  <rect x="9"  y="9"  width="242" height="324" rx="6" fill="none" stroke="#c8a96e" stroke-width="0.8"/>
+
+  <!-- Italian flag top edge -->
+  <rect x="0"  y="0"  width="87"  height="8" rx="5" fill="#009246"/>
+  <rect x="87" y="0"  width="86"  height="8"        fill="#ffffff" opacity="0.8"/>
+  <rect x="173" y="0" width="87"  height="8" rx="5" fill="#ce2b37"/>
+
+  <!-- Header band -->
+  <rect x="0" y="8" width="260" height="108" rx="8" fill="url(#hdr)"/>
+  <rect x="0" y="8" width="260" height="108" rx="0" fill="url(#hdr)"/>
+  <!-- round only top corners of header -->
+  <rect x="0" y="58" width="260" height="60" fill="url(#hdr)"/>
+  <rect x="0" y="8"  width="260" height="3"  fill="url(#gold)"/>
+  <rect x="0" y="113" width="260" height="3" fill="url(#gold)"/>
+
+  <!-- shield -->
+  <g transform="translate(130,46)">
+    <path d="M0,-12 L18,-12 L18,14 Q18,26 0,34 Q-18,26 -18,14 L-18,-12 Z"
+          fill="#8b1a00" stroke="#c8a96e" stroke-width="1.2"/>
+    <text x="0" y="18" text-anchor="middle" font-size="18">🍝</text>
+  </g>
+
+  <!-- laurel left (mini) -->
+  <g transform="translate(96,46)" opacity="0.75">
+    <line x1="0" y1="0" x2="-22" y2="7" stroke="#7abc3a" stroke-width="1"/>
+    <ellipse cx="-5"  cy="-2" rx="5.5" ry="2.8" fill="#5a9e2f" transform="rotate(-20,-5,-2)"/>
+    <ellipse cx="-13" cy="2"  rx="5.5" ry="2.8" fill="#4a8a22" transform="rotate(-5,-13,2)"/>
+    <ellipse cx="-20" cy="6"  rx="5"   ry="2.5" fill="#5a9e2f" transform="rotate(8,-20,6)"/>
+  </g>
+  <!-- laurel right (mini) -->
+  <g transform="translate(164,46)" opacity="0.75">
+    <line x1="0" y1="0" x2="22" y2="7" stroke="#7abc3a" stroke-width="1"/>
+    <ellipse cx="5"  cy="-2" rx="5.5" ry="2.8" fill="#5a9e2f" transform="rotate(20,5,-2)"/>
+    <ellipse cx="13" cy="2"  rx="5.5" ry="2.8" fill="#4a8a22" transform="rotate(5,13,2)"/>
+    <ellipse cx="20" cy="6"  rx="5"   ry="2.5" fill="#5a9e2f" transform="rotate(-8,20,6)"/>
+  </g>
+
+  <!-- Restaurant name -->
+  <text x="130" y="94" text-anchor="middle" font-size="22" font-weight="bold"
+        fill="url(#gold)" letter-spacing="2" style="font-variant:small-caps;">La Bella Pasta</text>
+  <text x="130" y="108" text-anchor="middle" font-size="8" fill="#e8c98a"
+        font-style="italic" letter-spacing="2.5">Autentica Cucina Italiana dal 1987</text>
+
+  <!-- Stars -->
+  <text x="130" y="128" text-anchor="middle" font-size="11" fill="#f0c060" letter-spacing="4">★★★★★</text>
+
+  <!-- Tagline -->
+  <text x="130" y="150" text-anchor="middle" font-size="9.5" fill="#5c3d1e"
+        font-style="italic">"Pasta fatta in casa ogni giorno"</text>
+
+  <!-- Divider -->
+  <line x1="20" y1="162" x2="240" y2="162" stroke="#c8a96e" stroke-width="0.7"/>
+  <text x="130" y="166" text-anchor="middle" font-size="10" fill="#c8a96e">◆</text>
+
+  <!-- Contact details -->
+  <text x="20" y="186" font-size="9"   fill="#2c1a0e">📍  Via Roma 12, Centro Storico</text>
+  <text x="20" y="202" font-size="9"   fill="#2c1a0e">⏰  Ogni giorno  12:00 – 22:30</text>
+  <text x="20" y="218" font-size="9"   fill="#2c1a0e">📞  +39 055 123 4567</text>
+  <text x="20" y="234" font-size="9"   fill="#2c1a0e">🌐  labellaspasta.it</text>
+  <text x="20" y="250" font-size="9"   fill="#2c1a0e">📱  @labellaspasta</text>
+
+  <!-- Divider -->
+  <line x1="20" y1="262" x2="240" y2="262" stroke="#c8a96e" stroke-width="0.7"/>
+
+  <!-- TripAdvisor + rating -->
+  <circle cx="34" cy="282" r="11" fill="#00aa6c"/>
+  <text x="34" y="287" text-anchor="middle" font-size="11">🦉</text>
+  <text x="52" y="278" font-size="8.5" font-weight="bold" fill="#2c1a0e">TripAdvisor #1 — Old Town</text>
+  <text x="52" y="292" font-size="8"   fill="#5c3d1e">⭐ 4.8 / 5  ·  3,200+ recensioni</text>
+
+  <!-- QR placeholder -->
+  <rect x="190" y="268" width="54" height="54" rx="4" fill="none" stroke="#c8a96e" stroke-width="1"/>
+  <!-- QR pattern (decorative) -->
+  <rect x="194" y="272" width="10" height="10" rx="1" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="207" y="272" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="213" y="272" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="220" y="272" width="6"  height="6"  rx="1" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="228" y="272" width="10" height="10" rx="1" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="207" y="278" width="6"  height="6"  rx="0.5" fill="#2c1a0e" opacity="0.7"/>
+  <rect x="215" y="280" width="3"  height="3"  fill="#2c1a0e" opacity="0.7"/>
+  <rect x="194" y="286" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="200" y="286" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="206" y="286" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="222" y="284" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="228" y="285" width="10" height="10" rx="1" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="194" y="293" width="10" height="10" rx="1" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="207" y="294" width="6"  height="3"  fill="#2c1a0e" opacity="0.7"/>
+  <rect x="215" y="296" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="220" y="292" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="207" y="300" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="213" y="300" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="220" y="300" width="4"  height="4"  rx="0.5" fill="#2c1a0e" opacity="0.8"/>
+  <rect x="228" y="298" width="10" height="10" rx="1" fill="#2c1a0e" opacity="0.8"/>
+  <text x="217" y="320" text-anchor="middle" font-size="6.5" fill="#8b6914">scan menu</text>
+
+  <!-- Footer band -->
+  <rect x="0"  y="325" width="260" height="17" rx="6" fill="url(#hdr)"/>
+  <rect x="0"  y="325" width="260" height="2"  fill="url(#gold)"/>
+  <text x="130" y="337" text-anchor="middle" font-size="8" fill="#f0c060"
+        letter-spacing="2" style="font-variant:small-caps;">Buon Appetito!</text>
+  <!-- Italian flag bottom -->
+  <rect x="0"  y="334" width="87"  height="8" rx="5" fill="#009246" opacity="0.7"/>
+  <rect x="87" y="334" width="86"  height="8"        fill="#ffffff" opacity="0.3"/>
+  <rect x="173" y="334" width="87" height="8" rx="5" fill="#ce2b37" opacity="0.7"/>
+</g>
+
+<!-- BACK CARD -->
+<g transform="translate(284,0)" filter="url(#s)">
+  <rect x="0" y="0" width="260" height="342" rx="10" fill="url(#hdr)"/>
+  <rect x="5" y="5" width="250" height="332" rx="8" fill="none" stroke="#c8a96e" stroke-width="0.9"/>
+  <rect x="10" y="10" width="240" height="322" rx="6" fill="none" stroke="#f0c060" stroke-width="0.4" opacity="0.4"/>
+
+  <!-- Italian flag top edge -->
+  <rect x="0"  y="0"  width="87"  height="8" rx="5" fill="#009246" opacity="0.7"/>
+  <rect x="87" y="0"  width="86"  height="8"        fill="#ffffff" opacity="0.35"/>
+  <rect x="173" y="0" width="87"  height="8" rx="5" fill="#ce2b37" opacity="0.7"/>
+
+  <!-- Large shield centred -->
+  <g transform="translate(130,118)">
+    <path d="M0,-52 L60,-52 L60,40 Q60,90 0,116 Q-60,90 -60,40 L-60,-52 Z"
+          fill="#8b1a00" stroke="#c8a96e" stroke-width="2"/>
+    <path d="M0,-40 L46,-40 L46,36 Q46,72 0,92 Q-46,72 -46,36 L-46,-40 Z"
+          fill="none" stroke="#f0c060" stroke-width="1" opacity="0.4"/>
+    <text x="0" y="38" text-anchor="middle" font-size="56">🍝</text>
+  </g>
+
+  <!-- laurel branches around shield (large) -->
+  <g transform="translate(58,100)" opacity="0.6">
+    <line x1="0" y1="0" x2="-30" y2="20" stroke="#7abc3a" stroke-width="1.5"/>
+    <ellipse cx="-6"  cy="-3" rx="10" ry="5" fill="#5a9e2f" transform="rotate(-30,-6,-3)"/>
+    <ellipse cx="-16" cy="4"  rx="10" ry="5" fill="#4a8a22" transform="rotate(-12,-16,4)"/>
+    <ellipse cx="-26" cy="12" rx="9"  ry="4.5" fill="#5a9e2f" transform="rotate(5,-26,12)"/>
+  </g>
+  <g transform="translate(202,100)" opacity="0.6">
+    <line x1="0" y1="0" x2="30" y2="20" stroke="#7abc3a" stroke-width="1.5"/>
+    <ellipse cx="6"  cy="-3" rx="10" ry="5" fill="#5a9e2f" transform="rotate(30,6,-3)"/>
+    <ellipse cx="16" cy="4"  rx="10" ry="5" fill="#4a8a22" transform="rotate(12,16,4)"/>
+    <ellipse cx="26" cy="12" rx="9"  ry="4.5" fill="#5a9e2f" transform="rotate(-5,26,12)"/>
+  </g>
+
+  <!-- Restaurant name -->
+  <text x="130" y="270" text-anchor="middle" font-size="24" font-weight="bold"
+        fill="url(#gold)" letter-spacing="2" style="font-variant:small-caps;">La Bella Pasta</text>
+  <text x="130" y="288" text-anchor="middle" font-size="8.5" fill="#e8c98a"
+        font-style="italic" letter-spacing="2">Autentica Cucina Italiana dal 1987</text>
+  <text x="130" y="306" text-anchor="middle" font-size="11" fill="#f0c060" letter-spacing="4">★ ★ ★ ★ ★</text>
+
+  <!-- Footer band -->
+  <rect x="0"  y="325" width="260" height="17" rx="6" fill="#2e0505"/>
+  <rect x="0"  y="325" width="260" height="2"  fill="url(#gold)"/>
+  <text x="130" y="337" text-anchor="middle" font-size="8" fill="#c8a96e"
+        letter-spacing="1.5" style="font-variant:small-caps;">Via Roma 12 · labellaspasta.it</text>
+  <!-- Italian flag bottom -->
+  <rect x="0"  y="334" width="87"  height="8" rx="5" fill="#009246" opacity="0.7"/>
+  <rect x="87" y="334" width="86"  height="8"        fill="#ffffff" opacity="0.3"/>
+  <rect x="173" y="334" width="87" height="8" rx="5" fill="#ce2b37" opacity="0.7"/>
+</g>
+</svg>
