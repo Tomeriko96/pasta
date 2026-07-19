@@ -48,4 +48,3 @@ uv run weasyprint menu_new.html menu_new.pdf  # Direct PDF generation
 - Dotted leader color (#c4b28f) has low contrast (~2.3:1) — darken if needed
 - `overflow: hidden` on `.page` silently clips content if it overflows — monitor when editing
 - Two `<main>` elements (one per page) is technically invalid HTML5 but works in practice
-- Missing closing `</section>` tag on Extras section (line 623) — browsers auto-close but should be fixed
