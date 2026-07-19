@@ -1,8 +1,14 @@
 {
   "name": "pasta",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
-  "features": {
-    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {}
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "tanishqkancharla.opencode-vscode"
+      ]
+    }
   },
   "postCreateCommand": "uv sync"
 }
