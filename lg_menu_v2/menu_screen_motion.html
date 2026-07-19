@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasta — Alcohol-Free Menu</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --ink: #f4ede0;
+  --ink-soft: #d9cdb8;
+  --accent: #e0b765;
+  --accent-deep: #c9953f;
+  --scrim: rgba(14,10,6,0.72);
+  --scrim-soft: rgba(14,10,6,0.55);
+  --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --sans: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --slow: 24s;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: #0d0905;
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+.stage {
+  position: relative;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+}
+
+/* ---------- Background layers (slow Ken-Burns for burn-in mitigation) ---------- */
+.bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  will-change: transform;
+}
+.bg-left {
+  background-image: url('images/focaccia.jpg');
+  animation: kenburns-a var(--slow) ease-in-out infinite alternate;
+}
+.bg-right {
+  background-image: url('images/linguine-mussels.jpg');
+  animation: kenburns-b var(--slow) ease-in-out infinite alternate;
+}
+.bg-right { left: 50%; width: 50%; }
+.bg-left { width: 50%; }
+
+@keyframes kenburns-a {
+  0%   { transform: scale(1.08) translate(0, 0); }
+  100% { transform: scale(1.22) translate(-2.5%, -2.5%); }
+}
+@keyframes kenburns-b {
+  0%   { transform: scale(1.10) translate(0, 0); }
+  100% { transform: scale(1.24) translate(2.5%, -2%); }
+}
+
+/* Dark scrim to keep text legible and reduce static contrast hotspots */
+.scrim {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background:
+    linear-gradient(180deg, var(--scrim) 0%, var(--scrim-soft) 35%, var(--scrim-soft) 65%, var(--scrim) 100%);
+}
+.scrim::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  width: 2px; height: 100%;
+  background: linear-gradient(180deg, transparent, rgba(224,183,101,0.25), transparent);
+}
+
+/* ---------- Top clock ---------- */
+.clockbar {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 34px;
+  z-index: 30;
+}
+.clock {
+  font-family: var(--serif);
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--ink);
+  text-shadow: 0 2px 14px rgba(0,0,0,0.7);
+  animation: clockbreath 8s ease-in-out infinite;
+}
+.dateline {
+  font-family: var(--sans);
+  font-size: 15px;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.85;
+  margin-top: 2px;
+}
+@keyframes clockbreath {
+  0%,100% { opacity: 0.78; }
+  50%     { opacity: 1; }
+}
+
+/* ---------- Columns ---------- */
+.cols {
+  position: absolute;
+  top: 150px;
+  left: 0;
+  width: 100%;
+  height: 1770px;
+  display: flex;
+  z-index: 20;
+}
+.col {
+  flex: 1 1 50%;
+  padding: 10px 46px 40px 46px;
+  overflow: hidden;
+}
+
+/* ---------- Section headers ---------- */
+.section-title {
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--accent);
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: 18px;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+.section-divider {
+  height: 2px;
+  width: 60%;
+  margin: 0 auto 14px auto;
+  background: linear-gradient(90deg, transparent, var(--accent-deep), transparent);
+  animation: breathe 9s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,100% { opacity: 0.35; transform: scaleX(0.85); }
+  50%     { opacity: 0.9;  transform: scaleX(1.05); }
+}
+.subhead {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-align: center;
+  margin: 16px 0 8px;
+  opacity: 0.92;
+}
+.zero-note {
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-align: center;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  opacity: 0.85;
+}
+
+/* ---------- Menu items ---------- */
+.item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 4px 0;
+}
+.item .name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.item .dot {
+  flex: 1 1 auto;
+  border-bottom: 1px dotted rgba(217,205,184,0.4);
+  transform: translateY(-4px);
+  margin: 0 4px;
+}
+.item .price {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.subgroup {
+  margin-bottom: 4px;
+}
+.subgroup .subhead {
+  margin-top: 10px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+
+/* ---------- Chef's Pick highlight (slow shimmer, moves subtly) ---------- */
+.chef-pick {
+  position: relative;
+  border: 1px solid rgba(224,183,101,0.5);
+  border-radius: 10px;
+  padding: 6px 10px;
+  margin: 6px 0;
+  background: rgba(224,183,101,0.07);
+  animation: pickglow 11s ease-in-out infinite;
+}
+.chef-pick::before {
+  content: "CHEF'S PICK";
+  position: absolute;
+  top: -10px; left: 14px;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: var(--accent);
+  background: #14100a;
+  padding: 0 8px;
+}
+@keyframes pickglow {
+  0%,100% { box-shadow: 0 0 10px rgba(224,183,101,0.15); border-color: rgba(224,183,101,0.35); }
+  50%     { box-shadow: 0 0 26px rgba(224,183,101,0.4);  border-color: rgba(224,183,101,0.75); }
+}
+
+/* ---------- Title shimmer ---------- */
+.brand {
+  text-align: center;
+  margin-bottom: 4px;
+}
+.brand h1 {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--ink);
+  background: linear-gradient(90deg, var(--ink-soft) 20%, var(--accent) 50%, var(--ink-soft) 80%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 14s linear infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ---------- Entrance choreography (staggered, gentle) ---------- */
+.reveal { opacity: 0; transform: translateY(18px); }
+.anim-on .reveal {
+  animation: rise 2.2s cubic-bezier(.22,.61,.36,1) forwards;
+}
+@keyframes rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Footer ---------- */
+.foot {
+  position: absolute;
+  bottom: 22px;
+  left: 0; width: 100%;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 3px;
+  color: var(--ink-soft);
+  opacity: 0.7;
+  text-transform: uppercase;
+  z-index: 25;
+}
+
+/* ---------- Reduced motion fallback ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; }
+  .bg-left, .bg-right { transform: scale(1.12); }
+  .reveal { opacity: 1; transform: none; }
+  .clock { opacity: 1; }
+}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+
+  <div class="bg bg-left"></div>
+  <div class="bg bg-right"></div>
+  <div class="scrim"></div>
+
+  <div class="clockbar">
+    <div class="clock" id="clock">--:--</div>
+    <div class="dateline" id="dateline">PASTA · ALCOHOL-FREE</div>
+  </div>
+
+  <div class="cols anim-on" id="cols">
+
+    <!-- LEFT: Antipasti & Drinks -->
+    <div class="col">
+      <div class="brand reveal" style="animation-delay:.1s"><h1>ANTIPASTI</h1></div>
+
+      <div class="section-divider reveal" style="animation-delay:.2s"></div>
+
+      <div class="reveal" style="animation-delay:.3s">
+        <div class="item"><span class="name">Warm Focaccia</span><span class="dot"></span><span class="price">€6.50</span></div>
+        <div class="item"><span class="name">Bruschetta Classica</span><span class="dot"></span><span class="price">€8.00</span></div>
+        <div class="item"><span class="name">Bruschetta Cremosa</span><span class="dot"></span><span class="price">€10.00</span></div>
+        <div class="item"><span class="name">Bruschetta Mediterranea</span><span class="dot"></span><span class="price">€10.00</span></div>
+        <div class="item"><span class="name">Bruschetta Gorgonzola e Miele</span><span class="dot"></span><span class="price">€10.00</span></div>
+        <div class="item"><span class="name">Bruschetta Mista</span><span class="dot"></span><span class="price">€16.00</span></div>
+        <div class="item"><span class="name">Tagliere Formaggi</span><span class="dot"></span><span class="price">€16.00</span></div>
+        <div class="item"><span class="name">Insalata di Rucola</span><span class="dot"></span><span class="price">€6.00</span></div>
+        <div class="item"><span class="name">Olive Marinate</span><span class="dot"></span><span class="price">€6.00</span></div>
+      </div>
+
+      <div class="section-title reveal" style="animation-delay:.5s">Bevande</div>
+      <div class="zero-note reveal" style="animation-delay:.55s">Alcohol-Free · 0.0%</div>
+      <div class="section-divider reveal" style="animation-delay:.6s"></div>
+
+      <div class="subgroup reveal" style="animation-delay:.7s">
+        <div class="subhead">Spritz 0.0</div>
+        <div class="item"><span class="name">Aperol 0.0</span><span class="dot"></span><span class="price">€12</span></div>
+        <div class="item"><span class="name">Bitter 0.0</span><span class="dot"></span><span class="price">€12</span></div>
+        <div class="item"><span class="name">Limoncello 0.0</span><span class="dot"></span><span class="price">€12</span></div>
+      </div>
+
+      <div class="subgroup reveal" style="animation-delay:.85s">
+        <div class="subhead">Alcohol-Free Cocktails</div>
+        <div class="item"><span class="name">Mojito</span><span class="dot"></span><span class="price">€12</span></div>
+        <div class="item"><span class="name">Amaretto Sour</span><span class="dot"></span><span class="price">€12</span></div>
+        <div class="item"><span class="name">Pornstar Martini</span><span class="dot"></span><span class="price">€12</span></div>
+        <div class="item"><span class="name">Strawberry Daiquiri</span><span class="dot"></span><span class="price">€12</span></div>
+        <div class="item"><span class="name">Sex on the Beach</span><span class="dot"></span><span class="price">€12</span></div>
+      </div>
+
+      <div class="subgroup reveal" style="animation-delay:1s">
+        <div class="subhead">Beer &amp; Fruit Sodas</div>
+        <div class="item"><span class="name">Heineken 0.0</span><span class="dot"></span><span class="price">€6</span></div>
+        <div class="item"><span class="name">Passion Fruit</span><span class="dot"></span><span class="price">€6</span></div>
+        <div class="item"><span class="name">Orange</span><span class="dot"></span><span class="price">€6</span></div>
+        <div class="item"><span class="name">Pineapple</span><span class="dot"></span><span class="price">€6</span></div>
+        <div class="item"><span class="name">Apricot</span><span class="dot"></span><span class="price">€6</span></div>
+        <div class="item"><span class="name">Still Water (0.75 L)</span><span class="dot"></span><span class="price">€4</span></div>
+        <div class="item"><span class="name">Sparkling Water (0.75 L)</span><span class="dot"></span><span class="price">€4</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Pasta & Mare -->
+    <div class="col">
+      <div class="brand reveal" style="animation-delay:.15s"><h1>PASTA &amp; MARE</h1></div>
+      <div class="section-divider reveal" style="animation-delay:.25s"></div>
+
+      <div class="subgroup reveal" style="animation-delay:.35s">
+        <div class="subhead">Pasta Classica</div>
+        <div class="chef-pick">
+          <div class="item"><span class="name">La Carbonara</span><span class="dot"></span><span class="price">€19.00</span></div>
+        </div>
+        <div class="item"><span class="name">Cacio e Pepe</span><span class="dot"></span><span class="price">€16.00</span></div>
+        <div class="item"><span class="name">Amatriciana</span><span class="dot"></span><span class="price">€18.00</span></div>
+        <div class="item"><span class="name">Bolognese</span><span class="dot"></span><span class="price">€18.00</span></div>
+        <div class="item"><span class="name">Alla Puttanesca</span><span class="dot"></span><span class="price">€18.00</span></div>
+        <div class="item"><span class="name">Arrabbiata</span><span class="dot"></span><span class="price">€15.00</span></div>
+        <div class="item"><span class="name">Al Pomodoro</span><span class="dot"></span><span class="price">€14.00</span></div>
+      </div>
+
+      <div class="subgroup reveal" style="animation-delay:.55s">
+        <div class="subhead">Pasta Speciale</div>
+        <div class="item"><span class="name">Pesto Genovese con Stracciatella</span><span class="dot"></span><span class="price">€17.00</span></div>
+        <div class="item"><span class="name">Quattro Formaggi</span><span class="dot"></span><span class="price">€20.00</span></div>
+        <div class="item"><span class="name">Linguine alla Diavola con Cozze</span><span class="dot"></span><span class="price">€20.00</span></div>
+        <div class="item"><span class="name">Gamberetti</span><span class="dot"></span><span class="price">€21.00</span></div>
+        <div class="item"><span class="name">Linguine Cozze e Gorgonzola</span><span class="dot"></span><span class="price">€22.00</span></div>
+      </div>
+
+      <div class="subgroup reveal" style="animation-delay:.7s">
+        <div class="subhead">Specialità di Mare</div>
+        <div class="item"><span class="name">Cozze alla Diavola</span><span class="dot"></span><span class="price">€16.00</span></div>
+        <div class="item"><span class="name">Cozze al Gorgonzola</span><span class="dot"></span><span class="price">€18.00</span></div>
+      </div>
+
+      <div class="subgroup reveal" style="animation-delay:.85s">
+        <div class="subhead">Extras — Make It Yours</div>
+        <div class="item"><span class="name">Gluten-Free Pasta</span><span class="dot"></span><span class="price">€3.00</span></div>
+        <div class="item"><span class="name">Extra Pecorino Romano</span><span class="dot"></span><span class="price">€2.50</span></div>
+        <div class="item"><span class="name">Extra Parmigiano Reggiano</span><span class="dot"></span><span class="price">€2.50</span></div>
+        <div class="item"><span class="name">Extra Stracciatella</span><span class="dot"></span><span class="price">€4.00</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="foot">Buon Appetito · 100% Alcohol-Free</div>
+</div>
+
+<script>
+try {
+  (function () {
+    var clockEl = document.getElementById('clock');
+    var dateEl  = document.getElementById('dateline');
+
+    function pad(n){ return (n < 10 ? '0' : '') + n; }
+    function tick() {
+      try {
+        var d = new Date();
+        clockEl.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes());
+        var days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+        var mon  = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+        dateEl.textContent = days[d.getDay()] + ' ' + pad(d.getDate()) + ' ' + mon[d.getMonth()];
+      } catch (e) {}
+    }
+    tick();
+    setInterval(tick, 10000);
+
+    // 10-minute auto-reload to pick up price edits
+    setTimeout(function(){ location.reload(); }, 10 * 60 * 1000);
+  })();
+} catch (e) {
+  // Fail silently — keep the static menu visible
+}
+</script>
+</body>
+</html>

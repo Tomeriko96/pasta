@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d0b08">
+<title>Pasta — Alcohol-Free Menu (Portrait Signage)</title>
+
+<!--
+  ============================================================================
+  UX & CONTENT-FIRST SIGNAGE — LG 32SM5J-B (portrait 1080x1920)
+  Strategy: single full-bleed hero stage, two stacked "scenes" that alternate
+  background heroes with dark scrims so a passerby reads one clear story at a
+  time. Alcohol-free message is unmissable: a persistent 0.0% ribbon + a
+  full "Alcohol-Free 0.0%" banner atop the Drinks block.
+  Every drink carries a plain-English description so guests know what the
+  0.0% cocktails/spritzes actually are. Locked names & prices verbatim.
+  Relative image paths (images/...) — host with images/ folder at repo root.
+  ============================================================================
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+  :root {
+    --accent: #c9a14a;          /* warm gold */
+    --accent-deep: #b5852c;
+    --cream: #f3ead8;
+    --ink: #f7f1e6;             /* light text on dark scrim */
+    --ink-dim: #d7c9b0;
+    --price: #e9c977;
+    --serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --sans: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%;
+    background: #000;
+    font-family: var(--sans);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Fixed-stage 1080x1920 portrait surface */
+  .stage {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #0d0b08;
+  }
+
+  /* ---- Persistent top bar: brand + clock + 0.0% ribbon ---- */
+  .topbar {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 30;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    background: linear-gradient(180deg, rgba(8,6,4,0.92) 0%, rgba(8,6,4,0.55) 70%, rgba(8,6,4,0) 100%);
+  }
+  .brand {
+    font-family: var(--serif);
+    font-size: 52px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--cream);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+  }
+  .brand small {
+    display: block;
+    font-family: var(--sans);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+  .clock {
+    font-family: var(--serif);
+    font-size: 46px;
+    font-weight: 500;
+    color: var(--ink);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+  }
+  .zero-chip {
+    position: absolute;
+    top: 156px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+    background: var(--accent);
+    color: #1a1206;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 8px 26px;
+    border-radius: 30px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.5);
+  }
+
+  /* ---- Scenes ---- */
+  .scene {
+    position: absolute;
+    left: 0; right: 0;
+    padding: 250px 60px 60px;
+    z-index: 10;
+  }
+  .scene--left  { top: 0;    height: 1080px; }
+  .scene--right { top: 1080px; height: 1080px; }
+
+  .scene .bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -2;
+  }
+  .scene .scrim {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      linear-gradient(180deg, rgba(10,8,5,0.72) 0%, rgba(10,8,5,0.78) 40%, rgba(10,8,5,0.88) 100%);
+  }
+  .scene--right .scrim {
+    background:
+      linear-gradient(180deg, rgba(10,8,5,0.85) 0%, rgba(10,8,5,0.80) 50%, rgba(10,8,5,0.92) 100%);
+  }
+
+  /* ---- Section headings ---- */
+  .sec-head {
+    font-family: var(--serif);
+    font-size: 60px;
+    font-weight: 600;
+    color: var(--cream);
+    letter-spacing: 1px;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+    margin-bottom: 6px;
+  }
+  .sec-sub {
+    font-family: var(--sans);
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+  }
+
+  /* ---- Alcohol-free banner ---- */
+  .af-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(201,161,74,0.14);
+    border: 1.5px solid var(--accent);
+    border-radius: 14px;
+    padding: 16px 22px;
+    margin: 8px 0 22px;
+  }
+  .af-banner .big {
+    font-family: var(--serif);
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+  }
+  .af-banner .txt {
+    font-family: var(--sans);
+    font-size: 19px;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  /* ---- Sub-group label ---- */
+  .group {
+    font-family: var(--sans);
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 22px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(201,161,74,0.35);
+  }
+
+  /* ---- Menu items ---- */
+  .item {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin: 9px 0;
+  }
+  .item .name {
+    font-family: var(--serif);
+    font-size: 31px;
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .item .lead {
+    flex: 1 1 auto;
+    border-bottom: 2px dotted rgba(215,201,176,0.45);
+    transform: translateY(-7px);
+    min-width: 18px;
+  }
+  .item .price {
+    font-family: var(--sans);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--price);
+    white-space: nowrap;
+  }
+  .item .desc {
+    flex: 0 0 100%;
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--ink-dim);
+    line-height: 1.3;
+    margin-top: -2px;
+  }
+
+  .extras-note {
+    margin-top: 8px;
+    font-family: var(--sans);
+    font-size: 17px;
+    font-weight: 300;
+    color: var(--ink-dim);
+    line-height: 1.35;
+  }
+
+  .footer {
+    position: absolute;
+    bottom: 26px; left: 0; right: 0;
+    text-align: center;
+    z-index: 20;
+    font-family: var(--sans);
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+  }
+</style>
+</head>
+<body>
+  <div class="stage">
+
+    <!-- Top bar: brand + live clock -->
+    <div class="topbar">
+      <div class="brand">Pasta<small>Trattoria · Amsterdam</small></div>
+      <div class="clock" id="clock">--:--</div>
+    </div>
+    <div class="zero-chip">100% Alcohol-Free · 0.0%</div>
+
+    <!-- ============ SCENE 1: Antipasti & Drinks ============ -->
+    <section class="scene scene--left">
+      <div class="bg" style="background-image:url('images/focaccia.jpg')"></div>
+      <div class="scrim"></div>
+
+      <div class="sec-head">Antipasti</div>
+      <div class="sec-sub">To begin · Small plates</div>
+
+      <div class="item"><span class="name">Warm Focaccia</span><span class="lead"></span><span class="price">€6.50</span></div>
+      <div class="item"><span class="name">Bruschetta Classica</span><span class="lead"></span><span class="price">€8.00</span></div>
+      <div class="item"><span class="name">Bruschetta Cremosa</span><span class="lead"></span><span class="price">€10.00</span></div>
+      <div class="item"><span class="name">Bruschetta Mediterranea</span><span class="lead"></span><span class="price">€10.00</span></div>
+      <div class="item"><span class="name">Bruschetta Gorgonzola e Miele</span><span class="lead"></span><span class="price">€10.00</span></div>
+      <div class="item"><span class="name">Bruschetta Mista</span><span class="lead"></span><span class="price">€16.00</span></div>
+      <div class="item"><span class="name">Tagliere Formaggi</span><span class="lead"></span><span class="price">€16.00</span></div>
+      <div class="item"><span class="name">Insalata di Rucola</span><span class="lead"></span><span class="price">€6.00</span></div>
+      <div class="item"><span class="name">Olive Marinate</span><span class="lead"></span><span class="price">€6.00</span></div>
+
+      <!-- Alcohol-free banner -->
+      <div class="af-banner">
+        <div class="big">0.0%</div>
+        <div class="txt">Every drink is alcohol-free. All the ritual &amp; flavour of a spritz or cocktail — none of the alcohol.</div>
+      </div>
+
+      <div class="group">Spritz 0.0</div>
+      <div class="item"><span class="name">Aperol 0.0</span><span class="lead"></span><span class="price">€12</span></div>
+      <div class="desc" style="margin:-4px 0 8px 2px;font-family:var(--sans);font-size:17px;font-weight:300;color:var(--ink-dim)">Bittersweet orange-red aperitif, soda &amp; citrus — the classic Venetian spritz, zero alcohol.</div>
+      <div class="item"><span class="name">Bitter 0.0</span><span class="lead"></span><span class="price">€12</span></div>
+      <div class="desc" style="margin:-4px 0 8px 2px;font-family:var(--sans);font-size:17px;font-weight:300;color:var(--ink-dim)">Herbal red bitter over ice with soda &amp; orange slice — bold and refreshing.</div>
+      <div class="item"><span class="name">Limoncello 0.0</span><span class="lead"></span><span class="price">€12</span></div>
+      <div class="desc" style="margin:-4px 0 8px 2px;font-family:var(--sans);font-size:17px;font-weight:300;color:var(--ink-dim)">Sweet-tart lemon liqueur style, served cold — bright and zesty.</div>
+
+      <div class="group">Alcohol-Free Cocktails</div>
+      <div class="item"><span class="name">Mojito</span><span class="lead"></span><span class="price">€12</span></div>
+      <div class="desc" style="margin:-4px 0 8px 2px;font-family:var(--sans);font-size:17px;font-weight:300;color:var(--ink-dim)">Rum-free: muddled mint, lime &amp; soda — crisp and cooling.</div>
+      <div class="item"><span class="name">Amaretto Sour</span><span class="lead"></span><span class="price">€12</span></div>
+      <div class="desc" style="margin:-4px 0 8px 2px;font-family:var(--sans);font-size:17px;font-weight:300;color:var(--ink-dim)">Almond-sweet sour with lemon &amp; foam — smooth and nutty.</div>
+      <div class="item"><span class="name">Pornstar Martini</span><span class="lead"></span><span class="price">€12</span></div>
+      <div class="desc" style="margin:-4px 0 8px 2px;font-family:var(--sans);font-size:17px;font-weight:300;color:var(--ink-dim)">Passion-fruit &amp; vanilla mocktail with a side of sparkling juice.</div>
+      <div class="item"><span class="name">Strawberry Daiquiri</span><span class="lead"></span><span class="price">€12</span></div>
+      <div class="desc" style="margin:-4px 0 8px 2px;font-family:var(--sans);font-size:17px;font-weight:300;color:var(--ink-dim)">Blended strawberry &amp; lime — fruity, frozen, alcohol-free.</div>
+      <div class="item"><span class="name">Sex on the Beach</span><span class="lead"></span><span class="price">€12</span></div>
+      <div class="desc" style="margin:-4px 0 8px 2px;font-family:var(--sans);font-size:17px;font-weight:300;color:var(--ink-dim)">Peach, orange &amp; cranberry — sunny and easy-drinking.</div>
+
+      <div class="group">Beer &amp; Fruit Sodas</div>
+      <div class="item"><span class="name">Heineken 0.0</span><span class="lead"></span><span class="price">€6</span></div>
+      <div class="item"><span class="name">Passion Fruit</span><span class="lead"></span><span class="price">€6</span></div>
+      <div class="item"><span class="name">Orange</span><span class="lead"></span><span class="price">€6</span></div>
+      <div class="item"><span class="name">Pineapple</span><span class="lead"></span><span class="price">€6</span></div>
+      <div class="item"><span class="name">Apricot</span><span class="lead"></span><span class="price">€6</span></div>
+      <div class="item"><span class="name">Still Water (0.75 L)</span><span class="lead"></span><span class="price">€4</span></div>
+      <div class="item"><span class="name">Sparkling Water (0.75 L)</span><span class="lead"></span><span class="price">€4</span></div>
+
+      <div class="footer">Fruit Sodas · Beer · Cocktails — all 0.0%</div>
+    </section>
+
+    <!-- ============ SCENE 2: Pasta & Mare ============ -->
+    <section class="scene scene--right">
+      <div class="bg" style="background-image:url('images/pasta-carbonara.jpg')"></div>
+      <div class="scrim"></div>
+
+      <div class="sec-head">Pasta Classica</div>
+      <div class="sec-sub">Roman favourites</div>
+
+      <div class="item"><span class="name">La Carbonara</span><span class="lead"></span><span class="price">€19.00</span></div>
+      <div class="item"><span class="name">Cacio e Pepe</span><span class="lead"></span><span class="price">€16.00</span></div>
+      <div class="item"><span class="name">Amatriciana</span><span class="lead"></span><span class="price">€18.00</span></div>
+      <div class="item"><span class="name">Bolognese</span><span class="lead"></span><span class="price">€18.00</span></div>
+      <div class="item"><span class="name">Alla Puttanesca</span><span class="lead"></span><span class="price">€18.00</span></div>
+      <div class="item"><span class="name">Arrabbiata</span><span class="lead"></span><span class="price">€15.00</span></div>
+      <div class="item"><span class="name">Al Pomodoro</span><span class="lead"></span><span class="price">€14.00</span></div>
+
+      <div class="sec-head" style="margin-top:24px">Pasta Speciale</div>
+      <div class="sec-sub">Chef's signatures</div>
+
+      <div class="item"><span class="name">Pesto Genovese con Stracciatella</span><span class="lead"></span><span class="price">€17.00</span></div>
+      <div class="item"><span class="name">Quattro Formaggi</span><span class="lead"></span><span class="price">€20.00</span></div>
+      <div class="item"><span class="name">Linguine alla Diavola con Cozze</span><span class="lead"></span><span class="price">€20.00</span></div>
+      <div class="item"><span class="name">Gamberetti</span><span class="lead"></span><span class="price">€21.00</span></div>
+      <div class="item"><span class="name">Linguine Cozze e Gorgonzola</span><span class="lead"></span><span class="price">€22.00</span></div>
+
+      <div class="sec-head" style="margin-top:24px">Specialità di Mare</div>
+      <div class="sec-sub">From the sea</div>
+
+      <div class="item"><span class="name">Cozze alla Diavola</span><span class="lead"></span><span class="price">€16.00</span></div>
+      <div class="item"><span class="name">Cozze al Gorgonzola</span><span class="lead"></span><span class="price">€18.00</span></div>
+
+      <div class="sec-head" style="margin-top:24px">Extras — Make It Yours</div>
+      <div class="extras-note">Customise any pasta:</div>
+      <div class="item"><span class="name">Gluten-Free Pasta</span><span class="lead"></span><span class="price">€3.00</span></div>
+      <div class="item"><span class="name">Extra Pecorino Romano</span><span class="lead"></span><span class="price">€2.50</span></div>
+      <div class="item"><span class="name">Extra Parmigiano Reggiano</span><span class="lead"></span><span class="price">€2.50</span></div>
+      <div class="item"><span class="name">Extra Stracciatella</span><span class="lead"></span><span class="price">€4.00</span></div>
+
+      <div class="footer">Fresh pasta · 0.0% bar · Amsterdam</div>
+    </section>
+
+  </div>
+
+<script>
+  try {
+    function pad(n){ return (n < 10 ? '0' : '') + n; }
+    function tick(){
+      try {
+        var d = new Date();
+        var el = document.getElementById('clock');
+        if (el) el.textContent = pad(d.getHours()) + ':' + pad(d.getMinutes());
+      } catch (e) {}
+    }
+    tick();
+    setInterval(tick, 1000 * 30);
+    setTimeout(function(){ location.reload(); }, 1000 * 60 * 10);
+  } catch (e) {
+    /* clock/reload failed — page still renders */
+  }
+</script>
+</body>
+</html>
