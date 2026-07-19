@@ -80,9 +80,10 @@
 
 <script>
 const SECTIONS = [
-  { key: "agent",   title: "Agent menus" },
-  { key: "print",   title: "Print menus" },
-  { key: "signage", title: "Signage (LG)" }
+  { key: "agent",    title: "Agent menus" },
+  { key: "print",    title: "Print menus" },
+  { key: "signage",  title: "Signage (LG)" },
+  { key: "pipeline", title: "Web / TV / Print" }
 ];
 
 async function loadManifest() {
@@ -112,7 +113,16 @@ function labelOf(entry) {
   if (entry.section === "print") {
     return n.replace("menu_", "").replace(".html", "").replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
   }
-  return "LG Signage";
+  if (entry.section === "signage") {
+    if (n === "menu_screen.html") return "LG Signage (main)";
+    const m = n.match(/^(?:lg_menu(?:\/|_)v?\d*\/)?menu_screen_(.+)\.html$/);
+    if (m) return "LG " + m[1].replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+    return n;
+  }
+  if (entry.section === "pipeline") {
+    return n.replace(".html", "").toUpperCase() + " (JSON pipeline)";
+  }
+  return n;
 }
 
 let ORDER = [];
@@ -131,7 +141,8 @@ function buildNav(entries) {
     const vs = document.createElement("div"); vs.className = "versions";
     for (const e of list) {
       const btn = document.createElement("button");
-      btn.textContent = (sec.key === "print") ? labelOf(e) : "v" + versionOf(e.name);
+      btn.textContent = (sec.key === "print" || sec.key === "signage" || sec.key === "pipeline")
+        ? labelOf(e) : "v" + versionOf(e.name);
       btn.title = labelOf(e);
       btn.addEventListener("click", () => goTo(ORDER.findIndex(x => x === e)));
       vs.appendChild(btn);

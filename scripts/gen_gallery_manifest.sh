@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Regenerate menus/menus.json describing every menu HTML as grouped entries.
-# Each entry: {"section": "agent"|"print"|"signage", "file": "path/name.html", "name": "name.html"}
+# Each entry: {"section": "...", "file": "path/name.html", "name": "name.html"}
+# Sections: agent, print, signage, pipeline
 # Run this after adding new menu versions, then `make gallery`.
 set -eu
 cd "$(dirname "$0")/.."
@@ -24,10 +25,15 @@ out="menus/menus.json"
     case "$f" in menu_screen.html) continue;; esac
     emit "print" "$f"
   done
-  # Signage page
-  if [ -f menu_screen.html ]; then
-    emit "signage" "menu_screen.html"
-  fi
+  # Signage pages: root screen + lg_menu + lg_menu_v2 (exclude index.html)
+  for f in menu_screen.html $(ls lg_menu/*.html lg_menu_v2/*.html 2>/dev/null); do
+    [ "$(basename "$f")" = "index.html" ] && continue
+    emit "signage" "$f"
+  done
+  # JSON-pipeline surfaces
+  for f in web.html tv.html print.html; do
+    [ -f "$f" ] && emit "pipeline" "$f"
+  done
   echo ""
   echo "]"
 } > "$out"

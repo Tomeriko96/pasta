@@ -49,5 +49,16 @@
   {"section": "print", "file": "menu_agentic_v8.html", "name": "menu_agentic_v8.html"},
   {"section": "print", "file": "menu_agentic_v9.html", "name": "menu_agentic_v9.html"},
   {"section": "print", "file": "menu_improved.html", "name": "menu_improved.html"},
-  {"section": "signage", "file": "menu_screen.html", "name": "menu_screen.html"}
+  {"section": "signage", "file": "menu_screen.html", "name": "menu_screen.html"},
+  {"section": "signage", "file": "lg_menu/menu_screen_design.html", "name": "menu_screen_design.html"},
+  {"section": "signage", "file": "lg_menu/menu_screen_motion.html", "name": "menu_screen_motion.html"},
+  {"section": "signage", "file": "lg_menu/menu_screen_tech.html", "name": "menu_screen_tech.html"},
+  {"section": "signage", "file": "lg_menu/menu_screen_typography.html", "name": "menu_screen_typography.html"},
+  {"section": "signage", "file": "lg_menu/menu_screen_ux.html", "name": "menu_screen_ux.html"},
+  {"section": "signage", "file": "lg_menu_v2/menu_screen_design.html", "name": "menu_screen_design.html"},
+  {"section": "signage", "file": "lg_menu_v2/menu_screen_motion.html", "name": "menu_screen_motion.html"},
+  {"section": "signage", "file": "lg_menu_v2/menu_screen_ux.html", "name": "menu_screen_ux.html"},
+  {"section": "pipeline", "file": "web.html", "name": "web.html"},
+  {"section": "pipeline", "file": "tv.html", "name": "tv.html"},
+  {"section": "pipeline", "file": "print.html", "name": "print.html"}
 ]
