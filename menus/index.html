@@ -10,21 +10,21 @@
   body { display: flex; height: 100vh; overflow: hidden; }
 
   aside {
-    width: 280px; flex: 0 0 280px;
+    width: 300px; flex: 0 0 300px;
     background: #1f1a14; color: #efe9dd; overflow-y: auto; padding: 16px 0 40px;
   }
   aside h1 { font-size: 16px; padding: 4px 18px 12px; color: #f3ead7; border-bottom: 1px solid #3a332a; }
   aside .hint { font-size: 11px; color: #b9ad97; padding: 0 18px 12px; line-height: 1.4; }
 
-  .group { margin-bottom: 6px; }
-  .group > .group-title { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #d8b98a; padding: 10px 18px 4px; font-weight: 700; }
+  .group { margin-bottom: 10px; }
+  .group > .group-title { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #d8b98a; padding: 12px 18px 4px; font-weight: 700; }
   .versions { display: flex; flex-wrap: wrap; gap: 5px; padding: 2px 14px 8px; }
-  .versions a {
-    display: inline-block; min-width: 34px; text-align: center; padding: 5px 8px; font-size: 12px;
-    border-radius: 4px; background: #2e281f; color: #efe9dd; text-decoration: none; border: 1px solid #3a332a; cursor: pointer;
+  .versions button {
+    min-width: 34px; text-align: center; padding: 5px 8px; font-size: 12px;
+    border-radius: 4px; background: #2e281f; color: #efe9dd; border: 1px solid #3a332a; cursor: pointer;
   }
-  .versions a:hover { background: #43392b; }
-  .versions a.active { background: #d8b98a; color: #1f1a14; border-color: #d8b98a; font-weight: 700; }
+  .versions button:hover { background: #43392b; }
+  .versions button.active { background: #d8b98a; color: #1f1a14; border-color: #d8b98a; font-weight: 700; }
 
   main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
   .bar {
@@ -50,14 +50,14 @@
     font-size: 30px; cursor: pointer; z-index: 20; display: flex; align-items: center; justify-content: center;
   }
   .arrow:hover { background: rgba(31,26,20,0.95); }
-  #prev { left: 290px; }
+  #prev { left: 310px; }
   #next { right: 20px; }
 </style>
 </head>
 <body>
   <aside>
     <h1>Menu Gallery</h1>
-    <p class="hint">Click a version, or use the on-screen arrows / left-right keyboard keys to flip through every menu.</p>
+    <p class="hint">Pick a version from any section. Use the arrows or left/right keys to flip through every menu.</p>
     <div id="nav"></div>
   </aside>
 
@@ -79,50 +79,62 @@
   <button id="next" class="arrow" title="Next (Right arrow)">&#8250;</button>
 
 <script>
-const AGENTS = ["tourist", "designer", "connoisseur", "owner"];
-const AGENT_LABELS = {
-  tourist: "Tourist friendly",
-  designer: "Graphic designer",
-  connoisseur: "Italian connoisseur",
-  owner: "Restaurant owner"
-};
+const SECTIONS = [
+  { key: "agent",   title: "Agent menus" },
+  { key: "print",   title: "Print menus" },
+  { key: "signage", title: "Signage (LG)" }
+];
 
-async function listMenuFiles() {
+async function loadManifest() {
   const res = await fetch("./menus.json", { cache: "no-store" });
   if (!res.ok) throw new Error("menus.json not found");
-  const files = await res.json();
-  return files.filter(h => /^menu_.*\.html$/.test(h) && h !== "index.html");
+  return res.json();
 }
 
-function versionOf(file) {
-  const m = file.match(/_v(\d+)\.html$/);
-  return m ? parseInt(m[1], 10) : 1;
-}
-function agentOf(file) {
-  const m = file.match(/^menu_([a-z]+?)(?:_v\d+)?\.html$/);
+function agentOf(name) {
+  const m = name.match(/^menu_([a-z]+?)(?:_v\d+)?\.html$/);
   return m ? m[1] : "other";
 }
+function versionOf(name) {
+  const m = name.match(/_v(\d+)\.html$/);
+  if (m) return parseInt(m[1], 10);
+  if (name === "menu_improved.html") return 0;
+  if (name.startsWith("menu_agentic")) return 1;
+  return 1;
+}
+function labelOf(entry) {
+  const n = entry.name;
+  if (entry.section === "agent") {
+    const a = agentOf(n);
+    const map = { tourist: "Tourist", designer: "Designer", connoisseur: "Connoisseur", owner: "Owner" };
+    return (map[a] || a) + " v" + versionOf(n);
+  }
+  if (entry.section === "print") {
+    return n.replace("menu_", "").replace(".html", "").replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+  }
+  return "LG Signage";
+}
 
-let ORDER = [];           // fully sorted file list, in display order
-let POS = -1;             // current index into ORDER
-let activeLink = null;
+let ORDER = [];
+let POS = -1;
+let activeBtn = null;
 
-function buildNav(files) {
-  const groups = {};
-  for (const f of files) (groups[agentOf(f)] = groups[agentOf(f)] || []).push(f);
-  const order = [...AGENTS.filter(a => groups[a]), ...Object.keys(groups).filter(a => !AGENTS.includes(a))];
+function buildNav(entries) {
   const nav = document.getElementById("nav");
-  for (const a of order) {
-    const list = groups[a].sort((x, y) => versionOf(x) - versionOf(y));
-    for (const f of list) ORDER.push(f);
+  for (const sec of SECTIONS) {
+    const list = entries
+      .filter(e => e.section === sec.key)
+      .sort((a, b) => labelOf(a).localeCompare(labelOf(b), undefined, { numeric: true }));
+    if (!list.length) continue;
     const g = document.createElement("div"); g.className = "group";
-    const t = document.createElement("div"); t.className = "group-title"; t.textContent = AGENT_LABELS[a] || a; g.appendChild(t);
+    const t = document.createElement("div"); t.className = "group-title"; t.textContent = sec.title; g.appendChild(t);
     const vs = document.createElement("div"); vs.className = "versions";
-    for (const f of list) {
-      const link = document.createElement("a");
-      link.textContent = "v" + versionOf(f);
-      link.addEventListener("click", () => goTo(ORDER.indexOf(f)));
-      vs.appendChild(link);
+    for (const e of list) {
+      const btn = document.createElement("button");
+      btn.textContent = (sec.key === "print") ? labelOf(e) : "v" + versionOf(e.name);
+      btn.title = labelOf(e);
+      btn.addEventListener("click", () => goTo(ORDER.findIndex(x => x === e)));
+      vs.appendChild(btn);
     }
     g.appendChild(vs); nav.appendChild(g);
   }
@@ -131,23 +143,20 @@ function buildNav(files) {
 function goTo(idx) {
   if (idx < 0 || idx >= ORDER.length) return;
   POS = idx;
-  const file = ORDER[POS];
+  const entry = ORDER[POS];
   const frame = document.getElementById("preview");
-  frame.src = "./" + file;
+  frame.src = "/" + entry.file;
   frame.style.display = "block";
   document.getElementById("empty").style.display = "none";
-  // update label + position
-  const a = agentOf(file);
-  document.getElementById("current").textContent = (AGENT_LABELS[a] || a) + " v" + versionOf(file);
+  document.getElementById("current").textContent = labelOf(entry);
   document.getElementById("pos").textContent = "  (" + (POS + 1) + " / " + ORDER.length + ")";
-  document.getElementById("openFull").href = "./" + file;
-  // highlight sidebar
-  const links = [...document.querySelectorAll(".versions a")];
-  if (activeLink) activeLink.classList.remove("active");
-  activeLink = links[POS];
-  if (activeLink) activeLink.classList.add("active");
-  // deep link
-  history.replaceState(null, "", "#" + file);
+  document.getElementById("openFull").href = "/" + entry.file;
+  if (activeBtn) activeBtn.classList.remove("active");
+  // highlight the matching sidebar button by matching title+text
+  const btns = [...document.querySelectorAll(".versions button")];
+  activeBtn = btns.find(b => b.title === labelOf(entry)) || null;
+  if (activeBtn) activeBtn.classList.add("active");
+  history.replaceState(null, "", "#" + entry.file);
 }
 
 document.getElementById("prev").addEventListener("click", () => goTo(POS - 1));
@@ -161,12 +170,13 @@ window.addEventListener("keydown", e => {
   if (e.key === "ArrowRight") goTo(POS + 1);
 });
 
-listMenuFiles().then(files => {
-  if (!files.length) { document.getElementById("empty").textContent = "No menu files found."; return; }
-  buildNav(files);
+loadManifest().then(entries => {
+  if (!entries.length) { document.getElementById("empty").textContent = "No menu files found."; return; }
+  ORDER = entries;
+  buildNav(entries);
   const target = decodeURIComponent(location.hash.replace(/^#/, ""));
-  const start = ORDER.indexOf(target) >= 0 ? ORDER.indexOf(target) : 0;
-  goTo(start);
+  const start = ORDER.findIndex(e => e.file === target);
+  goTo(start >= 0 ? start : 0);
 }).catch(err => {
   document.getElementById("empty").textContent = "Could not load menus.json. Run: make gallery";
 });

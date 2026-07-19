@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-# Regenerate menus/menus.json listing every menu_*.html (except index.html).
+# Regenerate menus/menus.json describing every menu HTML as grouped entries.
+# Each entry: {"section": "agent"|"print"|"signage", "file": "path/name.html", "name": "name.html"}
 # Run this after adding new menu versions, then `make gallery`.
 set -eu
 cd "$(dirname "$0")/.."
@@ -7,12 +8,27 @@ out="menus/menus.json"
 {
   echo "["
   first=1
+  emit() {
+    local section="$1" file="$2" name
+    name="$(basename "$file")"
+    if [ $first -eq 1 ]; then first=0; else echo ","; fi
+    printf '  {"section": "%s", "file": "%s", "name": "%s"}' "$section" "$file" "$name"
+  }
+  # Agent menus in menus/
   for f in $(ls menus/menu_*.html 2>/dev/null | xargs -n1 basename | sort -V); do
     [ "$f" = "index.html" ] && continue
-    if [ $first -eq 1 ]; then first=0; else echo ","; fi
-    printf '  "%s"' "$f"
+    emit "agent" "menus/$f"
   done
+  # Print menus in parent dir (exclude the signage page)
+  for f in $(ls menu_*.html 2>/dev/null | sort -V); do
+    case "$f" in menu_screen.html) continue;; esac
+    emit "print" "$f"
+  done
+  # Signage page
+  if [ -f menu_screen.html ]; then
+    emit "signage" "menu_screen.html"
+  fi
   echo ""
   echo "]"
 } > "$out"
-echo "Wrote $out ($(grep -c '"menu_' "$out") menus)"
+echo "Wrote $out ($(grep -c '"section"' "$out") entries)"
