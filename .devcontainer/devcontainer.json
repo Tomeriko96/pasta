@@ -5,5 +5,5 @@
     "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {},
     "ghcr.io/dirien/devcontainer-features/opencode:0": {}
   },
-  "postCreateCommand": "npm install"
+  "postCreateCommand": "uv sync"
 }

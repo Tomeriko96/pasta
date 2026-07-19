@@ -1,0 +1,115 @@
+{
+  "restaurant": "Pasta",
+  "tagline": "Fresh handmade pasta since 2024",
+  "currency": "€",
+  "sections": [
+    {
+      "name": "Antipasti",
+      "items": [
+        {
+          "name": "Bruschetta Classica",
+          "description": "Toasted sourdough, tomato, basil, extra virgin olive oil",
+          "price": 6.50,
+          "tags": ["vegetarian"]
+        },
+        {
+          "name": "Carpaccio di Manzo",
+          "description": "Thinly sliced beef, rocket, parmesan, truffle oil",
+          "price": 9.00
+        },
+        {
+          "name": "Calamari Fritti",
+          "description": "Crispy squid, lemon aioli, marinara sauce",
+          "price": 8.50
+        }
+      ]
+    },
+    {
+      "name": "Pasta",
+      "items": [
+        {
+          "name": "Spaghetti Carbonara",
+          "description": "Guanciale, egg yolk, pecorino romano, black pepper",
+          "price": 14.00,
+          "tags": ["signature"]
+        },
+        {
+          "name": "Pappardelle al Ragù",
+          "description": "Slow-cooked beef ragù, parmesan, fresh herbs",
+          "price": 15.00
+        },
+        {
+          "name": "Cacio e Pepe",
+          "description": "Tonnarelli, pecorino romano, black pepper",
+          "price": 13.00,
+          "tags": ["vegetarian"]
+        },
+        {
+          "name": "Linguine alle Vongole",
+          "description": "Fresh clams, white wine, garlic, chili, parsley",
+          "price": 16.00
+        },
+        {
+          "name": "Gnocchi al Pesto",
+          "description": "Handmade potato gnocchi, basil pesto, pine nuts, parmesan",
+          "price": 13.50,
+          "tags": ["vegetarian"]
+        }
+      ]
+    },
+    {
+      "name": "Dolci",
+      "items": [
+        {
+          "name": "Tiramisù",
+          "description": "Mascarpone, espresso, savoiardi, cocoa",
+          "price": 7.00,
+          "tags": ["signature"]
+        },
+        {
+          "name": "Panna Cotta",
+          "description": "Vanilla cream, seasonal berry compote",
+          "price": 6.50,
+          "tags": ["vegetarian"]
+        },
+        {
+          "name": "Cannoli Siciliani",
+          "description": "Crispy shells, ricotta, chocolate chips, candied orange",
+          "price": 7.50
+        }
+      ]
+    },
+    {
+      "name": "Bevande",
+      "items": [
+        {
+          "name": "Acqua Naturale",
+          "description": "750ml",
+          "price": 3.00
+        },
+        {
+          "name": "Acqua Frizzante",
+          "description": "750ml",
+          "price": 3.50
+        },
+        {
+          "name": "House Red Wine",
+          "description": "Glass / Carafe",
+          "price": 5.00,
+          "price2": 18.00
+        },
+        {
+          "name": "House White Wine",
+          "description": "Glass / Carafe",
+          "price": 5.00,
+          "price2": 18.00
+        },
+        {
+          "name": "Espresso",
+          "description": "",
+          "price": 2.50
+        }
+      ]
+    }
+  ]
+}

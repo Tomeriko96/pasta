@@ -1,0 +1,40 @@
+/* theme.css — brand colors, fonts, shared variables */
+
+:root {
+  --color-bg: #faf8f5;
+  --color-text: #2c2420;
+  --color-accent: #8b2500;
+  --color-accent-light: #c4511f;
+  --color-muted: #7a6e64;
+  --color-border: #e0d8cf;
+  --color-card-bg: #ffffff;
+  --color-tag-bg: #f0ebe4;
+  --color-tag-text: #6b5c4f;
+
+  --font-display: "Georgia", "Times New Roman", serif;
+  --font-body: "Helvetica Neue", "Arial", sans-serif;
+  --font-mono: "SF Mono", "Consolas", monospace;
+
+  --radius: 6px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../fonts/EBGaramond-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../fonts/EBGaramond-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "EB Garamond";
+  src: url("../fonts/EBGaramond-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
