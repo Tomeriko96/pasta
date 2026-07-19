@@ -1,6 +1,11 @@
-.PHONY: pdf dev clean
+.PHONY: pdf dev gallery clean
 
 dev:
+	uv run python3 -m http.server 8080
+
+gallery:
+	./scripts/gen_gallery_manifest.sh
+	@echo "Menu gallery: http://localhost:8080/menus/"
 	uv run python3 -m http.server 8080
 
 pdf: menu_improved.pdf
