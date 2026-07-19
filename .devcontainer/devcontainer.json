@@ -1,0 +1,9 @@
+{
+  "name": "pasta",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/jsburckhardt/devcontainer-features/uv:1": {},
+    "ghcr.io/dirien/devcontainer-features/opencode:0": {}
+  },
+  "postCreateCommand": "npm install"
+}
