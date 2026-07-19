@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu: Agentic v4</title>
+
+<!--
+  Agentic sparring Round 4 (roles: graphic designer, tourist, owner, Italian
+  connoisseur). Base: menu_agentic_v3.html. Prices/items copied verbatim.
+  Consensus applied on top of v3:
+   - Owner intro line under each page header (reinforces 0.0% and voice).
+   - "All 0.0%, no exceptions." note under the cocktails subhead.
+   - Plain-English refinements to Puttanesca, Al Pomodoro, Amatriciana.
+   - Authenticity: "ragu alla Bolognese", Quattro Formaggi cheeses corrected
+     (Fontina in place of stracciatella in the copy), redundant "Dolce"
+     dropped on the mussel pasta copy, "a selection of our bruschette".
+   - Extras note names the actual add-ons; courtesy line tightened.
+   - Soft "Most ordered" tag on two higher-margin pastas.
+   - Design: smaller/tighter h1, accent-colour subheads, serif prices,
+     page-2 gap 4mm, optimizeLegibility on small copy.
+-->
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+  :root {
+    --ink: #1b1b1b;
+    --muted: #5c5c5c;
+    --accent: #8b3a3a;
+    --line: #d4c3a5;
+    --leader: #8a7048;
+    --bg: #fdfbf7;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    background: #e8dfd0;
+    color: var(--ink);
+    font-family: 'Montserrat', sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto 18px;
+    padding: 10mm 14mm 9mm;
+    background: var(--bg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  header {
+    text-align: center;
+    padding-bottom: 4mm;
+    margin-bottom: 4.5mm;
+    border-bottom: 1.3px solid var(--ink);
+    flex-shrink: 0;
+  }
+
+  .eyebrow {
+    font-size: 8px;
+    letter-spacing: 3.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    line-height: 1.0;
+  }
+
+  .owner-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--accent);
+    margin-top: 3px;
+  }
+
+  .sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 3px;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 4mm;
+    min-height: 0;
+  }
+
+  /* On screen we reveal any overflow instead of hiding it silently, so
+     clipping is caught before print. */
+  @media screen {
+    .page { overflow: visible; outline: 1px dashed #c00; }
+  }
+
+  .menu-section {
+    width: 100%;
+    break-inside: avoid;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2.3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-align: center;
+    margin-bottom: 3.5mm;
+  }
+
+  .section-title::after {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 1px;
+    background: var(--line);
+    margin: 2.5px auto 0;
+  }
+
+  .section-note {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin: -1.5mm 0 2.5mm;
+  }
+
+  /* The 0.0% concept gets its own quiet panel so it owns the page. */
+  .drinks-section {
+    background: rgba(139,58,58,0.04);
+    padding: 3mm 4mm 2mm;
+    border-radius: 2px;
+  }
+
+  .subhead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 2.5mm 0 0.6mm;
+    padding-bottom: 0.6mm;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .subhead-note {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 9.6px;
+    color: var(--muted);
+    margin: 0 0 1.5mm;
+  }
+
+  .subhead:first-of-type {
+    margin-top: 1mm;
+  }
+
+  .item {
+    margin-bottom: 2.25mm;
+    break-inside: avoid;
+  }
+
+  .item-header {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+
+  .item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1.18;
+    max-width: 80%;
+  }
+
+  .dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--leader);
+    margin: 0 4px 4px;
+    min-width: 10mm;
+  }
+
+  .item-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    letter-spacing: 0.3px;
+  }
+
+  .item-desc {
+    font-size: 10.5px;
+    line-height: 1.3;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 0.8px;
+    padding-right: 4mm;
+    text-rendering: optimizeLegibility;
+  }
+
+  .tag {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 7px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 0.5px solid var(--accent);
+    border-radius: 2px;
+    padding: 0.3mm 1.2mm;
+    margin-left: 2mm;
+    vertical-align: middle;
+  }
+
+  /* Drinks: names slightly smaller, tight rows, but keep short descriptions. */
+  .compact-section .item {
+    margin-bottom: 1.6mm;
+  }
+
+  .compact-section .item-name {
+    font-size: 15px;
+  }
+
+  .compact-section .item-desc {
+    font-size: 9.6px;
+    margin-top: 0.3px;
+  }
+
+  .soda-flavours {
+    font-size: 9.6px;
+    line-height: 1.3;
+    color: var(--muted);
+    font-weight: 400;
+    margin: -0.6mm 0 1.6mm;
+    text-rendering: optimizeLegibility;
+  }
+
+  .courtesy {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    line-height: 1.3;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 1mm;
+  }
+
+  footer {
+    border-top: 1.3px solid var(--ink);
+    padding-top: 2.7mm;
+    margin-top: 4mm;
+    text-align: center;
+    font-size: 8.4px;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+
+  @media print {
+    body {
+      background: white;
+    }
+
+    .page {
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+
+  @media screen {
+    .page {
+      box-shadow: 0 4px 24px rgba(0,0,0,0.14);
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: ANTIPASTI + DRINKS -->
+<div class="page page-one">
+
+  <header>
+    <div class="eyebrow">Cucina Italiana</div>
+    <h1>Antipasti &amp; Drinks</h1>
+    <div class="sub">To share, to start, to refresh</div>
+    <div class="owner-line">No alcohol, no compromise. Every drink is 0.0%.</div>
+  </header>
+
+  <main class="content">
+
+    <section class="menu-section">
+      <h2 class="section-title">Antipasti</h2>
+      <p class="section-note">Small plates to share or start</p>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Warm Focaccia</span>
+          <span class="dots"></span>
+          <span class="item-price">€6.50</span>
+        </div>
+        <div class="item-desc">Oven-soft bread with rosemary and extra virgin olive oil.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Bruschetta Classica</span>
+          <span class="dots"></span>
+          <span class="item-price">€8.00</span>
+        </div>
+        <div class="item-desc">Toasted bread with tomato, basil, garlic and extra virgin olive oil.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Bruschetta Cremosa</span>
+          <span class="dots"></span>
+          <span class="item-price">€10.00</span>
+        </div>
+        <div class="item-desc">Toasted bread with stracciatella (soft creamy cheese), cherry tomatoes and basil.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Bruschetta Mediterranea</span>
+          <span class="dots"></span>
+          <span class="item-price">€10.00</span>
+        </div>
+        <div class="item-desc">Toasted bread with tomato, olives, anchovies, capers and basil.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Bruschetta Gorgonzola e Miele</span>
+          <span class="dots"></span>
+          <span class="item-price">€10.00</span>
+        </div>
+        <div class="item-desc">Toasted bread with Gorgonzola Dolce, honey and cracked black pepper.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Bruschetta Mista</span>
+          <span class="dots"></span>
+          <span class="item-price">€16.00</span>
+        </div>
+        <div class="item-desc">A selection of our bruschette.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Tagliere Formaggi</span>
+          <span class="dots"></span>
+          <span class="item-price">€16.00</span>
+        </div>
+        <div class="item-desc">Italian cheeses served with warm focaccia, olives, honey and fig jam.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Insalata di Rucola</span>
+          <span class="dots"></span>
+          <span class="item-price">€6.00</span>
+        </div>
+        <div class="item-desc">Rocket, cherry tomatoes, olives, Parmigiano Reggiano and balsamic vinaigrette.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Olive Marinate</span>
+          <span class="dots"></span>
+          <span class="item-price">€4.00</span>
+        </div>
+        <div class="item-desc">Italian olives marinated with herbs, garlic and citrus.</div>
+      </div>
+    </section>
+
+    <section class="menu-section compact-section drinks-section">
+      <h2 class="section-title">Bevande: Alcohol-Free</h2>
+      <p class="section-note">Every drink here is 0.0%. Real cocktails, no alcohol, full flavour.</p>
+
+      <div class="subhead">Spritz &amp; Spirits</div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Aperol 0.0</span>
+          <span class="dots"></span>
+          <span class="item-price">€12.00</span>
+        </div>
+        <div class="item-desc">Orange bitter with soda and orange.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Bitter 0.0</span>
+          <span class="dots"></span>
+          <span class="item-price">€12.00</span>
+        </div>
+        <div class="item-desc">Red Italian bitter with soda and an orange slice.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Limoncello 0.0</span>
+          <span class="dots"></span>
+          <span class="item-price">€12.00</span>
+        </div>
+        <div class="item-desc">Sweet lemon drink, served chilled.</div>
+      </div>
+
+      <div class="subhead">Alcohol-Free Cocktails</div>
+      <p class="subhead-note">All 0.0%, no exceptions.</p>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Mojito</span>
+          <span class="dots"></span>
+          <span class="item-price">€12.00</span>
+        </div>
+        <div class="item-desc">Lime, mint, sugar and soda.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Amaretto Sour</span>
+          <span class="dots"></span>
+          <span class="item-price">€12.00</span>
+        </div>
+        <div class="item-desc">Almond, lemon and a little foam.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Pornstar Martini</span>
+          <span class="dots"></span>
+          <span class="item-price">€12.00</span>
+        </div>
+        <div class="item-desc">Passion fruit and vanilla.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Strawberry Daiquiri</span>
+          <span class="dots"></span>
+          <span class="item-price">€12.00</span>
+        </div>
+        <div class="item-desc">Blended strawberry and lime.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Sex on the Beach</span>
+          <span class="dots"></span>
+          <span class="item-price">€12.00</span>
+        </div>
+        <div class="item-desc">Orange, cranberry and peach.</div>
+      </div>
+
+      <div class="subhead">Beer, Sodas &amp; Water</div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Heineken 0.0</span>
+          <span class="dots"></span>
+          <span class="item-price">€6.00</span>
+        </div>
+        <div class="item-desc">Non-alcoholic lager.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Fruit Sodas</span>
+          <span class="dots"></span>
+          <span class="item-price">€6.00</span>
+        </div>
+      </div>
+      <div class="soda-flavours">Choose one: passion fruit, orange, pineapple or apricot.</div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Still Water (0.75 L)</span>
+          <span class="dots"></span>
+          <span class="item-price">€4.00</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Sparkling Water (0.75 L)</span>
+          <span class="dots"></span>
+          <span class="item-price">€4.00</span>
+        </div>
+      </div>
+
+      <p class="courtesy">Any pasta can be made gluten-free, just ask.</p>
+    </section>
+
+  </main>
+
+</div>
+
+
+<!-- PAGE 2: PASTA + MARE + EXTRAS -->
+<div class="page page-two">
+
+  <header>
+    <div class="eyebrow">Cucina Italiana</div>
+    <h1>Pasta &amp; Mare</h1>
+    <div class="sub">Served al dente · Traditional Italian recipes</div>
+    <div class="owner-line">Fresh pasta, made to order. Ask us for our favourites.</div>
+  </header>
+
+  <main class="content">
+
+    <section class="menu-section">
+      <h2 class="section-title">Pasta Classica</h2>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Carbonara<span class="tag">Most ordered</span></span>
+          <span class="dots"></span>
+          <span class="item-price">€19.00</span>
+        </div>
+        <div class="item-desc">Spaghetti with guanciale (cured pork cheek), egg yolk, Pecorino Romano and black pepper.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Cacio e Pepe</span>
+          <span class="dots"></span>
+          <span class="item-price">€16.00</span>
+        </div>
+        <div class="item-desc">Tonnarelli with Pecorino Romano and freshly cracked black pepper.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Amatriciana</span>
+          <span class="dots"></span>
+          <span class="item-price">€18.00</span>
+        </div>
+        <div class="item-desc">Rigatoni with guanciale, tomato and Pecorino Romano. A Roman tomato and pork sauce.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Bolognese</span>
+          <span class="dots"></span>
+          <span class="item-price">€18.00</span>
+        </div>
+        <div class="item-desc">Rigatoni with traditional ragu alla Bolognese and Parmigiano Reggiano.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Alla Puttanesca</span>
+          <span class="dots"></span>
+          <span class="item-price">€18.00</span>
+        </div>
+        <div class="item-desc">Rigatoni with garlic, anchovies, capers, olives, chilli and tomato (spicy).</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Arrabbiata</span>
+          <span class="dots"></span>
+          <span class="item-price">€15.00</span>
+        </div>
+        <div class="item-desc">Rigatoni with spicy tomato sauce and Parmigiano Reggiano (spicy).</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Al Pomodoro</span>
+          <span class="dots"></span>
+          <span class="item-price">€14.00</span>
+        </div>
+        <div class="item-desc">Linguine with tomato sauce, fresh basil and Parmigiano Reggiano. Our simple tomato pasta.</div>
+      </div>
+    </section>
+
+    <section class="menu-section">
+      <h2 class="section-title">Pasta Speciale</h2>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Linguine al Pesto Genovese con Stracciatella</span>
+          <span class="dots"></span>
+          <span class="item-price">€17.00</span>
+        </div>
+        <div class="item-desc">Linguine with Genovese pesto and fresh stracciatella.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Quattro Formaggi</span>
+          <span class="dots"></span>
+          <span class="item-price">€20.00</span>
+        </div>
+        <div class="item-desc">Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and Fontina.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Linguine alla Diavola con Cozze</span>
+          <span class="dots"></span>
+          <span class="item-price">€20.00</span>
+        </div>
+        <div class="item-desc">Linguine with mussels, garlic, white wine, peperoncino and tomato (spicy).</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Gamberetti</span>
+          <span class="dots"></span>
+          <span class="item-price">€21.00</span>
+        </div>
+        <div class="item-desc">Linguine with shrimp, garlic and a light cream sauce.</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Linguine alle Cozze e Gorgonzola<span class="tag">Most ordered</span></span>
+          <span class="dots"></span>
+          <span class="item-price">€22.00</span>
+        </div>
+        <div class="item-desc">Linguine with mussels, Gorgonzola, garlic and a light cream sauce.</div>
+      </div>
+    </section>
+
+    <section class="menu-section">
+      <h2 class="section-title">Specialità di Mare</h2>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Cozze alla Diavola</span>
+          <span class="dots"></span>
+          <span class="item-price">€16.00</span>
+        </div>
+        <div class="item-desc">Fresh mussels with garlic, white wine, tomato and peperoncino, served with warm focaccia (spicy).</div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Cozze al Gorgonzola</span>
+          <span class="dots"></span>
+          <span class="item-price">€18.00</span>
+        </div>
+        <div class="item-desc">Fresh mussels in a creamy Gorgonzola Dolce sauce, served with warm focaccia.</div>
+      </div>
+    </section>
+
+    <section class="menu-section">
+      <h2 class="section-title">Extras</h2>
+      <p class="section-note">Make it yours: add cheese, stracciatella or gluten-free to any pasta</p>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Gluten-Free Pasta</span>
+          <span class="dots"></span>
+          <span class="item-price">€3.00</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Add Pecorino Romano</span>
+          <span class="dots"></span>
+          <span class="item-price">€2.50</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Add Parmigiano Reggiano</span>
+          <span class="dots"></span>
+          <span class="item-price">€2.50</span>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Add Fresh Stracciatella</span>
+          <span class="dots"></span>
+          <span class="item-price">€4.00</span>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>
