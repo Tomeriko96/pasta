@@ -1,4 +1,4 @@
-/* menu.js — loads menu.json and renders into #menu */
+/* menu.js: loads menu.json and renders into #menu */
 
 (function () {
   "use strict";

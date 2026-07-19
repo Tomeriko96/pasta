@@ -15,7 +15,7 @@
      briefly; acceptable for a static menu, but we guard it in try/catch and keep it as the
      agreed update mechanism (per AGENTS.md / SIGNAGE_PLAN.md Part D).
   4. CSS is mostly safe for webOS 6.0 Chromium, but `gap` on flex containers and `inset` were
-     used heavily — both are fine in modern Chromium. We keep them; no -webkit- prefixes needed
+     used heavily: both are fine in modern Chromium. We keep them; no -webkit- prefixes needed
      for Chromium. We avoid anything exotic (no backdrop-filter, no grid-template subgrid).
   5. Viewport/scaling: the original hard-codes a 1080x1920 .stage centered with margin:auto.
      On a 1080x1920 portrait browser this is 1:1 and correct. We keep that but add the meta
@@ -35,11 +35,11 @@
          src:url('fonts/CormorantGaramond.woff2') format('woff2'); font-display:swap; }
        @font-face { font-family:'Montserrat'; font-style:normal; font-weight:400;
          src:url('fonts/Montserrat.woff2') format('woff2'); font-display:swap; }
-  3. Keep the system-font fallbacks in the stacks below — they now act as the final safety net.
+  3. Keep the system-font fallbacks in the stacks below: they now act as the final safety net.
 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#000000">
-<title>Pasta Menu — Signage (Portrait)</title>
+<title>Pasta Menu: Signage (Portrait)</title>
 
 <style>
   /* Optional offline self-hosting: see comment at top. Kept CDN @import for now (online). */

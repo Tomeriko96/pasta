@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <!--
-  MOTION / ANIMATION CRITIQUE — menu_screen.html (LG 32SM5J-B signage)
+  MOTION / ANIMATION CRITIQUE: menu_screen.html (LG 32SM5J-B signage)
   ================================================================
   Critique of the current static version:
   1. Only a one-time entrance fade (rise) plays, then the screen is 100% static
-     for hours — SIGNAGE_PLAN.md Part A.3 explicitly warns this risks burn-in
+     for hours: SIGNAGE_PLAN.md Part A.3 explicitly warns this risks burn-in
      ("content should animate so no pixel is static for hours"). Nothing moves
      after load except the clock text.
   2. Background images are perfectly still. A slow Ken-Burns zoom is the
      cheapest, most elegant way to keep large pixel regions in motion without
      distracting from the menu.
-  3. Section titles and the accent divider line are dead static — they are
+  3. Section titles and the accent divider line are dead static: they are
      natural homes for a subtle "breathing" / shimmer that adds life.
   4. No visual hierarchy cue for a standout dish; a single "Chef's pick" with a
      soft glow would guide the eye and itself animates (anti-burn-in bonus).
@@ -25,14 +25,14 @@
   - Added a gentle pulse to the live-clock pill.
   - Kept the static 2-column portrait split, all dishes/prices (LOCKED), dark
     scrim, live clock, and 10-min auto-reload exactly as required.
-  - All motion uses prefers-reduced-motion safety + long durations (12–30s)
+  - All motion uses prefers-reduced-motion safety + long durations (12 to 30s)
     and respects the existing color vars and Google Fonts.
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pasta Menu — Signage (Portrait)</title>
+<title>Pasta Menu: Signage (Portrait)</title>
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
@@ -236,7 +236,7 @@
   .compact-row .item { gap: 7px; }
   .compact-row .item-name { font-size: 18px; }
 
-  /* Chef's Pick — single highlighted dish with a soft glow pulse */
+  /* Chef's Pick: single highlighted dish with a soft glow pulse */
   .item.chef-pick {
     position: relative;
     padding: 6px 10px;
