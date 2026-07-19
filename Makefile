@@ -1,4 +1,7 @@
-.PHONY: pdf clean
+.PHONY: pdf dev clean
+
+dev:
+	uv run python3 -m http.server 8080
 
 pdf: menu_new.pdf
 
