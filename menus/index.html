@@ -127,10 +127,12 @@ function labelOf(entry) {
 
 let ORDER = [];
 let POS = -1;
+let BTNS = [];
 let activeBtn = null;
 
 function buildNav(entries) {
   const nav = document.getElementById("nav");
+  BTNS = [];
   for (const sec of SECTIONS) {
     const list = entries
       .filter(e => e.section === sec.key)
@@ -140,11 +142,13 @@ function buildNav(entries) {
     const t = document.createElement("div"); t.className = "group-title"; t.textContent = sec.title; g.appendChild(t);
     const vs = document.createElement("div"); vs.className = "versions";
     for (const e of list) {
+      const idx = ORDER.indexOf(e);
       const btn = document.createElement("button");
       btn.textContent = (sec.key === "print" || sec.key === "signage" || sec.key === "pipeline")
         ? labelOf(e) : "v" + versionOf(e.name);
       btn.title = labelOf(e);
-      btn.addEventListener("click", () => goTo(ORDER.findIndex(x => x === e)));
+      btn.addEventListener("click", () => goTo(idx));
+      BTNS[idx] = btn;
       vs.appendChild(btn);
     }
     g.appendChild(vs); nav.appendChild(g);
@@ -182,9 +186,8 @@ function goTo(idx) {
   document.getElementById("pos").textContent = "  (" + (POS + 1) + " / " + ORDER.length + ")";
   document.getElementById("openFull").href = "/" + entry.file;
   if (activeBtn) activeBtn.classList.remove("active");
-  // highlight the matching sidebar button by matching title+text
-  const btns = [...document.querySelectorAll(".versions button")];
-  activeBtn = btns.find(b => b.title === labelOf(entry)) || null;
+  // highlight the sidebar button for this exact entry index
+  activeBtn = BTNS[POS] || null;
   if (activeBtn) activeBtn.classList.add("active");
   history.replaceState(null, "", "#" + entry.file);
 }
