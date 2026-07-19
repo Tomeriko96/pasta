@@ -1,40 +1,23 @@
 /* theme.css — brand colors, fonts, shared variables */
 
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
 :root {
-  --color-bg: #faf8f5;
-  --color-text: #2c2420;
-  --color-accent: #8b2500;
-  --color-accent-light: #c4511f;
-  --color-muted: #7a6e64;
-  --color-border: #e0d8cf;
+  --color-bg: #fdfbf7;
+  --color-text: #1b1b1b;
+  --color-accent: #8b3a3a;
+  --color-accent-light: #a84a4a;
+  --color-muted: #606060;
+  --color-border: #d4c3a5;
   --color-card-bg: #ffffff;
   --color-tag-bg: #f0ebe4;
   --color-tag-text: #6b5c4f;
 
-  --font-display: "Georgia", "Times New Roman", serif;
-  --font-body: "Helvetica Neue", "Arial", sans-serif;
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "SF Mono", "Consolas", monospace;
 
   --radius: 6px;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-@font-face {
-  font-family: "EB Garamond";
-  src: url("../fonts/EBGaramond-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
-  font-family: "EB Garamond";
-  src: url("../fonts/EBGaramond-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
-@font-face {
-  font-family: "EB Garamond";
-  src: url("../fonts/EBGaramond-Italic.ttf") format("truetype");
-  font-weight: 400;
-  font-style: italic;
 }

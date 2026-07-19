@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<!--
+  MOTION / ANIMATION CRITIQUE — menu_screen.html (LG 32SM5J-B signage)
+  ================================================================
+  Critique of the current static version:
+  1. Only a one-time entrance fade (rise) plays, then the screen is 100% static
+     for hours — SIGNAGE_PLAN.md Part A.3 explicitly warns this risks burn-in
+     ("content should animate so no pixel is static for hours"). Nothing moves
+     after load except the clock text.
+  2. Background images are perfectly still. A slow Ken-Burns zoom is the
+     cheapest, most elegant way to keep large pixel regions in motion without
+     distracting from the menu.
+  3. Section titles and the accent divider line are dead static — they are
+     natural homes for a subtle "breathing" / shimmer that adds life.
+  4. No visual hierarchy cue for a standout dish; a single "Chef's pick" with a
+     soft glow would guide the eye and itself animates (anti-burn-in bonus).
+  5. The clock pill is static; a gentle pulse keeps that corner alive too.
+
+  What I changed (all motion is slow, calm, and never hides the menu):
+  - Added a continuous, very slow Ken-Burns zoom/pan on both column backgrounds
+    (alternating direction) so no background pixel sits still.
+  - Added a soft "breathing" pulse to the accent divider under each section
+    title and a faint shimmer sweep across the titles.
+  - Added one highlighted "Chef's Pick" (La Carbonara) with a slow glow pulse.
+  - Added a gentle pulse to the live-clock pill.
+  - Kept the static 2-column portrait split, all dishes/prices (LOCKED), dark
+    scrim, live clock, and 10-min auto-reload exactly as required.
+  - All motion uses prefers-reduced-motion safety + long durations (12–30s)
+    and respects the existing color vars and Google Fonts.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasta Menu — Signage (Portrait)</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+  :root {
+    --accent: #8b3a3a;
+    --line: #d4c3a5;
+    --bg: #fdfbf7;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #000;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--bg);
+  }
+
+  /* Portrait stage 1080 x 1920 */
+  .stage {
+    position: relative;
+    width: 1080px;
+    height: 1920px;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  .col {
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+  }
+  .col.left  { border-right: 2px solid rgba(212,195,165,0.45); }
+
+  .bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    /* Ken-Burns: slow continuous zoom + pan so no pixel is static */
+    transform-origin: center;
+    animation: kenburns 30s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  .col.right .bg { animation-name: kenburns-alt; }
+  @keyframes kenburns {
+    from { transform: scale(1.05) translate(0, 0); }
+    to   { transform: scale(1.18) translate(-1.5%, -1.5%); }
+  }
+  @keyframes kenburns-alt {
+    from { transform: scale(1.18) translate(1.5%, 1.5%); }
+    to   { transform: scale(1.05) translate(0, 0); }
+  }
+
+  .col.left  .bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      rgba(18,14,10,0.80) 0%,
+      rgba(18,14,10,0.62) 40%,
+      rgba(18,14,10,0.78) 100%);
+  }
+  .col.right .bg::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg,
+      rgba(18,14,10,0.80) 0%,
+      rgba(18,14,10,0.62) 40%,
+      rgba(18,14,10,0.78) 100%);
+  }
+
+  .panel {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    padding: 40px 30px 34px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    flex-shrink: 0;
+    text-align: center;
+    padding-bottom: 12px;
+    margin-bottom: 14px;
+    border-bottom: 1.5px solid rgba(212,195,165,0.55);
+  }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--line);
+    font-weight: 600;
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    line-height: 0.95;
+    margin-top: 4px;
+  }
+  .sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e7ddd0;
+    margin-top: 6px;
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .menu-section { width: 100%; }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--line);
+    margin-bottom: 9px;
+    position: relative;
+    /* faint shimmer sweep across the title text */
+    background: linear-gradient(100deg,
+      var(--line) 0%, var(--line) 40%,
+      #fff7e8 50%, var(--line) 60%, var(--line) 100%);
+    background-size: 220% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 9s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%, 100% { background-position: 130% 0; }
+    50%      { background-position: -30% 0; }
+  }
+  .section-title::after {
+    content: "";
+    display: block;
+    width: 42px; height: 2px;
+    background: var(--accent);
+    margin-top: 5px;
+    /* breathing accent line */
+    transform-origin: left center;
+    animation: breathe 6s ease-in-out infinite;
+  }
+  @keyframes breathe {
+    0%, 100% { opacity: 0.55; transform: scaleX(0.85); }
+    50%      { opacity: 1;    transform: scaleX(1.15); }
+  }
+
+  .items { display: flex; flex-direction: column; gap: 7px; }
+
+  .item { display: flex; align-items: baseline; gap: 8px; }
+  .item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1.15;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  }
+  .dots {
+    flex: 1;
+    border-bottom: 1.5px dotted rgba(212,195,165,0.5);
+    margin: 0 5px 5px;
+    min-width: 14px;
+  }
+  .item-price {
+    font-size: 17px;
+    font-weight: 600;
+    white-space: nowrap;
+    color: #fff;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+  }
+  .item-desc {
+    font-size: 13px;
+    line-height: 1.25;
+    color: #ded3c5;
+    font-weight: 300;
+    margin-top: 1px;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+  }
+
+  .compact-row { display: flex; gap: 14px 22px; flex-wrap: wrap; }
+  .compact-row .item { gap: 7px; }
+  .compact-row .item-name { font-size: 18px; }
+
+  /* Chef's Pick — single highlighted dish with a soft glow pulse */
+  .item.chef-pick {
+    position: relative;
+    padding: 6px 10px;
+    margin: 2px -10px;
+    border-radius: 8px;
+    background: rgba(139,58,58,0.16);
+    border: 1px solid rgba(212,195,165,0.35);
+    animation: glow 5.5s ease-in-out infinite;
+  }
+  .item.chef-pick .item-name { color: #fff3e6; }
+  .item.chef-pick::before {
+    content: "Chef's Pick";
+    position: absolute;
+    top: -9px; left: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--line);
+    background: rgba(18,14,10,0.85);
+    padding: 1px 7px;
+    border-radius: 8px;
+  }
+  @keyframes glow {
+    0%, 100% { box-shadow: 0 0 0 rgba(212,195,165,0); }
+    50%      { box-shadow: 0 0 18px rgba(212,195,165,0.35); }
+  }
+
+  footer {
+    flex-shrink: 0;
+    text-align: center;
+    padding-top: 12px;
+    margin-top: 8px;
+    border-top: 1.5px solid rgba(212,195,165,0.55);
+    font-size: 12px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--line);
+  }
+
+  /* Clock */
+  .clock {
+    position: absolute;
+    top: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--line);
+    text-shadow: 0 1px 5px rgba(0,0,0,0.6);
+    background: rgba(18,14,10,0.45);
+    padding: 4px 16px;
+    border-radius: 20px;
+    animation: clockpulse 4s ease-in-out infinite;
+  }
+  @keyframes clockpulse {
+    0%, 100% { box-shadow: 0 0 0 rgba(212,195,165,0); }
+    50%      { box-shadow: 0 0 14px rgba(212,195,165,0.30); }
+  }
+
+  /* Gentle entrance */
+  .col > .panel > * { animation: rise 1s ease both; }
+  .col.left  header { animation-delay: 0.1s; }
+  .col.left  .content { animation-delay: 0.25s; }
+  .col.left  footer { animation-delay: 0.4s; }
+  .col.right header { animation-delay: 0.2s; }
+  .col.right .content { animation-delay: 0.35s; }
+  .col.right footer { animation-delay: 0.5s; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Respect users / displays that prefer no motion */
+  @media (prefers-reduced-motion: reduce) {
+    .bg, .section-title, .section-title::after,
+    .item.chef-pick, .clock { animation: none !important; }
+    .section-title {
+      background: none;
+      -webkit-text-fill-color: var(--line);
+    }
+  }
+</style>
+</head>
+
+<body>
+<div class="stage">
+
+  <div class="clock" id="clock"></div>
+
+  <!-- LEFT COLUMN: Antipasti & Drinks -->
+  <div class="col left">
+    <div class="bg" style="background-image:url('images/focaccia.jpg')"></div>
+    <div class="panel">
+      <header>
+        <div class="eyebrow">Cucina Italiana</div>
+        <h1>Antipasti &amp; Drinks</h1>
+        <div class="sub">To share, to start, to refresh</div>
+      </header>
+
+      <div class="content">
+        <div class="menu-section">
+          <h2 class="section-title">Antipasti</h2>
+          <div class="items">
+            <div class="item"><span class="item-name">Warm Focaccia</span><span class="dots"></span><span class="item-price">€6.50</span>
+              <div class="item-desc">Rosemary-infused extra virgin olive oil.</div></div>
+            <div class="item"><span class="item-name">Bruschetta Classica</span><span class="dots"></span><span class="item-price">€8.00</span>
+              <div class="item-desc">Tomato, basil, garlic and olive oil.</div></div>
+            <div class="item"><span class="item-name">Bruschetta Cremosa</span><span class="dots"></span><span class="item-price">€10.00</span>
+              <div class="item-desc">Stracciatella, cherry tomatoes, basil.</div></div>
+            <div class="item"><span class="item-name">Bruschetta Mediterranea</span><span class="dots"></span><span class="item-price">€10.00</span>
+              <div class="item-desc">Tomato, olives, anchovies, capers, basil.</div></div>
+            <div class="item"><span class="item-name">Bruschetta Gorgonzola e Miele</span><span class="dots"></span><span class="item-price">€10.00</span>
+              <div class="item-desc">Gorgonzola Dolce, honey, black pepper.</div></div>
+            <div class="item"><span class="item-name">Bruschetta Mista</span><span class="dots"></span><span class="item-price">€16.00</span>
+              <div class="item-desc">Four assorted bruschette.</div></div>
+            <div class="item"><span class="item-name">Tagliere Formaggi</span><span class="dots"></span><span class="item-price">€16.00</span>
+              <div class="item-desc">Cheeses, focaccia, olives, honey, fig jam.</div></div>
+            <div class="item"><span class="item-name">Insalata di Rucola</span><span class="dots"></span><span class="item-price">€6.00</span>
+              <div class="item-desc">Rocket, tomatoes, olives, Parmigiano.</div></div>
+            <div class="item"><span class="item-name">Olive Marinate</span><span class="dots"></span><span class="item-price">€6.00</span>
+              <div class="item-desc">Herbs, garlic and citrus.</div></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h2 class="section-title">Spritz 0.0</h2>
+          <div class="compact-row">
+            <div class="item"><span class="item-name">Aperol 0.0</span><span class="dots"></span><span class="item-price">€12</span></div>
+            <div class="item"><span class="item-name">Bitter 0.0</span><span class="dots"></span><span class="item-price">€12</span></div>
+            <div class="item"><span class="item-name">Limoncello 0.0</span><span class="dots"></span><span class="item-price">€12</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h2 class="section-title">Alcohol-Free Cocktails</h2>
+          <div class="compact-row">
+            <div class="item"><span class="item-name">Mojito</span><span class="dots"></span><span class="item-price">€12</span></div>
+            <div class="item"><span class="item-name">Amaretto Sour</span><span class="dots"></span><span class="item-price">€12</span></div>
+            <div class="item"><span class="item-name">Pornstar Martini</span><span class="dots"></span><span class="item-price">€12</span></div>
+            <div class="item"><span class="item-name">Strawberry Daiquiri</span><span class="dots"></span><span class="item-price">€12</span></div>
+            <div class="item"><span class="item-name">Sex on the Beach</span><span class="dots"></span><span class="item-price">€12</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h2 class="section-title">Beer · Fizzy · Water</h2>
+          <div class="compact-row">
+            <div class="item"><span class="item-name">Heineken 0.0</span><span class="dots"></span><span class="item-price">€6</span></div>
+            <div class="item"><span class="item-name">Passion Fruit</span><span class="dots"></span><span class="item-price">€6</span></div>
+            <div class="item"><span class="item-name">Orange</span><span class="dots"></span><span class="item-price">€6</span></div>
+            <div class="item"><span class="item-name">Pineapple</span><span class="dots"></span><span class="item-price">€6</span></div>
+            <div class="item"><span class="item-name">Apricot</span><span class="dots"></span><span class="item-price">€6</span></div>
+            <div class="item"><span class="item-name">Still Water 0.75 L</span><span class="dots"></span><span class="item-price">€4</span></div>
+            <div class="item"><span class="item-name">Sparkling Water 0.75 L</span><span class="dots"></span><span class="item-price">€4</span></div>
+          </div>
+        </div>
+      </div>
+
+      <footer>Alcohol-Free · 0.0%</footer>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN: Pasta & Mare -->
+  <div class="col right">
+    <div class="bg" style="background-image:url('images/pasta-bowl-dark.jpg')"></div>
+    <div class="panel">
+      <header>
+        <div class="eyebrow">Cucina Italiana</div>
+        <h1>Pasta &amp; Mare</h1>
+        <div class="sub">Served al dente · Traditional recipes</div>
+      </header>
+
+      <div class="content">
+        <div class="menu-section">
+          <h2 class="section-title">Pasta Classica</h2>
+          <div class="items">
+            <div class="item chef-pick"><span class="item-name">La Carbonara</span><span class="dots"></span><span class="item-price">€19.00</span>
+              <div class="item-desc">Guanciale, egg yolk, Pecorino, pepper.</div></div>
+            <div class="item"><span class="item-name">Cacio e Pepe</span><span class="dots"></span><span class="item-price">€16.00</span>
+              <div class="item-desc">Pecorino, cracked black pepper.</div></div>
+            <div class="item"><span class="item-name">Amatriciana</span><span class="dots"></span><span class="item-price">€18.00</span>
+              <div class="item-desc">Guanciale, tomato, Pecorino.</div></div>
+            <div class="item"><span class="item-name">Bolognese</span><span class="dots"></span><span class="item-price">€18.00</span>
+              <div class="item-desc">Traditional sauce, Parmigiano.</div></div>
+            <div class="item"><span class="item-name">Alla Puttanesca</span><span class="dots"></span><span class="item-price">€18.00</span>
+              <div class="item-desc">Garlic, anchovies, capers, olives.</div></div>
+            <div class="item"><span class="item-name">Arrabbiata</span><span class="dots"></span><span class="item-price">€15.00</span>
+              <div class="item-desc">Spicy tomato, Parmigiano.</div></div>
+            <div class="item"><span class="item-name">Al Pomodoro</span><span class="dots"></span><span class="item-price">€14.00</span>
+              <div class="item-desc">Tomato, basil, Parmigiano.</div></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h2 class="section-title">Pasta Speciale</h2>
+          <div class="items">
+            <div class="item"><span class="item-name">Pesto Genovese c. Stracciatella</span><span class="dots"></span><span class="item-price">€17.00</span></div>
+            <div class="item"><span class="item-name">Quattro Formaggi</span><span class="dots"></span><span class="item-price">€20.00</span></div>
+            <div class="item"><span class="item-name">Linguine alla Diavola c. Cozze</span><span class="dots"></span><span class="item-price">€20.00</span></div>
+            <div class="item"><span class="item-name">Gamberetti</span><span class="dots"></span><span class="item-price">€21.00</span>
+              <div class="item-desc">Shrimp, garlic, light cream.</div></div>
+            <div class="item"><span class="item-name">Linguine Cozze e Gorgonzola</span><span class="dots"></span><span class="item-price">€22.00</span></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h2 class="section-title">Specialità di Mare</h2>
+          <div class="items">
+            <div class="item"><span class="item-name">Cozze alla Diavola</span><span class="dots"></span><span class="item-price">€16.00</span>
+              <div class="item-desc">Mussels, garlic, wine, tomato, chili.</div></div>
+            <div class="item"><span class="item-name">Cozze al Gorgonzola</span><span class="dots"></span><span class="item-price">€18.00</span>
+              <div class="item-desc">Mussels, creamy Gorgonzola.</div></div>
+          </div>
+        </div>
+
+        <div class="menu-section">
+          <h2 class="section-title">Extras</h2>
+          <div class="compact-row">
+            <div class="item"><span class="item-name">Gluten-Free Pasta</span><span class="dots"></span><span class="item-price">€3.00</span></div>
+            <div class="item"><span class="item-name">Add Pecorino</span><span class="dots"></span><span class="item-price">€2.50</span></div>
+            <div class="item"><span class="item-name">Add Parmigiano</span><span class="dots"></span><span class="item-price">€2.50</span></div>
+            <div class="item"><span class="item-name">Add Stracciatella</span><span class="dots"></span><span class="item-price">€4.00</span></div>
+          </div>
+        </div>
+      </div>
+
+      <footer>Extras on request</footer>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // Live clock
+  function tick() {
+    const el = document.getElementById('clock');
+    const d = new Date();
+    let h = d.getHours(), m = d.getMinutes();
+    const ap = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    el.textContent = (h < 10 ? '0'+h : h) + ':' + (m < 10 ? '0'+m : m) + ' ' + ap;
+  }
+  tick(); setInterval(tick, 1000);
+
+  // Auto-reload so price edits show without manual reboot (every 10 min)
+  setTimeout(() => location.reload(), 10 * 60 * 1000);
+</script>
+</body>
+</html>

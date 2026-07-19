@@ -1,114 +1,190 @@
 {
   "restaurant": "Pasta",
-  "tagline": "Fresh handmade pasta since 2024",
+  "tagline": "Fresh handmade pasta · Traditional recipes",
   "currency": "€",
   "sections": [
     {
       "name": "Antipasti",
       "items": [
         {
+          "name": "Warm Focaccia",
+          "description": "Served with rosemary-infused extra virgin olive oil.",
+          "price": 6.50
+        },
+        {
           "name": "Bruschetta Classica",
-          "description": "Toasted sourdough, tomato, basil, extra virgin olive oil",
-          "price": 6.50,
-          "tags": ["vegetarian"]
+          "description": "Toasted bread with tomato, basil, garlic and extra virgin olive oil.",
+          "price": 8.00
         },
         {
-          "name": "Carpaccio di Manzo",
-          "description": "Thinly sliced beef, rocket, parmesan, truffle oil",
-          "price": 9.00
+          "name": "Bruschetta Cremosa",
+          "description": "Toasted bread with stracciatella, cherry tomatoes, fresh basil and extra virgin olive oil.",
+          "price": 10.00
         },
         {
-          "name": "Calamari Fritti",
-          "description": "Crispy squid, lemon aioli, marinara sauce",
-          "price": 8.50
-        }
-      ]
-    },
-    {
-      "name": "Pasta",
-      "items": [
-        {
-          "name": "Spaghetti Carbonara",
-          "description": "Guanciale, egg yolk, pecorino romano, black pepper",
-          "price": 14.00,
-          "tags": ["signature"]
+          "name": "Bruschetta Mediterranea",
+          "description": "Toasted bread with tomato, olives, anchovies, capers and basil.",
+          "price": 10.00
         },
         {
-          "name": "Pappardelle al Ragù",
-          "description": "Slow-cooked beef ragù, parmesan, fresh herbs",
-          "price": 15.00
+          "name": "Bruschetta Gorgonzola e Miele",
+          "description": "Toasted bread with Gorgonzola Dolce, honey and freshly cracked black pepper.",
+          "price": 10.00
         },
         {
-          "name": "Cacio e Pepe",
-          "description": "Tonnarelli, pecorino romano, black pepper",
-          "price": 13.00,
-          "tags": ["vegetarian"]
-        },
-        {
-          "name": "Linguine alle Vongole",
-          "description": "Fresh clams, white wine, garlic, chili, parsley",
+          "name": "Bruschetta Mista",
+          "description": "Four assorted bruschette selected from our specialties.",
           "price": 16.00
         },
         {
-          "name": "Gnocchi al Pesto",
-          "description": "Handmade potato gnocchi, basil pesto, pine nuts, parmesan",
-          "price": 13.50,
-          "tags": ["vegetarian"]
+          "name": "Tagliere Formaggi",
+          "description": "A selection of Italian cheeses served with warm focaccia, olives, honey and fig jam.",
+          "price": 16.00
+        },
+        {
+          "name": "Insalata di Rucola",
+          "description": "Rocket, cherry tomatoes, olives, Parmigiano Reggiano and balsamic vinaigrette.",
+          "price": 6.00
+        },
+        {
+          "name": "Olive Marinate",
+          "description": "Italian olives marinated with herbs, garlic and citrus.",
+          "price": 6.00
         }
       ]
     },
     {
-      "name": "Dolci",
+      "name": "Spritz 0.0",
+      "items": [
+        { "name": "Aperol 0.0", "price": 12.00 },
+        { "name": "Bitter 0.0", "price": 12.00 },
+        { "name": "Limoncello 0.0", "price": 12.00 }
+      ]
+    },
+    {
+      "name": "Alcohol-Free Cocktails",
+      "items": [
+        { "name": "Mojito", "price": 12.00 },
+        { "name": "Amaretto Sour", "price": 12.00 },
+        { "name": "Pornstar Martini", "price": 12.00 },
+        { "name": "Strawberry Daiquiri", "price": 12.00 },
+        { "name": "Sex on the Beach", "price": 12.00 }
+      ]
+    },
+    {
+      "name": "Beer",
+      "items": [
+        { "name": "Heineken 0.0", "price": 6.00 }
+      ]
+    },
+    {
+      "name": "Fizzy",
+      "items": [
+        { "name": "Passion Fruit", "price": 6.00 },
+        { "name": "Orange", "price": 6.00 },
+        { "name": "Pineapple", "price": 6.00 },
+        { "name": "Apricot", "price": 6.00 }
+      ]
+    },
+    {
+      "name": "Water",
+      "items": [
+        { "name": "Still Water 0.75 L", "price": 4.00 },
+        { "name": "Sparkling Water 0.75 L", "price": 4.00 }
+      ]
+    },
+    {
+      "name": "Pasta Classica",
       "items": [
         {
-          "name": "Tiramisù",
-          "description": "Mascarpone, espresso, savoiardi, cocoa",
-          "price": 7.00,
-          "tags": ["signature"]
+          "name": "La Carbonara",
+          "description": "Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.",
+          "price": 19.00
         },
         {
-          "name": "Panna Cotta",
-          "description": "Vanilla cream, seasonal berry compote",
-          "price": 6.50,
-          "tags": ["vegetarian"]
+          "name": "Cacio e Pepe",
+          "description": "Linguine with Pecorino Romano and freshly cracked black pepper.",
+          "price": 16.00
         },
         {
-          "name": "Cannoli Siciliani",
-          "description": "Crispy shells, ricotta, chocolate chips, candied orange",
-          "price": 7.50
+          "name": "Amatriciana",
+          "description": "Rigatoni with guanciale, tomato sauce and Pecorino Romano.",
+          "price": 18.00
+        },
+        {
+          "name": "Bolognese",
+          "description": "Rigatoni with traditional Bolognese sauce and Parmigiano Reggiano.",
+          "price": 18.00
+        },
+        {
+          "name": "Alla Puttanesca",
+          "description": "Rigatoni with garlic, anchovies, capers, black olives, peperoncino and tomato sauce.",
+          "price": 18.00
+        },
+        {
+          "name": "Arrabbiata",
+          "description": "Rigatoni with spicy tomato sauce and Parmigiano Reggiano.",
+          "price": 15.00
+        },
+        {
+          "name": "Al Pomodoro",
+          "description": "Linguine with tomato sauce, fresh basil and Parmigiano Reggiano.",
+          "price": 14.00
         }
       ]
     },
     {
-      "name": "Bevande",
+      "name": "Pasta Speciale",
       "items": [
         {
-          "name": "Acqua Naturale",
-          "description": "750ml",
-          "price": 3.00
+          "name": "Linguine al Pesto Genovese con Stracciatella",
+          "description": "Linguine with Genovese pesto and fresh stracciatella.",
+          "price": 17.00
         },
         {
-          "name": "Acqua Frizzante",
-          "description": "750ml",
-          "price": 3.50
+          "name": "Quattro Formaggi",
+          "description": "Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and fresh stracciatella.",
+          "price": 20.00
         },
         {
-          "name": "House Red Wine",
-          "description": "Glass / Carafe",
-          "price": 5.00,
-          "price2": 18.00
+          "name": "Linguine alla Diavola con Cozze",
+          "description": "Linguine with mussels, garlic, white wine, peperoncino and tomato.",
+          "price": 20.00
         },
         {
-          "name": "House White Wine",
-          "description": "Glass / Carafe",
-          "price": 5.00,
-          "price2": 18.00
+          "name": "Gamberetti",
+          "description": "Linguine with shrimp, garlic and a light cream sauce.",
+          "price": 21.00
         },
         {
-          "name": "Espresso",
-          "description": "",
-          "price": 2.50
+          "name": "Linguine alle Cozze e Gorgonzola",
+          "description": "Linguine with mussels, Gorgonzola Dolce, garlic and a light cream sauce.",
+          "price": 22.00
         }
+      ]
+    },
+    {
+      "name": "Specialità di Mare",
+      "items": [
+        {
+          "name": "Cozze alla Diavola",
+          "description": "Fresh mussels with garlic, white wine, tomato and peperoncino. Served with warm focaccia.",
+          "price": 16.00
+        },
+        {
+          "name": "Cozze al Gorgonzola",
+          "description": "Fresh mussels in a creamy Gorgonzola Dolce sauce. Served with warm focaccia.",
+          "price": 18.00
+        }
+      ]
+    },
+    {
+      "name": "Extras",
+      "items": [
+        { "name": "Gluten-Free Pasta", "price": 3.00 },
+        { "name": "Add Pecorino Romano", "price": 2.50 },
+        { "name": "Add Parmigiano Reggiano", "price": 2.50 },
+        { "name": "Add Fresh Stracciatella", "price": 4.00 }
       ]
     }
   ]

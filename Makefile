@@ -3,10 +3,10 @@
 dev:
 	uv run python3 -m http.server 8080
 
-pdf: menu_new.pdf
+pdf: menu_improved.pdf
 
-menu_new.pdf: menu_new.html
-	uv run weasyprint menu_new.html menu_new.pdf
+menu_improved.pdf: menu_improved.html
+	uv run weasyprint menu_improved.html menu_improved.pdf
 
 clean:
-	rm -f menu_new.pdf
+	rm -f menu_improved.pdf

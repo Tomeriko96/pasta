@@ -3,14 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Printable Menu - 2 Pages</title>
+<title>Menu — Agentic v2</title>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
   :root {
     --ink: #1b1b1b;
-    --muted: #606060;
+    --muted: #5c5c5c;
     --accent: #8b3a3a;
     --line: #d4c3a5;
+    --leader: #a8916a;
     --bg: #fdfbf7;
   }
 
@@ -29,7 +32,7 @@
     margin: 0;
     background: #e8dfd0;
     color: var(--ink);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -70,16 +73,16 @@
   }
 
   h1 {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 31px;
-    font-weight: normal;
+    font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
     line-height: 0.95;
   }
 
   .sub {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 13px;
     font-style: italic;
     color: var(--muted);
@@ -94,15 +97,22 @@
     min-height: 0;
   }
 
+  /* Owner print-safety fix: page 2 keeps space-between fill (safe under
+     overflow:hidden). On screen we reveal any overflow instead of hiding it
+     silently, so clipping is caught before print. */
+  @media screen {
+    .page { overflow: visible; outline: 1px dashed #c00; }
+  }
+
   .menu-section {
     width: 100%;
     break-inside: avoid;
   }
 
   .section-title {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
-    font-weight: normal;
+    font-weight: 600;
     letter-spacing: 2.3px;
     text-transform: uppercase;
     color: var(--accent);
@@ -119,6 +129,25 @@
     margin: 2.5px auto 0;
   }
 
+  .section-note {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 10.5px;
+    color: var(--muted);
+    margin: -1.5mm 0 2.5mm;
+  }
+
+  .subhead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 1.5mm 0 1mm;
+  }
+
   .item {
     margin-bottom: 2.25mm;
     break-inside: avoid;
@@ -131,30 +160,33 @@
   }
 
   .item-name {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 15.3px;
-    font-weight: normal;
-    letter-spacing: 0.1px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
     line-height: 1.08;
   }
 
   .dots {
     flex: 1;
-    border-bottom: 1px dotted #c4b28f;
+    border-bottom: 1px dotted var(--leader);
     margin: 0 4px 4px;
     min-width: 10mm;
+    opacity: 0.85;
   }
 
   .item-price {
     font-size: 12px;
     font-weight: 600;
     white-space: nowrap;
+    letter-spacing: 0.3px;
   }
 
   .item-desc {
-    font-size: 9.4px;
-    line-height: 1.25;
+    font-size: 10.5px;
+    line-height: 1.3;
     color: var(--muted);
+    font-weight: 400;
     margin-top: 0.8px;
     padding-right: 8mm;
   }
@@ -172,7 +204,7 @@
   }
 
   .note {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 12.7px;
     line-height: 1.3;
@@ -234,7 +266,7 @@
 
   <header>
     <div class="eyebrow">Cucina Italiana</div>
-    <h1>Antipasti & Drinks</h1>
+    <h1>Antipasti &amp; Drinks</h1>
     <div class="sub">To share, to start, to refresh</div>
   </header>
 
@@ -242,6 +274,7 @@
 
     <section class="menu-section">
       <h2 class="section-title">Antipasti</h2>
+      <p class="section-note">Small plates to share or start</p>
 
       <div class="item">
         <div class="item-header">
@@ -249,7 +282,7 @@
           <span class="dots"></span>
           <span class="item-price">€6.50</span>
         </div>
-        <div class="item-desc">Served with rosemary-infused extra virgin olive oil.</div>
+        <div class="item-desc">Oven-soft bread with rosemary and extra virgin olive oil.</div>
       </div>
 
       <div class="item">
@@ -294,7 +327,7 @@
           <span class="dots"></span>
           <span class="item-price">€16.00</span>
         </div>
-        <div class="item-desc">Four assorted bruschette selected from our specialties.</div>
+        <div class="item-desc">A mixed plate of our bruschette — ask us which ones.</div>
       </div>
 
       <div class="item">
@@ -319,14 +352,17 @@
         <div class="item-header">
           <span class="item-name">Olive Marinate</span>
           <span class="dots"></span>
-          <span class="item-price">€6.00</span>
+          <span class="item-price">€4.00</span>
         </div>
         <div class="item-desc">Italian olives marinated with herbs, garlic and citrus.</div>
       </div>
     </section>
 
     <section class="menu-section compact-section">
-      <h2 class="section-title">Spritz 0.0</h2>
+      <h2 class="section-title">Bevande — Alcohol-Free</h2>
+      <p class="section-note">Everything here is 0.0% — full flavour, no alcohol</p>
+
+      <div class="subhead">Spritz &amp; Spirits</div>
 
       <div class="item">
         <div class="item-header">
@@ -351,10 +387,8 @@
           <span class="item-price">€12.00</span>
         </div>
       </div>
-    </section>
 
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Alcohol-Free Cocktails</h2>
+      <div class="subhead">Alcohol-Free Cocktails</div>
 
       <div class="item">
         <div class="item-header">
@@ -395,10 +429,8 @@
           <span class="item-price">€12.00</span>
         </div>
       </div>
-    </section>
 
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Beer</h2>
+      <div class="subhead">Beer, Sodas &amp; Water</div>
 
       <div class="item">
         <div class="item-header">
@@ -407,10 +439,14 @@
           <span class="item-price">€6.00</span>
         </div>
       </div>
-    </section>
 
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Fizzy</h2>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Fruit Sodas</span>
+          <span class="dots"></span>
+          <span class="item-price">€6.00</span>
+        </div>
+      </div>
 
       <div class="item">
         <div class="item-header">
@@ -443,10 +479,6 @@
           <span class="item-price">€6.00</span>
         </div>
       </div>
-    </section>
-
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Water</h2>
 
       <div class="item">
         <div class="item-header">
@@ -467,8 +499,6 @@
 
   </main>
 
-  <footer>Start with something to share</footer>
-
 </div>
 
 
@@ -476,8 +506,8 @@
 <div class="page page-two">
 
   <header>
-    <div class="eyebrow">Fresh Pasta</div>
-    <h1>Pasta & Mare</h1>
+    <div class="eyebrow">Cucina Italiana</div>
+    <h1>Pasta &amp; Mare</h1>
     <div class="sub">Served al dente · Traditional Italian recipes</div>
   </header>
 
@@ -488,7 +518,7 @@
 
       <div class="item">
         <div class="item-header">
-          <span class="item-name">Carbonara</span>
+          <span class="item-name">La Carbonara</span>
           <span class="dots"></span>
           <span class="item-price">€19.00</span>
         </div>
@@ -537,7 +567,7 @@
           <span class="dots"></span>
           <span class="item-price">€15.00</span>
         </div>
-        <div class="item-desc">Rigatoni with spicy tomato sauce and Parmigiano Reggiano.</div>
+        <div class="item-desc">Rigatoni with spicy tomato sauce and Parmigiano Reggiano. Spicy!</div>
       </div>
 
       <div class="item">
@@ -577,7 +607,7 @@
           <span class="dots"></span>
           <span class="item-price">€20.00</span>
         </div>
-        <div class="item-desc">Linguine with mussels, garlic, white wine, peperoncino and tomato.</div>
+        <div class="item-desc">Linguine with mussels, garlic, white wine, peperoncino and tomato. Spicy!</div>
       </div>
 
       <div class="item">
@@ -608,7 +638,7 @@
           <span class="dots"></span>
           <span class="item-price">€16.00</span>
         </div>
-        <div class="item-desc">Fresh mussels with garlic, white wine, tomato and peperoncino. Served with warm focaccia.</div>
+        <div class="item-desc">Fresh mussels with garlic, white wine, tomato and peperoncino. Served with warm focaccia. Spicy!</div>
       </div>
 
       <div class="item">
@@ -621,12 +651,9 @@
       </div>
     </section>
 
-    <div class="note">
-      Our fresh pasta is served al dente and prepared according to traditional Italian recipes.
-    </div>
-
-    <section class="menu-section compact-section">
+    <section class="menu-section">
       <h2 class="section-title">Extras</h2>
+      <p class="section-note">Add to any pasta</p>
 
       <div class="item">
         <div class="item-header">
@@ -638,7 +665,7 @@
 
       <div class="item">
         <div class="item-header">
-          <span class="item-name">Add Extra Pecorino Romano</span>
+          <span class="item-name">Add Pecorino Romano</span>
           <span class="dots"></span>
           <span class="item-price">€2.50</span>
         </div>
@@ -660,18 +687,9 @@
         </div>
       </div>
 
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Extra Focaccia</span>
-          <span class="dots"></span>
-          <span class="item-price">€3.50</span>
-        </div>
-      </div>
     </section>
 
   </main>
-
-  <footer>Buon appetito</footer>
 
 </div>
 

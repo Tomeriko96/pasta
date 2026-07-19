@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pasta — Menu</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@400;500;600&display=swap');
+
+  :root {
+    --ink: #2b2117;
+    --muted: #6f6457;
+    --accent: #8a3b2e;
+    --leader: #a8916a;
+    --rule: #d9cdb8;
+    --paper: #fbf8f1;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: #e9e3d6;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    background: var(--paper);
+    margin: 12mm auto;
+    padding: 16mm 18mm 14mm 18mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  }
+
+  .masthead {
+    text-align: center;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 8px;
+    margin-bottom: 6px;
+  }
+  .masthead .kicker {
+    font-size: 10.5px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .masthead h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 52px;
+    line-height: 1;
+    letter-spacing: 1px;
+    margin: 2px 0 4px;
+  }
+  .masthead .sub {
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .section { margin-top: 18px; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 27px;
+    color: var(--accent);
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .section-title .num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .section-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+    position: relative;
+    top: -4px;
+  }
+
+  .item {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin: 6px 0;
+  }
+  .item .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+  .item .leader {
+    flex: 1;
+    border-bottom: 1.5px dotted var(--leader);
+    transform: translateY(-3px);
+    min-width: 12px;
+  }
+  .item .price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .item .desc {
+    font-size: 10.5px;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.3;
+    margin: -2px 0 4px 0;
+  }
+
+  .drink-block {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 10px 14px 6px;
+    margin-top: 6px;
+  }
+  .drink-block .banner {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .drink-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: var(--ink);
+    margin: 8px 0 2px;
+  }
+  .drink-sub .tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-left: 6px;
+  }
+
+  .extras-note {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .footer {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+    text-align: center;
+    font-size: 9.5px;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  @page { size: A4; margin: 0; }
+
+  @media print {
+    html, body { background: #fff; }
+    .page { margin: 0; box-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1 ===================== -->
+<main class="page">
+  <header class="masthead">
+    <div class="kicker">Trattoria · Amsterdam</div>
+    <h1>Pasta</h1>
+    <div class="sub">Antipasti &amp; Bevande — Alcohol-Free</div>
+  </header>
+
+  <section class="section">
+    <div class="section-title"><span class="num">01</span> Antipasti</div>
+
+    <div class="item"><span class="name">Warm Focaccia</span><span class="leader"></span><span class="price">€6.50</span></div>
+    <div class="desc">Olive-oil bread, rosemary &amp; sea salt.</div>
+
+    <div class="item"><span class="name">Bruschetta Classica</span><span class="leader"></span><span class="price">€8.00</span></div>
+    <div class="desc">Toasted bread, tomato, garlic, basil.</div>
+
+    <div class="item"><span class="name">Bruschetta Cremosa</span><span class="leader"></span><span class="price">€10.00</span></div>
+    <div class="desc">Creamy stracciatella &amp; fresh tomato.</div>
+
+    <div class="item"><span class="name">Bruschetta Mediterranea</span><span class="leader"></span><span class="price">€10.00</span></div>
+    <div class="desc">Olives, capers, cherry tomato.</div>
+
+    <div class="item"><span class="name">Bruschetta Gorgonzola e Miele</span><span class="leader"></span><span class="price">€10.00</span></div>
+    <div class="desc">Gorgonzola cream, honey drizzle.</div>
+
+    <div class="item"><span class="name">Bruschetta Mista</span><span class="leader"></span><span class="price">€16.00</span></div>
+    <div class="desc">Selection of four bruschette.</div>
+
+    <div class="item"><span class="name">Tagliere Formaggi</span><span class="leader"></span><span class="price">€16.00</span></div>
+    <div class="desc">Italian cheese board.</div>
+
+    <div class="item"><span class="name">Insalata di Rucola</span><span class="leader"></span><span class="price">€6.00</span></div>
+    <div class="desc">Rocket, lemon, parmesan.</div>
+
+    <div class="item"><span class="name">Olive Marinate</span><span class="leader"></span><span class="price">€6.00</span></div>
+    <div class="desc">House-marinated olives.</div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><span class="num">02</span> Bevande — Alcohol-Free</div>
+    <div class="drink-block">
+      <div class="banner">Everything on this page is 0.0% — no alcohol, all flavour</div>
+
+      <div class="drink-sub">Aperitivo 0.0 <span class="tag">per glass</span></div>
+      <div class="item"><span class="name">Spritz 0.0 / Aperol 0.0 / Bitter 0.0 / Limoncello 0.0</span><span class="leader"></span><span class="price">€12.00</span></div>
+
+      <div class="drink-sub">Alcohol-Free Cocktails <span class="tag">per glass</span></div>
+      <div class="item"><span class="name">Mojito · Amaretto Sour · Pornstar Martini · Strawberry Daiquiri · Sex on the Beach</span><span class="leader"></span><span class="price">€12.00</span></div>
+
+      <div class="drink-sub">Beer &amp; Sodas <span class="tag">bottled</span></div>
+      <div class="item"><span class="name">Heineken 0.0</span><span class="leader"></span><span class="price">€6.00</span></div>
+      <div class="item"><span class="name">Fruit Sodas (Passion Fruit · Orange · Pineapple · Apricot)</span><span class="leader"></span><span class="price">€6.00</span></div>
+
+      <div class="drink-sub">Water <span class="tag">0.75 L</span></div>
+      <div class="item"><span class="name">Still Water</span><span class="leader"></span><span class="price">€4.00</span></div>
+      <div class="item"><span class="name">Sparkling Water</span><span class="leader"></span><span class="price">€4.00</span></div>
+    </div>
+  </section>
+
+  <div class="footer">Pasta · Authentic Italian · Amsterdam</div>
+</main>
+
+<!-- ===================== PAGE 2 ===================== -->
+<main class="page">
+  <header class="masthead">
+    <div class="kicker">Trattoria · Amsterdam</div>
+    <h1>Pasta</h1>
+    <div class="sub">Pasta · Mare · Extras</div>
+  </header>
+
+  <section class="section">
+    <div class="section-title"><span class="num">03</span> Pasta Classica</div>
+
+    <div class="item"><span class="name">La Carbonara</span><span class="leader"></span><span class="price">€19.00</span></div>
+    <div class="desc">Egg, guanciale, pecorino, black pepper.</div>
+
+    <div class="item"><span class="name">Cacio e Pepe</span><span class="leader"></span><span class="price">€16.00</span></div>
+    <div class="desc">Pecorino, toasted black pepper.</div>
+
+    <div class="item"><span class="name">Amatriciana</span><span class="leader"></span><span class="price">€18.00</span></div>
+    <div class="desc">Tomato, guanciale, pecorino.</div>
+
+    <div class="item"><span class="name">Bolognese</span><span class="leader"></span><span class="price">€18.00</span></div>
+    <div class="desc">Slow beef &amp; pork ragù.</div>
+
+    <div class="item"><span class="name">Alla Puttanesca</span><span class="leader"></span><span class="price">€18.00</span></div>
+    <div class="desc">Tomato, olive, caper, anchovy.</div>
+
+    <div class="item"><span class="name">Arrabbiata</span><span class="leader"></span><span class="price">€15.00</span></div>
+    <div class="desc">Spicy tomato, chilli.</div>
+
+    <div class="item"><span class="name">Al Pomodoro</span><span class="leader"></span><span class="price">€14.00</span></div>
+    <div class="desc">Tomato, basil, garlic.</div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><span class="num">04</span> Pasta Speciale</div>
+
+    <div class="item"><span class="name">Linguine al Pesto Genovese con Stracciatella</span><span class="leader"></span><span class="price">€17.00</span></div>
+    <div class="desc">Basil pesto, fresh stracciatella.</div>
+
+    <div class="item"><span class="name">Quattro Formaggi</span><span class="leader"></span><span class="price">€20.00</span></div>
+    <div class="desc">Four-cheese cream sauce.</div>
+
+    <div class="item"><span class="name">Linguine alla Diavola con Cozze</span><span class="leader"></span><span class="price">€20.00</span></div>
+    <div class="desc">Spicy linguine with mussels.</div>
+
+    <div class="item"><span class="name">Gamberetti</span><span class="leader"></span><span class="price">€21.00</span></div>
+    <div class="desc">Prawns, garlic, tomato, chilli.</div>
+
+    <div class="item"><span class="name">Linguine alle Cozze e Gorgonzola</span><span class="leader"></span><span class="price">€22.00</span></div>
+    <div class="desc">Mussels, gorgonzola cream.</div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><span class="num">05</span> Specialità di Mare</div>
+
+    <div class="item"><span class="name">Cozze alla Diavola</span><span class="leader"></span><span class="price">€16.00</span></div>
+    <div class="desc">Mussels, spicy tomato broth.</div>
+
+    <div class="item"><span class="name">Cozze al Gorgonzola</span><span class="leader"></span><span class="price">€18.00</span></div>
+    <div class="desc">Mussels, gorgonzola cream.</div>
+  </section>
+
+  <section class="section">
+    <div class="section-title"><span class="num">06</span> Extras</div>
+    <div class="extras-note">Add to any pasta</div>
+
+    <div class="item"><span class="name">Gluten-Free Pasta</span><span class="leader"></span><span class="price">€3.00</span></div>
+    <div class="item"><span class="name">Add Pecorino Romano</span><span class="leader"></span><span class="price">€2.50</span></div>
+    <div class="item"><span class="name">Add Parmigiano Reggiano</span><span class="leader"></span><span class="price">€2.50</span></div>
+    <div class="item"><span class="name">Add Fresh Stracciatella</span><span class="leader"></span><span class="price">€4.00</span></div>
+  </section>
+
+  <div class="footer">Pasta · Authentic Italian · Amsterdam</div>
+</main>
+
+</body>
+</html>

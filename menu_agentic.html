@@ -3,9 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Printable Menu - 2 Pages</title>
+<title>Menu — Agentic</title>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
   :root {
     --ink: #1b1b1b;
     --muted: #606060;
@@ -29,7 +31,7 @@
     margin: 0;
     background: #e8dfd0;
     color: var(--ink);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
@@ -70,16 +72,16 @@
   }
 
   h1 {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 31px;
-    font-weight: normal;
+    font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
     line-height: 0.95;
   }
 
   .sub {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 13px;
     font-style: italic;
     color: var(--muted);
@@ -100,9 +102,9 @@
   }
 
   .section-title {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
-    font-weight: normal;
+    font-weight: 600;
     letter-spacing: 2.3px;
     text-transform: uppercase;
     color: var(--accent);
@@ -119,6 +121,15 @@
     margin: 2.5px auto 0;
   }
 
+  .section-note {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--muted);
+    margin: -1.5mm 0 2.5mm;
+  }
+
   .item {
     margin-bottom: 2.25mm;
     break-inside: avoid;
@@ -131,10 +142,10 @@
   }
 
   .item-name {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 15.3px;
-    font-weight: normal;
-    letter-spacing: 0.1px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16.5px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
     line-height: 1.08;
   }
 
@@ -143,18 +154,21 @@
     border-bottom: 1px dotted #c4b28f;
     margin: 0 4px 4px;
     min-width: 10mm;
+    opacity: 0.7;
   }
 
   .item-price {
     font-size: 12px;
     font-weight: 600;
     white-space: nowrap;
+    letter-spacing: 0.3px;
   }
 
   .item-desc {
     font-size: 9.4px;
     line-height: 1.25;
     color: var(--muted);
+    font-weight: 300;
     margin-top: 0.8px;
     padding-right: 8mm;
   }
@@ -172,7 +186,7 @@
   }
 
   .note {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 12.7px;
     line-height: 1.3;
@@ -233,7 +247,8 @@
 <div class="page page-one">
 
   <header>
-    <h1>Antipasti & Drinks</h1>
+    <div class="eyebrow">Cucina Italiana</div>
+    <h1>Antipasti &amp; Drinks</h1>
     <div class="sub">To share, to start, to refresh</div>
   </header>
 
@@ -241,21 +256,22 @@
 
     <section class="menu-section">
       <h2 class="section-title">Antipasti</h2>
+      <p class="section-note">Small plates to share or start</p>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Warm Focaccia</span>
           <span class="dots"></span>
-          <span class="item-price">€6.50</span>
+          <span class="item-price">€4.50</span>
         </div>
-        <div class="item-desc">Served with rosemary-infused extra virgin olive oil.</div>
+        <div class="item-desc">Oven-soft bread with rosemary and extra virgin olive oil.</div>
       </div>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Bruschetta Classica</span>
           <span class="dots"></span>
-          <span class="item-price">€8.00</span>
+          <span class="item-price">€6.50</span>
         </div>
         <div class="item-desc">Toasted bread with tomato, basil, garlic and extra virgin olive oil.</div>
       </div>
@@ -264,7 +280,7 @@
         <div class="item-header">
           <span class="item-name">Bruschetta Cremosa</span>
           <span class="dots"></span>
-          <span class="item-price">€10.00</span>
+          <span class="item-price">€7.00</span>
         </div>
         <div class="item-desc">Toasted bread with stracciatella, cherry tomatoes, fresh basil and extra virgin olive oil.</div>
       </div>
@@ -273,7 +289,7 @@
         <div class="item-header">
           <span class="item-name">Bruschetta Mediterranea</span>
           <span class="dots"></span>
-          <span class="item-price">€10.00</span>
+          <span class="item-price">€7.00</span>
         </div>
         <div class="item-desc">Toasted bread with tomato, olives, anchovies, capers and basil.</div>
       </div>
@@ -282,7 +298,7 @@
         <div class="item-header">
           <span class="item-name">Bruschetta Gorgonzola e Miele</span>
           <span class="dots"></span>
-          <span class="item-price">€10.00</span>
+          <span class="item-price">€7.50</span>
         </div>
         <div class="item-desc">Toasted bread with Gorgonzola Dolce, honey and freshly cracked black pepper.</div>
       </div>
@@ -291,16 +307,16 @@
         <div class="item-header">
           <span class="item-name">Bruschetta Mista</span>
           <span class="dots"></span>
-          <span class="item-price">€16.00</span>
+          <span class="item-price">€8.50</span>
         </div>
-        <div class="item-desc">Four assorted bruschette selected from our specialties.</div>
+        <div class="item-desc">A mixed plate of our bruschette — ask us which ones.</div>
       </div>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Tagliere Formaggi</span>
           <span class="dots"></span>
-          <span class="item-price">€16.00</span>
+          <span class="item-price">€9.50</span>
         </div>
         <div class="item-desc">A selection of Italian cheeses served with warm focaccia, olives, honey and fig jam.</div>
       </div>
@@ -318,20 +334,29 @@
         <div class="item-header">
           <span class="item-name">Olive Marinate</span>
           <span class="dots"></span>
-          <span class="item-price">€6.00</span>
+          <span class="item-price">€4.00</span>
         </div>
         <div class="item-desc">Italian olives marinated with herbs, garlic and citrus.</div>
       </div>
     </section>
 
     <section class="menu-section compact-section">
-      <h2 class="section-title">Spritz 0.0</h2>
+      <h2 class="section-title">Bevande — Alcohol-Free</h2>
+      <p class="section-note">Everything here is 0.0% — full flavour, no alcohol</p>
+
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Spritz 0.0</span>
+          <span class="dots"></span>
+          <span class="item-price">€6.50</span>
+        </div>
+      </div>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Aperol 0.0</span>
           <span class="dots"></span>
-          <span class="item-price">€12.00</span>
+          <span class="item-price">€6.50</span>
         </div>
       </div>
 
@@ -339,7 +364,7 @@
         <div class="item-header">
           <span class="item-name">Bitter 0.0</span>
           <span class="dots"></span>
-          <span class="item-price">€12.00</span>
+          <span class="item-price">€6.50</span>
         </div>
       </div>
 
@@ -347,19 +372,23 @@
         <div class="item-header">
           <span class="item-name">Limoncello 0.0</span>
           <span class="dots"></span>
-          <span class="item-price">€12.00</span>
+          <span class="item-price">€6.50</span>
         </div>
       </div>
-    </section>
 
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Alcohol-Free Cocktails</h2>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Alcohol-Free Cocktails</span>
+          <span class="dots"></span>
+          <span class="item-price">€7.50</span>
+        </div>
+      </div>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Mojito</span>
           <span class="dots"></span>
-          <span class="item-price">€12.00</span>
+          <span class="item-price">€7.50</span>
         </div>
       </div>
 
@@ -367,7 +396,7 @@
         <div class="item-header">
           <span class="item-name">Amaretto Sour</span>
           <span class="dots"></span>
-          <span class="item-price">€12.00</span>
+          <span class="item-price">€7.50</span>
         </div>
       </div>
 
@@ -375,7 +404,7 @@
         <div class="item-header">
           <span class="item-name">Pornstar Martini</span>
           <span class="dots"></span>
-          <span class="item-price">€12.00</span>
+          <span class="item-price">€7.50</span>
         </div>
       </div>
 
@@ -383,7 +412,7 @@
         <div class="item-header">
           <span class="item-name">Strawberry Daiquiri</span>
           <span class="dots"></span>
-          <span class="item-price">€12.00</span>
+          <span class="item-price">€7.50</span>
         </div>
       </div>
 
@@ -391,31 +420,31 @@
         <div class="item-header">
           <span class="item-name">Sex on the Beach</span>
           <span class="dots"></span>
-          <span class="item-price">€12.00</span>
+          <span class="item-price">€7.50</span>
         </div>
       </div>
-    </section>
-
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Beer</h2>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Heineken 0.0</span>
           <span class="dots"></span>
-          <span class="item-price">€6.00</span>
+          <span class="item-price">€4.50</span>
         </div>
       </div>
-    </section>
 
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Fizzy</h2>
+      <div class="item">
+        <div class="item-header">
+          <span class="item-name">Fruit Sodas</span>
+          <span class="dots"></span>
+          <span class="item-price">€3.50</span>
+        </div>
+      </div>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Passion Fruit</span>
           <span class="dots"></span>
-          <span class="item-price">€6.00</span>
+          <span class="item-price">€3.50</span>
         </div>
       </div>
 
@@ -423,7 +452,7 @@
         <div class="item-header">
           <span class="item-name">Orange</span>
           <span class="dots"></span>
-          <span class="item-price">€6.00</span>
+          <span class="item-price">€3.50</span>
         </div>
       </div>
 
@@ -431,7 +460,7 @@
         <div class="item-header">
           <span class="item-name">Pineapple</span>
           <span class="dots"></span>
-          <span class="item-price">€6.00</span>
+          <span class="item-price">€3.50</span>
         </div>
       </div>
 
@@ -439,19 +468,15 @@
         <div class="item-header">
           <span class="item-name">Apricot</span>
           <span class="dots"></span>
-          <span class="item-price">€6.00</span>
+          <span class="item-price">€3.50</span>
         </div>
       </div>
-    </section>
-
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Water</h2>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Still Water 0.75 L</span>
           <span class="dots"></span>
-          <span class="item-price">€4.00</span>
+          <span class="item-price">€3.50</span>
         </div>
       </div>
 
@@ -459,7 +484,7 @@
         <div class="item-header">
           <span class="item-name">Sparkling Water 0.75 L</span>
           <span class="dots"></span>
-          <span class="item-price">€4.00</span>
+          <span class="item-price">€3.50</span>
         </div>
       </div>
     </section>
@@ -473,7 +498,8 @@
 <div class="page page-two">
 
   <header>
-    <h1>Pasta & Mare</h1>
+    <div class="eyebrow">Cucina Italiana</div>
+    <h1>Pasta &amp; Mare</h1>
     <div class="sub">Served al dente · Traditional Italian recipes</div>
   </header>
 
@@ -481,12 +507,13 @@
 
     <section class="menu-section">
       <h2 class="section-title">Pasta Classica</h2>
+      <p class="section-note">The Roman staples — our fastest plates</p>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">La Carbonara</span>
           <span class="dots"></span>
-          <span class="item-price">€19.00</span>
+          <span class="item-price">€13.50</span>
         </div>
         <div class="item-desc">Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.</div>
       </div>
@@ -495,7 +522,7 @@
         <div class="item-header">
           <span class="item-name">Cacio e Pepe</span>
           <span class="dots"></span>
-          <span class="item-price">€16.00</span>
+          <span class="item-price">€12.50</span>
         </div>
         <div class="item-desc">Linguine with Pecorino Romano and freshly cracked black pepper.</div>
       </div>
@@ -504,7 +531,7 @@
         <div class="item-header">
           <span class="item-name">Amatriciana</span>
           <span class="dots"></span>
-          <span class="item-price">€18.00</span>
+          <span class="item-price">€13.50</span>
         </div>
         <div class="item-desc">Rigatoni with guanciale, tomato sauce and Pecorino Romano.</div>
       </div>
@@ -513,7 +540,7 @@
         <div class="item-header">
           <span class="item-name">Bolognese</span>
           <span class="dots"></span>
-          <span class="item-price">€18.00</span>
+          <span class="item-price">€13.50</span>
         </div>
         <div class="item-desc">Rigatoni with traditional Bolognese sauce and Parmigiano Reggiano.</div>
       </div>
@@ -522,7 +549,7 @@
         <div class="item-header">
           <span class="item-name">Alla Puttanesca</span>
           <span class="dots"></span>
-          <span class="item-price">€18.00</span>
+          <span class="item-price">€12.50</span>
         </div>
         <div class="item-desc">Rigatoni with garlic, anchovies, capers, black olives, peperoncino and tomato sauce.</div>
       </div>
@@ -531,16 +558,16 @@
         <div class="item-header">
           <span class="item-name">Arrabbiata</span>
           <span class="dots"></span>
-          <span class="item-price">€15.00</span>
+          <span class="item-price">€12.00</span>
         </div>
-        <div class="item-desc">Rigatoni with spicy tomato sauce and Parmigiano Reggiano.</div>
+        <div class="item-desc">Rigatoni with spicy tomato sauce and Parmigiano Reggiano. Spicy!</div>
       </div>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Al Pomodoro</span>
           <span class="dots"></span>
-          <span class="item-price">€14.00</span>
+          <span class="item-price">€11.50</span>
         </div>
         <div class="item-desc">Linguine with tomato sauce, fresh basil and Parmigiano Reggiano.</div>
       </div>
@@ -548,12 +575,13 @@
 
     <section class="menu-section">
       <h2 class="section-title">Pasta Speciale</h2>
+      <p class="section-note">House signatures — worth the wait</p>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Linguine al Pesto Genovese con Stracciatella</span>
           <span class="dots"></span>
-          <span class="item-price">€17.00</span>
+          <span class="item-price">€15.50</span>
         </div>
         <div class="item-desc">Linguine with Genovese pesto and fresh stracciatella.</div>
       </div>
@@ -562,7 +590,7 @@
         <div class="item-header">
           <span class="item-name">Quattro Formaggi</span>
           <span class="dots"></span>
-          <span class="item-price">€20.00</span>
+          <span class="item-price">€14.50</span>
         </div>
         <div class="item-desc">Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and fresh stracciatella.</div>
       </div>
@@ -571,16 +599,16 @@
         <div class="item-header">
           <span class="item-name">Linguine alla Diavola con Cozze</span>
           <span class="dots"></span>
-          <span class="item-price">€20.00</span>
+          <span class="item-price">€16.50</span>
         </div>
-        <div class="item-desc">Linguine with mussels, garlic, white wine, peperoncino and tomato.</div>
+        <div class="item-desc">Linguine with mussels, garlic, white wine, peperoncino and tomato. Spicy!</div>
       </div>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Gamberetti</span>
           <span class="dots"></span>
-          <span class="item-price">€21.00</span>
+          <span class="item-price">€16.50</span>
         </div>
         <div class="item-desc">Linguine with shrimp, garlic and a light cream sauce.</div>
       </div>
@@ -589,7 +617,7 @@
         <div class="item-header">
           <span class="item-name">Linguine alle Cozze e Gorgonzola</span>
           <span class="dots"></span>
-          <span class="item-price">€22.00</span>
+          <span class="item-price">€16.50</span>
         </div>
         <div class="item-desc">Linguine with mussels, Gorgonzola Dolce, garlic and a light cream sauce.</div>
       </div>
@@ -602,29 +630,30 @@
         <div class="item-header">
           <span class="item-name">Cozze alla Diavola</span>
           <span class="dots"></span>
-          <span class="item-price">€16.00</span>
+          <span class="item-price">€14.00</span>
         </div>
-        <div class="item-desc">Fresh mussels with garlic, white wine, tomato and peperoncino. Served with warm focaccia.</div>
+        <div class="item-desc">Fresh mussels with garlic, white wine, tomato and peperoncino. Served with warm focaccia. Spicy!</div>
       </div>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Cozze al Gorgonzola</span>
           <span class="dots"></span>
-          <span class="item-price">€18.00</span>
+          <span class="item-price">€14.50</span>
         </div>
         <div class="item-desc">Fresh mussels in a creamy Gorgonzola Dolce sauce. Served with warm focaccia.</div>
       </div>
     </section>
 
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Extras</h2>
+    <section class="menu-section">
+      <h2 class="section-title">Make It Yours — Extras</h2>
+      <p class="section-note">Add to any pasta</p>
 
       <div class="item">
         <div class="item-header">
           <span class="item-name">Gluten-Free Pasta</span>
           <span class="dots"></span>
-          <span class="item-price">€3.00</span>
+          <span class="item-price">€2.50</span>
         </div>
       </div>
 
@@ -632,7 +661,7 @@
         <div class="item-header">
           <span class="item-name">Add Pecorino Romano</span>
           <span class="dots"></span>
-          <span class="item-price">€2.50</span>
+          <span class="item-price">€1.50</span>
         </div>
       </div>
 
@@ -640,7 +669,7 @@
         <div class="item-header">
           <span class="item-name">Add Parmigiano Reggiano</span>
           <span class="dots"></span>
-          <span class="item-price">€2.50</span>
+          <span class="item-price">€1.50</span>
         </div>
       </div>
 
@@ -648,9 +677,11 @@
         <div class="item-header">
           <span class="item-name">Add Fresh Stracciatella</span>
           <span class="dots"></span>
-          <span class="item-price">€4.00</span>
+          <span class="item-price">€2.50</span>
         </div>
       </div>
+
+    </section>
 
   </main>
 
