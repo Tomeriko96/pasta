@@ -157,6 +157,25 @@ function goTo(idx) {
   const entry = ORDER[POS];
   const frame = document.getElementById("preview");
   frame.src = "/" + entry.file;
+  if (entry.section === "signage") {
+    // Fixed 1080x1920 stage; scale to fit column width and allow scroll.
+    frame.style.width = "1080px";
+    frame.style.height = "1920px";
+    frame.style.maxWidth = "100%";
+    frame.style.border = "none";
+    frame.style.background = "#000";
+    frame.style.transformOrigin = "top center";
+    frame.style.transform = "scale(0.62)";
+    frame.style.marginBottom = "-730px";
+  } else {
+    frame.style.width = "210mm";
+    frame.style.height = "297mm";
+    frame.style.maxWidth = "";
+    frame.style.border = "none";
+    frame.style.background = "#fff";
+    frame.style.transform = "none";
+    frame.style.marginBottom = "0";
+  }
   frame.style.display = "block";
   document.getElementById("empty").style.display = "none";
   document.getElementById("current").textContent = labelOf(entry);
