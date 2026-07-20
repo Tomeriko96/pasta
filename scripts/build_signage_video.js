@@ -94,6 +94,12 @@ const VARIANTS = [
   ["lg_menu_v3/menu_signage_lc_single_w8.html", "lgmenuv3-lc-single-w8", "La Carbonara / single w8"],
   ["lg_menu_v3/menu_signage_lc_single_w9.html", "lgmenuv3-lc-single-w9", "La Carbonara / single w9"],
   ["lg_menu_v3/menu_signage_lc_single_w10.html", "lgmenuv3-lc-single-w10", "La Carbonara / single w10"],
+  ["lg_menu_v3/menu_signage_lc_single_x1.html", "lgmenuv3-lc-single-x1", "La Carbonara / single x1"],
+  ["lg_menu_v3/menu_signage_lc_single_x2.html", "lgmenuv3-lc-single-x2", "La Carbonara / single x2"],
+  ["lg_menu_v3/menu_signage_lc_single_x3.html", "lgmenuv3-lc-single-x3", "La Carbonara / single x3"],
+  ["lg_menu_v3/menu_signage_lc_single_x4.html", "lgmenuv3-lc-single-x4", "La Carbonara / single x4"],
+  ["lg_menu_v3/menu_signage_lc_single_x5.html", "lgmenuv3-lc-single-x5", "La Carbonara / single x5"],
+  ["lg_menu_v3/menu_signage_lc_single_x6.html", "lgmenuv3-lc-single-x6", "La Carbonara / single x6"],
 ];
 
 function copyImages(srcDir, destDir) {
