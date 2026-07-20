@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pasta Menu: Signage</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root{--bg:#fbf7ef;--ink:#2c2118;--muted:#6f6354;--accent:#9c4a3c;--rule:#e3d8c4;}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink);font-family:'Montserrat',system-ui,Arial,sans-serif;overflow:hidden}
+.stage{position:relative;width:1080px;height:1920px;margin:0 auto;display:flex;flex-direction:column}
+.hero{position:absolute;top:0;left:0;right:0;height:560px;background:url('images/focaccia.jpg') center/cover;z-index:0}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(251,247,239,0.15),rgba(251,247,239,0.96))}
+.clock{position:absolute;top:26px;right:44px;z-index:5;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--ink)}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;padding:600px 96px 70px;opacity:0;transition:opacity 1.1s ease;pointer-events:none}
+.slide.is-active{opacity:1;pointer-events:auto}
+.masthead{text-align:center;margin-bottom:22px}
+.kicker{font-size:13px;letter-spacing:6px;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:52px;letter-spacing:2px;margin-top:6px;color:var(--ink)}
+.tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--muted);margin-top:6px}
+.section{margin-bottom:18px}
+.label{text-align:center;font-family:'Cormorant Garamond',serif;font-size:25px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.label::after{content:"";display:block;width:80px;height:1px;background:var(--rule);margin:8px auto 0}
+.items{display:flex;flex-direction:column;gap:12px}
+.item{text-align:center}
+.line{display:flex;justify-content:center;align-items:baseline;gap:14px}
+.lead{display:none}
+.name{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600}
+.price{font-family:'Montserrat',sans-serif;font-size:21px;font-weight:600;color:var(--accent)}
+.desc{font-size:15px;color:var(--muted);margin-top:2px;max-width:760px;margin-left:auto;margin-right:auto}
+.note{text-align:center;font-size:15px;color:var(--muted);margin-top:16px;font-style:italic}
+
+</style>
+</head>
+<body>
+
+<div class="stage"><div class="hero"></div>
+  <div class="clock" id="clock"></div>
+
+  <section class="slide slide-a is-active">
+    <header class="masthead">
+      <div class="kicker">Cucina Italiana</div>
+      <h1>Antipasti &amp; Pasta</h1>
+      <div class="tag">To share, then to savour</div>
+    </header>
+    <div class="section"><div class="label">Antipasti</div><div class="items"><div class="item"><div class="line"><span class="name">Warm Focaccia</span><span class="lead"></span><span class="price">€6.50</span></div><div class="desc">Rosemary bread with extra virgin olive oil.</div></div><div class="item"><div class="line"><span class="name">Bruschetta Classica</span><span class="lead"></span><span class="price">€8.00</span></div><div class="desc">Toasted bread, tomato, basil, garlic, olive oil.</div></div><div class="item"><div class="line"><span class="name">Bruschetta Cremosa</span><span class="lead"></span><span class="price">€10.00</span></div><div class="desc">Creamy stracciatella, cherry tomato, basil.</div></div><div class="item"><div class="line"><span class="name">Bruschetta Mediterranea</span><span class="lead"></span><span class="price">€10.00</span></div><div class="desc">Tomato, olives, anchovy, capers, basil.</div></div><div class="item"><div class="line"><span class="name">Bruschetta Gorgonzola e Miele</span><span class="lead"></span><span class="price">€10.00</span></div><div class="desc">Creamy blue cheese with honey and black pepper.</div></div><div class="item"><div class="line"><span class="name">Bruschetta Mista</span><span class="lead"></span><span class="price">€16.00</span></div><div class="desc">Four assorted bruschette to choose from.</div></div><div class="item"><div class="line"><span class="name">Tagliere Formaggi</span><span class="lead"></span><span class="price">€16.00</span></div><div class="desc">Italian cheeses, focaccia, olives, honey, fig jam.</div></div><div class="item"><div class="line"><span class="name">Insalata di Rucola</span><span class="lead"></span><span class="price">€6.00</span></div><div class="desc">Rocket, tomato, olives, Parmigiano, balsamic.</div></div><div class="item"><div class="line"><span class="name">Olive Marinate</span><span class="lead"></span><span class="price">€6.00</span></div><div class="desc">Italian olives with herbs, garlic and citrus.</div></div></div></div><div class="section"><div class="label">Pasta Classica</div><div class="items"><div class="item"><div class="line"><span class="name">La Carbonara</span><span class="lead"></span><span class="price">€19.00</span></div><div class="desc">Guanciale, egg yolk, Pecorino, black pepper.</div></div><div class="item"><div class="line"><span class="name">Cacio e Pepe</span><span class="lead"></span><span class="price">€16.00</span></div><div class="desc">Pecorino, cracked black pepper.</div></div><div class="item"><div class="line"><span class="name">Amatriciana</span><span class="lead"></span><span class="price">€18.00</span></div><div class="desc">Guanciale, tomato, Pecorino.</div></div><div class="item"><div class="line"><span class="name">Bolognese</span><span class="lead"></span><span class="price">€18.00</span></div><div class="desc">Slow meat sauce, Parmigiano.</div></div><div class="item"><div class="line"><span class="name">Alla Puttanesca</span><span class="lead"></span><span class="price">€18.00</span></div><div class="desc">Garlic, anchovy, caper, olive, tomato.</div></div><div class="item"><div class="line"><span class="name">Arrabbiata</span><span class="lead"></span><span class="price">€15.00</span></div><div class="desc">Spicy tomato, Parmigiano.</div></div><div class="item"><div class="line"><span class="name">Al Pomodoro</span><span class="lead"></span><span class="price">€14.00</span></div><div class="desc">Tomato, basil, Parmigiano.</div></div></div></div>
+  </section>
+
+  <section class="slide slide-b">
+    <header class="masthead">
+      <div class="kicker">Cucina Italiana</div>
+      <h1>Pasta &amp; Mare</h1>
+      <div class="tag">From the kitchen and the sea</div>
+    </header>
+    <div class="section"><div class="label">Pasta Speciale</div><div class="items"><div class="item"><div class="line"><span class="name">Pesto Genovese con Stracciatella</span><span class="lead"></span><span class="price">€17.00</span></div><div class="desc">Genovese basil pesto, fresh cream cheese.</div></div><div class="item"><div class="line"><span class="name">Quattro Formaggi</span><span class="lead"></span><span class="price">€20.00</span></div><div class="desc">Four Italian cheeses, rich and creamy.</div></div><div class="item"><div class="line"><span class="name">Linguine alla Diavola con Cozze</span><span class="lead"></span><span class="price">€20.00</span></div><div class="desc">Mussels, garlic, chili, tomato.</div></div><div class="item"><div class="line"><span class="name">Gamberetti</span><span class="lead"></span><span class="price">€21.00</span></div><div class="desc">Shrimp, garlic, light cream sauce.</div></div><div class="item"><div class="line"><span class="name">Linguine Cozze e Gorgonzola</span><span class="lead"></span><span class="price">€22.00</span></div><div class="desc">Mussels in creamy Gorgonzola sauce.</div></div></div></div><div class="section"><div class="label">Specialità di Mare</div><div class="items"><div class="item"><div class="line"><span class="name">Cozze alla Diavola</span><span class="lead"></span><span class="price">€16.00</span></div><div class="desc">Mussels, garlic, wine, tomato, chili.</div></div><div class="item"><div class="line"><span class="name">Cozze al Gorgonzola</span><span class="lead"></span><span class="price">€18.00</span></div><div class="desc">Mussels in creamy Gorgonzola.</div></div></div></div><div class="section"><div class="label">Extras</div><div class="items"><div class="item"><div class="line"><span class="name">Gluten-Free Pasta</span><span class="lead"></span><span class="price">€3.00</span></div><div class="desc">Swap any pasta.</div></div><div class="item"><div class="line"><span class="name">Extra Pecorino Romano</span><span class="lead"></span><span class="price">€2.50</span></div></div><div class="item"><div class="line"><span class="name">Extra Parmigiano Reggiano</span><span class="lead"></span><span class="price">€2.50</span></div></div><div class="item"><div class="line"><span class="name">Extra Stracciatella</span><span class="lead"></span><span class="price">€4.00</span></div></div></div></div>
+    <div class="note">Drinks: alcohol-free spritz, cocktails, beer &amp; sodas available. Ask us.</div>
+  </section>
+</div>
+
+
+<script>
+  (function () {
+    "use strict";
+    try {
+      var slides = document.querySelectorAll('.slide');
+      var idx = 0;
+      setInterval(function () {
+        slides[idx].classList.remove('is-active');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('is-active');
+      }, 9000);
+      var clockEl = document.getElementById('clock');
+      function tick() {
+        var d = new Date(), h = d.getHours(), m = d.getMinutes();
+        var ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+        clockEl.textContent = (h < 10 ? '0' + h : h) + ':' + (m < 10 ? '0' + m : m) + ' ' + ap;
+      }
+      tick(); setInterval(tick, 1000);
+      setTimeout(function () { location.reload(); }, 10 * 60 * 1000);
+    } catch (e) {}
+  })();
+</script>
+
+</body>
+</html>

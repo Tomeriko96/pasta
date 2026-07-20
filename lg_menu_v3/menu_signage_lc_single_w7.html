@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>La Carbonara - Menu Signage</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #1c1917;
+  --cream: #f5f0e8;
+  --terracotta: #b85c38;
+  --gold: #c8a55b;
+}
+
+html, body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--cream);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none !important; }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+}
+
+/* ── Hero ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url('../images/spritz-cocktail.jpg') center / cover no-repeat;
+  animation: kenburns 25s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes kenburns {
+  0%   { transform: scale(1)   translate(0, 0); }
+  100% { transform: scale(1.1) translate(-2%, -1%); }
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(28,25,23,0.85) 100%);
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 28px;
+  left: 50px;
+  z-index: 2;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+}
+
+.hero-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--cream);
+  line-height: 1.1;
+}
+
+.hero-sub {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gold);
+  letter-spacing: 2px;
+  margin-top: 6px;
+}
+
+/* ── Clock ── */
+.clock {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--cream);
+  opacity: 0.6;
+  z-index: 3;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+
+/* ── Menu Area ── */
+.menu-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 30px 50px;
+}
+
+.section-label {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.item-name {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--cream);
+  white-space: nowrap;
+}
+
+.item-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(245,240,232,0.2);
+  margin-bottom: 5px;
+  min-width: 20px;
+}
+
+.item-price {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--terracotta);
+  white-space: nowrap;
+}
+
+/* ── Footer ── */
+.footer {
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--cream);
+  opacity: 0.3;
+  letter-spacing: 1px;
+}
+</style>
+</head>
+<body>
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-gradient"></div>
+    <span class="clock" id="clock"></span>
+    <div class="hero-text">
+      <div class="hero-title">LA CARBONARA</div>
+      <div class="hero-sub">Spritz e Cocktail 0.0%</div>
+    </div>
+  </section>
+
+  <!-- Menu -->
+  <section class="menu-area">
+    <div class="section-label">Pasta Fresca</div>
+    <div class="menu-item"><span class="item-name">La Carbonara</span><span class="item-dots"></span><span class="item-price">19</span></div>
+    <div class="menu-item"><span class="item-name">Cacio e Pepe</span><span class="item-dots"></span><span class="item-price">16</span></div>
+    <div class="menu-item"><span class="item-name">Amatriciana</span><span class="item-dots"></span><span class="item-price">18</span></div>
+    <div class="menu-item"><span class="item-name">Bolognese</span><span class="item-dots"></span><span class="item-price">18</span></div>
+    <div class="menu-item"><span class="item-name">Pesto Genovese</span><span class="item-dots"></span><span class="item-price">17</span></div>
+    <div class="menu-item"><span class="item-name">Quattro Formaggi</span><span class="item-dots"></span><span class="item-price">20</span></div>
+
+    <div class="section-label">Antipasti</div>
+    <div class="menu-item"><span class="item-name">Focaccia</span><span class="item-dots"></span><span class="item-price">6.50</span></div>
+    <div class="menu-item"><span class="item-name">Bruschetta Classica</span><span class="item-dots"></span><span class="item-price">8</span></div>
+    <div class="menu-item"><span class="item-name">Bruschetta Cremosa</span><span class="item-dots"></span><span class="item-price">10</span></div>
+    <div class="menu-item"><span class="item-name">Bruschetta Mista</span><span class="item-dots"></span><span class="item-price">16</span></div>
+    <div class="menu-item"><span class="item-name">Tagliere Formaggi</span><span class="item-dots"></span><span class="item-price">16</span></div>
+
+    <div class="section-label">Dal Mare</div>
+    <div class="menu-item"><span class="item-name">Cozze alla Diavola</span><span class="item-dots"></span><span class="item-price">16</span></div>
+    <div class="menu-item"><span class="item-name">Linguine con Cozze</span><span class="item-dots"></span><span class="item-price">20</span></div>
+    <div class="menu-item"><span class="item-name">Gamberetti</span><span class="item-dots"></span><span class="item-price">21</span></div>
+
+    <div class="section-label">Bevande 0.0%</div>
+    <div class="menu-item"><span class="item-name">Spritz</span><span class="item-dots"></span><span class="item-price">12</span></div>
+    <div class="menu-item"><span class="item-name">Cocktail</span><span class="item-dots"></span><span class="item-price">12</span></div>
+    <div class="menu-item"><span class="item-name">Birra</span><span class="item-dots"></span><span class="item-price">6</span></div>
+    <div class="menu-item"><span class="item-name">Acqua</span><span class="item-dots"></span><span class="item-price">4</span></div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer">Aperto ogni giorno dalle 12:00</div>
+</main>
+
+<script>
+function updateClock() {
+  var now = new Date();
+  var h = String(now.getHours()).padStart(2, '0');
+  var m = String(now.getMinutes()).padStart(2, '0');
+  document.getElementById('clock').textContent = h + ':' + m;
+}
+updateClock();
+setInterval(updateClock, 30000);
+
+setTimeout(function() { location.reload(); }, 3600000);
+</script>
+</body>
+</html>

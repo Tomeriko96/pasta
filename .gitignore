@@ -1,5 +1,6 @@
 node_modules/
 archive/
+build/
 *.log
 .env
 .env.*

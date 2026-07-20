@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920, initial-scale=1">
+<title>La Carbonara - Benvenuto</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --bg: #1c1917;
+    --cream: #f5f0e8;
+    --terracotta: #b85c38;
+    --gold: #c8a55b;
+  }
+
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  main {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Clock ── */
+  .clock {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--cream);
+    opacity: 0.4;
+    z-index: 10;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Hero photo area ── */
+  .hero-photo {
+    position: relative;
+    width: 100%;
+    height: 864px;
+    overflow: hidden;
+  }
+
+  .hero-photo__img {
+    width: 100%;
+    height: 100%;
+    background: url('../images/pasta-carbonara.jpg') center / cover no-repeat;
+    animation: kenburns 20s ease-in-out infinite alternate;
+    transform-origin: center center;
+  }
+
+  @keyframes kenburns {
+    from { transform: scale(1.0); }
+    to   { transform: scale(1.05); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-photo__img {
+      animation: none;
+    }
+  }
+
+  .hero-photo__gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 240px;
+    background: linear-gradient(to bottom, transparent, var(--bg));
+    pointer-events: none;
+  }
+
+  .hero-photo__kicker {
+    position: absolute;
+    top: 40px;
+    left: 48px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    font-variant: small-caps;
+    letter-spacing: 0.2em;
+    color: var(--cream);
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 5;
+  }
+
+  /* ── Content below photo ── */
+  .content {
+    padding: 0 60px;
+    text-align: center;
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .restaurant-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 72px;
+    font-weight: 600;
+    color: var(--cream);
+    line-height: 1.1;
+  }
+
+  .tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--cream);
+    opacity: 0.6;
+    margin-top: 12px;
+    line-height: 1.3;
+  }
+
+  .gold-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin: 32px auto;
+    border: none;
+  }
+
+  /* ── Hero items ── */
+  .hero-items {
+    list-style: none;
+    padding: 0 20px;
+  }
+
+  .hero-item {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    height: 80px;
+    padding-top: 8px;
+  }
+
+  .hero-item__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 44px;
+    font-weight: 600;
+    color: var(--cream);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .hero-item__dots {
+    flex: 1;
+    border-bottom: 2px dotted rgba(245, 240, 232, 0.2);
+    margin: 0 16px;
+    position: relative;
+    top: -8px;
+  }
+
+  .hero-item__price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--terracotta);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--cream);
+    opacity: 0.4;
+    letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+<main>
+  <span class="clock" id="clock"></span>
+
+  <div class="hero-photo">
+    <div class="hero-photo__img" role="img" aria-label="Pasta carbonara"></div>
+    <div class="hero-photo__gradient"></div>
+    <span class="hero-photo__kicker">La Carbonara</span>
+  </div>
+
+  <div class="content">
+    <h1 class="restaurant-name">La Carbonara</h1>
+    <p class="tagline">Pasta fresca, fatta a mano, ogni giorno</p>
+    <hr class="gold-rule">
+
+    <ul class="hero-items">
+      <li class="hero-item">
+        <span class="hero-item__name">La Carbonara</span>
+        <span class="hero-item__dots"></span>
+        <span class="hero-item__price">&euro;19</span>
+      </li>
+      <li class="hero-item">
+        <span class="hero-item__name">Cacio e Pepe</span>
+        <span class="hero-item__dots"></span>
+        <span class="hero-item__price">&euro;16</span>
+      </li>
+      <li class="hero-item">
+        <span class="hero-item__name">Amatriciana</span>
+        <span class="hero-item__dots"></span>
+        <span class="hero-item__price">&euro;18</span>
+      </li>
+    </ul>
+  </div>
+
+  <p class="footer">Aperto ogni giorno</p>
+</main>
+
+<script>
+  (function () {
+    var clockEl = document.getElementById('clock');
+    function tick() {
+      var now = new Date();
+      var h = String(now.getHours()).padStart(2, '0');
+      var m = String(now.getMinutes()).padStart(2, '0');
+      clockEl.textContent = h + ':' + m;
+    }
+    tick();
+    setInterval(tick, 30000);
+
+    setTimeout(function () {
+      location.reload();
+    }, 600000);
+  })();
+</script>
+</body>
+</html>

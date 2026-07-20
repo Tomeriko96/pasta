@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080,height=1920,initial-scale=1">
+<title>La Carbonara - Antipasti - Board 2/5</title>
+<meta http-equiv="refresh" content="600">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: #1c1917;
+  color: #f5f0e8;
+  font-family: 'Montserrat', sans-serif;
+}
+
+main {
+  width: 1080px;
+  height: 1920px;
+  padding: 60px 70px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.clock {
+  position: fixed;
+  top: 50px;
+  right: 70px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  color: #f5f0e8;
+  opacity: 0.5;
+}
+
+.header {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.kicker {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #c8a55b;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 600;
+  color: #f5f0e8;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 400;
+  color: #f5f0e8;
+  opacity: 0.6;
+  margin-bottom: 28px;
+}
+
+.rule {
+  width: 60px;
+  height: 1px;
+  background: #c8a55b;
+  margin: 0 auto;
+}
+
+.items {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 20px;
+  gap: 10px;
+}
+
+.item {
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.item-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: #f5f0e8;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.item-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(245, 240, 232, 0.2);
+  margin-bottom: 6px;
+  min-width: 20px;
+}
+
+.item-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #b85c38;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.item-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  color: #f5f0e8;
+  opacity: 0.5;
+  margin-top: 4px;
+  padding-bottom: 16px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.item:nth-child(1) { animation-delay: 0.1s; }
+.item:nth-child(2) { animation-delay: 0.2s; }
+.item:nth-child(3) { animation-delay: 0.3s; }
+.item:nth-child(4) { animation-delay: 0.4s; }
+.item:nth-child(5) { animation-delay: 0.5s; }
+.item:nth-child(6) { animation-delay: 0.6s; }
+.item:nth-child(7) { animation-delay: 0.7s; }
+.item:nth-child(8) { animation-delay: 0.8s; }
+.item:nth-child(9) { animation-delay: 0.9s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    opacity: 1;
+    animation: none;
+  }
+}
+</style>
+</head>
+<body>
+<div class="clock" id="clock"></div>
+<main>
+  <div class="header">
+    <div class="kicker">La Carbonara</div>
+    <h1 class="title">Antipasti</h1>
+    <p class="subtitle">To share, then to savour</p>
+    <div class="rule"></div>
+  </div>
+  <div class="items">
+    <div class="item">
+      <div class="item-row">
+        <span class="item-name">Warm Focaccia</span>
+        <span class="item-dots"></span>
+        <span class="item-price">&euro;6.50</span>
+      </div>
+      <div class="item-desc">Rosemary bread with extra virgin olive oil.</div>
+    </div>
+    <div class="item">
+      <div class="item-row">
+        <span class="item-name">Bruschetta Classica</span>
+        <span class="item-dots"></span>
+        <span class="item-price">&euro;8</span>
+      </div>
+      <div class="item-desc">Toasted bread, tomato, basil, garlic, olive oil.</div>
+    </div>
+    <div class="item">
+      <div class="item-row">
+        <span class="item-name">Bruschetta Cremosa</span>
+        <span class="item-dots"></span>
+        <span class="item-price">&euro;10</span>
+      </div>
+      <div class="item-desc">Stracciatella, cherry tomato, basil.</div>
+    </div>
+    <div class="item">
+      <div class="item-row">
+        <span class="item-name">Bruschetta Mediterranea</span>
+        <span class="item-dots"></span>
+        <span class="item-price">&euro;10</span>
+      </div>
+      <div class="item-desc">Tomato, olives, anchovy, capers, basil.</div>
+    </div>
+    <div class="item">
+      <div class="item-row">
+        <span class="item-name">Bruschetta Gorgonzola e Miele</span>
+        <span class="item-dots"></span>
+        <span class="item-price">&euro;10</span>
+      </div>
+      <div class="item-desc">Gorgonzola Dolce, honey, black pepper.</div>
+    </div>
+    <div class="item">
+      <div class="item-row">
+        <span class="item-name">Bruschetta Mista</span>
+        <span class="item-dots"></span>
+        <span class="item-price">&euro;16</span>
+      </div>
+      <div class="item-desc">Four assorted bruschette.</div>
+    </div>
+    <div class="item">
+      <div class="item-row">
+        <span class="item-name">Tagliere Formaggi</span>
+        <span class="item-dots"></span>
+        <span class="item-price">&euro;16</span>
+      </div>
+      <div class="item-desc">Italian cheeses, focaccia, olives, honey, fig jam.</div>
+    </div>
+    <div class="item">
+      <div class="item-row">
+        <span class="item-name">Insalata di Rucola</span>
+        <span class="item-dots"></span>
+        <span class="item-price">&euro;6</span>
+      </div>
+      <div class="item-desc">Rocket, tomato, olives, Parmigiano, balsamic.</div>
+    </div>
+    <div class="item">
+      <div class="item-row">
+        <span class="item-name">Olive Marinate</span>
+        <span class="item-dots"></span>
+        <span class="item-price">&euro;6</span>
+      </div>
+      <div class="item-desc">Italian olives with herbs, garlic and citrus.</div>
+    </div>
+  </div>
+</main>
+<script>
+(function() {
+  var el = document.getElementById('clock');
+  function tick() {
+    var now = new Date();
+    var h = String(now.getHours()).padStart(2, '0');
+    var m = String(now.getMinutes()).padStart(2, '0');
+    el.textContent = h + ':' + m;
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
+</script>
+</body>
+</html>

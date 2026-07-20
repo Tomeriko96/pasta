@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>La Carbonara - Menu</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: #1c1917;
+  color: #f5f0e8;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+main {
+  width: 1080px;
+  height: 1920px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 70px;
+  position: relative;
+}
+
+.clock {
+  position: absolute;
+  top: 40px;
+  right: 70px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  opacity: 0.4;
+  letter-spacing: 0.5px;
+}
+
+.restaurant-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 80px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.5;
+  text-align: center;
+  margin: 16px 0 0 0;
+}
+
+.rule-gold {
+  width: 60px;
+  height: 2px;
+  background: #c8a55b;
+  border: none;
+  margin: 40px 0;
+}
+
+.menu-list {
+  width: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: baseline;
+  height: 55px;
+}
+
+.item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.item-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(245, 240, 232, 0.2);
+  margin: 0 12px;
+  position: relative;
+  top: -5px;
+}
+
+.item-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #b85c38;
+  white-space: nowrap;
+}
+
+.rule-thin {
+  width: 100%;
+  height: 1px;
+  background: #c8a55b;
+  opacity: 0.2;
+  border: none;
+  margin: 36px 0 28px 0;
+}
+
+.drinks {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  text-align: center;
+  opacity: 0.7;
+  letter-spacing: 0.3px;
+}
+
+.footer {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  opacity: 0.3;
+  margin-top: 32px;
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="clock" id="clock"></div>
+
+  <h1 class="restaurant-name">La Carbonara</h1>
+  <p class="tagline">Pasta fresca, fatta a mano, ogni giorno</p>
+
+  <hr class="rule-gold">
+
+  <ul class="menu-list">
+    <li class="menu-item">
+      <span class="item-name">Focaccia</span>
+      <span class="item-dots"></span>
+      <span class="item-price">6.50</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">Bruschetta Classica</span>
+      <span class="item-dots"></span>
+      <span class="item-price">8</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">Bruschetta Mista</span>
+      <span class="item-dots"></span>
+      <span class="item-price">16</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">La Carbonara</span>
+      <span class="item-dots"></span>
+      <span class="item-price">19</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">Cacio e Pepe</span>
+      <span class="item-dots"></span>
+      <span class="item-price">16</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">Amatriciana</span>
+      <span class="item-dots"></span>
+      <span class="item-price">18</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">Bolognese</span>
+      <span class="item-dots"></span>
+      <span class="item-price">18</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">Pesto Genovese con Stracciatella</span>
+      <span class="item-dots"></span>
+      <span class="item-price">17</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">Quattro Formaggi</span>
+      <span class="item-dots"></span>
+      <span class="item-price">20</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">Linguine con Cozze</span>
+      <span class="item-dots"></span>
+      <span class="item-price">20</span>
+    </li>
+    <li class="menu-item">
+      <span class="item-name">Gamberetti</span>
+      <span class="item-dots"></span>
+      <span class="item-price">21</span>
+    </li>
+  </ul>
+
+  <hr class="rule-thin">
+
+  <p class="drinks">Spritz 0.0% e Cocktail from 12 | Birra 6 | Acqua 4</p>
+
+  <p class="footer">Aperto ogni giorno dalle 12:00</p>
+</main>
+
+<script>
+(function() {
+  var clockEl = document.getElementById('clock');
+  function tick() {
+    var now = new Date();
+    var h = String(now.getHours()).padStart(2, '0');
+    var m = String(now.getMinutes()).padStart(2, '0');
+    clockEl.textContent = h + ':' + m;
+  }
+  tick();
+  setInterval(tick, 30000);
+  setTimeout(function() { location.reload(); }, 600000);
+})();
+</script>
+</body>
+</html>

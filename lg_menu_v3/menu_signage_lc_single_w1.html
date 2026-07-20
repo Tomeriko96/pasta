@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>La Carbonara - Menu</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: #1c1917;
+  color: #f5f0e8;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+main {
+  width: 1080px;
+  height: 1920px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clock */
+.clock {
+  position: fixed;
+  top: 16px;
+  right: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #f5f0e8;
+  opacity: 0.4;
+  z-index: 10;
+  letter-spacing: 0.5px;
+}
+
+/* Hero */
+.hero {
+  width: 1080px;
+  height: 500px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-img {
+  position: absolute;
+  inset: 0;
+  background: url('../images/pasta-carbonara.jpg') center / cover no-repeat;
+  animation: kenburns 20s ease-in-out infinite alternate;
+}
+
+@keyframes kenburns {
+  from { transform: scale(1.0); }
+  to   { transform: scale(1.03); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-img { animation: none; }
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, #1c1917 100%);
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 32px;
+  left: 50px;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+}
+
+.hero-text h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: #f5f0e8;
+  line-height: 1.1;
+}
+
+.hero-text p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: #f5f0e8;
+  margin-top: 6px;
+  opacity: 0.9;
+}
+
+/* Menu area */
+.menu {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 0 50px;
+}
+
+/* Section label */
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: #c8a55b;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+/* Menu item row */
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: #f5f0e8;
+  white-space: nowrap;
+}
+
+.item-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(245, 240, 232, 0.2);
+  margin-bottom: 5px;
+  min-width: 20px;
+}
+
+.item-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: #b85c38;
+  white-space: nowrap;
+}
+
+/* Footer */
+.footer {
+  flex-shrink: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  opacity: 0.3;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #f5f0e8;
+  letter-spacing: 0.5px;
+}
+</style>
+</head>
+<body>
+
+<div class="clock" id="clock"></div>
+
+<main>
+  <div class="hero">
+    <div class="hero-img"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-text">
+      <h1>LA CARBONARA</h1>
+      <p>Pasta fresca, fatta a mano</p>
+    </div>
+  </div>
+
+  <div class="menu">
+    <div class="section-label">Antipasti</div>
+    <div class="item"><span class="item-name">Focaccia</span><span class="item-dots"></span><span class="item-price">6.50</span></div>
+    <div class="item"><span class="item-name">Bruschetta Classica</span><span class="item-dots"></span><span class="item-price">8</span></div>
+    <div class="item"><span class="item-name">Bruschetta Cremosa</span><span class="item-dots"></span><span class="item-price">10</span></div>
+    <div class="item"><span class="item-name">Bruschetta Mista</span><span class="item-dots"></span><span class="item-price">16</span></div>
+    <div class="item"><span class="item-name">Tagliere Formaggi</span><span class="item-dots"></span><span class="item-price">16</span></div>
+
+    <div class="section-label">Pasta</div>
+    <div class="item"><span class="item-name">La Carbonara</span><span class="item-dots"></span><span class="item-price">19</span></div>
+    <div class="item"><span class="item-name">Cacio e Pepe</span><span class="item-dots"></span><span class="item-price">16</span></div>
+    <div class="item"><span class="item-name">Amatriciana</span><span class="item-dots"></span><span class="item-price">18</span></div>
+    <div class="item"><span class="item-name">Bolognese</span><span class="item-dots"></span><span class="item-price">18</span></div>
+    <div class="item"><span class="item-name">Pesto Genovese</span><span class="item-dots"></span><span class="item-price">17</span></div>
+    <div class="item"><span class="item-name">Quattro Formaggi</span><span class="item-dots"></span><span class="item-price">20</span></div>
+
+    <div class="section-label">Dal Mare</div>
+    <div class="item"><span class="item-name">Cozze alla Diavola</span><span class="item-dots"></span><span class="item-price">16</span></div>
+    <div class="item"><span class="item-name">Linguine con Cozze</span><span class="item-dots"></span><span class="item-price">20</span></div>
+    <div class="item"><span class="item-name">Gamberetti</span><span class="item-dots"></span><span class="item-price">21</span></div>
+
+    <div class="section-label">Bevande 0.0%</div>
+    <div class="item"><span class="item-name">Spritz</span><span class="item-dots"></span><span class="item-price">12</span></div>
+    <div class="item"><span class="item-name">Cocktail</span><span class="item-dots"></span><span class="item-price">12</span></div>
+    <div class="item"><span class="item-name">Birra</span><span class="item-dots"></span><span class="item-price">6</span></div>
+    <div class="item"><span class="item-name">Acqua</span><span class="item-dots"></span><span class="item-price">4</span></div>
+  </div>
+
+  <div class="footer">
+    <span>Aperto ogni giorno dalle 12:00</span>
+    <span>lacarbonara.nl</span>
+  </div>
+</main>
+
+<script>
+(function() {
+  var cl = document.getElementById('clock');
+  function tick() {
+    var now = new Date();
+    cl.textContent = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+  }
+  tick();
+  setInterval(tick, 30000);
+  setTimeout(function() { location.reload(); }, 600000);
+})();
+</script>
+</body>
+</html>

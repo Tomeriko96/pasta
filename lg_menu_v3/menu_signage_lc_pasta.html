@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920, initial-scale=1">
+<title>La Carbonara - Board 3 of 5 - Pasta</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --bg: #1c1917;
+    --cream: #f5f0e8;
+    --terracotta: #b85c38;
+    --gold: #c8a55b;
+  }
+
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  main {
+    width: 1080px;
+    height: 1920px;
+    padding: 60px 70px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* Clock */
+  .clock {
+    position: absolute;
+    top: 30px;
+    right: 70px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--cream);
+    opacity: 0.45;
+    letter-spacing: 0.5px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .kicker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 56px;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--cream);
+    opacity: 0.6;
+    margin-bottom: 24px;
+  }
+
+  .rule {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 36px;
+  }
+
+  .menu-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Section label */
+  .section-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .section-gap {
+    margin-top: 30px;
+  }
+
+  /* Menu item */
+  .item {
+    margin-bottom: 12px;
+  }
+
+  .item-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .item-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--cream);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .item-dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--cream);
+    opacity: 0.2;
+    margin-bottom: 5px;
+    min-width: 20px;
+  }
+
+  .item-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--terracotta);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .item-desc {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--cream);
+    opacity: 0.5;
+    margin-top: 2px;
+    line-height: 1.4;
+  }
+
+  /* Footer note */
+  .footer-note {
+    margin-top: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--cream);
+    opacity: 0.4;
+    text-align: center;
+    padding-top: 20px;
+  }
+
+  /* Fade-in animation */
+  .fade-item {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp 0.5s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fade-item {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="clock" id="clock"></div>
+
+  <div class="header">
+    <div class="kicker fade-item" style="animation-delay: 0.1s">La Carbonara</div>
+    <div class="title fade-item" style="animation-delay: 0.15s">Pasta</div>
+    <div class="subtitle fade-item" style="animation-delay: 0.2s">Fatta a mano, ogni giorno</div>
+    <div class="rule fade-item" style="animation-delay: 0.25s"></div>
+  </div>
+
+  <div class="menu-items">
+  <div class="section-label fade-item" style="animation-delay: 0.3s">Classica</div>
+
+  <div class="item fade-item" style="animation-delay: 0.35s">
+    <div class="item-row">
+      <span class="item-name">La Carbonara</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;19</span>
+    </div>
+    <div class="item-desc">Guanciale, egg yolk, Pecorino Romano, black pepper.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.4s">
+    <div class="item-row">
+      <span class="item-name">Cacio e Pepe</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;16</span>
+    </div>
+    <div class="item-desc">Pecorino Romano, cracked black pepper.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.45s">
+    <div class="item-row">
+      <span class="item-name">Amatriciana</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;18</span>
+    </div>
+    <div class="item-desc">Guanciale, tomato, Pecorino Romano.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.5s">
+    <div class="item-row">
+      <span class="item-name">Bolognese</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;18</span>
+    </div>
+    <div class="item-desc">Slow meat sauce, Parmigiano Reggiano.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.55s">
+    <div class="item-row">
+      <span class="item-name">Alla Puttanesca</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;18</span>
+    </div>
+    <div class="item-desc">Garlic, anchovy, caper, olive, tomato.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.6s">
+    <div class="item-row">
+      <span class="item-name">Arrabbiata</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;15</span>
+    </div>
+    <div class="item-desc">Spicy tomato, Parmigiano Reggiano.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.65s">
+    <div class="item-row">
+      <span class="item-name">Al Pomodoro</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;14</span>
+    </div>
+    <div class="item-desc">Tomato, basil, Parmigiano Reggiano.</div>
+  </div>
+
+  <div class="section-label section-gap fade-item" style="animation-delay: 0.7s">Speciale</div>
+
+  <div class="item fade-item" style="animation-delay: 0.75s">
+    <div class="item-row">
+      <span class="item-name">Pesto Genovese con Stracciatella</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;17</span>
+    </div>
+    <div class="item-desc">Basil pesto, fresh cream cheese.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.8s">
+    <div class="item-row">
+      <span class="item-name">Quattro Formaggi</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;20</span>
+    </div>
+    <div class="item-desc">Four Italian cheeses.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.85s">
+    <div class="item-row">
+      <span class="item-name">Linguine alla Diavola con Cozze</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;20</span>
+    </div>
+    <div class="item-desc">Mussels, garlic, white wine, peperoncino.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.9s">
+    <div class="item-row">
+      <span class="item-name">Gamberetti</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;21</span>
+    </div>
+    <div class="item-desc">Shrimp, garlic, light cream sauce.</div>
+  </div>
+
+  <div class="item fade-item" style="animation-delay: 0.95s">
+    <div class="item-row">
+      <span class="item-name">Cozze e Gorgonzola</span>
+      <span class="item-dots"></span>
+      <span class="item-price">&euro;22</span>
+    </div>
+    <div class="item-desc">Mussels, Gorgonzola, garlic, cream.</div>
+  </div>
+
+  <div class="footer-note fade-item" style="animation-delay: 1s">Gluten-free pasta on request, &euro;3</div>
+  </div>
+</main>
+
+<script>
+  (function () {
+    var el = document.getElementById('clock');
+    function tick() {
+      var now = new Date();
+      var h = String(now.getHours()).padStart(2, '0');
+      var m = String(now.getMinutes()).padStart(2, '0');
+      el.textContent = h + ':' + m;
+    }
+    tick();
+    setInterval(tick, 30000);
+    setTimeout(function () { location.reload(); }, 600000);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920, initial-scale=1">
+<title>La Carbonara - Board 5 of 5</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --bg: #1c1917;
+    --cream: #f5f0e8;
+    --gold: #c8a55b;
+  }
+
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  main {
+    width: 1080px;
+    height: 1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 0 100px;
+  }
+
+  .clock {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    opacity: 0.4;
+  }
+
+  .kicker {
+    margin-top: 60px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .proverb-block {
+    margin-top: 200px;
+    text-align: center;
+  }
+
+  .proverb {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 44px;
+    line-height: 1.3;
+    color: var(--cream);
+  }
+
+  .proverb-translation {
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.5;
+  }
+
+  .rule {
+    margin-top: 80px;
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .pasta-block {
+    margin-top: 80px;
+    text-align: center;
+  }
+
+  .pasta-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .pasta-translation {
+    margin-top: 14px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    opacity: 0.5;
+  }
+
+  .extras {
+    margin-top: 60px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    opacity: 0.6;
+    line-height: 2;
+  }
+
+  .bottom {
+    margin-top: auto;
+    text-align: center;
+    padding-bottom: 80px;
+  }
+
+  .open {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  .url {
+    margin-top: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    opacity: 0.3;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  main {
+    animation: fadeIn 1.5s ease-in;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    main {
+      animation: none;
+    }
+  }
+</style>
+</head>
+<body>
+<main>
+  <span class="clock" id="clock"></span>
+  <div class="kicker">La Carbonara</div>
+
+  <div class="proverb-block">
+    <div class="proverb">A tavola non si invecchia.</div>
+    <div class="proverb-translation">At the table, one does not grow old.</div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="pasta-block">
+    <div class="pasta-line">Pasta fresca, fatta a mano</div>
+    <div class="pasta-translation">Fresh pasta, handmade every morning</div>
+  </div>
+
+  <div class="extras">
+    Add Pecorino Romano &euro;2.50<br>
+    Add Parmigiano Reggiano &euro;2.50<br>
+    Add Fresh Stracciatella &euro;4<br>
+    Gluten-free pasta &euro;3
+  </div>
+
+  <div class="bottom">
+    <div class="open">Open daily</div>
+    <div class="url">lacarbonara.nl</div>
+  </div>
+</main>
+<script>
+  (function () {
+    var el = document.getElementById('clock');
+    function tick() {
+      var now = new Date();
+      var h = String(now.getHours()).padStart(2, '0');
+      var m = String(now.getMinutes()).padStart(2, '0');
+      el.textContent = h + ':' + m;
+    }
+    tick();
+    setInterval(tick, 30000);
+    setTimeout(function () { location.reload(); }, 600000);
+  })();
+</script>
+</body>
+</html>

@@ -94,9 +94,52 @@ Derive from `menu_improved.html` content but redesign for a 1920×1080 live scre
 | **Static host** (GitHub Pages / Netlire / Netlify Drop / Cloudflare Pages) | Free, reliable, HTTPS, instant updates | Needs internet on the screen |
 | **Local server on restaurant network** (tiny Pi / old PC / `python -m http.server`) | Works fully offline, full control | Must keep a box running 24/7 |
 | **LG Promota app** (mobile) | No coding, LG-provided | Templated, not our custom HTML: skip |
-| **USB stick (FAT32)** | No network | USB playback is image/video oriented, not great for live HTML: fallback only |
+| **USB stick (FAT32)** | No network | Fully works for live HTML if installed as a local webOS app (ZIP) via SI Server Setting. See Part C2. (Plain USB Plug & Play is image/video only.) |
 
 **Recommended:** Static host (e.g. GitHub Pages) for the URL; keep a USB with a static screenshot/PDF as fail-over.
+
+---
+
+## Part C2: USB-only (offline) deployment with live HTML
+
+WebOS Plug & Play auto-plays only images/video. To show the live `menu_screen.html` (rotation, clock, animation) with **no network**, install it as a local webOS app from USB. The repo builds a self-contained package for exactly this.
+
+### C2.1 Build the package
+```
+make usb
+```
+This runs `scripts/build_signage_usb.py`, which:
+- Copies every HTML variant you want to test (`menu_screen.html`, `lg_menu/*.html`, `lg_menu_v2/*.html`) into one app folder.
+- Downloads Cormorant Garamond + Montserrat as woff2 and rewrites each variant's Google Fonts `@import` to a local `fonts.css` (so it works offline).
+- Copies `images/` alongside.
+- Generates a **launcher page** (`index.html`) with a tab bar to click between all variants on the screen (no reinstall needed to A/B test).
+- Writes `appinfo.json` and zips everything to `dist/usb/application/pasta-signage.zip`.
+
+Output layout you copy to the stick:
+```
+dist/usb/application/pasta-signage.zip
+```
+
+### C2.2 Copy to USB
+- Format the stick **FAT32**.
+- Copy the `application/` folder to the **root** of the USB stick (so the stick has `application/pasta-signage.zip`).
+
+### C2.3 Install on the display
+Remote: **Settings -> EZ Settings -> SI Server Setting**
+- Application Launch Mode: **Local**
+- Application Type: **ZIP**
+- Local Application Upgrade: **USB**
+- Confirm, then reboot. The app installs to internal memory and boots into the launcher on every power cycle.
+
+### C2.4 Use / update
+- On screen: the launcher shows a tab per variant. Use the remote to click between them.
+- Edit a source HTML, re-run `make usb`, re-copy `application/` to the stick, and re-run Local Application Upgrade: USB on the TV to push the change. (The 10-min `location.reload()` only refreshes the clock; new content needs a re-install.)
+
+### C2.5 Fallback (zero config)
+If app install misbehaves on your firmware, render each slide to a 1920x1080 PNG and drop them on the FAT32 stick: USB Plug & Play auto-plays the slideshow, no setup. You lose the clock/animation.
+
+### C2.6 Simplest of all: render to video
+USB Plug & Play auto-plays MP4 with **no setup at all** (no app, no SI Server Setting, no manifest). Run `make usb-video` to render `menu_screen.html` (with its real Ken Burns / shimmer / glow motion) into `dist/usb/menu-signage.mp4`. Copy that single file to a FAT32 stick root; the TV (orientation set to PORTRAIT) loops it automatically. The live clock and auto-reload are stripped for the render because a frozen clock on a loop looks wrong. Updates = re-render and re-copy.
 
 ---
 

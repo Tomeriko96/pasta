@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920, initial-scale=1.0">
+<title>La Carbonara - Menu Signage</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #1a1a1a;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color: #f5f0e8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main {
+    width: 1080px;
+    height: 1920px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .band {
+    position: relative;
+    width: 1080px;
+    height: 640px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .band-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    animation: kenburns 20s ease-in-out infinite alternate;
+  }
+
+  @keyframes kenburns {
+    from { transform: scale(1.0); }
+    to { transform: scale(1.05); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .band-bg { animation: none; }
+  }
+
+  .band-scrim {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.65) 50%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+  }
+
+  .band-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 60px;
+  }
+
+  .kicker {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c8a55b;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: #f5f0e8;
+    margin-bottom: 24px;
+    line-height: 1.1;
+  }
+
+  .section-title-sm {
+    font-size: 36px;
+  }
+
+  .items-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 48px;
+  }
+
+  .item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+  }
+
+  .item-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: #f5f0e8;
+    white-space: nowrap;
+  }
+
+  .item-price {
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    color: #b85c38;
+    white-space: nowrap;
+  }
+
+  .note {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 13px;
+    font-style: italic;
+    color: #f5f0e8;
+    opacity: 0.5;
+    margin-top: 16px;
+  }
+
+  .clock {
+    position: fixed;
+    top: 24px;
+    right: 32px;
+    font-family: 'Montserrat', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #f5f0e8;
+    opacity: 0.5;
+    z-index: 10;
+    letter-spacing: 1px;
+  }
+</style>
+</head>
+<body>
+
+<div class="clock" id="clock"></div>
+
+<main>
+
+  <section class="band">
+    <div class="band-bg" style="background-image: url('../images/focaccia.jpg');"></div>
+    <div class="band-scrim"></div>
+    <div class="band-content">
+      <div class="kicker">La Carbonara</div>
+      <h2 class="section-title">Antipasti</h2>
+      <div class="items-grid">
+        <div class="item">
+          <span class="item-name">Warm Focaccia</span>
+          <span class="item-price">&euro;6.50</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Bruschetta Cremosa</span>
+          <span class="item-price">&euro;10</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Tagliere Formaggi</span>
+          <span class="item-price">&euro;16</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Bruschetta Mista</span>
+          <span class="item-price">&euro;16</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-bg" style="background-image: url('../images/pasta-carbonara.jpg');"></div>
+    <div class="band-scrim"></div>
+    <div class="band-content">
+      <h2 class="section-title">Pasta</h2>
+      <div class="items-grid">
+        <div class="item">
+          <span class="item-name">La Carbonara</span>
+          <span class="item-price">&euro;19</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Cacio e Pepe</span>
+          <span class="item-price">&euro;16</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Amatriciana</span>
+          <span class="item-price">&euro;18</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Quattro Formaggi</span>
+          <span class="item-price">&euro;20</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Gamberetti</span>
+          <span class="item-price">&euro;21</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Cozze e Gorgonzola</span>
+          <span class="item-price">&euro;22</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="band-bg" style="background-image: url('../images/spritz-cocktail.jpg');"></div>
+    <div class="band-scrim"></div>
+    <div class="band-content">
+      <h2 class="section-title section-title-sm">Mare e Bevande</h2>
+      <div class="items-grid">
+        <div class="item">
+          <span class="item-name">Cozze alla Diavola</span>
+          <span class="item-price">&euro;16</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Cozze al Gorgonzola</span>
+          <span class="item-price">&euro;18</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Spritz 0.0%</span>
+          <span class="item-price">&euro;12</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Cocktail 0.0%</span>
+          <span class="item-price">&euro;12</span>
+        </div>
+        <div class="item">
+          <span class="item-name">Heineken 0.0</span>
+          <span class="item-price">&euro;6</span>
+        </div>
+      </div>
+      <p class="note">All drinks alcohol-free</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function updateClock() {
+    var now = new Date();
+    var h = String(now.getHours()).padStart(2, '0');
+    var m = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('clock').textContent = h + ':' + m;
+  }
+  updateClock();
+  setInterval(updateClock, 30000);
+  setTimeout(function() { location.reload(); }, 600000);
+</script>
+
+</body>
+</html>

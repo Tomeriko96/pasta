@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Pasta Menu: Street</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root{--bg:#fbf7ef;--ink:#2c2118;--muted:#6f6354;--accent:#9c4a3c;--rule:#e3d8c4;--cream:#fbf7ef;}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink);font-family:'Montserrat',system-ui,Arial,sans-serif;overflow:hidden}
+.stage{position:relative;width:1080px;height:1920px;margin:0 auto;display:flex;flex-direction:column}
+.clock{position:absolute;top:26px;right:44px;z-index:6;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.6)}
+.slide{position:absolute;inset:0;display:flex;opacity:0;transition:opacity 1s ease;pointer-events:none}
+.slide.is-active{opacity:1;pointer-events:auto}
+.slide-a{background:url('images/pasta-carbonara.jpg') center/cover}
+.slide-a::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,14,10,0.30),rgba(20,14,10,0.55) 60%,rgba(20,14,10,0.78))}
+.a-inner{position:relative;z-index:2;margin-top:auto;padding:0 80px 120px;text-align:left;color:#fff}
+.a-kicker{font-family:'Montserrat',sans-serif;font-weight:600;font-size:16px;letter-spacing:6px;text-transform:uppercase;color:#f0c9a0;margin-bottom:18px}
+.a-tag{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:78px;line-height:1.02;letter-spacing:1px;text-shadow:0 3px 18px rgba(0,0,0,0.6)}
+.a-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;margin-top:14px;color:#f3e6d6;text-shadow:0 2px 10px rgba(0,0,0,0.6)}
+.b-inner,.c-inner{margin:auto;padding:90px 96px;width:100%;text-align:center}
+.b-head{font-family:'Montserrat',sans-serif;font-weight:600;font-size:15px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:30px}
+.dishes{display:flex;flex-direction:column;gap:30px}
+.dish{text-align:left}
+.dline{display:flex;align-items:baseline}
+.dname{font-family:'Cormorant Garamond',serif;font-size:46px;font-weight:600}
+.dlead{flex:1;border-bottom:2px dotted var(--rule);margin:0 16px 10px;min-width:30px}
+.dprice{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:600;color:var(--accent)}
+.ddesc{font-size:18px;color:var(--muted);margin-top:2px}
+.b-foot{margin-top:36px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--muted)}
+.hooks{display:flex;flex-direction:column;gap:26px;align-items:center}
+.hook{display:flex;align-items:baseline;gap:18px;font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:600}
+.hprice{font-family:'Montserrat',sans-serif;font-size:30px;font-weight:600;color:var(--accent)}
+
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="clock" id="clock"></div>
+
+  <section class="slide slide-a is-active">
+    <div class="a-inner">
+      <div class="a-kicker">Cucina Italiana</div>
+      <div class="a-tag">Fresh pasta, made daily</div>
+      <div class="a-sub">Walk in, we're open</div>
+    </div>
+  </section>
+
+  <section class="slide slide-b">
+    <div class="b-inner">
+      <div class="b-head">Signatures</div>
+      <div class="dishes"><div class="dish"><div class="dline"><span class="dname">La Carbonara</span><span class="dlead"></span><span class="dprice">€19</span></div><div class="ddesc">Guanciale, egg yolk, Pecorino</div></div><div class="dish"><div class="dline"><span class="dname">Cacio e Pepe</span><span class="dlead"></span><span class="dprice">€16</span></div><div class="ddesc">Pecorino, cracked black pepper</div></div><div class="dish"><div class="dline"><span class="dname">Linguine Cozze e Gorgonzola</span><span class="dlead"></span><span class="dprice">€22</span></div><div class="ddesc">Mussels in creamy Gorgonzola</div></div></div>
+      <div class="b-foot">Ask inside for the full menu</div>
+    </div>
+  </section>
+
+  <section class="slide slide-c">
+    <div class="c-inner">
+      <div class="b-head">Today</div>
+      <div class="hooks"><div class="hook"><span class="htext">Alcohol-free Spritz</span><span class="hprice">€12</span></div><div class="hook"><span class="htext">Bruschetta from</span><span class="hprice">€8</span></div><div class="hook"><span class="htext">Open till 23:00</span></div><div class="hook"><span class="htext">Walk in, we're open</span></div></div>
+    </div>
+  </section>
+</div>
+
+
+<script>
+  (function () {
+    "use strict";
+    try {
+      var slides = document.querySelectorAll('.slide');
+      var idx = 0;
+      setInterval(function () {
+        slides[idx].classList.remove('is-active');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('is-active');
+      }, 7000);
+      var clockEl = document.getElementById('clock');
+      function tick() {
+        var d = new Date(), h = d.getHours(), m = d.getMinutes();
+        var ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
+        clockEl.textContent = (h < 10 ? '0' + h : h) + ':' + (m < 10 ? '0' + m : m) + ' ' + ap;
+      }
+      tick(); setInterval(tick, 1000);
+      setTimeout(function () { location.reload(); }, 10 * 60 * 1000);
+    } catch (e) {}
+  })();
+</script>
+
+</body>
+</html>

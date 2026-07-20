@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080">
+<title>La Carbonara - Menu</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 1080px;
+  height: 1920px;
+  overflow: hidden;
+  background: #1c1917;
+  color: #f5f0e8;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 1080px;
+  height: 1920px;
+}
+
+/* ---- Header ---- */
+.header {
+  height: 180px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  color: #f5f0e8;
+}
+
+.header .subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #f5f0e8;
+  opacity: 0.7;
+  margin-top: 6px;
+}
+
+.header .rule {
+  width: 60px;
+  height: 2px;
+  background: #c8a55b;
+  margin-top: 14px;
+}
+
+/* ---- Columns ---- */
+.columns {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 0 50px;
+  gap: 40px;
+  position: relative;
+}
+
+.columns::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  bottom: 30px;
+  width: 1px;
+  background: #c8a55b;
+  opacity: 0.15;
+}
+
+.col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #c8a55b;
+}
+
+.item {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: #f5f0e8;
+  white-space: nowrap;
+}
+
+.item-dots {
+  flex: 1;
+  border-bottom: 1px dotted rgba(245, 240, 232, 0.2);
+  margin-bottom: 5px;
+  min-width: 20px;
+}
+
+.item-price {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #b85c38;
+  white-space: nowrap;
+}
+
+/* ---- Footer ---- */
+.footer {
+  height: 60px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 50px;
+}
+
+.footer .drinks {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: #f5f0e8;
+  opacity: 0.6;
+}
+
+.footer .hours {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: #f5f0e8;
+  opacity: 0.3;
+  margin-top: 2px;
+}
+
+/* ---- Clock ---- */
+.clock {
+  position: fixed;
+  top: 16px;
+  right: 24px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: #f5f0e8;
+  opacity: 0.3;
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="header">
+    <h1>LA CARBONARA</h1>
+    <div class="subtitle">Pasta fresca, fatta a mano</div>
+    <div class="rule"></div>
+  </div>
+
+  <div class="columns">
+    <div class="col">
+      <div class="section-label">Antipasti</div>
+      <div class="item"><span class="item-name">Focaccia</span><span class="item-dots"></span><span class="item-price">6.50</span></div>
+      <div class="item"><span class="item-name">Bruschetta Classica</span><span class="item-dots"></span><span class="item-price">8</span></div>
+      <div class="item"><span class="item-name">Bruschetta Cremosa</span><span class="item-dots"></span><span class="item-price">10</span></div>
+      <div class="item"><span class="item-name">Bruschetta Mediterranea</span><span class="item-dots"></span><span class="item-price">10</span></div>
+      <div class="item"><span class="item-name">Bruschetta Gorgonzola e Miele</span><span class="item-dots"></span><span class="item-price">10</span></div>
+      <div class="item"><span class="item-name">Bruschetta Mista</span><span class="item-dots"></span><span class="item-price">16</span></div>
+      <div class="item"><span class="item-name">Tagliere Formaggi</span><span class="item-dots"></span><span class="item-price">16</span></div>
+      <div class="item"><span class="item-name">Insalata di Rucola</span><span class="item-dots"></span><span class="item-price">6</span></div>
+      <div class="item"><span class="item-name">Olive Marinate</span><span class="item-dots"></span><span class="item-price">6</span></div>
+    </div>
+
+    <div class="col">
+      <div class="section-label">Pasta</div>
+      <div class="item"><span class="item-name">La Carbonara</span><span class="item-dots"></span><span class="item-price">19</span></div>
+      <div class="item"><span class="item-name">Cacio e Pepe</span><span class="item-dots"></span><span class="item-price">16</span></div>
+      <div class="item"><span class="item-name">Amatriciana</span><span class="item-dots"></span><span class="item-price">18</span></div>
+      <div class="item"><span class="item-name">Bolognese</span><span class="item-dots"></span><span class="item-price">18</span></div>
+      <div class="item"><span class="item-name">Alla Puttanesca</span><span class="item-dots"></span><span class="item-price">18</span></div>
+      <div class="item"><span class="item-name">Arrabbiata</span><span class="item-dots"></span><span class="item-price">15</span></div>
+      <div class="item"><span class="item-name">Al Pomodoro</span><span class="item-dots"></span><span class="item-price">14</span></div>
+      <div class="item"><span class="item-name">Pesto Genovese con Stracciatella</span><span class="item-dots"></span><span class="item-price">17</span></div>
+      <div class="item"><span class="item-name">Quattro Formaggi</span><span class="item-dots"></span><span class="item-price">20</span></div>
+      <div class="item"><span class="item-name">Linguine con Cozze</span><span class="item-dots"></span><span class="item-price">20</span></div>
+      <div class="item"><span class="item-name">Gamberetti</span><span class="item-dots"></span><span class="item-price">21</span></div>
+      <div class="item"><span class="item-name">Cozze e Gorgonzola</span><span class="item-dots"></span><span class="item-price">22</span></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="drinks">Spritz e Cocktail 0.0% from 12 | Birra 6 | Acqua 4</div>
+    <div class="hours">Aperto ogni giorno dalle 12:00</div>
+  </div>
+</main>
+
+<div class="clock" id="clock"></div>
+
+<script>
+(function() {
+  var cl = document.getElementById('clock');
+  function tick() {
+    var d = new Date();
+    cl.textContent = d.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+  }
+  tick();
+  setInterval(tick, 30000);
+  setInterval(function() { location.reload(); }, 3600000);
+})();
+</script>
+</body>
+</html>

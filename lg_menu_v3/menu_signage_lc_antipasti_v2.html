@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1080, height=1920">
+<title>La Carbonara - Antipasti</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;500&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background: #1c1917;
+    color: #f5f0e8;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  main {
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---- Clock ---- */
+  .clock {
+    position: absolute;
+    top: 18px;
+    right: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    color: rgba(245, 240, 232, 0.6);
+    z-index: 10;
+  }
+
+  /* ---- Photo band ---- */
+  .photo-band {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .photo-band__img {
+    width: 100%;
+    height: 100%;
+    background: url('../images/bruschetta.jpg') center / cover no-repeat;
+    animation: kenburns 25s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+
+  @keyframes kenburns {
+    0%   { transform: scale(1) translate(0, 0); }
+    100% { transform: scale(1.08) translate(-1%, -1%); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .photo-band__img { animation: none; }
+  }
+
+  .photo-band__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(28, 25, 23, 0.3),
+      rgba(28, 25, 23, 1)
+    );
+  }
+
+  /* ---- Content ---- */
+  .content {
+    padding: 0 60px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* ---- Header ---- */
+  .kicker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-variant: small-caps;
+    letter-spacing: 0.2em;
+    color: #c8a55b;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 600;
+    text-align: center;
+    color: #f5f0e8;
+    margin-bottom: 16px;
+  }
+
+  .rule {
+    width: 60px;
+    height: 2px;
+    background: #c8a55b;
+    margin: 0 auto 40px;
+    border: none;
+  }
+
+  /* ---- Groups ---- */
+  .group { margin-bottom: 30px; }
+
+  .group-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-variant: small-caps;
+    letter-spacing: 0.18em;
+    color: #c8a55b;
+    margin-bottom: 12px;
+  }
+
+  .group-rule {
+    width: 100%;
+    height: 1px;
+    background: rgba(200, 165, 91, 0.2);
+    border: none;
+    margin-bottom: 30px;
+  }
+
+  /* ---- Menu items ---- */
+  .item {
+    display: flex;
+    align-items: baseline;
+    height: 65px;
+  }
+
+  .item__name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #f5f0e8;
+    white-space: nowrap;
+  }
+
+  .item__dots {
+    flex: 1;
+    border-bottom: 1px dotted rgba(245, 240, 232, 0.25);
+    margin: 0 12px;
+    position: relative;
+    top: -6px;
+  }
+
+  .item__price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: #b85c38;
+    white-space: nowrap;
+  }
+
+  /* ---- Callout ---- */
+  .callout {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: #f5f0e8;
+    opacity: 0.5;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="clock" id="clock"></div>
+
+  <!-- Photo band -->
+  <div class="photo-band">
+    <div class="photo-band__img"></div>
+    <div class="photo-band__overlay"></div>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <p class="kicker">La Carbonara</p>
+    <h1 class="title">Antipasti</h1>
+    <hr class="rule">
+
+    <!-- Group 1 -->
+    <div class="group">
+      <p class="group-label">Piccoli Assaggi</p>
+      <div class="item">
+        <span class="item__name">Warm Focaccia</span>
+        <span class="item__dots"></span>
+        <span class="item__price">&euro;6.50</span>
+      </div>
+      <div class="item">
+        <span class="item__name">Insalata di Rucola</span>
+        <span class="item__dots"></span>
+        <span class="item__price">&euro;6</span>
+      </div>
+      <div class="item">
+        <span class="item__name">Olive Marinate</span>
+        <span class="item__dots"></span>
+        <span class="item__price">&euro;6</span>
+      </div>
+    </div>
+
+    <hr class="group-rule">
+
+    <!-- Group 2 -->
+    <div class="group">
+      <p class="group-label">Bruschette</p>
+      <div class="item">
+        <span class="item__name">Bruschetta Classica</span>
+        <span class="item__dots"></span>
+        <span class="item__price">&euro;8</span>
+      </div>
+      <div class="item">
+        <span class="item__name">Bruschetta Cremosa</span>
+        <span class="item__dots"></span>
+        <span class="item__price">&euro;10</span>
+      </div>
+      <div class="item">
+        <span class="item__name">Bruschetta Mediterranea</span>
+        <span class="item__dots"></span>
+        <span class="item__price">&euro;10</span>
+      </div>
+      <div class="item">
+        <span class="item__name">Bruschetta Gorgonzola e Miele</span>
+        <span class="item__dots"></span>
+        <span class="item__price">&euro;10</span>
+      </div>
+    </div>
+
+    <hr class="group-rule">
+
+    <!-- Group 3 -->
+    <div class="group">
+      <p class="group-label">Da Condividere</p>
+      <div class="item">
+        <span class="item__name">Bruschetta Mista</span>
+        <span class="item__dots"></span>
+        <span class="item__price">&euro;16</span>
+      </div>
+      <div class="item">
+        <span class="item__name">Tagliere Formaggi</span>
+        <span class="item__dots"></span>
+        <span class="item__price">&euro;16</span>
+      </div>
+    </div>
+
+    <p class="callout">Bruschetta Mista: un assaggio di tutto</p>
+  </div>
+</main>
+
+<script>
+  // Live clock
+  (function updateClock() {
+    var el = document.getElementById('clock');
+    var now = new Date();
+    var h = String(now.getHours()).padStart(2, '0');
+    var m = String(now.getMinutes()).padStart(2, '0');
+    el.textContent = h + ':' + m;
+    setTimeout(updateClock, 30000);
+  })();
+
+  // 10-minute auto-reload
+  setTimeout(function() { location.reload(); }, 600000);
+</script>
+</body>
+</html>

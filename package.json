@@ -1,0 +1,24 @@
+{
+  "name": "pasta",
+  "version": "1.0.0",
+  "description": "https://qrmenucreator.com/____SAVE_THIS_URL_TO_EDIT_YOUR_MENU_LATER____&action=edit&menu_id=pd9lsl&menu_hash=jzeg80piacrbxwoz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tomeriko96/pasta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Tomeriko96/pasta/issues"
+  },
+  "homepage": "https://github.com/Tomeriko96/pasta#readme",
+  "dependencies": {
+    "playwright-core": "^1.61.1"
+  }
+}
