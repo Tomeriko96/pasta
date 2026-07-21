@@ -100,6 +100,13 @@ const VARIANTS = [
   ["lg_menu_v3/menu_signage_lc_single_x4.html", "lgmenuv3-lc-single-x4", "La Carbonara / single x4"],
   ["lg_menu_v3/menu_signage_lc_single_x5.html", "lgmenuv3-lc-single-x5", "La Carbonara / single x5"],
   ["lg_menu_v3/menu_signage_lc_single_x6.html", "lgmenuv3-lc-single-x6", "La Carbonara / single x6"],
+  ["lg_menu_v3/color_variants/menu_signage_lc_y1_white.html", "lgmenuv3-lc-y1-white", "La Carbonara / y1 white"],
+  ["lg_menu_v3/color_variants/menu_signage_lc_y1_cream.html", "lgmenuv3-lc-y1-cream", "La Carbonara / y1 cream"],
+  ["lg_menu_v3/color_variants/menu_signage_lc_y1_sage.html", "lgmenuv3-lc-y1-sage", "La Carbonara / y1 sage"],
+  ["lg_menu_v3/color_variants/menu_signage_lc_y1_rose.html", "lgmenuv3-lc-y1-rose", "La Carbonara / y1 rose"],
+  ["lg_menu_v3/color_variants/menu_signage_lc_y1_sand.html", "lgmenuv3-lc-y1-sand", "La Carbonara / y1 sand"],
+  ["lg_menu_v3/color_variants/menu_signage_lc_y1_dark.html", "lgmenuv3-lc-y1-dark", "La Carbonara / y1 dark"],
+  ["lg_menu_v3/color_variants/menu_signage_lc_y1_cream_clean.html", "lgmenuv3-lc-y1-cream-clean", "La Carbonara / y1 cream clean"],
 ];
 
 function copyImages(srcDir, destDir) {
@@ -125,7 +132,7 @@ function patch(src) {
     /<meta http-equiv="refresh" content="\d+">/,
     "<!-- meta-refresh disabled for video render -->"
   );
-  html = html.replace(/\.\.\/images\//g, "images/");
+  html = html.replace(/(?:\.\.\/)+images\//g, "images/");
   return html;
 }
 
