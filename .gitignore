@@ -6,3 +6,4 @@ build/
 .env.*
 .DS_Store
 menu_new.pdf
+dist/usb/lg_signage/*-long.mp4

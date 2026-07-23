@@ -12,9 +12,11 @@ Static and digital menus for a pasta restaurant. Three surfaces, kept in sync ma
 ## Quick start
 
 ```bash
-make dev       # Serve the repo on http://localhost:8080
-make pdf       # Generate menu_improved.pdf via weasyprint
-make gallery   # Regenerate menus/menus.json then serve the review gallery
+make dev            # Serve the repo on http://localhost:8080
+make pdf            # Generate menu_improved.pdf via weasyprint
+make gallery        # Regenerate menus/menus.json then serve the review gallery
+make usb-video      # Looping MP4s of all variants -> dist/usb/videos/
+make usb-video-lg   # Signage-images variant -> dist/usb/lg_signage/lgmenuv3-lc-y1-cream-si.mp4
 ```
 
 `uv` is required for the PDF target. `weasyprint` is not declared in `pyproject.toml`; install it into the venv (`uv pip install weasyprint`) before `make pdf`.

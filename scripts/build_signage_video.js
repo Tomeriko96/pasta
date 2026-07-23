@@ -20,15 +20,31 @@ const path = require("path");
 const { execSync } = require("child_process");
 
 const ROOT = process.cwd();
+
+// Resolve ffmpeg: prefer PATH, fall back to the imageio-ffmpeg uv bundle.
+function resolveFFmpeg() {
+  try { execSync("ffmpeg -version", { stdio: "ignore" }); return "ffmpeg"; } catch (_) {}
+  try {
+    const p = execSync(
+      "uv run --with imageio-ffmpeg python -c \"import imageio_ffmpeg; print(imageio_ffmpeg.get_ffmpeg_exe())\"",
+      { encoding: "utf8" }
+    ).trim();
+    if (p && fs.existsSync(p)) return p;
+  } catch (_) {}
+  throw new Error("ffmpeg not found. Install it or run: uv run --with imageio-ffmpeg true");
+}
+const FFMPEG = resolveFFmpeg();
 const BUILD = path.join(ROOT, "build", "signage-video");
 fs.mkdirSync(BUILD, { recursive: true });
 fs.mkdirSync(path.join(BUILD, "images"), { recursive: true });
+fs.mkdirSync(path.join(BUILD, "signage_images"), { recursive: true });
 
 // Make both `images/` and `../images/` resolve when the temp html lives in BUILD.
 copyImages(path.join(ROOT, "images"), path.join(BUILD, "images"));
+copyImages(path.join(ROOT, "signage_images"), path.join(BUILD, "signage_images"));
 
 const EXEC = "/home/dev/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome";
-const CAPTURE_MS = 20000;
+const CAPTURE_MS = process.env.CAPTURE_MS ? parseInt(process.env.CAPTURE_MS) : 20000;
 const LEAD_IN = 2; // seconds of load/blank at the very start to discard
 const FADE = 1; // seconds of crossfade for a seamless loop
 
@@ -107,6 +123,7 @@ const VARIANTS = [
   ["lg_menu_v3/color_variants/menu_signage_lc_y1_sand.html", "lgmenuv3-lc-y1-sand", "La Carbonara / y1 sand"],
   ["lg_menu_v3/color_variants/menu_signage_lc_y1_dark.html", "lgmenuv3-lc-y1-dark", "La Carbonara / y1 dark"],
   ["lg_menu_v3/color_variants/menu_signage_lc_y1_cream_clean.html", "lgmenuv3-lc-y1-cream-clean", "La Carbonara / y1 cream clean"],
+  ["lg_menu_v3/color_variants/menu_signage_lc_y1_cream_si.html", "lgmenuv3-lc-y1-cream-si", "La Carbonara / y1 cream signage images"],
 ];
 
 function copyImages(srcDir, destDir) {
@@ -133,16 +150,16 @@ function patch(src) {
     "<!-- meta-refresh disabled for video render -->"
   );
   html = html.replace(/(?:\.\.\/)+images\//g, "images/");
+  html = html.replace(/(?:\.\.\/)+signage_images\//g, "signage_images/");
   return html;
 }
 
 function probeDuration(file) {
-  const out = execSync(
-    `ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "${file}"`
-  )
-    .toString()
-    .trim();
-  return parseFloat(out);
+  // ffmpeg prints "Duration: HH:MM:SS.ms" to stderr; parse it without needing ffprobe.
+  const out = execSync(`"${FFMPEG}" -i "${file}" 2>&1 || true`, { encoding: "utf8", shell: true });
+  const m = out.match(/Duration:\s*(\d+):(\d+):([\d.]+)/);
+  if (!m) throw new Error("Could not parse duration from: " + file);
+  return parseInt(m[1]) * 3600 + parseInt(m[2]) * 60 + parseFloat(m[3]);
 }
 
 function encodeLoop(webm, mp4, L) {
@@ -153,22 +170,23 @@ function encodeLoop(webm, mp4, L) {
   if (L <= S + 1) {
     // Clip too short to loop cleanly: just trim the lead-in and pass through.
     execSync(
-      `ffmpeg -y -ss ${S} -i "${webm}" -vf "fps=30" ` +
+      `"${FFMPEG}" -y -ss ${S} -i "${webm}" -vf "fps=30" ` +
         `-c:v libx264 -preset medium -crf 23 -pix_fmt yuv420p -movflags +faststart "${mp4}"`,
-      { stdio: "inherit" }
+      { stdio: "inherit", shell: true }
     );
     return;
   }
   const D = Math.max(0.3, Math.min(FADE, (L - S) / 2 - 0.2));
+  // Force CFR on both xfade inputs: fps=30 before split, then again after each branch trim.
   const filter =
-    `[0:v]trim=${S}:${L},setpts=PTS-STARTPTS,fps=30,split=2[body][pre];` +
-    `[pre]trim=0:${D},setpts=PTS-STARTPTS[pre];` +
-    `[body]trim=${D},setpts=PTS-STARTPTS[body];` +
+    `[0:v]fps=30,trim=${S}:${L},setpts=PTS-STARTPTS,split=2[body][pre];` +
+    `[pre]trim=0:${D},setpts=PTS-STARTPTS,fps=30[pre];` +
+    `[body]trim=${D},setpts=PTS-STARTPTS,fps=30[body];` +
     `[body][pre]xfade=transition=fade:duration=${D}:offset=${(L - S - D).toFixed(3)}[v]`;
   execSync(
-    `ffmpeg -y -i "${webm}" -filter_complex "${filter}" -map "[v]" ` +
+    `"${FFMPEG}" -y -i "${webm}" -filter_complex "${filter}" -map "[v]" ` +
       `-c:v libx264 -preset medium -crf 23 -pix_fmt yuv420p -movflags +faststart "${mp4}"`,
-    { stdio: "inherit" }
+    { stdio: "inherit", shell: true }
   );
 }
 
@@ -200,7 +218,9 @@ async function renderOne(srcRel, outBase, label) {
   );
   const webm = path.join(BUILD, webms[0]);
 
-  const outDir = path.join(ROOT, "dist", "usb", "videos");
+  const outDir = process.env.SIGNAGE_OUT_DIR
+    ? path.resolve(process.env.SIGNAGE_OUT_DIR)
+    : path.join(ROOT, "dist", "usb", "videos");
   fs.mkdirSync(outDir, { recursive: true });
   const mp4 = path.join(outDir, outBase + ".mp4");
   const L = probeDuration(webm);

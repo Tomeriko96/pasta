@@ -141,6 +141,32 @@ If app install misbehaves on your firmware, render each slide to a 1920x1080 PNG
 ### C2.6 Simplest of all: render to video
 USB Plug & Play auto-plays MP4 with **no setup at all** (no app, no SI Server Setting, no manifest). Run `make usb-video` to render `menu_screen.html` (with its real Ken Burns / shimmer / glow motion) into `dist/usb/menu-signage.mp4`. Copy that single file to a FAT32 stick root; the TV (orientation set to PORTRAIT) loops it automatically. The live clock and auto-reload are stripped for the render because a frozen clock on a loop looks wrong. Updates = re-render and re-copy.
 
+### C2.7 Long looped video for all-day USB playback
+For a large-capacity USB stick (no network required, no CMS), the recommended approach is a single large MP4 that plays for several hours before the TV's own player loops it:
+
+1. **Render the short source clip** (all 4 signage images, ~20s, ~3MB):
+   ```bash
+   make usb-video-lg
+   # output: dist/usb/lg_signage/lgmenuv3-lc-y1-cream-si.mp4
+   ```
+   The short clip already has a seamless loop baked in: `build_signage_video.js` crossfades the tail back into the first frame, so there is no visible jump at the join.
+
+2. **Concatenate to ~3GB** (992 repetitions, no re-encode, fast):
+   ```bash
+   python3 -c "
+   import os; src=os.path.abspath('dist/usb/lg_signage/lgmenuv3-lc-y1-cream-si.mp4')
+   n = -(-3*1024**3 // os.path.getsize(src))
+   open('/tmp/ll.txt','w').writelines(f\"file '{src}'\n\" for _ in range(n))
+   "
+   <ffmpeg> -f concat -safe 0 -i /tmp/ll.txt -c copy \
+     dist/usb/lg_signage/lgmenuv3-lc-y1-cream-clean-long.mp4
+   ```
+   Replace `<ffmpeg>` with your ffmpeg path (the build script logs it on startup). The `-c copy` flag means no re-encoding: a 3GB file is produced in under a minute at 487x speed.
+
+   Result: `dist/usb/lg_signage/lgmenuv3-lc-y1-cream-clean-long.mp4` (3.1GB, 5h33m).
+
+3. **Copy to FAT32 stick** and set TV orientation to PORTRAIT. No other configuration needed.
+
 ---
 
 ## Part D: Update Workflow

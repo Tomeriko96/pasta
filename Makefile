@@ -33,5 +33,8 @@ usb:
 usb-video:
 	node scripts/build_signage_video.js
 
+usb-video-lg:
+	CAPTURE_MS=22000 SIGNAGE_OUT_DIR=dist/usb/lg_signage node scripts/build_signage_video.js lgmenuv3-lc-y1-cream-si
+
 clean:
 	rm -f menu_improved.pdf
