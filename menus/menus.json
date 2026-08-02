@@ -49,6 +49,8 @@
   {"section": "print", "file": "menu_agentic_v8.html", "name": "menu_agentic_v8.html"},
   {"section": "print", "file": "menu_agentic_v9.html", "name": "menu_agentic_v9.html"},
   {"section": "print", "file": "menu_improved.html", "name": "menu_improved.html"},
+  {"section": "print", "file": "menu_improved_additions.html", "name": "menu_improved_additions.html"},
+  {"section": "print", "file": "menu_improved_additions_v2.html", "name": "menu_improved_additions_v2.html"},
   {"section": "signage", "file": "menu_screen.html", "name": "menu_screen.html"},
   {"section": "signage", "file": "lg_menu/menu_screen_design.html", "name": "menu_screen_design.html"},
   {"section": "signage", "file": "lg_menu/menu_screen_motion.html", "name": "menu_screen_motion.html"},

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Serve the repo over HTTP, redirecting / to /menus/ (the gallery app)."""
+import socket
 import sys
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -26,7 +27,8 @@ class Handler(SimpleHTTPRequestHandler):
 def main():
     port = int(sys.argv[1]) if len(sys.argv) > 1 else 8090
     srv = ThreadingHTTPServer(("0.0.0.0", port), Handler)
-    print(f"Menu gallery: http://localhost:{port}/menus/")
+    ip = socket.gethostbyname(socket.gethostname())
+    print(f"Menu gallery: http://{ip}:{port}/menus/  (also http://localhost:{port}/menus/)")
     srv.serve_forever()
 
 

@@ -10,5 +10,6 @@
       ]
     }
   },
+  "forwardPorts": [8080, 8090],
   "postCreateCommand": "uv sync"
 }
