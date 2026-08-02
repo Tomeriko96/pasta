@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>La Carbonara | Fresh pasta in Amsterdam</title>
-<meta name="description" content="La Carbonara, fresh pasta every day from 12:00 in the heart of Amsterdam. No reservations, all drinks alcohol-free.">
+<meta name="description" content="La Carbonara, fresh pasta every day from 12:00 at Lange Niezel 7 in the heart of Amsterdam. No reservations, all drinks alcohol-free.">
 <meta property="og:title" content="La Carbonara">
-<meta property="og:description" content="Fresh pasta every day from 12:00 in the heart of Amsterdam. No reservations.">
+<meta property="og:description" content="Fresh pasta every day from 12:00 at Lange Niezel 7, Amsterdam. No reservations.">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
@@ -28,6 +29,10 @@
     box-sizing: border-box;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     background: var(--paper);
     color: var(--ink);
@@ -39,16 +44,46 @@
   .wrap {
     max-width: 720px;
     margin: 0 auto;
-    padding: 48px 28px 64px;
     background: var(--bg);
     min-height: 100vh;
   }
 
-  header {
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 28px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  nav .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  nav .links a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    margin-left: 22px;
+  }
+
+  nav .links a:hover {
+    color: var(--accent);
+  }
+
+  .hero {
     text-align: center;
-    padding-bottom: 28px;
+    padding: 72px 28px 56px;
     border-bottom: 1.3px solid var(--ink);
-    margin-bottom: 40px;
   }
 
   .eyebrow {
@@ -57,12 +92,12 @@
     text-transform: uppercase;
     color: var(--accent);
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 44px;
+    font-size: 52px;
     font-weight: 600;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -71,33 +106,97 @@
 
   .sub {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
+    font-size: 18px;
     font-style: italic;
     color: var(--muted);
-    margin-top: 10px;
+    margin-top: 14px;
   }
 
   .tagline {
-    margin-top: 18px;
+    max-width: 460px;
+    margin: 20px auto 0;
     font-size: 13px;
     font-weight: 400;
-    letter-spacing: 0.3px;
+    line-height: 1.6;
     color: var(--ink);
   }
 
-  .menu-section {
-    margin-bottom: 40px;
+  .buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 32px;
+  }
+
+  .btn {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 30px;
+    border: 1px solid var(--ink);
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fdfbf7;
+  }
+
+  .btn-primary:hover {
+    background: #75302f;
+  }
+
+  .btn-outline {
+    color: var(--ink);
+    background: transparent;
+  }
+
+  .btn-outline:hover {
+    background: var(--ink);
+    color: var(--bg);
+  }
+
+  .note {
+    margin-top: 22px;
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .section {
+    padding: 56px 28px;
   }
 
   .section-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 600;
     letter-spacing: 2.3px;
     text-transform: uppercase;
     color: var(--accent);
     text-align: center;
-    margin-bottom: 18px;
+    margin-bottom: 28px;
+  }
+
+  .menu-section {
+    margin-bottom: 36px;
+  }
+
+  .menu-head {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 2.3px;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
   }
 
   .subgroup-title {
@@ -145,36 +244,53 @@
     line-height: 1.45;
   }
 
-  .note {
+  .visit {
     text-align: center;
-    font-size: 12px;
-    color: var(--muted);
-    font-style: italic;
-    margin-top: 8px;
-  }
-
-  .foot {
-    margin-top: 48px;
-    padding-top: 24px;
+    background: var(--paper);
     border-top: 1.3px solid var(--ink);
-    text-align: center;
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.8;
   }
 
-  .foot strong {
+  .visit .info {
+    margin-bottom: 26px;
+    line-height: 2;
+    font-size: 14px;
+  }
+
+  .visit .info strong {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
-    color: var(--ink);
-    font-size: 15px;
+    font-size: 16px;
   }
 
-  .url {
+  .visit .info a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--leader);
+  }
+
+  .visit .info a:hover {
+    color: var(--ink);
+  }
+
+  footer {
+    text-align: center;
+    padding: 28px;
     font-size: 12px;
+    color: var(--muted);
+    line-height: 1.9;
+  }
+
+  footer .url {
     letter-spacing: 1px;
     color: var(--accent);
-    margin-top: 6px;
+  }
+
+  @media (max-width: 480px) {
+    nav .links a { margin-left: 14px; }
+    h1 { font-size: 40px; letter-spacing: 3px; }
+    .hero { padding: 56px 20px 44px; }
+    .section { padding: 44px 20px; }
+    .btn { width: 100%; }
   }
 </style>
 </head>
@@ -182,113 +298,138 @@
 
 <div class="wrap">
 
-  <header>
+  <nav>
+    <a class="brand" href="#top">La Carbonara</a>
+    <div class="links">
+      <a href="#menu">Menu</a>
+      <a href="#visit">Visit</a>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
     <div class="eyebrow">Trattoria</div>
     <h1>La Carbonara</h1>
     <p class="sub">Pasta fresca ogni giorno dalle 12:00</p>
-    <p class="tagline">Fresh pasta daily from noon in the heart of Amsterdam. No reservations, everyone is welcome.</p>
+    <p class="tagline">Fresh pasta every day from noon at Lange Niezel 7, in the heart of Amsterdam. No reservations, just come.</p>
+    <div class="buttons">
+      <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Lange+Niezel+7+Amsterdam">Get Directions</a>
+      <a class="btn btn-outline" href="#menu">View Menu</a>
+    </div>
+    <p class="note">All drinks are alcohol-free (0.0%).</p>
   </header>
 
-  <section class="menu-section">
-    <h2 class="section-title">Antipasti</h2>
-    <div class="item"><span class="item-name">Warm Focaccia</span><span class="dots"></span><span class="item-price">&euro;6.50</span></div>
-    <p class="desc">Served with rosemary-infused extra virgin olive oil.</p>
-    <div class="item"><span class="item-name">Bruschetta Classica</span><span class="dots"></span><span class="item-price">&euro;8.00</span></div>
-    <p class="desc">Toasted bread with tomato, basil, garlic and extra virgin olive oil.</p>
-    <div class="item"><span class="item-name">Bruschetta Cremosa</span><span class="dots"></span><span class="item-price">&euro;10.00</span></div>
-    <p class="desc">Toasted bread with stracciatella, cherry tomatoes, fresh basil and extra virgin olive oil.</p>
-    <div class="item"><span class="item-name">Bruschetta Mediterranea</span><span class="dots"></span><span class="item-price">&euro;10.00</span></div>
-    <p class="desc">Toasted bread with tomato, olives, anchovies, capers and basil.</p>
-    <div class="item"><span class="item-name">Bruschetta Gorgonzola e Miele</span><span class="dots"></span><span class="item-price">&euro;10.00</span></div>
-    <p class="desc">Toasted bread with Gorgonzola Dolce, honey and freshly cracked black pepper.</p>
-    <div class="item"><span class="item-name">Bruschetta Mista</span><span class="dots"></span><span class="item-price">&euro;16.00</span></div>
-    <p class="desc">Four assorted bruschette selected from our specialties.</p>
-    <div class="item"><span class="item-name">Tagliere Formaggi</span><span class="dots"></span><span class="item-price">&euro;16.00</span></div>
-    <p class="desc">A selection of Italian cheeses served with warm focaccia, olives, honey and fig jam.</p>
-    <div class="item"><span class="item-name">Insalata di Rucola</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
-    <p class="desc">Rocket, cherry tomatoes, olives, Parmigiano Reggiano and balsamic vinaigrette.</p>
-    <div class="item"><span class="item-name">Olive Marinate</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
-    <p class="desc">Italian olives marinated with herbs, garlic and citrus.</p>
+  <section class="section" id="menu">
+    <h2 class="section-title">Menu</h2>
+
+    <div class="menu-section">
+      <h3 class="menu-head">Antipasti</h3>
+      <div class="item"><span class="item-name">Warm Focaccia</span><span class="dots"></span><span class="item-price">&euro;6.50</span></div>
+      <p class="desc">Served with rosemary-infused extra virgin olive oil.</p>
+      <div class="item"><span class="item-name">Bruschetta Classica</span><span class="dots"></span><span class="item-price">&euro;8.00</span></div>
+      <p class="desc">Toasted bread with tomato, basil, garlic and extra virgin olive oil.</p>
+      <div class="item"><span class="item-name">Bruschetta Cremosa</span><span class="dots"></span><span class="item-price">&euro;10.00</span></div>
+      <p class="desc">Toasted bread with stracciatella, cherry tomatoes, fresh basil and extra virgin olive oil.</p>
+      <div class="item"><span class="item-name">Bruschetta Mediterranea</span><span class="dots"></span><span class="item-price">&euro;10.00</span></div>
+      <p class="desc">Toasted bread with tomato, olives, anchovies, capers and basil.</p>
+      <div class="item"><span class="item-name">Bruschetta Gorgonzola e Miele</span><span class="dots"></span><span class="item-price">&euro;10.00</span></div>
+      <p class="desc">Toasted bread with Gorgonzola Dolce, honey and freshly cracked black pepper.</p>
+      <div class="item"><span class="item-name">Bruschetta Mista</span><span class="dots"></span><span class="item-price">&euro;16.00</span></div>
+      <p class="desc">Four assorted bruschette selected from our specialties.</p>
+      <div class="item"><span class="item-name">Tagliere Formaggi</span><span class="dots"></span><span class="item-price">&euro;16.00</span></div>
+      <p class="desc">A selection of Italian cheeses served with warm focaccia, olives, honey and fig jam.</p>
+      <div class="item"><span class="item-name">Insalata di Rucola</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
+      <p class="desc">Rocket, cherry tomatoes, olives, Parmigiano Reggiano and balsamic vinaigrette.</p>
+      <div class="item"><span class="item-name">Olive Marinate</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
+      <p class="desc">Italian olives marinated with herbs, garlic and citrus.</p>
+    </div>
+
+    <div class="menu-section">
+      <h3 class="menu-head">Pasta Classica</h3>
+      <div class="item"><span class="item-name">La Carbonara</span><span class="dots"></span><span class="item-price">&euro;19.00</span></div>
+      <p class="desc">Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.</p>
+      <div class="item"><span class="item-name">Cacio e Pepe</span><span class="dots"></span><span class="item-price">&euro;16.00</span></div>
+      <p class="desc">Linguine with Pecorino Romano and freshly cracked black pepper.</p>
+      <div class="item"><span class="item-name">Amatriciana</span><span class="dots"></span><span class="item-price">&euro;18.00</span></div>
+      <p class="desc">Rigatoni with guanciale, tomato sauce and Pecorino Romano.</p>
+      <div class="item"><span class="item-name">Bolognese</span><span class="dots"></span><span class="item-price">&euro;18.00</span></div>
+      <p class="desc">Rigatoni with traditional Bolognese sauce and Parmigiano Reggiano.</p>
+      <div class="item"><span class="item-name">Alla Puttanesca</span><span class="dots"></span><span class="item-price">&euro;18.00</span></div>
+      <p class="desc">Rigatoni with garlic, anchovies, capers, black olives, peperoncino and tomato sauce.</p>
+      <div class="item"><span class="item-name">Arrabbiata</span><span class="dots"></span><span class="item-price">&euro;15.00</span></div>
+      <p class="desc">Rigatoni with spicy tomato sauce and Parmigiano Reggiano.</p>
+      <div class="item"><span class="item-name">Al Pomodoro</span><span class="dots"></span><span class="item-price">&euro;14.00</span></div>
+      <p class="desc">Linguine with tomato sauce, fresh basil and Parmigiano Reggiano.</p>
+    </div>
+
+    <div class="menu-section">
+      <h3 class="menu-head">Pasta Speciale</h3>
+      <div class="item"><span class="item-name">Linguine al Pesto Genovese con Stracciatella</span><span class="dots"></span><span class="item-price">&euro;17.00</span></div>
+      <p class="desc">Linguine with Genovese pesto and fresh stracciatella.</p>
+      <div class="item"><span class="item-name">Quattro Formaggi</span><span class="dots"></span><span class="item-price">&euro;20.00</span></div>
+      <p class="desc">Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and fresh stracciatella.</p>
+      <div class="item"><span class="item-name">Linguine alla Diavola con Cozze</span><span class="dots"></span><span class="item-price">&euro;20.00</span></div>
+      <p class="desc">Linguine with mussels, garlic, white wine, peperoncino and tomato.</p>
+      <div class="item"><span class="item-name">Gamberetti</span><span class="dots"></span><span class="item-price">&euro;21.00</span></div>
+      <p class="desc">Linguine with shrimp, garlic and a light cream sauce.</p>
+      <div class="item"><span class="item-name">Linguine alle Cozze e Gorgonzola</span><span class="dots"></span><span class="item-price">&euro;22.00</span></div>
+      <p class="desc">Linguine with mussels, Gorgonzola Dolce, garlic and a light cream sauce.</p>
+    </div>
+
+    <div class="menu-section">
+      <h3 class="menu-head">Specialit&agrave; di Mare</h3>
+      <div class="item"><span class="item-name">Cozze alla Diavola</span><span class="dots"></span><span class="item-price">&euro;16.00</span></div>
+      <p class="desc">Fresh mussels with garlic, white wine, tomato and peperoncino. Served with warm focaccia.</p>
+      <div class="item"><span class="item-name">Cozze al Gorgonzola</span><span class="dots"></span><span class="item-price">&euro;18.00</span></div>
+      <p class="desc">Fresh mussels in a creamy Gorgonzola Dolce sauce. Served with warm focaccia.</p>
+    </div>
+
+    <div class="menu-section">
+      <h3 class="menu-head">Extras</h3>
+      <div class="item"><span class="item-name">Gluten-Free Pasta</span><span class="dots"></span><span class="item-price">&euro;3.00</span></div>
+      <div class="item"><span class="item-name">Add Pecorino Romano</span><span class="dots"></span><span class="item-price">&euro;2.50</span></div>
+      <div class="item"><span class="item-name">Add Parmigiano Reggiano</span><span class="dots"></span><span class="item-price">&euro;2.50</span></div>
+      <div class="item"><span class="item-name">Add Fresh Stracciatella</span><span class="dots"></span><span class="item-price">&euro;4.00</span></div>
+    </div>
+
+    <div class="menu-section">
+      <h3 class="menu-head">Bevande: Alcohol-Free</h3>
+      <h4 class="subgroup-title">Spritz 0.0</h4>
+      <div class="item"><span class="item-name">Aperol 0.0</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
+      <div class="item"><span class="item-name">Bitter 0.0</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
+      <div class="item"><span class="item-name">Limoncello 0.0</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
+      <h4 class="subgroup-title">Alcohol-Free Cocktails</h4>
+      <div class="item"><span class="item-name">Mojito</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
+      <div class="item"><span class="item-name">Amaretto Sour</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
+      <div class="item"><span class="item-name">Pornstar Martini</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
+      <div class="item"><span class="item-name">Strawberry Daiquiri</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
+      <div class="item"><span class="item-name">Sex on the Beach</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
+      <h4 class="subgroup-title">Beer</h4>
+      <div class="item"><span class="item-name">Heineken 0.0</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
+      <h4 class="subgroup-title">Fruit Sodas</h4>
+      <div class="item"><span class="item-name">Passion Fruit</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
+      <div class="item"><span class="item-name">Orange</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
+      <div class="item"><span class="item-name">Pineapple</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
+      <div class="item"><span class="item-name">Apricot</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
+      <h4 class="subgroup-title">Water</h4>
+      <div class="item"><span class="item-name">Still Water (0.75 L)</span><span class="dots"></span><span class="item-price">&euro;4.00</span></div>
+      <div class="item"><span class="item-name">Sparkling Water (0.75 L)</span><span class="dots"></span><span class="item-price">&euro;4.00</span></div>
+    </div>
   </section>
 
-  <section class="menu-section">
-    <h2 class="section-title">Pasta Classica</h2>
-    <div class="item"><span class="item-name">La Carbonara</span><span class="dots"></span><span class="item-price">&euro;19.00</span></div>
-    <p class="desc">Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.</p>
-    <div class="item"><span class="item-name">Cacio e Pepe</span><span class="dots"></span><span class="item-price">&euro;16.00</span></div>
-    <p class="desc">Linguine with Pecorino Romano and freshly cracked black pepper.</p>
-    <div class="item"><span class="item-name">Amatriciana</span><span class="dots"></span><span class="item-price">&euro;18.00</span></div>
-    <p class="desc">Rigatoni with guanciale, tomato sauce and Pecorino Romano.</p>
-    <div class="item"><span class="item-name">Bolognese</span><span class="dots"></span><span class="item-price">&euro;18.00</span></div>
-    <p class="desc">Rigatoni with traditional Bolognese sauce and Parmigiano Reggiano.</p>
-    <div class="item"><span class="item-name">Alla Puttanesca</span><span class="dots"></span><span class="item-price">&euro;18.00</span></div>
-    <p class="desc">Rigatoni with garlic, anchovies, capers, black olives, peperoncino and tomato sauce.</p>
-    <div class="item"><span class="item-name">Arrabbiata</span><span class="dots"></span><span class="item-price">&euro;15.00</span></div>
-    <p class="desc">Rigatoni with spicy tomato sauce and Parmigiano Reggiano.</p>
-    <div class="item"><span class="item-name">Al Pomodoro</span><span class="dots"></span><span class="item-price">&euro;14.00</span></div>
-    <p class="desc">Linguine with tomato sauce, fresh basil and Parmigiano Reggiano.</p>
+  <section class="visit section" id="visit">
+    <h2 class="section-title">Visit Us</h2>
+    <div class="info">
+      <p><strong>La Carbonara</strong></p>
+      <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Lange+Niezel+7+Amsterdam">Lange Niezel 7, Amsterdam</a></p>
+      <p>Open daily from 12:00</p>
+      <p>No reservations. Just come.</p>
+    </div>
+    <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Lange+Niezel+7+Amsterdam">Get Directions</a>
   </section>
 
-  <section class="menu-section">
-    <h2 class="section-title">Pasta Speciale</h2>
-    <div class="item"><span class="item-name">Linguine al Pesto Genovese con Stracciatella</span><span class="dots"></span><span class="item-price">&euro;17.00</span></div>
-    <p class="desc">Linguine with Genovese pesto and fresh stracciatella.</p>
-    <div class="item"><span class="item-name">Quattro Formaggi</span><span class="dots"></span><span class="item-price">&euro;20.00</span></div>
-    <p class="desc">Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and fresh stracciatella.</p>
-    <div class="item"><span class="item-name">Linguine alla Diavola con Cozze</span><span class="dots"></span><span class="item-price">&euro;20.00</span></div>
-    <p class="desc">Linguine with mussels, garlic, white wine, peperoncino and tomato.</p>
-    <div class="item"><span class="item-name">Gamberetti</span><span class="dots"></span><span class="item-price">&euro;21.00</span></div>
-    <p class="desc">Linguine with shrimp, garlic and a light cream sauce.</p>
-    <div class="item"><span class="item-name">Linguine alle Cozze e Gorgonzola</span><span class="dots"></span><span class="item-price">&euro;22.00</span></div>
-    <p class="desc">Linguine with mussels, Gorgonzola Dolce, garlic and a light cream sauce.</p>
-  </section>
-
-  <section class="menu-section">
-    <h2 class="section-title">Specialit&agrave; di Mare</h2>
-    <div class="item"><span class="item-name">Cozze alla Diavola</span><span class="dots"></span><span class="item-price">&euro;16.00</span></div>
-    <p class="desc">Fresh mussels with garlic, white wine, tomato and peperoncino. Served with warm focaccia.</p>
-    <div class="item"><span class="item-name">Cozze al Gorgonzola</span><span class="dots"></span><span class="item-price">&euro;18.00</span></div>
-    <p class="desc">Fresh mussels in a creamy Gorgonzola Dolce sauce. Served with warm focaccia.</p>
-  </section>
-
-  <section class="menu-section">
-    <h2 class="section-title">Extras</h2>
-    <div class="item"><span class="item-name">Gluten-Free Pasta</span><span class="dots"></span><span class="item-price">&euro;3.00</span></div>
-    <div class="item"><span class="item-name">Add Pecorino Romano</span><span class="dots"></span><span class="item-price">&euro;2.50</span></div>
-    <div class="item"><span class="item-name">Add Parmigiano Reggiano</span><span class="dots"></span><span class="item-price">&euro;2.50</span></div>
-    <div class="item"><span class="item-name">Add Fresh Stracciatella</span><span class="dots"></span><span class="item-price">&euro;4.00</span></div>
-  </section>
-
-  <section class="menu-section">
-    <h2 class="section-title">Bevande: Alcohol-Free</h2>
-    <h3 class="subgroup-title">Spritz 0.0</h3>
-    <div class="item"><span class="item-name">Aperol 0.0</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
-    <div class="item"><span class="item-name">Bitter 0.0</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
-    <div class="item"><span class="item-name">Limoncello 0.0</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
-    <h3 class="subgroup-title">Alcohol-Free Cocktails</h3>
-    <div class="item"><span class="item-name">Mojito</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
-    <div class="item"><span class="item-name">Amaretto Sour</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
-    <div class="item"><span class="item-name">Pornstar Martini</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
-    <div class="item"><span class="item-name">Strawberry Daiquiri</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
-    <div class="item"><span class="item-name">Sex on the Beach</span><span class="dots"></span><span class="item-price">&euro;12.00</span></div>
-    <h3 class="subgroup-title">Beer</h3>
-    <div class="item"><span class="item-name">Heineken 0.0</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
-    <h3 class="subgroup-title">Fruit Sodas</h3>
-    <div class="item"><span class="item-name">Passion Fruit</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
-    <div class="item"><span class="item-name">Orange</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
-    <div class="item"><span class="item-name">Pineapple</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
-    <div class="item"><span class="item-name">Apricot</span><span class="dots"></span><span class="item-price">&euro;6.00</span></div>
-    <h3 class="subgroup-title">Water</h3>
-    <div class="item"><span class="item-name">Still Water (0.75 L)</span><span class="dots"></span><span class="item-price">&euro;4.00</span></div>
-    <div class="item"><span class="item-name">Sparkling Water (0.75 L)</span><span class="dots"></span><span class="item-price">&euro;4.00</span></div>
-    <p class="note">All drinks are alcohol-free (0.0%).</p>
-  </section>
-
-  <footer class="foot">
-    <p><strong>La Carbonara</strong></p>
-    <p>Fresh pasta every day from 12:00</p>
-    <p>Nel cuore di Amsterdam</p>
-    <p>No reservations. Just come.</p>
+  <footer>
+    <p>La Carbonara &middot; Lange Niezel 7, Amsterdam</p>
+    <p>Pasta fresca ogni giorno dalle 12:00 &middot; No reservations</p>
     <p class="url">lacarbonara.nl</p>
   </footer>
 
