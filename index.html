@@ -248,6 +248,30 @@
     line-height: 1.45;
   }
 
+  .featured-item {
+    border: 1px solid var(--accent);
+    padding: 12px 14px;
+    margin: 14px 0;
+  }
+
+  .featured-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .featured-item .item {
+    margin-bottom: 6px;
+  }
+
+  .featured-item .desc {
+    margin: -5px 0 8px;
+  }
+
   .visit {
     text-align: center;
     background: var(--paper);
@@ -343,8 +367,11 @@
 
     <div class="menu-section">
       <h3 class="menu-head">Pasta Classica</h3>
-      <div class="item"><span class="item-name">La Carbonara</span><span class="dots"></span><span class="item-price">&euro;19.00</span></div>
-      <p class="desc">Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.</p>
+      <div class="featured-item">
+        <span class="featured-label">Specialità della Casa</span>
+        <div class="item"><span class="item-name">La Carbonara</span><span class="dots"></span><span class="item-price">&euro;19.00</span></div>
+        <p class="desc">Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.</p>
+      </div>
       <div class="item"><span class="item-name">Cacio e Pepe</span><span class="dots"></span><span class="item-price">&euro;16.00</span></div>
       <p class="desc">Linguine with Pecorino Romano and freshly cracked black pepper.</p>
       <div class="item"><span class="item-name">Amatriciana</span><span class="dots"></span><span class="item-price">&euro;18.00</span></div>

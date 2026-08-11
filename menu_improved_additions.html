@@ -164,6 +164,31 @@
     padding-right: 8mm;
   }
 
+  .featured-item {
+    border: 0.8px solid var(--accent);
+    padding: 3mm 3mm;
+    margin: 3.5mm 0;
+    break-inside: avoid;
+  }
+
+  .featured-label {
+    font-size: 7.5px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2mm;
+    display: block;
+  }
+
+  .featured-item .item {
+    margin-bottom: 1.5mm;
+  }
+
+  .featured-item .item-desc {
+    margin-top: 0.3px;
+  }
+
   .compact-section .item {
     margin-bottom: 1.2mm;
   }
@@ -501,13 +526,16 @@
     <section class="menu-section">
       <h2 class="section-title">Pasta Classica</h2>
 
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">La Carbonara</span>
-          <span class="dots"></span>
-          <span class="item-price">€19.00</span>
+      <div class="featured-item">
+        <span class="featured-label">Specialità della Casa</span>
+        <div class="item">
+          <div class="item-header">
+            <span class="item-name">La Carbonara</span>
+            <span class="dots"></span>
+            <span class="item-price">€19.00</span>
+          </div>
+          <div class="item-desc">Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.</div>
         </div>
-        <div class="item-desc">Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.</div>
       </div>
 
       <div class="item">
