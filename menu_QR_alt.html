@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Printable Menu - 2 Pages</title>
+<title>Menu QR Alternative - 2 Pages</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -188,6 +188,38 @@
     display: none;
   }
 
+  /* QR panel fills the space freed by removing the cocktails section */
+  .qr-block {
+    text-align: center;
+    break-inside: avoid;
+    border: 1px solid var(--line);
+    padding: 5mm;
+    margin: 2mm auto;
+    width: 62mm;
+  }
+
+  .qr-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 3.5mm;
+  }
+
+  .qr-img {
+    width: 34mm;
+    height: 34mm;
+  }
+
+  .qr-url {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2.6px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 3.5mm;
+  }
+
   footer {
     border-top: 1.3px solid var(--ink);
     padding-top: 2.7mm;
@@ -320,74 +352,6 @@
     </section>
 
     <section class="menu-section compact-section">
-      <h2 class="section-title">Alcohol-Free Cocktails</h2>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Aperol Spritz 0.0</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Bitter Spritz 0.0</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Limoncello Spritz 0.0</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Mojito</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Amaretto Sour</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Pornstar Martini</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Strawberry Daiquiri</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Sex on the Beach</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="menu-section compact-section">
       <h2 class="section-title">Coffee</h2>
 
       <div class="item">
@@ -445,6 +409,12 @@
           <span class="item-price">€5.50</span>
         </div>
       </div>
+    </section>
+
+    <section class="menu-section qr-block">
+      <div class="qr-title">Scan for our opening hours, address and full menu.</div>
+      <img class="qr-img" src="images/qr-lacarbonara.png" alt="QR code for lacarbonara.nl">
+      <div class="qr-url">lacarbonara.nl</div>
     </section>
 
   </main>
@@ -520,7 +490,7 @@
     </section>
 
     <section class="menu-section">
-      <h2 class="section-title">Pasta Classica</h2>
+      <h2 class="section-title">Pasta</h2>
 
       <div class="featured-item">
         <span class="featured-label">Specialità della Casa</span>
@@ -578,10 +548,6 @@
         </div>
         <div class="item-desc">Italy's simplest. Fresh tomato, basil, served with Parmigiano Reggiano. Light and bright.</div>
       </div>
-    </section>
-
-    <section class="menu-section">
-      <h2 class="section-title">Pasta Speciale</h2>
 
       <div class="item">
         <div class="item-header">

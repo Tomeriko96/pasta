@@ -12,7 +12,7 @@ The menus use two Google Fonts loaded via preconnect + preload for optimal perfo
 
 ```bash
 uv pip install weasyprint
-uv run weasyprint menu_improved_additions.html output.pdf
+uv run weasyprint menu_definitief_hybrid_CLEAN.html pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf
 ```
 
 Playwright's PDF rendering (via headless Chromium) does not reliably embed external fonts and may fall back to system fonts, causing the serif font to appear without proper styling.
@@ -28,11 +28,8 @@ All menu HTML files use preconnect + preload for font efficiency:
 
 This ensures fonts load quickly and render correctly across browsers and PDF generators.
 
-### Menu Variants
-- `menu_improved_additions.html` - current active version (Beverages page 1, Antipasti & Pasta page 2)
-- `menu_improved_additions_beschrijving_smaak.html` - test: taste/texture-focused descriptions
-- `menu_improved_additions_beschrijving_herkomst.html` - test: tradition/origin-focused descriptions
-- `menu_improved_additions_beschrijving_verhaal.html` - test: narrative/connection-focused descriptions
+### Menu
+- `menu_definitief_hybrid_CLEAN.html` - the single current menu (Beverages page 1, Antipasti & Pasta page 2). Edit this file and re-render the PDF. Older variants were removed during the single-menu cleanup.
 
 ### Content Guidelines
 - No em-dashes (—) or en-dashes (–); use periods or commas

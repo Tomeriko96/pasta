@@ -52,7 +52,7 @@ Show the restaurant menu as a live, auto-updating digital signage page on the 32
 
 ## Part B: Build the Screen HTML (`menu_screen.html`)
 
-Derive from `menu_improved.html` content but redesign for a 1920×1080 live screen, NOT A4 print.
+Derive from `menu_definitief_hybrid_CLEAN.html` content but redesign for a 1920×1080 live screen, NOT A4 print.
 
 ### B1. Layout
 - Single full-viewport page, no `@page` / `page-break` / fixed mm sizes.
@@ -78,11 +78,11 @@ Derive from `menu_improved.html` content but redesign for a 1920×1080 live scre
 - **Hero image**: optional dish photo or restaurant logo in a side/header band (`<img>` or CSS background). Keep file sizes small (<300KB) for the 8GB storage / smooth playback.
 - **Live touches (optional, JS)**:
   - Time-of-day greeting ("Buongiorno" / "Buonasera").
-  - Prices pulled from a small `menu.json` so editing one file updates the screen (fetch on load + periodic refresh).
+  - Prices pulled from a small data file so editing one file updates the screen (fetch on load + periodic refresh).
 - Avoid: anything that hides the menu for long, fast flashing, or heavy video (panel is 400 nits FHD: photos + CSS animation are ideal).
 
 ### B5. Output file
-- New file `menu_screen.html` in repo root (does NOT replace `menu_improved.html` or the print PDF flow).
+- New file `menu_screen.html` in repo root (does NOT replace `menu_definitief_hybrid_CLEAN.html` or the print PDF flow).
 - Valid HTML5 (single `<main>`, proper structure: fix the two-`<main>` issue from the print file while we're at it).
 
 ---
@@ -171,7 +171,7 @@ For a large-capacity USB stick (no network required, no CMS), the recommended ap
 
 ## Part D: Update Workflow
 
-1. Edit `menu_screen.html` (or `menu.json` if using data-driven prices).
+1. Edit `menu_screen.html` (or a data file if using data-driven prices).
 2. Push / re-upload to host.
 3. Screen auto-refreshes (add a JS `setInterval(location.reload, N)` or rely on CMS scheduling). For plain URL mode, add a meta-refresh or JS reload every ~10 min so price edits show without a manual reboot.
 4. Verify on screen (or via LG SuperSign Control+ / ConnectedCare remote screenshot if licensed).
@@ -181,12 +181,12 @@ For a large-capacity USB stick (no network required, no CMS), the recommended ap
 ## Open Questions / Decisions Needed
 
 - **Hosting choice**: static host vs local server? (I can scaffold GitHub Pages or a local-server README.)
-- **Data-driven prices**: use `menu.json` + fetch, or hardcode in HTML?
+- **Data-driven prices**: use a small data file + fetch, or hardcode in HTML?
 - **Images**: do you have dish photos / a logo to include, or keep it typographic?
 - **Rotation interval**: default 12s OK, or prefer manual/longer?
 
 ## Next Steps (implementation)
 1. Create `menu_screen.html`: 1920×1080 two-slide layout from current content, inlined-friendly fonts, larger type, gentle animations.
-2. Add auto-reload + (optional) `menu.json` loader.
+2. Add auto-reload + (optional) data-file loader.
 3. Write a short `SIGNAGE.md` with the exact remote-button steps from Part A for future reference.
 4. Provide hosting instructions for the chosen option.

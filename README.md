@@ -1,27 +1,20 @@
 # Pasta Restaurant Menu
 
-Static and digital menus for La Carbonara, a pasta restaurant. Three surfaces, kept in sync manually when dishes or prices change:
+Static and digital menus for La Carbonara, a pasta restaurant. Two surfaces, kept in sync manually when dishes or prices change:
 
-1. **Print / PDF** - static A4 HTML. `menu_improved.html` is the baseline; `menu_agentic_vN.html` are sparring-round revisions (latest is canonical for print). Generate a PDF with `make pdf`.
-2. **JSON pipeline** - `menu.json` + `js/menu.js` + `css/*` drive `tv.html`, `web.html`, and `print.html`.
-3. **LG signage** - `menu_screen.html`, a standalone portrait page for the 32SM5J-B display. See `SIGNAGE_PLAN.md`.
-4. **QR menu** - `qr_menu.md`, a markdown export for qrmenucreator.com.
+1. **Print / PDF** - a single static A4 HTML (`menu_definitief_hybrid_CLEAN.html`), rendered with weasyprint into `pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf`.
+2. **LG signage** - `menu_screen.html`, a standalone portrait page for the 32SM5J-B display. See `SIGNAGE_PLAN.md`.
 
 ## Quick start
 
 ```bash
-make dev            # Serve the repo on http://localhost:8080
-make pdf            # Generate menu_improved.pdf via weasyprint
-make gallery        # Regenerate menus/menus.json then serve the review gallery
-make usb-video      # Looping MP4s of all variants -> dist/usb/videos/
-make usb-video-lg   # Signage-images variant -> dist/usb/lg_signage/lgmenuv3-lc-y1-cream-si.mp4
+uv run weasyprint menu_definitief_hybrid_CLEAN.html pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf  # PDF from the menu HTML
+python3 scripts/build_signage_usb.py    # Offline webOS app -> dist/usb/application/pasta-signage.zip
+node scripts/build_signage_video.js     # Looping MP4s of all variants -> dist/usb/videos/
+node scripts/build_signage_video.js lgmenuv3-lc-y1-cream-si   # Signage-images variant -> dist/usb/lg_signage/lgmenuv3-lc-y1-cream-si.mp4
 ```
 
-`uv` is required for the PDF target. `weasyprint` is not declared in `pyproject.toml`; install it into the venv (`uv pip install weasyprint`) before `make pdf`.
-
-## QR menu
-
-`qr_menu.md` contains the menu in qrmenucreator.com markdown format (food first, Bevande last). Prices and descriptions are copied verbatim from `menu_improved.html`. Add image lines once photos are uploaded in qrmenucreator.com.
+`uv` is required for the PDF target. `weasyprint` is not declared in `pyproject.toml`; install it into the venv (`uv pip install weasyprint`) before rendering.
 
 ## Docs
 
@@ -30,6 +23,6 @@ make usb-video-lg   # Signage-images variant -> dist/usb/lg_signage/lgmenuv3-lc-
 
 ## Conventions
 
-- Menu items and prices are locked (set in `menu_improved.html`). Never ship lowered prices.
+- Menu items and prices are locked (set in `menu_definitief_hybrid_CLEAN.html`). Never ship lowered prices.
 - No em-dashes or en-dashes in any menu copy or docs.
-- Italian dish names used as-is; "Fruit Sodas" not "Fizzy"; "Extra" prefix for add-ons; volume in parentheses.
+- Italian dish names used as-is; fizzy drinks carry their brand + flavor ("Fizzy Amarena Fabbri Lemonade"); "Add" prefix for extras; volume in parentheses.
