@@ -101,12 +101,12 @@ DESIGNS = [
      '<span class="dprice">€19</span></div>'
      '<div class="dish"><span class="dname">Cacio e Pepe</span><span class="dlead"></span>'
      '<span class="dprice">€16</span></div>'
-     '<div class="dish"><span class="dname">Linguine Cozze e Gorgonzola</span><span class="dlead"></span>'
-     '<span class="dprice">€22</span></div>'
+     '<div class="dish"><span class="dname">Quattro Formaggi</span><span class="dlead"></span>'
+     '<span class="dprice">€20</span></div>'
      '</div><div class="foot">Ask inside for the full menu</div>'),
     ("menu_signage_street_aperitivo.html", "lgmenuv3-street-aperitivo", "v3 / street-aperitivo", APERITIVO_CSS,
      '<div class="kicker">Alcohol-free</div><div class="big">Aperitivo</div>'
-     '<div class="line">Spritz €12</div><div class="sub">From 17:00 · Walk in</div>'),
+     '<div class="line">Spritz €10</div><div class="sub">From 17:00 · Walk in</div>'),
     ("menu_signage_street_open.html", "lgmenuv3-street-open", "v3 / street-open", OPEN_CSS,
      '<div class="big">Aperto</div><div class="hours">We\'re open till 23:00</div>'
      '<div class="sub">Fresh pasta, walk in</div><div class="tag">Carbonara from €19</div>'),

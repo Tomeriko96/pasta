@@ -16,7 +16,7 @@ them as a rotating attract loop.
   4. vibe_stagione    - "Cucina di stagione": from the sea, today
   5. vibe_benvenuti   - "Benvenuti": a warm welcome + signatures + hours
 
-Prices are LOCKED, copied verbatim from menu_improved.html / menu_screen.html.
+Prices are LOCKED, copied verbatim from menu_definitief_hybrid_CLEAN.html / menu_screen.html.
 Outputs: lg_menu_v3/
 """
 
@@ -70,22 +70,22 @@ DESIGNS = [
     ("menu_signage_vibe_family.html", "lgmenuv3-vibe-family", "v3 / vibe-family",
      "#9c4a3c", "Cucina di famiglia", "The classics",
      "The dishes we cook every day",
-     [
-         ("Carbonara", "€19", "Egg, pecorino, guanciale, black pepper."),
-         ("Cacio e Pepe", "€16", "Pecorino Romano and cracked pepper."),
-         ("Amatriciana", "€18", "Tomato, guanciale, pecorino, chili."),
-         ("Quattro Formaggi", "€20", "Four Italian cheeses, rich and creamy."),
-     ],
-     "Antipasti from €6", ""),
+      [
+          ("Carbonara", "€19", "Egg, pecorino, guanciale, black pepper."),
+          ("Cacio e Pepe", "€16", "Pecorino Romano and cracked pepper."),
+          ("Amatriciana", "€18", "Tomato, guanciale, pecorino, chili."),
+          ("Quattro Formaggi", "€20", "Four Italian cheeses, rich and creamy."),
+      ],
+      "Antipasti from €5", ""),
 
     ("menu_signage_vibe_fresh.html", "lgmenuv3-vibe-fresh", "v3 / vibe-fresh",
      "#6b7a4f", "Pasta fresca", "Fatta a mano",
      "Pasta made by hand, every morning",
      [
-         ("Pesto Genovese con Stracciatella", "€17", "Basil pesto and fresh cream cheese."),
+         ("Linguine al Pesto Genovese con Stracciatella", "€17", "Basil pesto and fresh cream cheese."),
          ("Cacio e Pepe", "€16", "Pecorino Romano and cracked pepper."),
          ("Carbonara", "€19", "Egg, pecorino, guanciale, black pepper."),
-         ("Gamberetti", "€21", "Shrimp, garlic, light cream sauce."),
+         ("Pesto Gamberetti", "€21", "Shrimp, garlic and pesto."),
      ],
      "Gluten-free pasta on request, €3", ""),
 
@@ -97,16 +97,15 @@ DESIGNS = [
          ("Cacio e Pepe", "€16", "Pecorino Romano and cracked pepper."),
          ("Amatriciana", "€18", "Tomato, guanciale, pecorino, chili."),
      ],
-     "Start with warm focaccia, €6.50", ""),
+     "Start with warm focaccia, €5.00", ""),
 
     ("menu_signage_vibe_stagione.html", "lgmenuv3-vibe-stagione", "v3 / vibe-stagione",
-     "#6b7a4f", "Dal mare", "From the sea",
-     "Mussels and shrimp, cooked to order",
+     "#6b7a4f", "Le specialità", "From the kitchen",
+     "Our pasta specials, cooked to order",
      [
-         ("Linguine alla Diavola con Cozze", "€20", "Mussels, garlic, chili, tomato."),
-         ("Linguine Cozze e Gorgonzola", "€22", "Mussels in creamy Gorgonzola sauce."),
-         ("Gamberetti", "€21", "Shrimp, garlic, light cream sauce."),
-         ("Cozze alla Diavola", "€16", "Mussels, garlic, wine, tomato, chili."),
+         ("Linguine al Pesto Genovese con Stracciatella", "€17", "Basil pesto and fresh cream cheese."),
+         ("Quattro Formaggi", "€20", "Four Italian cheeses, rich and creamy."),
+         ("Pesto Gamberetti", "€21", "Shrimp, garlic and pesto."),
      ],
      "Ask us what came in fresh today", ""),
 
@@ -116,7 +115,7 @@ DESIGNS = [
      [
          ("Carbonara", "€19", "Egg, pecorino, guanciale, black pepper."),
          ("Cacio e Pepe", "€16", "Pecorino Romano and cracked pepper."),
-         ("Linguine Cozze e Gorgonzola", "€22", "Mussels in creamy Gorgonzola sauce."),
+         ("Quattro Formaggi", "€20", "Four Italian cheeses, rich and creamy."),
      ],
      "Alcohol-free spritz, beer and sodas too", "Open every day until 23:00"),
 ]

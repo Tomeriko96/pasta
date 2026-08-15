@@ -22,10 +22,10 @@ os.makedirs(OUT, exist_ok=True)
 SIGNATURES = [
     ("La Carbonara", "€19", "Guanciale, egg yolk, Pecorino"),
     ("Cacio e Pepe", "€16", "Pecorino, cracked black pepper"),
-    ("Linguine Cozze e Gorgonzola", "€22", "Mussels in creamy Gorgonzola"),
+    ("Quattro Formaggi", "€20", "Four Italian cheeses, rich and creamy"),
 ]
 HOOKS = [
-    ("Alcohol-free Spritz", "€12"),
+    ("Alcohol-free Spritz", "€10"),
     ("Bruschetta from", "€8"),
     ("Open till 23:00", ""),
     ("Walk in, we're open", ""),

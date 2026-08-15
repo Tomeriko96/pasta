@@ -17,43 +17,33 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "lg_menu_v3")
 os.makedirs(OUT, exist_ok=True)
 
-# ---- Locked menu content (from menu_improved.html / menu_screen.html) ----
+# ---- Locked menu content (from menu_definitief_hybrid_CLEAN.html / menu_screen.html) ----
 ANTIPASTI = [
-    ("Warm Focaccia", "€6.50", "Rosemary bread with extra virgin olive oil."),
-    ("Bruschetta Classica", "€8.00", "Toasted bread, tomato, basil, garlic, olive oil."),
-    ("Bruschetta Cremosa", "€10.00", "Creamy stracciatella, cherry tomato, basil."),
-    ("Bruschetta Mediterranea", "€10.00", "Tomato, olives, anchovy, capers, basil."),
-    ("Bruschetta Gorgonzola e Miele", "€10.00", "Creamy blue cheese with honey and black pepper."),
-    ("Bruschetta Mista", "€16.00", "Four assorted bruschette to choose from."),
-    ("Tagliere Formaggi", "€16.00", "Italian cheeses, focaccia, olives, honey, fig jam."),
-    ("Insalata di Rucola", "€6.00", "Rocket, tomato, olives, Parmigiano, balsamic."),
-    ("Olive Marinate", "€6.00", "Italian olives with herbs, garlic and citrus."),
+    ("Warm Focaccia", "€5.00", "Served with extra virgin olive oil."),
+    ("Bruschetta Classica", "€8.00", "Toasted bread with tomato, basil, garlic and extra virgin olive oil."),
+    ("Bruschetta Cremosa", "€10.00", "Toasted bread with stracciatella, cherry tomatoes, fresh basil and extra virgin olive oil."),
+    ("Bruschetta Gorgonzola e Miele", "€10.00", "Toasted bread with Gorgonzola Dolce, honey, walnuts and freshly cracked black pepper."),
+    ("Tagliere Formaggi", "€16.00", "A selection of Italian cheeses served with warm focaccia, olives, honey and fig jam."),
+    ("Olive Marinate", "€5.00", "Italian olives marinated with herbs, garlic and citrus."),
 ]
 PASTA_CLASSICA = [
-    ("La Carbonara", "€19.00", "Guanciale, egg yolk, Pecorino, black pepper."),
-    ("Cacio e Pepe", "€16.00", "Pecorino, cracked black pepper."),
-    ("Amatriciana", "€18.00", "Guanciale, tomato, Pecorino."),
-    ("Bolognese", "€18.00", "Slow meat sauce, Parmigiano."),
-    ("Alla Puttanesca", "€18.00", "Garlic, anchovy, caper, olive, tomato."),
-    ("Arrabbiata", "€15.00", "Spicy tomato, Parmigiano."),
-    ("Al Pomodoro", "€14.00", "Tomato, basil, Parmigiano."),
+    ("La Carbonara", "€19.00", "Rome's iconic pasta. Silky egg, crispy guanciale, sharp Pecorino Romano and black pepper."),
+    ("Cacio e Pepe", "€16.00", "Roman minimalism. Creamy cheese, cracked pepper. That's all."),
+    ("Amatriciana", "€18.00", "From Amatrice. Crispy guanciale, tangy tomato, sharp Pecorino Romano. Bold and balanced."),
+    ("Bolognese", "€18.00", "Bologna's signature. Slow-cooked meat ragu, served with Parmigiano Reggiano. Rich and warming."),
+    ("Arrabbiata", "€15.00", "Roman fire. Fiery red sauce, fresh chili, served with Parmigiano Reggiano. Simple and spicy."),
+    ("Al Pomodoro", "€14.00", "Italy's simplest. Fresh tomato, basil, served with Parmigiano Reggiano. Light and bright."),
 ]
 PASTA_SPECIALE = [
-    ("Pesto Genovese con Stracciatella", "€17.00", "Genovese basil pesto, fresh cream cheese."),
-    ("Quattro Formaggi", "€20.00", "Four Italian cheeses, rich and creamy."),
-    ("Linguine alla Diavola con Cozze", "€20.00", "Mussels, garlic, chili, tomato."),
-    ("Gamberetti", "€21.00", "Shrimp, garlic, light cream sauce."),
-    ("Linguine Cozze e Gorgonzola", "€22.00", "Mussels in creamy Gorgonzola sauce."),
-]
-MARE = [
-    ("Cozze alla Diavola", "€16.00", "Mussels, garlic, wine, tomato, chili."),
-    ("Cozze al Gorgonzola", "€18.00", "Mussels in creamy Gorgonzola."),
+    ("Linguine al Pesto Genovese con Stracciatella", "€17.00", "Genovese pesto with fresh stracciatella. Vibrant and herbaceous."),
+    ("Quattro Formaggi", "€20.00", "Four Italian cheeses in rich, creamy sauce. Sharp, tangy, decadent."),
+    ("Pesto Gamberetti", "€21.00", "Fresh shrimp with garlic and pesto. Subtle and refined."),
 ]
 EXTRAS = [
     ("Gluten-Free Pasta", "€3.00", "Swap any pasta."),
-    ("Extra Pecorino Romano", "€2.50", ""),
-    ("Extra Parmigiano Reggiano", "€2.50", ""),
-    ("Extra Stracciatella", "€4.00", ""),
+    ("Add Pecorino Romano", "€4.00", ""),
+    ("Add Parmigiano Reggiano 22 Month Aged", "€4.00", ""),
+    ("Add Fresh Stracciatella", "€4.00", ""),
 ]
 
 
@@ -77,7 +67,6 @@ def body_html():
     slide_a = section_html("Antipasti", ANTIPASTI) + section_html("Pasta Classica", PASTA_CLASSICA)
     slide_b = (
         section_html("Pasta Speciale", PASTA_SPECIALE)
-        + section_html("Specialità di Mare", MARE)
         + section_html("Extras", EXTRAS)
     )
     return f"""

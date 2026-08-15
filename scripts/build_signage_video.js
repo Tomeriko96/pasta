@@ -43,7 +43,7 @@ fs.mkdirSync(path.join(BUILD, "signage_images"), { recursive: true });
 copyImages(path.join(ROOT, "images"), path.join(BUILD, "images"));
 copyImages(path.join(ROOT, "signage_images"), path.join(BUILD, "signage_images"));
 
-const EXEC = "/home/dev/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome";
+const EXEC = "/home/dev/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome";
 const CAPTURE_MS = process.env.CAPTURE_MS ? parseInt(process.env.CAPTURE_MS) : 20000;
 const LEAD_IN = 2; // seconds of load/blank at the very start to discard
 const FADE = 1; // seconds of crossfade for a seamless loop
