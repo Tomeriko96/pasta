@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#f7f4ef;
+  --ink:#1c1510;
+  --muted:#7a6a5a;
+  --gold:#b89a40;
+  --terra:#b85c38;
+}
+
+html,body{
+  width:1080px;height:1920px;overflow:hidden;
+  background:var(--bg);
+  font-family:'Montserrat',sans-serif;
+}
+
+main{width:1080px;height:1920px;position:relative}
+
+/* ── Slide base ── */
+.slide{
+  position:absolute;inset:0;
+  width:1080px;height:1920px;
+  background:var(--bg);
+}
+
+/* ── Cross-fade animation: 22s cycle, 11s per slide ── */
+@keyframes show-s1{
+  0%      {opacity:1}
+  45%     {opacity:1}   /* hold until 9.9s */
+  50%     {opacity:0}   /* fade out by 11s */
+  95%     {opacity:0}   /* hidden until 20.9s */
+  100%    {opacity:1}   /* fade back in by 22s */
+}
+@keyframes show-s2{
+  0%      {opacity:0}
+  45%     {opacity:0}   /* hidden until 9.9s */
+  50%     {opacity:1}   /* fade in by 11s */
+  95%     {opacity:1}   /* hold until 20.9s */
+  100%    {opacity:0}   /* fade out by 22s */
+}
+
+.slide-1{animation:show-s1 22s ease-in-out infinite}
+.slide-2{animation:show-s2 22s ease-in-out infinite}
+
+/* ══════════════════════════════════════════════
+   SLIDE 1 — BENVENUTO (with photo)
+   ══════════════════════════════════════════════ */
+
+.s1-photo{
+  position:relative;
+  width:1080px;height:1120px;
+  overflow:hidden;flex-shrink:0;
+}
+.s1-photo-img{
+  width:100%;height:100%;
+  background:url('../../images/pasta-carbonara.jpg') center/cover no-repeat;
+  animation:kenburns 11s ease-in-out infinite alternate;
+  transform-origin:center center;
+}
+@keyframes kenburns{
+  from{transform:scale(1.0)}
+  to  {transform:scale(1.06)}
+}
+.s1-photo-fade{
+  position:absolute;bottom:0;left:0;right:0;height:300px;
+  background:linear-gradient(to bottom,transparent,var(--bg));
+}
+
+.slide-1{display:flex;flex-direction:column}
+.s1-content{
+  flex:1;
+  padding:56px 72px 64px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:18px;
+}
+.s1-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:80px;font-weight:600;
+  color:var(--ink);letter-spacing:0.06em;line-height:1;
+}
+.s1-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-size:28px;font-weight:400;
+  color:var(--muted);
+}
+.gold-rule{width:56px;height:1.5px;background:var(--gold);border:none}
+
+.s1-items{list-style:none;width:100%;padding:0;margin-top:4px}
+.s1-item{
+  display:flex;align-items:baseline;
+  justify-content:space-between;
+  padding:10px 0;
+  border-bottom:1px solid rgba(28,21,16,0.08);
+}
+.s1-item:last-child{border-bottom:none}
+.s1-item-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:46px;font-weight:600;color:var(--ink);
+}
+.s1-item-price{
+  font-family:'Montserrat',sans-serif;
+  font-size:32px;font-weight:500;color:var(--terra);
+}
+.s1-footer{
+  font-family:'Montserrat',sans-serif;
+  font-size:12px;font-weight:400;
+  color:var(--muted);letter-spacing:3px;text-transform:uppercase;
+  margin-top:4px;
+}
+
+/* ══════════════════════════════════════════════
+   SLIDE 2 — MENU STREETSIGN (no photo)
+   ══════════════════════════════════════════════ */
+
+.s2-inner{
+  width:1080px;height:1920px;
+  display:flex;flex-direction:column;
+  padding:64px 80px 56px;
+}
+
+.s2-header{
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;
+  gap:12px;margin-bottom:32px;flex-shrink:0;
+}
+.s2-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:64px;font-weight:600;
+  color:var(--ink);letter-spacing:0.08em;text-transform:uppercase;line-height:1;
+}
+.s2-sub{
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:600;
+  color:var(--gold);letter-spacing:5px;text-transform:uppercase;
+}
+
+.s2-body{
+  flex:1;display:flex;flex-direction:column;justify-content:space-evenly;
+}
+
+.section-label{
+  font-family:'Montserrat',sans-serif;
+  font-size:10px;font-weight:700;
+  letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:4px;
+}
+
+.menu-item{
+  display:flex;align-items:baseline;
+  padding:6px 0;
+}
+.item-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:34px;font-weight:400;
+  color:var(--ink);white-space:nowrap;
+}
+.dots{
+  flex:1;
+  border-bottom:1px dotted rgba(28,21,16,0.18);
+  margin:0 10px;position:relative;top:-5px;
+}
+.price{
+  font-family:'Montserrat',sans-serif;
+  font-size:18px;font-weight:500;
+  color:var(--terra);white-space:nowrap;
+}
+
+.s2-rule{
+  width:36px;height:1px;
+  background:var(--gold);border:none;
+  align-self:center;
+  margin:4px 0;
+}
+
+.s2-footer{
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;font-weight:300;
+  letter-spacing:3px;text-transform:uppercase;
+  color:rgba(28,21,16,0.35);text-align:center;
+  flex-shrink:0;margin-top:16px;
+}
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ── SLIDE 1: Benvenuto met foto ── -->
+  <div class="slide slide-1">
+    <div class="s1-photo">
+      <div class="s1-photo-img"></div>
+      <div class="s1-photo-fade"></div>
+    </div>
+    <div class="s1-content">
+      <div class="s1-brand">La Carbonara</div>
+      <div class="s1-tagline">Pasta fresca, fatta a mano, ogni giorno</div>
+      <hr class="gold-rule">
+      <ul class="s1-items">
+        <li class="s1-item">
+          <span class="s1-item-name">La Carbonara</span>
+          <span class="s1-item-price">&euro;19</span>
+        </li>
+        <li class="s1-item">
+          <span class="s1-item-name">Cacio e Pepe</span>
+          <span class="s1-item-price">&euro;16</span>
+        </li>
+        <li class="s1-item">
+          <span class="s1-item-name">Amatriciana</span>
+          <span class="s1-item-price">&euro;18</span>
+        </li>
+      </ul>
+      <div class="s1-footer">Aperto ogni giorno &nbsp;·&nbsp; Amsterdam</div>
+    </div>
+  </div>
+
+  <!-- ── SLIDE 2: Volledig menu, geen foto, streetsign ── -->
+  <div class="slide slide-2">
+    <div class="s2-inner">
+
+      <div class="s2-header">
+        <div class="s2-brand">La Carbonara</div>
+        <hr class="gold-rule">
+        <div class="s2-sub">Amsterdam &nbsp;·&nbsp; Pasta fresca ogni giorno</div>
+      </div>
+
+      <div class="s2-body">
+
+        <div>
+          <div class="section-label">Pasta Classica</div>
+          <div class="menu-item"><span class="item-name">La Carbonara</span><span class="dots"></span><span class="price">&euro;19</span></div>
+          <div class="menu-item"><span class="item-name">Cacio e Pepe</span><span class="dots"></span><span class="price">&euro;16</span></div>
+          <div class="menu-item"><span class="item-name">Amatriciana</span><span class="dots"></span><span class="price">&euro;18</span></div>
+          <div class="menu-item"><span class="item-name">Bolognese</span><span class="dots"></span><span class="price">&euro;18</span></div>
+          <div class="menu-item"><span class="item-name">Alla Puttanesca</span><span class="dots"></span><span class="price">&euro;18</span></div>
+          <div class="menu-item"><span class="item-name">Arrabbiata</span><span class="dots"></span><span class="price">&euro;15</span></div>
+          <div class="menu-item"><span class="item-name">Al Pomodoro</span><span class="dots"></span><span class="price">&euro;14</span></div>
+        </div>
+
+        <hr class="s2-rule">
+
+        <div>
+          <div class="section-label">Pasta Speciale</div>
+          <div class="menu-item"><span class="item-name">Pesto Genovese con Stracciatella</span><span class="dots"></span><span class="price">&euro;17</span></div>
+          <div class="menu-item"><span class="item-name">Quattro Formaggi</span><span class="dots"></span><span class="price">&euro;20</span></div>
+          <div class="menu-item"><span class="item-name">Linguine alla Diavola con Cozze</span><span class="dots"></span><span class="price">&euro;20</span></div>
+          <div class="menu-item"><span class="item-name">Gamberetti</span><span class="dots"></span><span class="price">&euro;21</span></div>
+          <div class="menu-item"><span class="item-name">Cozze e Gorgonzola</span><span class="dots"></span><span class="price">&euro;22</span></div>
+        </div>
+
+        <hr class="s2-rule">
+
+        <div>
+          <div class="section-label">Antipasti</div>
+          <div class="menu-item"><span class="item-name">Bruschetta Classica</span><span class="dots"></span><span class="price">&euro;8</span></div>
+          <div class="menu-item"><span class="item-name">Bruschetta Cremosa</span><span class="dots"></span><span class="price">&euro;10</span></div>
+          <div class="menu-item"><span class="item-name">Bruschetta Gorgonzola e Miele</span><span class="dots"></span><span class="price">&euro;10</span></div>
+          <div class="menu-item"><span class="item-name">Bruschetta Mista</span><span class="dots"></span><span class="price">&euro;16</span></div>
+          <div class="menu-item"><span class="item-name">Tagliere Formaggi</span><span class="dots"></span><span class="price">&euro;16</span></div>
+          <div class="menu-item"><span class="item-name">Warm Focaccia</span><span class="dots"></span><span class="price">&euro;6.50</span></div>
+        </div>
+
+        <hr class="s2-rule">
+
+        <div>
+          <div class="section-label">Dal Mare</div>
+          <div class="menu-item"><span class="item-name">Cozze alla Diavola</span><span class="dots"></span><span class="price">&euro;16</span></div>
+          <div class="menu-item"><span class="item-name">Cozze al Gorgonzola</span><span class="dots"></span><span class="price">&euro;18</span></div>
+        </div>
+
+      </div>
+
+      <div class="s2-footer">Aperto ogni giorno dalle 12:00 &nbsp;·&nbsp; lacarbonara.nl</div>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
