@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Carbonara &middot; Attract</title>
+<style>
+  html, body { margin: 0; padding: 0; height: 100%; background: #000; overflow: hidden; }
+  #stage { width: 100vw; height: 100vh; background: #000; display: flex; align-items: center; justify-content: center; }
+  video { width: 100%; height: 100%; object-fit: cover; background: #000; }
+</style>
+</head>
+<body>
+  <div id="stage">
+    <video src="attract-authentic-loop.mp4" autoplay muted loop playsinline></video>
+  </div>
+  <script>
+    // Autoplay can be blocked until a user gesture on some engines; nudge it.
+    var v = document.querySelector('video');
+    if (v) { v.play().catch(function () {}); }
+    // Re-fetch after a pushed update (allow GitHub Pages CDN to propagate).
+    setTimeout(function () { location.reload(); }, 10 * 60 * 1000);
+  </script>
+</body>
+</html>
