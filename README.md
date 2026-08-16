@@ -9,9 +9,8 @@ Static and digital menus for La Carbonara, a pasta restaurant. Two surfaces, kep
 
 ```bash
 uv run weasyprint menu_definitief_hybrid_CLEAN.html pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf  # PDF from the menu HTML
-python3 scripts/build_signage_usb.py    # Offline webOS app -> dist/usb/application/pasta-signage.zip
-node scripts/build_signage_video.js     # Looping MP4s of all variants -> dist/usb/videos/
-node scripts/build_signage_video.js lgmenuv3-lc-y1-cream-si   # Signage-images variant -> dist/usb/lg_signage/lgmenuv3-lc-y1-cream-si.mp4
+uv run weasyprint menu_QR_alt.html pdf-menus-weasyprint/menu_QR_alt.pdf                              # QR-alt menu PDF
+node scripts/build_attract_video.js                 # Looping attract MP4 (default) / add html + out paths
 ```
 
 `uv` is required for the PDF target. `weasyprint` is not declared in `pyproject.toml`; install it into the venv (`uv pip install weasyprint`) before rendering.

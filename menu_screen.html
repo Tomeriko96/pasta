@@ -372,6 +372,10 @@
     50%      { box-shadow: 0 0 14px rgba(212,195,165,0.30); }
   }
 
+  .qr-float{position:absolute;right:26px;bottom:26px;z-index:6;text-align:center}
+  .qr-float img{display:block;width:124px;height:124px;background:#fff;padding:7px;border-radius:8px;box-shadow:0 3px 14px rgba(0,0,0,0.6)}
+  .qr-float .qr-cap{font-family:var(--sans);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#f1e9dc;margin-top:6px;text-shadow:0 2px 6px rgba(0,0,0,0.8)}
+
   /* ---------- GENTLE ENTRANCE ---------- */
   .col > .panel > * { animation: rise 1.1s ease both; }
   .col.left  header { animation-delay: 0.10s; }
@@ -460,7 +464,7 @@
 
           <h2 class="section-title">Soft Drinks</h2>
           <div class="compact-row">
-            <div class="item"><span class="item-name">Heineken 0.0</span><span class="dots"></span><span class="item-price">€6</span>
+            <div class="item"><span class="item-name">Birra Moretti Zero 0.0</span><span class="dots"></span><span class="item-price">€6</span>
               <div class="item-desc">Non-alcoholic lager.</div></div>
             <div class="item"><span class="item-name">Fizzy Amarena Fabbri Lemonade</span><span class="dots"></span><span class="item-price">€5</span>
               <div class="item-desc">Fizzy lemonade.</div></div>
@@ -525,7 +529,7 @@
             <div class="item"><span class="item-name">Quattro Formaggi</span><span class="dots"></span><span class="item-price">€20.00</span>
               <div class="item-desc">Four Italian cheeses, rich and creamy.</div></div>
             
-            <div class="item"><span class="item-name">Pesto Gamberetti</span><span class="dots"></span><span class="item-price">€21.00</span>
+            <div class="item"><span class="item-name">Pesto Gamberetti</span><span class="dots"></span><span class="item-price">€22.00</span>
               <div class="item-desc">Shrimp, garlic, light cream sauce.</div></div>
             
           </div>
@@ -547,6 +551,10 @@
     </div>
   </div>
 
+  <div class="qr-float">
+    <img src="images/qr-lacarbonara.png" alt="Scan for the full menu">
+    <div class="qr-cap">Scan for full menu</div>
+  </div>
 </div>
 
 <script>

@@ -1,5 +1,7 @@
 # Plan: Pasta Menu on LG 32SM5J-B Signage Display
 
+> **Note:** The USB app/video signage routes (`build_signage_usb.py`, `build_signage_video.js`) and the `lg_menu_v3/` boards were removed as archive. The live deployment is `menu_screen.html` via **Play via URL**; the attract-loop videos are built with `scripts/build_attract_video.js`. The USB sections below are retained for historical reference only.
+
 ## Device Confirmed
 
 | Spec | Value |

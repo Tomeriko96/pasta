@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#f6f2ea;
+  --ink:#1c1510;
+  --muted:#7a6a5a;
+  --gold:#b89a40;
+  --terra:#b85c38;
+  --cream:#f7f4ef;
+}
+
+html,body{
+  width:1080px;height:1920px;overflow:hidden;
+  background:var(--bg);
+  font-family:'Montserrat',sans-serif;
+}
+
+main{width:1080px;height:1920px;position:relative}
+
+/* ── Slide base ── */
+.slide{
+  position:absolute;inset:0;
+  width:1080px;height:1920px;
+  background:var(--bg);
+}
+
+/* ── Cross-fade: 22s cycle, ~11s per slide ── */
+@keyframes show-s1{
+  0%{opacity:1} 45%{opacity:1} 50%{opacity:0}
+  95%{opacity:0} 100%{opacity:1}
+}
+@keyframes show-s2{
+  0%{opacity:0} 45%{opacity:0} 50%{opacity:1}
+  95%{opacity:1} 100%{opacity:0}
+}
+.slide-1{animation:show-s1 22s ease-in-out infinite}
+.slide-2{animation:show-s2 22s ease-in-out infinite}
+
+.gold-rule{width:56px;height:1.5px;background:var(--gold);border:none}
+
+/* ══════════════════════════════════════════════
+   SLIDE 1 — FOTO (hero pieno)
+   ══════════════════════════════════════════════ */
+.slide-1{display:flex;flex-direction:column}
+.s1-photo{
+  position:absolute;inset:0;
+  background:url('images/authentic_carbonara_signage.jpg') center/cover no-repeat;
+  animation:kenburns 22s ease-in-out infinite alternate;
+  transform-origin:center center;
+}
+@keyframes kenburns{from{transform:scale(1.0)} to{transform:scale(1.05)}}
+.s1-scrim{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,
+    rgba(20,15,10,0.78) 0%,
+    rgba(20,15,10,0.42) 28%,
+    rgba(20,15,10,0.10) 55%,
+    rgba(20,15,10,0.00) 100%);
+}
+.s1-content{
+  position:absolute;left:0;right:0;bottom:120px;
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;gap:22px;padding:0 72px;
+}
+.s1-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:96px;font-weight:600;color:var(--cream);
+  letter-spacing:0.05em;line-height:1;
+  text-shadow:0 2px 18px rgba(0,0,0,0.45);
+}
+.s1-tagline{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:34px;font-weight:400;color:#f3ead9;
+}
+.s1-sub{
+  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;
+  letter-spacing:5px;text-transform:uppercase;color:var(--gold);
+}
+.s1-foot{
+  position:absolute;left:0;right:0;bottom:54px;
+  text-align:center;font-family:'Montserrat',sans-serif;
+  font-size:13px;font-weight:400;letter-spacing:3px;text-transform:uppercase;
+  color:rgba(247,244,239,0.78);
+}
+
+/* ══════════════════════════════════════════════
+   SLIDE 2 — STRISCHIA (menu autentico)
+   ══════════════════════════════════════════════ */
+.slide-2{display:flex;flex-direction:column}
+.s2-inner{
+  width:1080px;height:1920px;
+  display:flex;flex-direction:column;
+  padding:120px 90px 96px;
+  background:var(--bg);
+}
+.s2-header{text-align:center;display:flex;flex-direction:column;align-items:center;gap:18px;margin-bottom:54px;flex-shrink:0}
+.s2-brand{
+  font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:600;
+  color:var(--ink);letter-spacing:0.07em;text-transform:uppercase;line-height:1;
+}
+.s2-sub{
+  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;
+  color:var(--gold);letter-spacing:5px;text-transform:uppercase;
+}
+.s2-body{flex:1;display:flex;flex-direction:column;justify-content:space-evenly}
+.section-label{
+  font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
+  letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;
+}
+.menu-item{display:flex;align-items:baseline;padding:8px 0}
+.item-name{
+  font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:400;
+  color:var(--ink);
+}
+.dots{flex:1;border-bottom:1px dotted rgba(28,21,16,0.20);margin:0 14px;position:relative;top:-7px}
+.price{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:500;color:var(--terra);white-space:nowrap}
+.s2-note{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;
+  color:var(--muted);text-align:center;margin-top:8px;
+}
+.s2-rule{width:40px;height:1px;background:var(--gold);border:none;align-self:center;margin:6px 0}
+.s2-footer{
+  font-family:'Montserrat',sans-serif;font-size:13px;font-weight:300;
+  letter-spacing:3px;text-transform:uppercase;color:rgba(28,21,16,0.4);
+  text-align:center;flex-shrink:0;margin-top:28px;
+}
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ── SLIDE 1: foto piena ── -->
+  <div class="slide slide-1">
+    <div class="s1-photo"></div>
+    <div class="s1-scrim"></div>
+    <div class="s1-content">
+      <div class="s1-brand">La Carbonara</div>
+      <hr class="gold-rule">
+      <div class="s1-tagline">La vera cucina romana</div>
+      <div class="s1-sub">Trattoria &nbsp;·&nbsp; Amsterdam</div>
+    </div>
+    <div class="s1-foot">Aperto ogni giorno dalle 12:00</div>
+  </div>
+
+  <!-- ── SLIDE 2: striscia menu ── -->
+  <div class="slide slide-2">
+    <div class="s2-inner">
+
+      <div class="s2-header">
+        <div class="s2-brand">La Carbonara</div>
+        <hr class="gold-rule">
+        <div class="s2-sub">Antipasti e Primi</div>
+      </div>
+
+      <div class="s2-body">
+
+        <div>
+          <div class="section-label">Antipasti</div>
+          <div class="menu-item"><span class="item-name">Warm Focaccia</span><span class="dots"></span><span class="price">&euro;5</span></div>
+          <div class="menu-item"><span class="item-name">Bruschetta Classica</span><span class="dots"></span><span class="price">&euro;8</span></div>
+          <div class="menu-item"><span class="item-name">Bruschetta Cremosa</span><span class="dots"></span><span class="price">&euro;10</span></div>
+          <div class="menu-item"><span class="item-name">Bruschetta Gorgonzola e Miele</span><span class="dots"></span><span class="price">&euro;10</span></div>
+          <div class="menu-item"><span class="item-name">Tagliere Formaggi</span><span class="dots"></span><span class="price">&euro;16</span></div>
+          <div class="menu-item"><span class="item-name">Olive Marinate</span><span class="dots"></span><span class="price">&euro;5</span></div>
+        </div>
+
+        <hr class="s2-rule">
+
+        <div>
+          <div class="section-label">Pasta</div>
+          <div class="menu-item"><span class="item-name">La Carbonara</span><span class="dots"></span><span class="price">&euro;19</span></div>
+          <div class="menu-item"><span class="item-name">Cacio e Pepe</span><span class="dots"></span><span class="price">&euro;16</span></div>
+          <div class="menu-item"><span class="item-name">Amatriciana</span><span class="dots"></span><span class="price">&euro;18</span></div>
+          <div class="menu-item"><span class="item-name">Bolognese</span><span class="dots"></span><span class="price">&euro;18</span></div>
+          <div class="menu-item"><span class="item-name">Arrabbiata</span><span class="dots"></span><span class="price">&euro;15</span></div>
+          <div class="menu-item"><span class="item-name">Al Pomodoro</span><span class="dots"></span><span class="price">&euro;14</span></div>
+          <div class="menu-item"><span class="item-name">Linguine al Pesto Genovese con Stracciatella</span><span class="dots"></span><span class="price">&euro;17</span></div>
+          <div class="menu-item"><span class="item-name">Quattro Formaggi</span><span class="dots"></span><span class="price">&euro;20</span></div>
+          <div class="menu-item"><span class="item-name">Pesto Gamberetti</span><span class="dots"></span><span class="price">&euro;22</span></div>
+        </div>
+
+        <hr class="s2-rule">
+
+        <div class="s2-note">Tutte le bevande sono analcoliche (0.0%)</div>
+
+      </div>
+
+      <div class="s2-footer">Aperto ogni giorno dalle 12:00 &nbsp;·&nbsp; lacarbonara.nl</div>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>
