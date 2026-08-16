@@ -106,7 +106,7 @@ WebOS Plug & Play auto-plays only images/video. To show the live `menu_screen.ht
 
 ### C2.1 Build the package
 ```
-make usb
+python3 scripts/build_signage_usb.py
 ```
 This runs `scripts/build_signage_usb.py`, which:
 - Copies every HTML variant you want to test (`menu_screen.html`, `lg_menu/*.html`, `lg_menu_v2/*.html`) into one app folder.
@@ -133,20 +133,20 @@ Remote: **Settings -> EZ Settings -> SI Server Setting**
 
 ### C2.4 Use / update
 - On screen: the launcher shows a tab per variant. Use the remote to click between them.
-- Edit a source HTML, re-run `make usb`, re-copy `application/` to the stick, and re-run Local Application Upgrade: USB on the TV to push the change. (The 10-min `location.reload()` only refreshes the clock; new content needs a re-install.)
+- Edit a source HTML, re-run `python3 scripts/build_signage_usb.py`, re-copy `application/` to the stick, and re-run Local Application Upgrade: USB on the TV to push the change. (The 10-min `location.reload()` only refreshes the clock; new content needs a re-install.)
 
 ### C2.5 Fallback (zero config)
 If app install misbehaves on your firmware, render each slide to a 1920x1080 PNG and drop them on the FAT32 stick: USB Plug & Play auto-plays the slideshow, no setup. You lose the clock/animation.
 
 ### C2.6 Simplest of all: render to video
-USB Plug & Play auto-plays MP4 with **no setup at all** (no app, no SI Server Setting, no manifest). Run `make usb-video` to render `menu_screen.html` (with its real Ken Burns / shimmer / glow motion) into `dist/usb/menu-signage.mp4`. Copy that single file to a FAT32 stick root; the TV (orientation set to PORTRAIT) loops it automatically. The live clock and auto-reload are stripped for the render because a frozen clock on a loop looks wrong. Updates = re-render and re-copy.
+USB Plug & Play auto-plays MP4 with **no setup at all** (no app, no SI Server Setting, no manifest). Run `node scripts/build_signage_video.js` to render `menu_screen.html` (with its real Ken Burns / shimmer / glow motion) into `dist/usb/menu-signage.mp4`. Copy that single file to a FAT32 stick root; the TV (orientation set to PORTRAIT) loops it automatically. The live clock and auto-reload are stripped for the render because a frozen clock on a loop looks wrong. Updates = re-render and re-copy.
 
 ### C2.7 Long looped video for all-day USB playback
 For a large-capacity USB stick (no network required, no CMS), the recommended approach is a single large MP4 that plays for several hours before the TV's own player loops it:
 
 1. **Render the short source clip** (all 4 signage images, ~20s, ~3MB):
    ```bash
-   make usb-video-lg
+   node scripts/build_signage_video.js lgmenuv3-lc-y1-cream-si
    # output: dist/usb/lg_signage/lgmenuv3-lc-y1-cream-si.mp4
    ```
    The short clip already has a seamless loop baked in: `build_signage_video.js` crossfades the tail back into the first frame, so there is no visible jump at the join.
