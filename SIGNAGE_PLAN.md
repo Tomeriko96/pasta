@@ -1,6 +1,8 @@
 # Plan: Pasta Menu on LG 32SM5J-B Signage Display
 
 > **Note:** The USB app/video signage routes (`build_signage_usb.py`, `build_signage_video.js`) and the `lg_menu_v3/` boards were removed as archive. The live deployment is `menu_screen.html` via **Play via URL**; the attract-loop videos are built with `scripts/build_attract_video.js`. The USB sections below are retained for historical reference only.
+>
+> **Pages deploy:** GitHub Pages serves only a curated subset of the repo via the GitHub Actions workflow `.github/workflows/pages.yml` (on push to `main`). It copies `index.html`, `favicon.svg`, `attract.html`, `menu_screen.html`, the three `attract-*.mp4`, `images/`, `pdf-menus-weasyprint/`, `CNAME` and `.nojekyll` into the deployed artifact. The repo root is no longer the served site, so source files are not reachable via `lacarbonara.nl`.
 
 ## Device Confirmed
 
