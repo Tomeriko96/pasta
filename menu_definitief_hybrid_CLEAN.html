@@ -176,6 +176,53 @@
     margin-top: 0.3px;
   }
 
+  .spritz-highlight {
+    background: #f0e8da;
+    border: 0.8px solid var(--accent);
+    padding: 4mm 4mm 3mm;
+    margin: 2mm 0 4mm;
+    text-align: center;
+  }
+
+  .spritz-highlight .section-title {
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin-bottom: 1mm;
+  }
+
+  .spritz-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 3mm;
+  }
+
+  .spritz-hero {
+    margin-bottom: 1.5mm;
+  }
+
+  .spritz-hero .item-name {
+    font-size: 17px;
+    font-weight: 700;
+  }
+
+  .spritz-hero .item-desc {
+    display: block;
+    font-size: 8.5px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 0.3px;
+  }
+
+  .spritz-others .item {
+    margin-bottom: 0.8mm;
+  }
+
+  .spritz-others .item-name {
+    font-size: 14px;
+  }
+
   .compact-section .item {
     margin-bottom: 1.2mm;
   }
@@ -315,30 +362,34 @@
       </div>
     </section>
 
-    <section class="menu-section compact-section">
+    <section class="menu-section compact-section spritz-highlight">
       <h2 class="section-title">Spritz 0.0</h2>
+      <div class="spritz-tagline">The Italian aperitivo, without the alcohol</div>
 
-      <div class="item">
+      <div class="item spritz-hero">
         <div class="item-header">
           <span class="item-name">Aperol Spritz 0.0</span>
           <span class="dots"></span>
           <span class="item-price">€8.00</span>
         </div>
+        <span class="item-desc">The Italian classic</span>
       </div>
 
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Bitter Spritz 0.0</span>
-          <span class="dots"></span>
-          <span class="item-price">€8.00</span>
+      <div class="spritz-others">
+        <div class="item">
+          <div class="item-header">
+            <span class="item-name">Bitter Spritz 0.0</span>
+            <span class="dots"></span>
+            <span class="item-price">€8.00</span>
+          </div>
         </div>
-      </div>
 
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Limoncello Spritz 0.0</span>
-          <span class="dots"></span>
-          <span class="item-price">€8.00</span>
+        <div class="item">
+          <div class="item-header">
+            <span class="item-name">Limoncello Spritz 0.0</span>
+            <span class="dots"></span>
+            <span class="item-price">€8.00</span>
+          </div>
         </div>
       </div>
     </section>

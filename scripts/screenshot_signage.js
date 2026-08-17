@@ -2,7 +2,7 @@ const { chromium } = require('playwright-core');
 const path = require('path');
 const fs = require('fs');
 
-const CHROME = '/home/dev/.cache/ms-playwright/chromium-1234/chrome-linux64/chrome';
+const CHROME = '/home/dev/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome';
 const WIDTH = 1080;
 const HEIGHT = 1920;
 
