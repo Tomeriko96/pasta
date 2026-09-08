@@ -1,655 +1,106 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Printable Menu - 2 Pages</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"></noscript>
-
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<title>La Carbonara — Menu</title>
 <style>
-
-  :root {
-    --ink: #1b1b1b;
-    --muted: #606060;
-    --accent: #8b3a3a;
-    --line: #d4c3a5;
-    --bg: #fdfbf7;
-  }
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  @page {
-    size: A4;
-    margin: 0;
-  }
-
-  body {
-    margin: 0;
-    background: #e8dfd0;
-    color: var(--ink);
-    font-family: 'Montserrat', sans-serif;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  .page {
-    width: 210mm;
-    height: 297mm;
-    margin: 0 auto 18px;
-    padding: 10mm 14mm 9mm;
-    background: var(--bg);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    page-break-after: always;
-    break-after: page;
-  }
-
-  .page:last-child {
-    page-break-after: auto;
-    break-after: auto;
-  }
-
-  header {
-    text-align: center;
-    padding-bottom: 4mm;
-    margin-bottom: 4.5mm;
-    border-bottom: 1.3px solid var(--ink);
-    flex-shrink: 0;
-  }
-
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 31px;
-    font-weight: 600;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    line-height: 0.95;
-  }
-
-  .content {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 0;
-  }
-
-  .menu-section {
-    width: 100%;
-    break-inside: avoid;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 2.3px;
-    text-transform: uppercase;
-    color: var(--accent);
-    text-align: center;
-    margin-bottom: 2.2mm;
-  }
-
-  .section-title::after {
-    content: "";
-    display: block;
-    width: 34px;
-    height: 1px;
-    background: var(--line);
-    margin: 2.5px auto 0;
-  }
-
-  .item {
-    margin-bottom: 2.25mm;
-    break-inside: avoid;
-  }
-
-  .item-header {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-  }
-
-  .item-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16.5px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    line-height: 1.08;
-  }
-
-  .dots {
-    flex: 1;
-    border-bottom: 1px dotted #c4b28f;
-    margin: 0 4px 4px;
-    min-width: 10mm;
-    opacity: 0.7;
-  }
-
-  .item-price {
-    font-size: 12px;
-    font-weight: 600;
-    white-space: nowrap;
-    letter-spacing: 0.3px;
-  }
-
-  .item-desc {
-    font-size: 9.4px;
-    line-height: 1.25;
-    color: var(--muted);
-    font-weight: 300;
-    margin-top: 0.8px;
-    padding-right: 8mm;
-  }
-
-  .featured-item {
-    border: 0.8px solid var(--accent);
-    padding: 2mm 3mm;
-    margin: 2.5mm 0;
-    break-inside: avoid;
-  }
-
-  .featured-label {
-    font-size: 7.5px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 2mm;
-    display: block;
-  }
-
-  .featured-item .item {
-    margin-bottom: 1.5mm;
-  }
-
-  .featured-item .item-desc {
-    margin-top: 0.3px;
-  }
-
-  .spritz-highlight {
-    background: #f0e8da;
-    border: 0.8px solid var(--accent);
-    padding: 4mm 4mm 3mm;
-    margin: 2mm 0 4mm;
-    text-align: center;
-  }
-
-  .spritz-highlight .section-title {
-    font-size: 22px;
-    letter-spacing: 3px;
-    margin-bottom: 1mm;
-  }
-
-  .spritz-tagline {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 11px;
-    font-style: italic;
-    color: var(--muted);
-    margin-bottom: 3mm;
-  }
-
-  .spritz-hero {
-    margin-bottom: 1.5mm;
-  }
-
-  .spritz-hero .item-name {
-    font-size: 17px;
-    font-weight: 700;
-  }
-
-  .spritz-hero .item-desc {
-    display: block;
-    font-size: 8.5px;
-    font-style: italic;
-    color: var(--muted);
-    margin-top: 0.3px;
-  }
-
-  .spritz-others .item {
-    margin-bottom: 0.8mm;
-  }
-
-  .spritz-others .item-name {
-    font-size: 14px;
-  }
-
-  .compact-section .item {
-    margin-bottom: 1.2mm;
-  }
-
-  .compact-section .item-name {
-    font-size: 15px;
-  }
-
-  .compact-section .item-desc {
-    display: none;
-  }
-
-  footer {
-    border-top: 1.3px solid var(--ink);
-    padding-top: 2.7mm;
-    margin-top: 4mm;
-    text-align: center;
-    font-size: 8.4px;
-    letter-spacing: 1.8px;
-    text-transform: uppercase;
-    color: var(--muted);
-    flex-shrink: 0;
-  }
-
-  /* Page 2 roomier to fill the page */
-  .page-two .item {
-    margin-bottom: 2.1mm;
-  }
-
-  .page-two .compact-section .item {
-    margin-bottom: 1.5mm;
-  }
-
-  .page-two .section-title {
-    margin-bottom: 2.4mm;
-  }
-
-  @media print {
-    body {
-      background: white;
-    }
-
-    .page {
-      margin: 0;
-      box-shadow: none;
-    }
-  }
-
-  @media screen {
-    .page {
-      box-shadow: 0 4px 24px rgba(0,0,0,0.14);
-    }
-  }
-</style>
-</head>
-
-<body>
-
-<!-- PAGE 1 -->
-<div class="page page-one">
-
-  <main class="content">
-
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Soft Drinks</h2>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Fizzy Amarena Fabbri Lemonade</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Fizzy Mint Lemonade</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Fizzy Lemon Lemonade</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Fizzy Strawberry Lemonade</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Fizzy Ice Tea Lemonade</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Fizzy Passionfruit Lemonade</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Still Water 0.70 L</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Sparkling Water 0.70 L</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Birra Moretti Zero 0.0</span>
-          <span class="dots"></span>
-          <span class="item-price">€6.00</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="menu-section compact-section spritz-highlight">
-      <h2 class="section-title">Spritz 0.0</h2>
-      <div class="spritz-tagline">The Italian aperitivo, without the alcohol</div>
-
-      <div class="item spritz-hero">
-        <div class="item-header">
-          <span class="item-name">Aperol Spritz 0.0</span>
-          <span class="dots"></span>
-          <span class="item-price">€8.00</span>
-        </div>
-        <span class="item-desc">The Italian classic</span>
-      </div>
-
-      <div class="spritz-others">
-        <div class="item">
-          <div class="item-header">
-            <span class="item-name">Bitter Spritz 0.0</span>
-            <span class="dots"></span>
-            <span class="item-price">€8.00</span>
-          </div>
-        </div>
-
-        <div class="item">
-          <div class="item-header">
-            <span class="item-name">Limoncello Spritz 0.0</span>
-            <span class="dots"></span>
-            <span class="item-price">€8.00</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Coffee</h2>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Espresso</span>
-          <span class="dots"></span>
-          <span class="item-price">€3.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Coffee</span>
-          <span class="dots"></span>
-          <span class="item-price">€3.50</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Cappuccino</span>
-          <span class="dots"></span>
-          <span class="item-price">€4.50</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Latte Macchiato</span>
-          <span class="dots"></span>
-          <span class="item-price">€4.50</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Iced Coffee Latte Caramel</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.50</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Iced Coffee Latte Vanilla</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.50</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Iced Coffee Latte Hazelnut</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.50</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@page { size:A4; margin:13mm 16mm 11mm; background:#FCFAF3; }
+*{margin:0;padding:0;box-sizing:border-box}
+body { color:#201E1A; font-family:"Montserrat",sans-serif; }
+.pg { page-break-after:always; } .pg:last-child { page-break-after:auto; }
+
+.mast { text-align:center; margin-bottom:6.5mm; }
+.mast h1 { font-family:"Cormorant Garamond",serif; font-size:27pt; font-weight:500;
+  letter-spacing:.18em; text-transform:uppercase; }
+.mast .s { font-size:5.8pt; letter-spacing:.34em; text-transform:uppercase;
+  color:#A2977F; margin-top:2.8mm; }
+
+h2 { font-size:6.8pt; font-weight:600; letter-spacing:.30em; text-transform:uppercase;
+  color:#8E2F28; text-align:center; border-top:.5pt solid #E1D8C4;
+  border-bottom:.5pt solid #E1D8C4; padding:1.7mm 0; margin:0 0 4.2mm; }
+section { margin-bottom:6.5mm; }
+.two { column-count:2; column-gap:11mm; }
+
+/* ── standard dish: name -> leader -> price ── */
+.a { break-inside:avoid; margin-bottom:3.4mm; }
+.a h3 { font-family:"Cormorant Garamond",serif; font-size:12.5pt; font-weight:600;
+  line-height:1.2; display:flex; align-items:baseline; }
+.a h3 .nm { flex:0 1 auto; }
+.a h3 .ldr { flex:1; border-bottom:.4pt dotted #C9BFA6; margin:0 2mm;
+  position:relative; top:-1mm; min-width:4mm; }
+.pz { font-family:"Cormorant Garamond",serif; font-variant-numeric:lining-nums;
+  font-feature-settings:"lnum" 1,"tnum" 1; font-size:12pt; font-weight:600;
+  color:#201E1A; white-space:nowrap; }
+.a p { font-size:6.9pt; font-weight:300; line-height:1.5; color:#746A5A; margin-top:.9mm; }
+
+/* ── specialita della casa: price inline, right beside the name ── */
+.lead { column-span:all; text-align:center; background:#F5EFE0;
+  padding:3.8mm 8mm; margin-bottom:4mm; }
+.lead h3 { display:block; text-align:center; font-size:19pt; }
+.lead .ldr { display:none; }
+.lead .lnm { }
+.lead .lpz { font-family:"Cormorant Garamond",serif; font-variant-numeric:lining-nums;
+  font-feature-settings:"lnum" 1,"tnum" 1; font-weight:600; color:#8E2F28;
+  margin-left:4mm; white-space:nowrap; }
+.lead p { font-size:8pt; max-width:140mm; margin:1.6mm auto 0; }
+.k { font-size:5.5pt; font-weight:600; letter-spacing:.30em; text-transform:uppercase;
+  color:#8E2F28; margin-bottom:2mm; }
+/* the antipasto special is a touch smaller than the pasta one */
+.lead.small h3 { font-size:15pt; }
+.lead.small { padding:3.2mm 8mm; margin-bottom:3.6mm; }
+
+/* ── EXTRAS: stacked one under the other ── */
+.stack { max-width:104mm; margin:0 auto; }
+.stack .e { display:flex; align-items:baseline; padding:1.5mm 0; break-inside:avoid; }
+.stack .en { font-family:"Cormorant Garamond",serif; font-size:11pt; }
+.stack .sp { flex:1; border-bottom:.4pt dotted #C9BFA6; margin:0 2mm;
+  position:relative; top:-1mm; }
+
+/* ── drinks ── */
+.dl .e { display:flex; align-items:baseline; break-inside:avoid; }
+.dl .en { font-family:"Cormorant Garamond",serif; font-size:11pt; }
+.dl .sp { flex:1; border-bottom:.4pt dotted #C9BFA6; margin:0 2mm;
+  position:relative; top:-1mm; }
+.sub { font-family:"Cormorant Garamond",serif; font-style:italic; font-size:9.5pt;
+  color:#8B8071; text-align:center; margin:-2.5mm 0 4mm; }
+.spritzbox { background:#F5EFE0; padding:7.5mm 8mm 6.5mm; }
+.spritzbox h2 { border-top:none; border-bottom:.5pt solid #DCCFB0; padding-top:0; }
+
+.pg.fill .flow section { margin-bottom:13mm; }
+.pg.fill .grid2 { display:grid; grid-template-columns:1fr 1fr; column-gap:11mm; }
+.pg.fill .dl .e { padding:3.3mm 0; }
+.pg.fill .dl .en { font-size:11.8pt; }
+.pg.fill h2 { margin-bottom:6.8mm; }
+
+footer { margin-top:7mm; padding-top:3mm; border-top:.5pt solid #E1D8C4;
+  text-align:center; font-family:"Cormorant Garamond",serif; font-style:italic;
+  font-size:10pt; color:#A2977F; }
+</style></head><body>
+
+<div class="pg">
+  <div class="mast"><h1>La Carbonara</h1><div class="s">Cucina Italiana</div></div>
+
+  <section><h2>Antipasti</h2>
+    <div class="a lead small"><div class="k">Specialit&agrave; della casa</div><h3><span class="lnm">Bruschetta La Carbonara</span><span class="lpz">10</span></h3><p>Toasted bread with guanciale, egg yolk, Pecorino Romano and black pepper.</p></div>
+    <div class="two"><div class="a"><h3><span class="nm">Bruschetta Classica</span><span class="ldr"></span><span class="pz">8</span></h3><p>Toasted bread with tomato, basil, garlic and extra virgin olive oil.</p></div><div class="a"><h3><span class="nm">Bruschetta Cremosa</span><span class="ldr"></span><span class="pz">10</span></h3><p>Toasted bread with stracciatella, tomatoes, fresh basil and extra virgin olive oil.</p></div><div class="a"><h3><span class="nm">Bruschetta Bolognese</span><span class="ldr"></span><span class="pz">10</span></h3><p>Toasted bread with traditional Bolognese sauce and Parmigiano Reggiano.</p></div><div class="a"><h3><span class="nm">Olive Marinate</span><span class="ldr"></span><span class="pz">5</span></h3><p>Italian olives marinated with herbs, garlic and citrus.</p></div></div>
+  </section>
+
+  <section><h2>Pasta</h2><div class="two"><div class="a lead"><div class="k">Specialit&agrave; della casa</div><h3><span class="lnm">La Carbonara</span><span class="lpz">19</span></h3><p>Rome's iconic pasta. Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.</p></div><div class="a"><h3><span class="nm">Cacio e Pepe</span><span class="ldr"></span><span class="pz">16</span></h3><p>Roman minimalism. Linguine with Pecorino Romano and freshly cracked black pepper.</p></div><div class="a"><h3><span class="nm">Amatriciana</span><span class="ldr"></span><span class="pz">18</span></h3><p>From Amatrice. Rigatoni with guanciale, tomato sauce and Pecorino Romano.</p></div><div class="a"><h3><span class="nm">Bolognese</span><span class="ldr"></span><span class="pz">18</span></h3><p>Bologna's signature. Rigatoni with traditional Bolognese sauce and Parmigiano Reggiano.</p></div><div class="a"><h3><span class="nm">Arrabbiata</span><span class="ldr"></span><span class="pz">15</span></h3><p>Roman fire. Rigatoni with spicy tomato sauce and Parmigiano Reggiano.</p></div><div class="a"><h3><span class="nm">Al Pomodoro</span><span class="ldr"></span><span class="pz">14</span></h3><p>Italy's simplest. Linguine with tomato sauce, fresh basil and Parmigiano Reggiano.</p></div><div class="a"><h3><span class="nm">Linguine al Pesto Genovese con Stracciatella</span><span class="ldr"></span><span class="pz">17</span></h3><p>Linguine with Genovese pesto and fresh stracciatella.</p></div><div class="a"><h3><span class="nm">Quattro Formaggi</span><span class="ldr"></span><span class="pz">20</span></h3><p>Four Italian cheeses. Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and fresh stracciatella.</p></div><div class="a"><h3><span class="nm">Gricia</span><span class="ldr"></span><span class="pz">18</span></h3><p>Roman classic. Rigatoni with guanciale, Pecorino Romano and black pepper.</p></div></div></section>
+
+  <section><h2>Extras</h2><div class="stack"><div class="e"><span class="en">Gluten-Free Pasta</span><span class="sp"></span><span class="pz">3</span></div><div class="e"><span class="en">Add Pecorino Romano</span><span class="sp"></span><span class="pz">4</span></div><div class="e"><span class="en">Add Parmigiano Reggiano 22 Month Aged</span><span class="sp"></span><span class="pz">4</span></div><div class="e"><span class="en">Add Fresh Stracciatella</span><span class="sp"></span><span class="pz">4</span></div></div></section>
 </div>
 
+<div class="pg fill">
+  <div class="mast"><h1>Da Bere</h1></div>
+  <div class="flow">
+    <section><h2>Soft Drinks</h2><div class="grid2 dl"><div class="e"><span class="en">Fizzy Amarena Fabbri Lemonade</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Fizzy Mint Lemonade</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Fizzy Lemon Lemonade</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Fizzy Strawberry Lemonade</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Fizzy Ice Tea Lemonade</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Fizzy Passionfruit Lemonade</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Still Water 0.70 L</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Sparkling Water 0.70 L</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Birra Moretti Zero 0.0</span><span class="sp"></span><span class="pz">6</span></div></div></section>
 
-<!-- PAGE 2 -->
-<div class="page page-two">
-
-  <main class="content">
-
-    <section class="menu-section">
-      <h2 class="section-title">Antipasti</h2>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Warm Focaccia</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-        <div class="item-desc">Served with extra virgin olive oil.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Bruschetta Classica</span>
-          <span class="dots"></span>
-          <span class="item-price">€8.00</span>
-        </div>
-        <div class="item-desc">Toasted bread with tomato, basil, garlic and extra virgin olive oil.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Bruschetta Cremosa</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-        <div class="item-desc">Toasted bread with stracciatella, cherry tomatoes, fresh basil and extra virgin olive oil.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Bruschetta Gorgonzola e Miele</span>
-          <span class="dots"></span>
-          <span class="item-price">€10.00</span>
-        </div>
-        <div class="item-desc">Toasted bread with Gorgonzola Dolce, honey, walnuts and freshly cracked black pepper.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Tagliere Formaggi</span>
-          <span class="dots"></span>
-          <span class="item-price">€16.00</span>
-        </div>
-        <div class="item-desc">A selection of Italian cheeses served with warm focaccia, olives, honey and fig jam.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Olive Marinate</span>
-          <span class="dots"></span>
-          <span class="item-price">€5.00</span>
-        </div>
-        <div class="item-desc">Italian olives marinated with herbs, garlic and citrus.</div>
-      </div>
+    <section class="spritzbox"><h2>Spritz 0.0</h2>
+      
+      <div class="grid2 dl"><div class="e"><span class="en">Aperol Spritz 0.0</span><span class="sp"></span><span class="pz">8</span></div><div class="e"><span class="en">Bitter Spritz 0.0</span><span class="sp"></span><span class="pz">8</span></div><div class="e"><span class="en">Limoncello Spritz 0.0</span><span class="sp"></span><span class="pz">8</span></div></div>
     </section>
 
-    <section class="menu-section">
-      <h2 class="section-title">Pasta</h2>
-
-      <div class="featured-item">
-        <span class="featured-label">Specialità della Casa</span>
-        <div class="item">
-          <div class="item-header">
-            <span class="item-name">La Carbonara</span>
-            <span class="dots"></span>
-            <span class="item-price">€19.00</span>
-          </div>
-          <div class="item-desc">Rome's iconic pasta. Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.</div>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Cacio e Pepe</span>
-          <span class="dots"></span>
-          <span class="item-price">€16.00</span>
-        </div>
-        <div class="item-desc">Roman minimalism. Linguine with Pecorino Romano and freshly cracked black pepper.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Amatriciana</span>
-          <span class="dots"></span>
-          <span class="item-price">€18.00</span>
-        </div>
-        <div class="item-desc">From Amatrice. Rigatoni with guanciale, tomato sauce and Pecorino Romano.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Bolognese</span>
-          <span class="dots"></span>
-          <span class="item-price">€18.00</span>
-        </div>
-        <div class="item-desc">Bologna's signature. Rigatoni with traditional Bolognese sauce and Parmigiano Reggiano.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Arrabbiata</span>
-          <span class="dots"></span>
-          <span class="item-price">€15.00</span>
-        </div>
-        <div class="item-desc">Roman fire. Rigatoni with spicy tomato sauce and Parmigiano Reggiano.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Al Pomodoro</span>
-          <span class="dots"></span>
-          <span class="item-price">€14.00</span>
-        </div>
-        <div class="item-desc">Italy's simplest. Linguine with tomato sauce, fresh basil and Parmigiano Reggiano.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Linguine al Pesto Genovese con Stracciatella</span>
-          <span class="dots"></span>
-          <span class="item-price">€17.00</span>
-        </div>
-        <div class="item-desc">Linguine with Genovese pesto and fresh stracciatella.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Quattro Formaggi</span>
-          <span class="dots"></span>
-          <span class="item-price">€20.00</span>
-        </div>
-        <div class="item-desc">Four Italian cheeses. Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and fresh stracciatella.</div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Pesto Gamberetti</span>
-          <span class="dots"></span>
-          <span class="item-price">€22.00</span>
-        </div>
-        <div class="item-desc">Linguine with shrimp, garlic and pesto.</div>
-      </div>
-    </section>
-
-    <section class="menu-section compact-section">
-      <h2 class="section-title">Extras</h2>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Gluten-Free Pasta</span>
-          <span class="dots"></span>
-          <span class="item-price">€3.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Add Pecorino Romano</span>
-          <span class="dots"></span>
-          <span class="item-price">€4.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Add Parmigiano Reggiano 22 Month Aged</span>
-          <span class="dots"></span>
-          <span class="item-price">€4.00</span>
-        </div>
-      </div>
-
-      <div class="item">
-        <div class="item-header">
-          <span class="item-name">Add Fresh Stracciatella</span>
-          <span class="dots"></span>
-          <span class="item-price">€4.00</span>
-        </div>
-      </div>
-
-    </section>
-
-  </main>
-
+    <section><h2>Coffee</h2><div class="grid2 dl"><div class="e"><span class="en">Espresso</span><span class="sp"></span><span class="pz">3</span></div><div class="e"><span class="en">Coffee</span><span class="sp"></span><span class="pz">3</span></div><div class="e"><span class="en">Cappuccino</span><span class="sp"></span><span class="pz">4</span></div><div class="e"><span class="en">Latte Macchiato</span><span class="sp"></span><span class="pz">4</span></div><div class="e"><span class="en">Iced Coffee Latte Caramel</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Iced Coffee Latte Vanilla</span><span class="sp"></span><span class="pz">5</span></div><div class="e"><span class="en">Iced Coffee Latte Hazelnut</span><span class="sp"></span><span class="pz">5</span></div></div></section>
+  </div>
+  <footer>Buon appetito.</footer>
 </div>
-
-</body>
-</html>
+</body></html>
