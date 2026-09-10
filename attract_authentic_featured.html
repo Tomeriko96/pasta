@@ -130,6 +130,9 @@ main{width:1080px;height:1920px;position:relative}
 
 /* ── Featured Carbonara items ── */
 .menu-item.featured{
+  display:flex !important;
+  flex-direction:column;
+  align-items:flex-start !important;
   background:rgba(184,154,64,0.28);
   padding:20px 22px;
   margin:14px -22px 12px -22px;
@@ -137,21 +140,34 @@ main{width:1080px;height:1920px;position:relative}
   border-radius:4px;
   box-shadow:0 4px 12px rgba(184,154,64,0.15);
 }
+.menu-item.featured .specialita-label{
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:8px;
+  display:block;
+  width:100%;
+}
 .menu-item.featured .item-name{
   font-weight:700;
   color:var(--terra);
   font-size:46px;
+  display:block;
+}
+.menu-item.featured .dots{
+  display:none;
+}
+.menu-item.featured{
+  position:relative;
+  padding-right:100px;
 }
 .menu-item.featured .price{
+  position:absolute;
+  right:22px;
+  top:50%;
+  transform:translateY(-50%);
   color:var(--gold);
   font-weight:700;
   font-size:26px;
-}
-.menu-item.featured-label{
-  display:block;
-  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
-  letter-spacing:3px;text-transform:uppercase;color:var(--gold);
-  margin-bottom:6px;
 }
 
 .s2-note{
