@@ -114,10 +114,15 @@ main{width:1080px;height:1920px;position:relative}
   font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;
   letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;
 }
-.menu-item{display:flex;align-items:baseline;padding:8px 0}
+.menu-item{display:flex;align-items:baseline;padding:6px 0}
 .item-name{
-  font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:400;
+  font-family:'Cormorant Garamond',serif;font-size:35px;font-weight:400;
   color:var(--ink);
+}
+.specialita-label{
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:4px;
 }
 .dots{flex:1;border-bottom:1px dotted rgba(28,21,16,0.20);margin:0 14px;position:relative;top:-7px}
 .price{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:500;color:var(--terra);white-space:nowrap}
@@ -125,8 +130,8 @@ main{width:1080px;height:1920px;position:relative}
 /* ── Featured Carbonara items ── */
 .menu-item.featured{
   background:rgba(184,154,64,0.28);
-  padding:18px 20px;
-  margin:10px -20px;
+  padding:20px 22px;
+  margin:14px -22px 12px -22px;
   border:2px solid var(--gold);
   border-radius:4px;
   box-shadow:0 4px 12px rgba(184,154,64,0.15);
@@ -140,6 +145,12 @@ main{width:1080px;height:1920px;position:relative}
   color:var(--gold);
   font-weight:700;
   font-size:26px;
+}
+.menu-item.featured-label{
+  display:block;
+  font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;
+  letter-spacing:3px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:6px;
 }
 
 .s2-note{
@@ -184,7 +195,7 @@ main{width:1080px;height:1920px;position:relative}
 
         <div>
           <div class="section-label">Antipasti</div>
-          <div class="menu-item featured"><span class="item-name">Bruschetta La Carbonara</span><span class="dots"></span><span class="price">&euro;10</span></div>
+          <div style="margin-bottom:8px"><div class="specialita-label">Specialità della Casa</div><div class="menu-item featured"><span class="item-name">Bruschetta La Carbonara</span><span class="dots"></span><span class="price">&euro;10</span></div></div>
           <div class="menu-item"><span class="item-name">Bruschetta Classica</span><span class="dots"></span><span class="price">&euro;8</span></div>
           <div class="menu-item"><span class="item-name">Bruschetta Cremosa</span><span class="dots"></span><span class="price">&euro;10</span></div>
           <div class="menu-item"><span class="item-name">Olive Marinate</span><span class="dots"></span><span class="price">&euro;5</span></div>
@@ -194,7 +205,7 @@ main{width:1080px;height:1920px;position:relative}
 
         <div>
           <div class="section-label">Pasta</div>
-          <div class="menu-item featured"><span class="item-name">La Carbonara</span><span class="dots"></span><span class="price">&euro;19</span></div>
+          <div style="margin-bottom:8px"><div class="specialita-label">Specialità della Casa</div><div class="menu-item featured"><span class="item-name">La Carbonara</span><span class="dots"></span><span class="price">&euro;19</span></div></div>
           <div class="menu-item"><span class="item-name">Cacio e Pepe</span><span class="dots"></span><span class="price">&euro;16</span></div>
           <div class="menu-item"><span class="item-name">Amatriciana</span><span class="dots"></span><span class="price">&euro;18</span></div>
           <div class="menu-item"><span class="item-name">Bolognese</span><span class="dots"></span><span class="price">&euro;18</span></div>
