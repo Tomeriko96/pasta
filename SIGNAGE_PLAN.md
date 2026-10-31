@@ -110,7 +110,6 @@ To run the attract video on the screen without ever visiting the device with a U
 - Deploy: push to the repo; GitHub Pages serves it at `https://lacarbonara.nl/attract.html`.
 - On the TV: EZ Settings → SI Server Setting → URL mode → `https://lacarbonara.nl/attract.html`; panel orientation **PORTRAIT**.
 - Update: re-render the MP4 (`node scripts/build_attract_video.js attract_authentic.html attract-authentic-loop.mp4`), commit, push. The page's 10-minute `location.reload()` re-fetches the new file after GitHub Pages CDN propagation (a few minutes; reboot the TV for an instant refresh).
-- Swap the default clip by changing the `<video src>` in `attract.html` (e.g. `attract-authentic-QR-loop.mp4` for the scan slide, or `attract-v12-white-loop.mp4`).
 
 ---
 

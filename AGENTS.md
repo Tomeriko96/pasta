@@ -80,10 +80,10 @@ Sparring rounds produced `menu_agentic_vN.html` files and the earlier `menu_impr
 uv run weasyprint menu_definitief_hybrid_CLEAN.html pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf  # Generate PDF from the menu HTML
 uv run weasyprint menu_QR_alt.html pdf-menus-weasyprint/menu_QR_alt.pdf                              # QR-alt menu PDF
 
-node scripts/build_attract_video.js                 # Looping attract MP4 (defaults to attract_v12_white_loop.html)
-node scripts/build_attract_video.js attract_authentic.html attract-authentic-loop.mp4                 # Authentic attract (no QR)
-node scripts/build_attract_video.js attract_authentic_QR.html attract-authentic-QR-loop.mp4           # Authentic attract with scan slide
+node scripts/build_attract_video.js                 # Looping attract MP4 (attract_authentic.html -> attract-authentic-loop.mp4)
 ```
+
+`attract-authentic-loop.mp4` is the only video kept in the repo (the QR and featured variants were removed).
 
 Note: the `Makefile` was removed during cleanup; use the direct `uv`/`node`/`python3` commands above.
 

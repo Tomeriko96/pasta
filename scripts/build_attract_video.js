@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /*
- * Render attract_v12_white_loop.html (repo root) into a seamlessly-looping MP4.
+ * Render attract_authentic.html (repo root) into a seamlessly-looping MP4.
  * Mirrors the capture + xfade logic of build_signage_video.js, but for the
- * single root attract board. Output: attract-v12-white-loop.mp4 (repo root).
+ * single root attract board. Output: attract-authentic-loop.mp4 (repo root).
  *
  * Usage: node scripts/build_attract_video.js
  */
@@ -13,8 +13,8 @@ const path = require("path");
 const { execSync } = require("child_process");
 
 const ROOT = process.cwd();
-const SRC = process.argv[2] || "attract_v12_white_loop.html";
-const OUT = process.argv[3] || "attract-v12-white-loop.mp4";
+const SRC = process.argv[2] || "attract_authentic.html";
+const OUT = process.argv[3] || "attract-authentic-loop.mp4";
 
 function resolveFFmpeg() {
   try { execSync("ffmpeg -version", { stdio: "ignore" }); return "ffmpeg"; } catch (_) {}
