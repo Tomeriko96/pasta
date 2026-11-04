@@ -22,7 +22,7 @@ jobs:
       - name: Assemble public site
         run: |
           mkdir -p _site
-          cp index.html favicon.svg attract.html CNAME .nojekyll _site/
+          cp index.html favicon.svg attract.html robots.txt sitemap.xml CNAME .nojekyll _site/
           cp attract-authentic-loop.mp4 _site/
           cp -r fonts _site/fonts
           cp -r images _site/images
