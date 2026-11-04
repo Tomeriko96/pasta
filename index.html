@@ -10,12 +10,14 @@
 <meta property="og:description" content="Fresh pasta at Lange Niezel 7, Amsterdam. No reservations.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap"></noscript>
+<link rel="canonical" href="https://lacarbonara.nl/">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond.woff2" crossorigin>
 
 <style>
+  @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 700;font-display:swap;src:url(/fonts/cormorant-garamond.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/cormorant-garamond-italic.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+  @font-face{font-family:'Montserrat';font-style:normal;font-weight:300 600;font-display:swap;src:url(/fonts/montserrat.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 
   :root {
     --ink: #1b1b1b;
@@ -262,6 +264,17 @@
     margin: -5px 0 8px;
   }
 
+  .prose {
+    font-size: 14px;
+    line-height: 1.8;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .prose p {
+    margin-bottom: 16px;
+  }
+
   .visit {
     text-align: center;
     background: var(--paper);
@@ -319,6 +332,7 @@
   <nav>
     <a class="brand" href="#top">La Carbonara</a>
     <div class="links">
+      <a href="#about">Pasta</a>
       <a href="#menu">Menu</a>
       <a href="#visit">Visit</a>
     </div>
@@ -327,16 +341,25 @@
   <main>
 
   <header class="hero" id="top">
-    <div class="eyebrow">Trattoria</div>
+    <div class="eyebrow">Roman trattoria</div>
     <h1>La Carbonara</h1>
     <p class="sub">Cucina romana nel cuore di Amsterdam</p>
-    <p class="tagline">Fresh pasta at Lange Niezel 7, in the heart of Amsterdam. No reservations, just come.</p>
+    <p class="tagline">Roman pasta at Lange Niezel 7, in the heart of Amsterdam. No reservations, just come.</p>
     <div class="buttons">
       <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Lange+Niezel+7+Amsterdam">Get Directions</a>
       <a class="btn btn-outline" href="#menu">View Menu</a>
     </div>
     <p class="note">All drinks are alcohol-free (0.0%).</p>
   </header>
+
+  <section class="section" id="about">
+    <h2 class="section-title">Our pasta</h2>
+    <div class="prose">
+      <p>Roman classics made with guanciale and Pecorino Romano. The menu is built around carbonara, cacio e pepe, amatriciana and gricia, with a few other Italian favourites alongside.</p>
+      <p>Our carbonara is linguine with guanciale, egg yolk, Pecorino Romano and black pepper. No cream.</p>
+      <p>Any pasta can be made gluten-free for &euro;3.00 extra. Just tell us when you order.</p>
+    </div>
+  </section>
 
   <section class="section" id="menu">
     <h2 class="section-title">Menu</h2>
@@ -427,7 +450,9 @@
     <h2 class="section-title">Visit Us</h2>
     <div class="info">
       <p><strong>La Carbonara</strong></p>
-      <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Lange+Niezel+7+Amsterdam">Lange Niezel 7, Amsterdam</a></p>
+      <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Lange+Niezel+7+Amsterdam">Lange Niezel 7, 1012 GS Amsterdam</a></p>
+      <p>Open daily, 12:00 to 23:00</p>
+      <p><a href="tel:+31616956710">06 16956710</a></p>
       <p>No reservations. Just come.</p>
     </div>
     <a class="btn btn-primary" href="https://www.google.com/maps/dir/?api=1&amp;destination=Lange+Niezel+7+Amsterdam">Get Directions</a>
@@ -442,5 +467,42 @@
   </footer>
 
 </div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "@id": "https://lacarbonara.nl/#restaurant",
+  "name": "La Carbonara",
+  "description": "Roman trattoria with fresh pasta in the heart of Amsterdam. Classics like carbonara, cacio e pepe, amatriciana and gricia. No reservations, all drinks are alcohol-free.",
+  "url": "https://lacarbonara.nl/",
+  "servesCuisine": ["Italian", "Roman", "Pasta"],
+  "priceRange": "€€",
+  "acceptsReservations": "False",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Lange Niezel 7",
+    "addressLocality": "Amsterdam",
+    "postalCode": "1012 GS",
+    "addressRegion": "Noord-Holland",
+    "addressCountry": "NL"
+  },
+  "telephone": "+31616956710",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+    "opens": "12:00",
+    "closes": "23:00"
+  },
+  "hasMap": "https://www.google.com/maps/search/?api=1&query=Lange+Niezel+7+Amsterdam",
+  "hasMenu": "https://lacarbonara.nl/#menu",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Alcohol-free drinks", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Gluten-free pasta available", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Walk-ins only", "value": true }
+  ]
+}
+</script>
+
 </body>
 </html>
