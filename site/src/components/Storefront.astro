@@ -1,5 +1,5 @@
 ---
-import { Picture } from 'astro:assets';
+import ArchPhoto from './ArchPhoto.astro';
 import storefront from '../assets/storefront.jpg';
 import type { Lang } from '../lib/site';
 import { copy } from '../i18n/copy';
@@ -8,11 +8,6 @@ interface Props { lang: Lang; loading?: 'eager' | 'lazy'; caption?: boolean }
 const { lang, loading = 'lazy', caption = true } = Astro.props;
 const t = copy(lang);
 ---
-<figure class="storefront">
-  <div class="arch">
-    <Picture src={storefront} formats={['avif', 'webp']} widths={[480, 760, 1200]}
-      sizes="(min-width: 960px) 460px, 100vw" alt={t.storefrontAlt} loading={loading}
-      fetchpriority={loading === 'eager' ? 'high' : 'auto'} />
-  </div>
-  {caption && <figcaption>{t.storefrontCaption}</figcaption>}
-</figure>
+<ArchPhoto src={storefront} alt={t.storefrontAlt} loading={loading} class="photo-storefront">
+  {caption && t.storefrontCaption}
+</ArchPhoto>

@@ -5,8 +5,8 @@ import { defineConfig } from 'astro/config';
 // with `npm run dev` or `npm run build && npm run preview` first.
 export default defineConfig({
   site: 'https://lacarbonara.nl',
-  trailingSlash: 'ignore',
-  build: { format: 'preserve', inlineStylesheets: 'always' },
+  trailingSlash: 'always',
+  build: { format: 'directory', inlineStylesheets: 'always' },
   // Content Security Policy as a <meta> tag on every page (GitHub Pages cannot
   // set headers). Astro adds hashes for its own inline styles and scripts.
   security: {

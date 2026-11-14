@@ -11,7 +11,7 @@ const VIEWS = { menu: Menu, visit: Visit, faq: Faq } as const;
 export function getStaticPaths() {
   return LANGS.filter((l) => l !== 'en').flatMap((lang) =>
     (['menu', 'visit', 'faq'] as const).map((page) => ({
-      params: { lang, slug: routes[page][lang].split('/').pop()! },
+      params: { lang, slug: routes[page][lang].split('/').filter(Boolean).pop()! },
       props: { page },
     })),
   );

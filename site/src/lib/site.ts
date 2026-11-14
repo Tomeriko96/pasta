@@ -14,12 +14,13 @@ export type Lang = (typeof LANGS)[number];
 
 export const ORIGIN = restaurant.origin;
 
-/** URL per page and language. Slugs are in the page's own language. */
+/** URL per page and language. Slugs are in the page's own language. Every
+ * page is built as <slug>/index.html, so these URLs work on any static server. */
 export const routes = {
   home: { en: '/', nl: '/nl/', it: '/it/', de: '/de/', fr: '/fr/', es: '/es/' },
-  menu: { en: '/menu', nl: '/nl/menu', it: '/it/menu', de: '/de/speisekarte', fr: '/fr/carte', es: '/es/carta' },
-  visit: { en: '/visit', nl: '/nl/bezoek', it: '/it/dove-siamo', de: '/de/anfahrt', fr: '/fr/acces', es: '/es/como-llegar' },
-  faq: { en: '/faq', nl: '/nl/faq', it: '/it/domande', de: '/de/fragen', fr: '/fr/questions', es: '/es/preguntas' },
+  menu: { en: '/menu/', nl: '/nl/menu/', it: '/it/menu/', de: '/de/speisekarte/', fr: '/fr/carte/', es: '/es/carta/' },
+  visit: { en: '/visit/', nl: '/nl/route/', it: '/it/dove-siamo/', de: '/de/anfahrt/', fr: '/fr/acces/', es: '/es/como-llegar/' },
+  faq: { en: '/faq/', nl: '/nl/faq/', it: '/it/domande/', de: '/de/fragen/', fr: '/fr/questions/', es: '/es/preguntas/' },
 } as const satisfies Record<string, Record<Lang, string>>;
 export type RouteKey = keyof typeof routes;
 
@@ -46,13 +47,20 @@ function tr(text: string, lang: Lang, required: boolean) {
 }
 export const itemName = (item: MenuItem, lang: Lang) => tr(item.name, lang, false);
 export const itemDesc = (item: MenuItem, lang: Lang) => (item.desc ? tr(item.desc, lang, true) : undefined);
-export const sectionTitle = (s: MenuSection, lang: Lang) => tr(s.title, lang, true);
+// A section title may need its own translation when it equals an item name
+// ("Coffee" the section vs "Coffee" the drink): use the key "section:<id>".
+export const sectionTitle = (s: MenuSection, lang: Lang) =>
+  (lang !== 'en' && MENU_I18N[lang][`section:${s.id}`]) || tr(s.title, lang, true);
 
 export const LOCALES: Record<Lang, string> = { en: 'en-GB', nl: 'nl-NL', it: 'it-IT', de: 'de-DE', fr: 'fr-FR', es: 'es-ES' };
 
-/** Euro prices in each language's own notation: €19.00, € 19,00, 19,00 €. */
+/** Euro prices in each language's own notation (€19, € 19, 19 €); cents only when there are any. */
 export function formatPrice(value: number, lang: Lang) {
-  return new Intl.NumberFormat(LOCALES[lang], { style: 'currency', currency: 'EUR' }).format(value);
+  const whole = Number.isInteger(value);
+  return new Intl.NumberFormat(LOCALES[lang], {
+    style: 'currency', currency: 'EUR',
+    minimumFractionDigits: whole ? 0 : 2, maximumFractionDigits: 2,
+  }).format(value);
 }
 
 export function findItem(name: string): MenuItem {

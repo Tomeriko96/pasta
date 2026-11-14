@@ -1,7 +1,11 @@
 ---
 import Base from '../layouts/Base.astro';
 import Storefront from '../components/Storefront.astro';
+import ArchPhoto from '../components/ArchPhoto.astro';
+import carbonara from '../assets/carbonara.jpg';
 import FaqList from '../components/FaqList.astro';
+import DishPhoto from '../components/DishPhoto.astro';
+import rigatoni from '../assets/rigatoni.jpg';
 import { routes, restaurant as r, section, findItem, itemName, itemDesc, formatPrice, type Lang } from '../lib/site';
 import { copy } from '../i18n/copy';
 
@@ -11,6 +15,7 @@ const t = copy(lang);
 const h = t.home;
 const roman = ['La Carbonara', 'Cacio e Pepe', 'Amatriciana', 'Gricia'];
 const dishes = section('pasta').items.filter((i) => roman.includes(i.name));
+const signature = findItem('La Carbonara');
 const lemonades = section('soft-drinks').items.filter((i) => i.name.startsWith('Fizzy'));
 const drinks = [
   ...section('spritz').items.map((i) => ({ name: itemName(i, lang), price: i.price })),
@@ -30,7 +35,9 @@ const drinks = [
         </p>
       </div>
       <div class="hero-photo">
-        <Storefront lang={lang} loading="eager" />
+        <ArchPhoto src={carbonara} alt={t.photos.carbonara} loading="eager">
+          <b>{itemName(signature, lang)}</b> {formatPrice(signature.price, lang)}
+        </ArchPhoto>
       </div>
       <dl class="facts">
         <div><dt>{t.facts.open}</dt><dd>{t.facts.openValue}</dd></div>
@@ -46,6 +53,7 @@ const drinks = [
         <h2 id="pasta-title">{h.pastaTitle}</h2>
         <p class="intro">{h.pastaIntro}</p>
         <p><a class="more" href={routes.menu[lang]}>{h.fullMenu}</a></p>
+        <DishPhoto src={rigatoni} alt={t.photos.rigatoni} class="pasta-photo" />
       </div>
       <ul class="dishes dishes-card">
         {dishes.map((item) => (
@@ -85,14 +93,15 @@ const drinks = [
           <a class="btn btn-green" href={r.maps.google}>{t.actions.google}</a>
           <a class="btn btn-outline" href={r.maps.apple}>{t.actions.apple}</a>
         </p>
+        <table class="walk walk-card">
+          <caption>{t.visit.walkTitle}</caption>
+          <tbody>
+            {t.visit.walk.map((w) => <tr><th scope="row">{w.place}</th><td>{t.visit.minutes(w.min)}</td></tr>)}
+          </tbody>
+        </table>
         <p><a class="more" href={routes.visit[lang]}>{h.visitMore}</a></p>
       </div>
-      <table class="walk walk-card">
-        <caption>{t.visit.walkTitle}</caption>
-        <tbody>
-          {t.visit.walk.map((w) => <tr><th scope="row">{w.place}</th><td>{t.visit.minutes(w.min)}</td></tr>)}
-        </tbody>
-      </table>
+      <Storefront lang={lang} />
     </div>
   </section>
 

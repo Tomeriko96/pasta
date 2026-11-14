@@ -171,6 +171,10 @@ h3 { font-size: 1.5rem; }
 .storefront img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: 50% 22%; }
 .dishes-card .dish-name, .facts dd, .walk { font-variant-numeric: lining-nums; }
 .storefront figcaption { margin-top: .75rem; font-size: 15px; color: var(--muted); text-align: center; }
+.storefront figcaption b { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); margin-right: .35rem; }
+.hero-photo .storefront img { aspect-ratio: 4 / 5; object-position: 50% 50%; }
+.band .photo-storefront { max-width: 440px; justify-self: center; }
+.band .walk-card { margin-top: 2rem; }
 
 /* Content bands */
 .band { padding: clamp(56px, 8vw, 104px) 0; }
@@ -194,7 +198,13 @@ h3 { font-size: 1.5rem; }
 .dish.featured { padding: 14px 16px 16px; margin: 0 -16px; border-left: 3px solid var(--red); background: #fbf3f2; }
 .featured-label { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
 
+/* The restaurant's own dish photos */
+.dish-photo img { width: 100%; aspect-ratio: 6 / 5; object-fit: cover; border: 8px solid var(--white); box-shadow: 0 0 0 1px var(--rule), 0 18px 40px -26px rgba(20, 50, 31, .45); border-radius: 3px; }
+.pasta-photo { margin-top: 2rem; max-width: 460px; }
+.head-photo img { aspect-ratio: 4 / 3; }
+
 /* Page heads */
+.page-head-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 440px); gap: 2rem 4rem; align-items: center; }
 .page-head { padding: clamp(40px, 6vw, 72px) 0 clamp(24px, 4vw, 40px); background: var(--white); border-bottom: 1px solid var(--rule); }
 
 /* Menu page */
@@ -249,7 +259,8 @@ h3 { font-size: 1.5rem; }
   .storefront img { aspect-ratio: 4 / 3; object-position: 50% 24%; }
   .storefront .arch { border-radius: 50% 50% 3px 3px / 26% 26% 3px 3px; }
   .hero-photo, .visit-photo { max-width: 560px; }
-  .two-col, .menu-grid, .visit-grid { grid-template-columns: 1fr; }
+  .two-col, .menu-grid, .visit-grid, .page-head-grid { grid-template-columns: 1fr; }
+  .head-photo { max-width: 560px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid > div:first-child { grid-column: 1 / -1; }
 }
@@ -284,4 +295,8 @@ h3 { font-size: 1.5rem; }
   }
   .actionbar a.primary { background: var(--red); color: var(--white); }
   .dish.featured { margin: 0 -12px; padding: 12px; }
+}
+
+@media (max-width: 900px) {
+  .hero-photo .storefront img { aspect-ratio: 4 / 3; }
 }

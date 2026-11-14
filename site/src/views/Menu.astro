@@ -1,20 +1,26 @@
 ---
 import Base from '../layouts/Base.astro';
 import MenuSection from '../components/MenuSection.astro';
+import DishPhoto from '../components/DishPhoto.astro';
+import bruschetta from '../assets/bruschetta.jpg';
 import { sections, menuSchema, type Lang } from '../lib/site';
 import { copy } from '../i18n/copy';
 
 interface Props { lang: Lang }
 const { lang } = Astro.props;
-const t = copy(lang).menu;
+const c = copy(lang);
+const t = c.menu;
 const food = sections.filter((s) => ['antipasti', 'pasta', 'extras'].includes(s.id));
 const drinks = sections.filter((s) => !food.includes(s));
 ---
 <Base lang={lang} route="menu" title={t.title} description={t.description} schema={[menuSchema(lang)]}>
   <div class="page-head">
-    <div class="wrap narrow">
-      <h1>{t.h1}</h1>
-      <p class="lead">{t.lead}</p>
+    <div class="wrap page-head-grid">
+      <div>
+        <h1>{t.h1}</h1>
+        <p class="lead">{t.lead}</p>
+      </div>
+      <DishPhoto src={bruschetta} alt={c.photos.bruschetta} class="head-photo" sizes="(min-width: 960px) 440px, 100vw" />
     </div>
   </div>
   <div class="wrap menu-grid">

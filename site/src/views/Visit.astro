@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Storefront from '../components/Storefront.astro';
-import OpenStatus from '../components/OpenStatus.astro';
 import { restaurant as r, type Lang } from '../lib/site';
 import { copy } from '../i18n/copy';
 
@@ -24,7 +23,6 @@ const v = t.visit;
       <section aria-labelledby="hours-title">
         <h2 id="hours-title">{v.hoursTitle}</h2>
         <p>{v.hoursText}</p>
-        <p><OpenStatus lang={lang} /></p>
       </section>
       <section aria-labelledby="address-title">
         <h2 id="address-title">{v.addressTitle}</h2>

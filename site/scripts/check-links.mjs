@@ -18,7 +18,9 @@ const pages = [];
 
 function resolve(urlPath) {
   const p = join(DIST, decodeURIComponent(urlPath));
-  for (const c of [p, `${p}.html`, join(p, 'index.html')]) {
+  // Strict: no `.html` guessing, so a link only passes if it works on any
+  // static server (python -m http.server, GitHub Pages, Cloudflare).
+  for (const c of [p, join(p, 'index.html')]) {
     if (existsSync(c) && statSync(c).isFile()) return c;
   }
   return null;
