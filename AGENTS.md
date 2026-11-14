@@ -51,9 +51,9 @@ npm run build       # builds dist/ and runs the checks below
 npm run preview     # serves the built dist/ on http://localhost:4321
 ```
 
-- **Change a dish or price**: edit `site/src/data/menu.json`. The English and Dutch pages, the FAQ answers (pasta price range, carbonara price) and `llms.txt` follow. The print menu is still separate: update `menu_definitief_hybrid_CLEAN.html` and re-render the PDF too.
+- **Change a dish or price**: edit `site/src/data/menu.json` **and** `menu_definitief_hybrid_CLEAN.html` (then re-render the PDF). The English and Dutch pages, the FAQ answers (pasta price range, carbonara price) and `llms.txt` follow `menu.json`. The build fails when the two disagree on a dish, price or English description (`check-print-menu.mjs`), so a price can never change in one place only.
 - **Change page text**: `site/src/i18n/copy.ts` (one block per language). Italian dish names stay as they are in both languages.
-- **Checks after every build** (`site/scripts/`): `check-dashes.mjs` fails on any em-dash or en-dash in the output; `check-links.mjs` fails on a broken internal link or `#anchor`.
+- **Checks after every build** (`site/scripts/`): `check-dashes.mjs` fails on any em-dash or en-dash in the output; `check-links.mjs` fails on a broken internal link or `#anchor`. `check-print-menu.mjs` fails when the print menu and `menu.json` differ.
 - **Structured data**: `site/src/lib/site.ts` builds the Restaurant and FAQPage JSON-LD from the data files. Test with Google's Rich Results Test after deploying.
 - A Content Security Policy is set as a `<meta>` tag in `site/astro.config.mjs` (GitHub Pages cannot send headers). Adding an external script, image or iframe means allowing its domain there.
 
