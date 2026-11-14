@@ -4,10 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<title>La Carbonara | Fresh pasta in Amsterdam</title>
-<meta name="description" content="La Carbonara, fresh pasta at Lange Niezel 7 in the heart of Amsterdam. No reservations, all drinks alcohol-free.">
+<title>La Carbonara | Roman pasta in Amsterdam</title>
+<meta name="description" content="La Carbonara, Roman pasta at Lange Niezel 7 in the heart of Amsterdam. No reservations, all drinks alcohol-free.">
 <meta property="og:title" content="La Carbonara">
-<meta property="og:description" content="Fresh pasta at Lange Niezel 7, Amsterdam. No reservations.">
+<meta property="og:description" content="La Carbonara, Roman pasta at Lange Niezel 7 in the heart of Amsterdam. No reservations, all drinks alcohol-free.">
+<meta property="og:url" content="https://lacarbonara.nl/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="en_GB">
 <link rel="canonical" href="https://lacarbonara.nl/">
@@ -43,7 +44,8 @@
     background: var(--paper);
     color: var(--ink);
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-size: 16px;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
   }
 
@@ -58,28 +60,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 28px;
+    padding: 8px 28px;
     border-bottom: 1px solid var(--line);
   }
 
   nav .brand {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     text-decoration: none;
     color: var(--ink);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
   }
 
   nav .links a {
-    font-size: 11px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    min-width: 44px;
+    justify-content: center;
+    padding: 0 10px;
+    font-size: 14px;
     font-weight: 500;
     letter-spacing: 1.2px;
     text-transform: uppercase;
     text-decoration: none;
     color: var(--muted);
-    margin-left: 22px;
   }
 
   nav .links a:hover {
@@ -93,7 +103,7 @@
   }
 
   .eyebrow {
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 3.2px;
     text-transform: uppercase;
     color: var(--accent);
@@ -112,16 +122,16 @@
 
   .sub {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
+    font-size: 22px;
     font-style: italic;
     color: var(--muted);
     margin-top: 14px;
   }
 
   .tagline {
-    max-width: 460px;
+    max-width: 480px;
     margin: 20px auto 0;
-    font-size: 13px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 1.6;
     color: var(--ink);
@@ -137,12 +147,12 @@
 
   .btn {
     display: inline-block;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     letter-spacing: 1.6px;
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 30px;
+    padding: 16px 30px;
     border: 1px solid var(--ink);
   }
 
@@ -168,7 +178,7 @@
 
   .note {
     margin-top: 22px;
-    font-size: 12px;
+    font-size: 15px;
     color: var(--muted);
     font-style: italic;
   }
@@ -194,7 +204,7 @@
 
   .menu-head {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: 2.3px;
     text-transform: uppercase;
@@ -213,14 +223,15 @@
 
   .item-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 17px;
+    font-size: 20px;
     font-weight: 600;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    min-width: 0;
   }
 
   .item-price {
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 600;
     flex-shrink: 0;
     margin-left: 8px;
   }
@@ -233,11 +244,11 @@
   }
 
   .desc {
-    font-size: 12px;
-    font-weight: 300;
+    font-size: 16px;
+    font-weight: 400;
     color: var(--muted);
-    margin: -5px 0 11px;
-    line-height: 1.45;
+    margin: -3px 0 14px;
+    line-height: 1.5;
   }
 
   .featured-item {
@@ -247,7 +258,7 @@
   }
 
   .featured-label {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -265,8 +276,8 @@
   }
 
   .prose {
-    font-size: 14px;
-    line-height: 1.8;
+    font-size: 17px;
+    line-height: 1.7;
     max-width: 600px;
     margin: 0 auto;
   }
@@ -284,13 +295,13 @@
   .visit .info {
     margin-bottom: 26px;
     line-height: 2;
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .visit .info strong {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .visit .info a {
@@ -306,7 +317,7 @@
   footer {
     text-align: center;
     padding: 28px;
-    font-size: 12px;
+    font-size: 15px;
     color: var(--muted);
     line-height: 1.9;
   }
@@ -317,7 +328,9 @@
   }
 
   @media (max-width: 480px) {
-    nav .links a { margin-left: 14px; }
+    nav { padding: 4px 12px 4px 20px; }
+    nav .brand { font-size: 17px; letter-spacing: 1px; }
+    nav .links a { padding: 0 8px; letter-spacing: .8px; }
     h1 { font-size: 40px; letter-spacing: 3px; }
     .hero { padding: 56px 20px 44px; }
     .section { padding: 44px 20px; }
@@ -474,11 +487,11 @@
   "@type": "Restaurant",
   "@id": "https://lacarbonara.nl/#restaurant",
   "name": "La Carbonara",
-  "description": "Roman trattoria with fresh pasta in the heart of Amsterdam. Classics like carbonara, cacio e pepe, amatriciana and gricia. No reservations, all drinks are alcohol-free.",
+  "description": "Roman trattoria in the heart of Amsterdam. Classics like carbonara, cacio e pepe, amatriciana and gricia. No reservations, all drinks are alcohol-free.",
   "url": "https://lacarbonara.nl/",
   "servesCuisine": ["Italian", "Roman", "Pasta"],
   "priceRange": "€€",
-  "acceptsReservations": "False",
+  "acceptsReservations": false,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Lange Niezel 7",
@@ -495,6 +508,7 @@
     "closes": "23:00"
   },
   "hasMap": "https://www.google.com/maps/search/?api=1&query=Lange+Niezel+7+Amsterdam",
+  "hasMenu": "https://lacarbonara.nl/#menu",
   "amenityFeature": [
     { "@type": "LocationFeatureSpecification", "name": "Alcohol-free drinks", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Gluten-free pasta available", "value": true },

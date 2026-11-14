@@ -1,9 +1,10 @@
 # Pasta Restaurant Menu
 
-Static and digital menus for La Carbonara, a pasta restaurant. Two surfaces, kept in sync manually when dishes or prices change:
+Website and menus for La Carbonara, a pasta restaurant. Three surfaces, kept in sync manually when dishes or prices change:
 
-1. **Print / PDF** - a single static A4 HTML (`menu_definitief_hybrid_CLEAN.html`), rendered with weasyprint into `pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf`.
-2. **LG signage** - `menu_screen.html`, a standalone portrait page for the 32SM5J-B display. See `SIGNAGE_PLAN.md`.
+1. **Website**: `index.html`, published on https://lacarbonara.nl/ by GitHub Pages on every push to `main`.
+2. **Print / PDF**: a single static A4 HTML (`menu_definitief_hybrid_CLEAN.html`), rendered with weasyprint into `pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf`. Not published online.
+3. **LG signage**: the attract loop MP4, played from USB on the 32SM5J-B display. See `SIGNAGE_PLAN.md`.
 
 ## Quick start
 
