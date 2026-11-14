@@ -1,0 +1,11 @@
+{
+  "_comment": "Photos on the website (site/src/assets). Source files: images/La_Carbonara_review_images_2026 (gitignored). Guest photos come from Google Maps reviews; ask each photographer for permission before the site goes live, or replace them.",
+  "carbonara":    { "file": "carbonara.jpg",            "source": "review_004", "credit": "Maria Dumitru" },
+  "storefront":   { "file": "storefront.jpg",           "source": "review_027", "credit": null },
+  "rigatoni":     { "file": "rigatoni.jpg",             "source": "review_028", "credit": null },
+  "bruschetta":   { "file": "bruschetta.jpg",           "source": "review_025", "credit": null },
+  "carbonara-2":  { "file": "guests/carbonara-2.jpg",   "source": "review_010", "credit": "Arianna Pulidori" },
+  "pomodoro":     { "file": "guests/pomodoro.jpg",      "source": "review_014", "credit": "Faustine" },
+  "ragu":         { "file": "guests/ragu.jpg",          "source": "review_017", "credit": "Guilherme Assis" },
+  "guest-bruschetta": { "file": "guests/bruschetta.jpg", "source": "review_011", "credit": "Arianna Pulidori" }
+}

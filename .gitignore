@@ -11,4 +11,4 @@ menu_new.pdf
 dist/usb/lg_signage/*-long.mp4
 
 # Google Maps photo captures (reviewer photos are owned by the reviewers): never publish or commit
-images/La_Carbonara_*_partial/
+images/La_Carbonara_*/

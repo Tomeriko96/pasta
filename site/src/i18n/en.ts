@@ -18,8 +18,15 @@ const en = (f: Facts) => ({
   facts: { open: 'Open', openValue: `Every day, ${f.open} to ${f.close}`, address: 'Address', phone: 'Phone' },
   storefrontAlt: 'The shop front of La Carbonara on the Lange Niezel.',
   storefrontCaption: `Look for the red neon sign at ${f.street}.`,
+  guests: {
+    title: "Photos from our guests",
+    credit: (name: string) => `Photo: ${name}`,
+    pomodoro: "Linguine with tomato sauce and basil.",
+    ragu: "Rigatoni with a meat sauce and Parmigiano Reggiano.",
+    bruschetta: "Bruschetta with stracciatella and tomato.",
+  },
   photos: {
-    carbonara: "Carbonara with guanciale, Pecorino Romano and black pepper.",
+    carbonara: "Linguine carbonara with guanciale, Pecorino Romano and black pepper.",
     bruschetta: "Bruschetta Cremosa: toasted bread with stracciatella, tomatoes and basil.",
     rigatoni: "Rigatoni in tomato sauce with Parmigiano Reggiano and basil.",
   },

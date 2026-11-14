@@ -1,0 +1,38 @@
+---
+// Photos guests posted with their Google reviews, credited by name.
+// Permission from each photographer is still needed before going live.
+import { Picture } from 'astro:assets';
+import photos from '../data/photos.json';
+import carbonara2 from '../assets/guests/carbonara-2.jpg';
+import pomodoro from '../assets/guests/pomodoro.jpg';
+import ragu from '../assets/guests/ragu.jpg';
+import bruschetta from '../assets/guests/bruschetta.jpg';
+import type { Lang } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang }
+const t = copy(Astro.props.lang);
+const g = t.guests;
+const items = [
+  { src: carbonara2, alt: t.photos.carbonara, credit: photos['carbonara-2'].credit },
+  { src: pomodoro, alt: g.pomodoro, credit: photos.pomodoro.credit },
+  { src: ragu, alt: g.ragu, credit: photos.ragu.credit },
+  { src: bruschetta, alt: g.bruschetta, credit: photos['guest-bruschetta'].credit },
+];
+---
+<section class="band guests" aria-labelledby="guests-title">
+  <div class="wrap">
+    <h2 id="guests-title">{g.title}</h2>
+    <ul class="guest-grid">
+      {items.map((p) => (
+        <li>
+          <figure>
+            <Picture src={p.src} formats={['avif', 'webp']} widths={[320, 560, 800]}
+              sizes="(min-width: 960px) 260px, 50vw" alt={p.alt} loading="lazy" />
+            {p.credit && <figcaption>{g.credit(p.credit)}</figcaption>}
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

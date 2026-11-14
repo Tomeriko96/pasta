@@ -17,8 +17,15 @@ const es = (f: Facts): Copy => ({
   facts: { open: 'Horario', openValue: `Todos los días, de ${f.open} a ${f.close}`, address: 'Dirección', phone: 'Teléfono' },
   storefrontAlt: 'La fachada de La Carbonara en Lange Niezel.',
   storefrontCaption: `Busca el letrero de neón rojo en ${f.street}.`,
+  guests: {
+    title: "Fotos de nuestros clientes",
+    credit: (name: string) => `Foto: ${name}`,
+    pomodoro: "Linguine con salsa de tomate y albahaca.",
+    ragu: "Rigatoni con salsa de carne y Parmigiano Reggiano.",
+    bruschetta: "Bruschetta con stracciatella y tomate.",
+  },
   photos: {
-    carbonara: "Carbonara con guanciale, Pecorino Romano y pimienta negra.",
+    carbonara: "Linguine a la carbonara con guanciale, Pecorino Romano y pimienta negra.",
     bruschetta: "Bruschetta Cremosa: pan tostado con stracciatella, tomate y albahaca.",
     rigatoni: "Rigatoni con salsa de tomate, Parmigiano Reggiano y albahaca.",
   },

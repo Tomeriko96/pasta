@@ -17,8 +17,15 @@ const nl = (f: Facts): Copy => ({
   facts: { open: 'Open', openValue: `Elke dag, ${f.open} tot ${f.close}`, address: 'Adres', phone: 'Telefoon' },
   storefrontAlt: 'De gevel van La Carbonara op de Lange Niezel.',
   storefrontCaption: `Je herkent ons aan het rode neonbord op de ${f.street}.`,
+  guests: {
+    title: "Foto’s van onze gasten",
+    credit: (name: string) => `Foto: ${name}`,
+    pomodoro: "Linguine met tomatensaus en basilicum.",
+    ragu: "Rigatoni met vleessaus en Parmigiano Reggiano.",
+    bruschetta: "Bruschetta met stracciatella en tomaat.",
+  },
   photos: {
-    carbonara: "Carbonara met guanciale, Pecorino Romano en zwarte peper.",
+    carbonara: "Linguine carbonara met guanciale, Pecorino Romano en zwarte peper.",
     bruschetta: "Bruschetta Cremosa: geroosterd brood met stracciatella, tomaat en basilicum.",
     rigatoni: "Rigatoni in tomatensaus met Parmigiano Reggiano en basilicum.",
   },

@@ -5,6 +5,8 @@ import ArchPhoto from '../components/ArchPhoto.astro';
 import carbonara from '../assets/carbonara.jpg';
 import FaqList from '../components/FaqList.astro';
 import DishPhoto from '../components/DishPhoto.astro';
+import GuestPhotos from '../components/GuestPhotos.astro';
+import photos from '../data/photos.json';
 import rigatoni from '../assets/rigatoni.jpg';
 import { routes, restaurant as r, section, findItem, itemName, itemDesc, formatPrice, type Lang } from '../lib/site';
 import { copy } from '../i18n/copy';
@@ -37,6 +39,7 @@ const drinks = [
       <div class="hero-photo">
         <ArchPhoto src={carbonara} alt={t.photos.carbonara} loading="eager">
           <b>{itemName(signature, lang)}</b> {formatPrice(signature.price, lang)}
+          {photos.carbonara.credit && <small class="credit">{t.guests.credit(photos.carbonara.credit)}</small>}
         </ArchPhoto>
       </div>
       <dl class="facts">
@@ -69,6 +72,8 @@ const drinks = [
       </ul>
     </div>
   </section>
+
+  <GuestPhotos lang={lang} />
 
   <section class="band band-green" aria-labelledby="drinks-title">
     <div class="wrap two-col">
