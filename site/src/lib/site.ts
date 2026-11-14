@@ -71,6 +71,10 @@ export function findItem(name: string): MenuItem {
   throw new Error(`Menu item not found: ${name}`);
 }
 
+/** The gluten-free surcharge is the price of the menu item, so it can never differ. */
+export const GLUTEN_FREE_ITEM = 'Gluten-Free Pasta';
+export const glutenFreeSurcharge = () => findItem(GLUTEN_FREE_ITEM).price;
+
 export const OG_IMAGE = `${ORIGIN}/og.jpg`;
 
 export function restaurantSchema(lang: Lang, description: string) {
@@ -81,12 +85,12 @@ export function restaurantSchema(lang: Lang, description: string) {
     '@id': `${ORIGIN}/#restaurant`,
     name: r.name,
     description,
-    url: canonical('home', lang),
+    url: canonical('home', 'en'),
     image: OG_IMAGE,
     servesCuisine: r.cuisine,
     priceRange: r.priceRange,
     acceptsReservations: r.reservations,
-    hasMenu: canonical('menu', lang),
+    hasMenu: canonical('menu', 'en'),
     address: {
       '@type': 'PostalAddress',
       streetAddress: r.address.street,

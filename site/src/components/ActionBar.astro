@@ -7,7 +7,7 @@ interface Props { lang: Lang; route: RouteKey | null }
 const { lang, route } = Astro.props;
 const t = copy(lang).actions;
 ---
-<nav class="actionbar" aria-label={lang === 'nl' ? 'Snelkoppelingen' : 'Quick links'}>
+<nav class="actionbar" aria-label={t.label}>
   {route === 'menu'
     ? <a href={`tel:${r.phone.tel}`}>{t.call}</a>
     : <a href={routes.menu[lang]}>{t.menu}</a>}

@@ -26,7 +26,7 @@ const drinks = [
 ];
 ---
 <Base lang={lang} route="home" title={h.title} description={h.description}>
-  <section class="hero">
+  <section class="hero" id="top" data-menu-url={routes.menu[lang]}>
     <div class="wrap hero-grid">
       <div class="hero-text">
         <h1>{h.h1}</h1>
@@ -50,7 +50,7 @@ const drinks = [
     </div>
   </section>
 
-  <section class="band" aria-labelledby="pasta-title">
+  <section class="band" id="about" aria-labelledby="pasta-title">
     <div class="wrap two-col">
       <div>
         <h2 id="pasta-title">{h.pastaTitle}</h2>
@@ -89,7 +89,7 @@ const drinks = [
     </div>
   </section>
 
-  <section class="band" aria-labelledby="visit-title">
+  <section class="band" id="visit" aria-labelledby="visit-title">
     <div class="wrap two-col">
       <div>
         <h2 id="visit-title">{h.visitTitle}</h2>
@@ -113,8 +113,14 @@ const drinks = [
   <section class="band band-tint" aria-labelledby="faq-title">
     <div class="wrap narrow-left">
       <h2 id="faq-title">{h.faqTitle}</h2>
-      <FaqList items={t.faq.items.slice(0, 3)} level="h3" />
+      <FaqList items={t.faq.items.slice(3, 6)} level="h3" />
       <p><a class="more" href={routes.faq[lang]}>{h.faqMore}</a></p>
     </div>
   </section>
+
+  <script>
+    // Old links to the one-page site pointed at /#menu: send them to the menu page.
+    const menuUrl = document.querySelector<HTMLElement>('[data-menu-url]')?.dataset.menuUrl;
+    if (location.hash === '#menu' && menuUrl) location.replace(menuUrl);
+  </script>
 </Base>

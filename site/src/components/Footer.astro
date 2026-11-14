@@ -15,16 +15,16 @@ const pages: RouteKey[] = ['home', 'menu', 'visit', 'faq'];
       <p>{t.facts.openValue}</p>
       <p><a href={`tel:${r.phone.tel}`}>{r.phone.display}</a></p>
     </div>
-    <div>
-      <p class="footer-head">{t.footer.pages}</p>
+    <nav aria-labelledby="footer-pages">
+      <p class="footer-head" id="footer-pages">{t.footer.pages}</p>
       <ul>{pages.map((k) => <li><a href={routes[k][lang]}>{t.nav[k]}</a></li>)}</ul>
-    </div>
-    <div>
-      <p class="footer-head">{t.footer.language}</p>
+    </nav>
+    <nav aria-labelledby="footer-langs">
+      <p class="footer-head" id="footer-langs">{t.footer.language}</p>
       <ul>{LANGS.map((l) => (
         <li><a href={routes[route ?? 'home'][l]} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{copy(l).langName}</a></li>
       ))}</ul>
-    </div>
+    </nav>
   </div>
   <div class="wrap footer-bottom">
     <p>{t.footer.allergy}</p>

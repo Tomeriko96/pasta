@@ -24,6 +24,7 @@
   "Still Water 0.70 L": "Eau plate 0,70 l",
   "Sparkling Water 0.70 L": "Eau gazeuse 0,70 l",
   "Spritz 0.0": "Spritz 0.0",
-  "Coffee": "Café allongé",
-  "section:coffee": "Café"
+  "Coffee": "Café",
+  "section:coffee": "Cafés",
+  "section:spritz": "Spritz 0,0"
 }

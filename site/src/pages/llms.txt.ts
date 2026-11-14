@@ -1,7 +1,7 @@
 // /llms.txt: a plain-text fact sheet for AI assistants (ChatGPT, Claude,
 // Perplexity, Google AI). Built from the same data as the website.
 import type { APIRoute } from 'astro';
-import { restaurant as r, sections, formatPrice, canonical, LANGS, routes } from '../lib/site';
+import { restaurant as r, sections, formatPrice, canonical, glutenFreeSurcharge, LANGS } from '../lib/site';
 import { copy } from '../i18n/copy';
 
 export const GET: APIRoute = () => {
@@ -27,7 +27,7 @@ export const GET: APIRoute = () => {
 - Reservations: not taken, walk-ins only
 - Takeaway: yes
 - Alcohol: none served, every drink is 0.0%
-- Gluten-free: any pasta can be made gluten-free for ${formatPrice(r.glutenFreeSurcharge, 'en')} extra
+- Gluten-free: any pasta can be made gluten-free for ${formatPrice(glutenFreeSurcharge(), 'en')} extra
 - Phone: ${r.phone.international}
 - Price level: ${r.priceRange} (exact prices in euros in the menu below)
 

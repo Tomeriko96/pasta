@@ -28,7 +28,7 @@ const v = t.visit;
         <h2 id="address-title">{v.addressTitle}</h2>
         <p>{r.address.street}<br>{r.address.postalCode} {r.address.city}</p>
         <p class="buttons">
-          <a class="btn btn-green" href={r.maps.directions}>{t.actions.directions}</a>
+          <a class="btn btn-green" href={r.maps.directions}>{t.actions.google}</a>
           <a class="btn btn-outline" href={r.maps.apple}>{t.actions.apple}</a>
         </p>
       </section>

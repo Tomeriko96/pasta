@@ -1,6 +1,6 @@
 // Facts that the copy in every language fills in. They come from the data
 // files, so prices, hours and walking times are never typed by hand.
-import { restaurant as r, section, findItem, formatPrice, type Lang } from '../lib/site';
+import { restaurant as r, section, findItem, formatPrice, glutenFreeSurcharge, type Lang } from '../lib/site';
 
 export type Faq = { q: string; a: string };
 
@@ -20,7 +20,7 @@ export function facts(lang: Lang) {
     street: r.address.street,
     address: `${r.address.street}, ${r.address.postalCode} ${r.address.city}`,
     phone: r.phone.display,
-    gf: p(r.glutenFreeSurcharge),
+    gf: p(glutenFreeSurcharge()),
     carbonara: p(findItem('La Carbonara').price),
     spritz: p(section('spritz').items[0].price),
     minPasta: p(Math.min(...pasta)),

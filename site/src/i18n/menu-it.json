@@ -24,6 +24,7 @@
   "Still Water 0.70 L": "Acqua naturale 0,70 L",
   "Sparkling Water 0.70 L": "Acqua frizzante 0,70 L",
   "Spritz 0.0": "Spritz 0.0",
-  "Coffee": "Caffè lungo",
-  "section:coffee": "Caffè"
+  "Coffee": "Caffè americano",
+  "section:coffee": "Caffè",
+  "section:spritz": "Spritz 0,0"
 }

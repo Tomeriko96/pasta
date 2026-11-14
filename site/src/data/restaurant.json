@@ -14,7 +14,6 @@
   "cuisine": ["Italian", "Roman", "Pasta"],
   "reservations": false,
   "takeaway": true,
-  "glutenFreeSurcharge": 3,
   "walkMinutes": { "centraal": 9, "dam": 9, "nieuwmarkt": 6 },
   "_walkSource": "OSRM foot (routing.openstreetmap.de) + Valhalla pedestrian (OpenStreetMap), checked 2026-11-14 from Lange Niezel 7: Centraal 587-662 m, Dam 594-726 m, Nieuwmarkt 392-419 m. Rounded up.",
   "_geo": "Fill in lat/lng (decimal degrees) once the owner confirms them; geo then appears in the Restaurant schema.",

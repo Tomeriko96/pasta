@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import MenuSection from '../components/MenuSection.astro';
 import DishPhoto from '../components/DishPhoto.astro';
 import bruschetta from '../assets/bruschetta.jpg';
-import { sections, menuSchema, type Lang } from '../lib/site';
+import { sections, sectionTitle, menuSchema, type Lang } from '../lib/site';
 import { copy } from '../i18n/copy';
 
 interface Props { lang: Lang }
@@ -23,6 +23,9 @@ const drinks = sections.filter((s) => !food.includes(s));
       <DishPhoto src={bruschetta} alt={c.photos.bruschetta} class="head-photo" sizes="(min-width: 960px) 440px, 100vw" />
     </div>
   </div>
+  <nav class="wrap menu-jump" aria-label={t.h1}>
+    <ul>{sections.map((s) => <li><a href={`#${s.id}`}>{sectionTitle(s, lang)}</a></li>)}</ul>
+  </nav>
   <div class="wrap menu-grid">
     <section aria-labelledby="food-title">
       <h2 class="menu-col-title" id="food-title">{t.food}</h2>

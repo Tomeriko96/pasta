@@ -12,3 +12,6 @@ dist/usb/lg_signage/*-long.mp4
 
 # Google Maps photo captures (reviewer photos are owned by the reviewers): never publish or commit
 images/La_Carbonara_*/
+
+# External audit packages (evidence, screenshots, downloads): keep out of git
+audit/

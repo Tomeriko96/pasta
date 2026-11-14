@@ -310,3 +310,10 @@ h3 { font-size: 1.5rem; }
 @media (max-width: 760px) {
   .guest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 }
+
+/* Menu: jump to a section */
+.menu-jump { padding-top: 1.25rem; }
+.menu-jump ul { display: flex; flex-wrap: wrap; gap: 8px; }
+.menu-jump a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 16px; border: 1px solid var(--rule); border-radius: 999px; background: var(--white); color: var(--ink); text-decoration: none; font-size: 15px; font-weight: 500; }
+.menu-jump a:hover { border-color: var(--green); color: var(--green); }
+.menu-section { scroll-margin-top: 16px; }
