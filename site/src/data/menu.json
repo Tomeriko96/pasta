@@ -1,105 +1,77 @@
 {
-  "_comment": "The one menu source. Prices in euros. name_nl only where the Dutch name differs; Italian dish names stay as they are.",
+  "_comment": "The one menu source, in English. Prices in euros. Translations live in src/i18n/menu-<lang>.json, keyed by the English text. Italian dish names stay as they are.",
   "sections": [
     {
       "id": "antipasti",
-      "title": { "en": "Antipasti", "nl": "Antipasti" },
+      "title": "Antipasti",
       "items": [
-        { "name": "Bruschetta La Carbonara", "price": 10, "featured": true,
-          "desc": { "en": "Toasted bread with guanciale, egg yolk, Pecorino Romano and black pepper.",
-                    "nl": "Geroosterd brood met guanciale, eidooier, Pecorino Romano en zwarte peper." } },
-        { "name": "Bruschetta Classica", "price": 8,
-          "desc": { "en": "Toasted bread with tomato, basil, garlic and extra virgin olive oil.",
-                    "nl": "Geroosterd brood met tomaat, basilicum, knoflook en extra vierge olijfolie." } },
-        { "name": "Bruschetta Cremosa", "price": 10,
-          "desc": { "en": "Toasted bread with stracciatella, tomatoes, fresh basil and extra virgin olive oil.",
-                    "nl": "Geroosterd brood met stracciatella, tomaatjes, verse basilicum en extra vierge olijfolie." } },
-        { "name": "Bruschetta Bolognese", "price": 10,
-          "desc": { "en": "Toasted bread with traditional Bolognese sauce and Parmigiano Reggiano.",
-                    "nl": "Geroosterd brood met traditionele bolognesesaus en Parmigiano Reggiano." } },
-        { "name": "Olive Marinate", "price": 5,
-          "desc": { "en": "Italian olives marinated with herbs, garlic and citrus.",
-                    "nl": "Italiaanse olijven gemarineerd met kruiden, knoflook en citrus." } }
+        {"name": "Bruschetta La Carbonara", "price": 10, "featured": true, "desc": "Toasted bread with guanciale, egg yolk, Pecorino Romano and black pepper."},
+        {"name": "Bruschetta Classica", "price": 8, "desc": "Toasted bread with tomato, basil, garlic and extra virgin olive oil."},
+        {"name": "Bruschetta Cremosa", "price": 10, "desc": "Toasted bread with stracciatella, tomatoes, fresh basil and extra virgin olive oil."},
+        {"name": "Bruschetta Bolognese", "price": 10, "desc": "Toasted bread with traditional Bolognese sauce and Parmigiano Reggiano."},
+        {"name": "Olive Marinate", "price": 5, "desc": "Italian olives marinated with herbs, garlic and citrus."}
       ]
     },
     {
       "id": "pasta",
-      "title": { "en": "Pasta", "nl": "Pasta" },
+      "title": "Pasta",
       "items": [
-        { "name": "La Carbonara", "price": 19, "featured": true,
-          "desc": { "en": "Rome's iconic pasta. Linguine with guanciale, egg yolk, Pecorino Romano and black pepper.",
-                    "nl": "De bekendste pasta van Rome. Linguine met guanciale, eidooier, Pecorino Romano en zwarte peper." } },
-        { "name": "Cacio e Pepe", "price": 16,
-          "desc": { "en": "Roman minimalism. Linguine with Pecorino Romano and freshly cracked black pepper.",
-                    "nl": "Romeins minimalisme. Linguine met Pecorino Romano en versgemalen zwarte peper." } },
-        { "name": "Amatriciana", "price": 18,
-          "desc": { "en": "From Amatrice. Rigatoni with guanciale, tomato sauce and Pecorino Romano.",
-                    "nl": "Uit Amatrice. Rigatoni met guanciale, tomatensaus en Pecorino Romano." } },
-        { "name": "Bolognese", "price": 18,
-          "desc": { "en": "Bologna's signature. Rigatoni with traditional Bolognese sauce and Parmigiano Reggiano.",
-                    "nl": "De klassieker uit Bologna. Rigatoni met traditionele bolognesesaus en Parmigiano Reggiano." } },
-        { "name": "Arrabbiata", "price": 15,
-          "desc": { "en": "Roman fire. Rigatoni with spicy tomato sauce and Parmigiano Reggiano.",
-                    "nl": "Romeins vuur. Rigatoni met pittige tomatensaus en Parmigiano Reggiano." } },
-        { "name": "Al Pomodoro", "price": 14,
-          "desc": { "en": "Italy's simplest. Linguine with tomato sauce, fresh basil and Parmigiano Reggiano.",
-                    "nl": "Puur Italiaans. Linguine met tomatensaus, verse basilicum en Parmigiano Reggiano." } },
-        { "name": "Linguine al Pesto Genovese con Stracciatella", "price": 17,
-          "desc": { "en": "Linguine with Genovese pesto and fresh stracciatella.",
-                    "nl": "Linguine met Genovese pesto en verse stracciatella." } },
-        { "name": "Quattro Formaggi", "price": 20,
-          "desc": { "en": "Four Italian cheeses. Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and fresh stracciatella.",
-                    "nl": "Vier Italiaanse kazen. Rigatoni met Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce en verse stracciatella." } },
-        { "name": "Gricia", "price": 18,
-          "desc": { "en": "Roman classic. Rigatoni with guanciale, Pecorino Romano and black pepper.",
-                    "nl": "Romeinse klassieker. Rigatoni met guanciale, Pecorino Romano en zwarte peper." } }
+        {"name": "La Carbonara", "price": 19, "featured": true, "desc": "Rome's iconic pasta. Linguine with guanciale, egg yolk, Pecorino Romano and black pepper."},
+        {"name": "Cacio e Pepe", "price": 16, "desc": "Roman minimalism. Linguine with Pecorino Romano and freshly cracked black pepper."},
+        {"name": "Amatriciana", "price": 18, "desc": "From Amatrice. Rigatoni with guanciale, tomato sauce and Pecorino Romano."},
+        {"name": "Bolognese", "price": 18, "desc": "Bologna's signature. Rigatoni with traditional Bolognese sauce and Parmigiano Reggiano."},
+        {"name": "Arrabbiata", "price": 15, "desc": "Roman fire. Rigatoni with spicy tomato sauce and Parmigiano Reggiano."},
+        {"name": "Al Pomodoro", "price": 14, "desc": "Italy's simplest. Linguine with tomato sauce, fresh basil and Parmigiano Reggiano."},
+        {"name": "Linguine al Pesto Genovese con Stracciatella", "price": 17, "desc": "Linguine with Genovese pesto and fresh stracciatella."},
+        {"name": "Quattro Formaggi", "price": 20, "desc": "Four Italian cheeses. Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and fresh stracciatella."},
+        {"name": "Gricia", "price": 18, "desc": "Roman classic. Rigatoni with guanciale, Pecorino Romano and black pepper."}
       ]
     },
     {
       "id": "extras",
-      "title": { "en": "Extras", "nl": "Extra's" },
+      "title": "Extras",
       "items": [
-        { "name": "Gluten-Free Pasta", "name_nl": "Glutenvrije pasta", "price": 3 },
-        { "name": "Add Pecorino Romano", "name_nl": "Extra Pecorino Romano", "price": 4 },
-        { "name": "Add Parmigiano Reggiano 22 Month Aged", "name_nl": "Extra Parmigiano Reggiano, 22 maanden gerijpt", "price": 4 },
-        { "name": "Add Fresh Stracciatella", "name_nl": "Extra verse stracciatella", "price": 4 }
+        {"name": "Gluten-Free Pasta", "price": 3},
+        {"name": "Add Pecorino Romano", "price": 4},
+        {"name": "Add Parmigiano Reggiano 22 Month Aged", "price": 4},
+        {"name": "Add Fresh Stracciatella", "price": 4}
       ]
     },
     {
       "id": "soft-drinks",
-      "title": { "en": "Soft Drinks", "nl": "Frisdranken" },
+      "title": "Soft Drinks",
       "items": [
-        { "name": "Fizzy Amarena Fabbri Lemonade", "price": 5 },
-        { "name": "Fizzy Mint Lemonade", "price": 5 },
-        { "name": "Fizzy Lemon Lemonade", "price": 5 },
-        { "name": "Fizzy Strawberry Lemonade", "price": 5 },
-        { "name": "Fizzy Ice Tea Lemonade", "price": 5 },
-        { "name": "Fizzy Passionfruit Lemonade", "price": 5 },
-        { "name": "Still Water 0.70 L", "name_nl": "Plat water 0,70 L", "price": 5 },
-        { "name": "Sparkling Water 0.70 L", "name_nl": "Bruisend water 0,70 L", "price": 5 },
-        { "name": "Birra Moretti Zero 0.0", "price": 6 }
+        {"name": "Fizzy Amarena Fabbri Lemonade", "price": 5},
+        {"name": "Fizzy Mint Lemonade", "price": 5},
+        {"name": "Fizzy Lemon Lemonade", "price": 5},
+        {"name": "Fizzy Strawberry Lemonade", "price": 5},
+        {"name": "Fizzy Ice Tea Lemonade", "price": 5},
+        {"name": "Fizzy Passionfruit Lemonade", "price": 5},
+        {"name": "Still Water 0.70 L", "price": 5},
+        {"name": "Sparkling Water 0.70 L", "price": 5},
+        {"name": "Birra Moretti Zero 0.0", "price": 6}
       ]
     },
     {
       "id": "spritz",
-      "title": { "en": "Spritz 0.0", "nl": "Spritz 0.0" },
+      "title": "Spritz 0.0",
       "items": [
-        { "name": "Aperol Spritz 0.0", "price": 8 },
-        { "name": "Bitter Spritz 0.0", "price": 8 },
-        { "name": "Limoncello Spritz 0.0", "price": 8 }
+        {"name": "Aperol Spritz 0.0", "price": 8},
+        {"name": "Bitter Spritz 0.0", "price": 8},
+        {"name": "Limoncello Spritz 0.0", "price": 8}
       ]
     },
     {
       "id": "coffee",
-      "title": { "en": "Coffee", "nl": "Koffie" },
+      "title": "Coffee",
       "items": [
-        { "name": "Espresso", "price": 3 },
-        { "name": "Coffee", "name_nl": "Koffie", "price": 3 },
-        { "name": "Cappuccino", "price": 4 },
-        { "name": "Latte Macchiato", "price": 4 },
-        { "name": "Iced Coffee Latte Caramel", "price": 5 },
-        { "name": "Iced Coffee Latte Vanilla", "price": 5 },
-        { "name": "Iced Coffee Latte Hazelnut", "price": 5 }
+        {"name": "Espresso", "price": 3},
+        {"name": "Coffee", "price": 3},
+        {"name": "Cappuccino", "price": 4},
+        {"name": "Latte Macchiato", "price": 4},
+        {"name": "Iced Coffee Latte Caramel", "price": 5},
+        {"name": "Iced Coffee Latte Vanilla", "price": 5},
+        {"name": "Iced Coffee Latte Hazelnut", "price": 5}
       ]
     }
   ]

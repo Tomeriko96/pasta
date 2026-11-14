@@ -1,0 +1,22 @@
+---
+// Menu, visit and FAQ pages in every language except English, at the slugs
+// set in `routes` (src/lib/site.ts), e.g. /de/speisekarte or /it/dove-siamo.
+import Menu from '../../views/Menu.astro';
+import Visit from '../../views/Visit.astro';
+import Faq from '../../views/Faq.astro';
+import { LANGS, routes, type Lang } from '../../lib/site';
+
+const VIEWS = { menu: Menu, visit: Visit, faq: Faq } as const;
+
+export function getStaticPaths() {
+  return LANGS.filter((l) => l !== 'en').flatMap((lang) =>
+    (['menu', 'visit', 'faq'] as const).map((page) => ({
+      params: { lang, slug: routes[page][lang].split('/').pop()! },
+      props: { page },
+    })),
+  );
+}
+const lang = Astro.params.lang as Lang;
+const View = VIEWS[Astro.props.page as keyof typeof VIEWS];
+---
+<View lang={lang} />

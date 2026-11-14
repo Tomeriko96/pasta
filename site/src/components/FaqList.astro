@@ -1,0 +1,14 @@
+---
+import type { Faq } from '../i18n/copy';
+interface Props { items: Faq[]; level?: 'h2' | 'h3' }
+const { items, level = 'h2' } = Astro.props;
+const H = level;
+---
+<div class="faq">
+  {items.map((f) => (
+    <div class="faq-item">
+      <H class="faq-q">{f.q}</H>
+      <p>{f.a}</p>
+    </div>
+  ))}
+</div>

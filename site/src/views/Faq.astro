@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import FaqList from '../components/FaqList.astro';
+import { faqSchema, type Lang } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = copy(lang).faq;
+---
+<Base lang={lang} route="faq" title={t.title} description={t.description} schema={[faqSchema(lang, t.items)]}>
+  <div class="page-head">
+    <div class="wrap narrow">
+      <h1>{t.h1}</h1>
+    </div>
+  </div>
+  <div class="wrap narrow faq-page">
+    <FaqList items={t.items} level="h2" />
+  </div>
+</Base>

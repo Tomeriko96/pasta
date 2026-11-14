@@ -1,27 +1,23 @@
 ---
 import Base from '../layouts/Base.astro';
-import { restaurant as r } from '../lib/site';
+import { LANGS, routes } from '../lib/site';
+import { copy } from '../i18n/copy';
+const en = copy('en');
 ---
-<Base lang="en" title="Page not found | La Carbonara" description="This page does not exist." noindex alternates={false}>
-  <nav aria-label="Main">
-    <a class="brand" href="/">La Carbonara</a>
-  </nav>
-
-  <main id="main" tabindex="-1">
-    <header class="hero">
-      <div class="eyebrow">Error 404</div>
-      <h1>Page not found</h1>
-      <p class="tagline">This page does not exist. The menu and our address are on the home page.</p>
-      <p class="tagline" lang="nl">Deze pagina bestaat niet. <a href="/nl/">Naar de Nederlandse site</a>.</p>
-      <div class="buttons">
-        <a class="btn btn-primary" href="/#menu">View Menu</a>
-        <a class="btn btn-outline" href={r.maps.directions}>Get Directions</a>
-      </div>
-    </header>
-  </main>
-
-  <footer>
-    <p>{r.name} &middot; {r.address.street}, {r.address.city}</p>
-    <p>Open daily, {r.hours.opens} to {r.hours.closes}. No reservations.</p>
-  </footer>
+<Base lang="en" route={null} title={en.notFound.title} description={en.notFound.text}>
+  <div class="page-head">
+    <div class="wrap">
+      <h1>{en.notFound.h1}</h1>
+      <p class="lead">{en.notFound.text}</p>
+      <p class="buttons">
+        <a class="btn btn-green" href={routes.menu.en}>{en.actions.menu}</a>
+        <a class="btn btn-outline" href={routes.visit.en}>{en.home.visitMore}</a>
+      </p>
+      <ul class="notfound-langs">
+        {LANGS.filter((l) => l !== 'en').map((l) => (
+          <li lang={l}><a href={routes.home[l]} hreflang={l}>{copy(l).langName}</a>: {copy(l).notFound.h1}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
 </Base>

@@ -13,13 +13,17 @@
   "priceRange": "€€",
   "cuisine": ["Italian", "Roman", "Pasta"],
   "reservations": false,
+  "takeaway": true,
   "glutenFreeSurcharge": 3,
-  "_geo": "Fill in lat/lng (decimal degrees) to add geo to the Restaurant schema. Left empty until confirmed.",
+  "walkMinutes": { "centraal": 9, "dam": 9, "nieuwmarkt": 6 },
+  "_walkSource": "OSRM foot (routing.openstreetmap.de) + Valhalla pedestrian (OpenStreetMap), checked 2026-11-14 from Lange Niezel 7: Centraal 587-662 m, Dam 594-726 m, Nieuwmarkt 392-419 m. Rounded up.",
+  "_geo": "Fill in lat/lng (decimal degrees) once the owner confirms them; geo then appears in the Restaurant schema.",
   "geo": null,
   "_sameAs": "Profile URLs (Google Business Profile, Tripadvisor, Instagram). Each one is added to sameAs in the Restaurant schema.",
   "sameAs": [],
   "maps": {
-    "place": "https://www.google.com/maps/search/?api=1&query=Lange+Niezel+7+Amsterdam",
-    "directions": "https://www.google.com/maps/dir/?api=1&destination=Lange+Niezel+7+Amsterdam"
+    "google": "https://www.google.com/maps/search/?api=1&query=La+Carbonara+Lange+Niezel+7+Amsterdam",
+    "directions": "https://www.google.com/maps/dir/?api=1&destination=Lange+Niezel+7+1012+GS+Amsterdam&travelmode=walking",
+    "apple": "https://maps.apple.com/?q=La+Carbonara&address=Lange+Niezel+7,1012+GS+Amsterdam"
   }
 }

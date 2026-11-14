@@ -26,7 +26,7 @@ for (const [name, item] of web) {
   const p = print.get(name);
   if (!p) { problems.push(`On the website, missing from print: ${name}`); continue; }
   if (p.price !== item.price) problems.push(`Price differs for ${name}: website ${item.price}, print ${p.price}`);
-  if ((item.desc?.en ?? undefined) !== p.desc) problems.push(`Description differs for ${name}:\n    website: ${item.desc?.en}\n    print:   ${p.desc}`);
+  if (item.desc !== p.desc) problems.push(`Description differs for ${name}:\n    website: ${item.desc}\n    print:   ${p.desc}`);
 }
 for (const name of print.keys()) if (!web.has(name)) problems.push(`In print, missing from website: ${name}`);
 

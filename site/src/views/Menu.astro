@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import MenuSection from '../components/MenuSection.astro';
+import { sections, menuSchema, type Lang } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = copy(lang).menu;
+const food = sections.filter((s) => ['antipasti', 'pasta', 'extras'].includes(s.id));
+const drinks = sections.filter((s) => !food.includes(s));
+---
+<Base lang={lang} route="menu" title={t.title} description={t.description} schema={[menuSchema(lang)]}>
+  <div class="page-head">
+    <div class="wrap narrow">
+      <h1>{t.h1}</h1>
+      <p class="lead">{t.lead}</p>
+    </div>
+  </div>
+  <div class="wrap menu-grid">
+    <section aria-labelledby="food-title">
+      <h2 class="menu-col-title" id="food-title">{t.food}</h2>
+      {food.map((s) => <MenuSection lang={lang} section={s} />)}
+    </section>
+    <section aria-labelledby="drinks-title">
+      <h2 class="menu-col-title" id="drinks-title">{t.drinks}</h2>
+      <p class="menu-note">{t.drinksNote}</p>
+      {drinks.map((s) => <MenuSection lang={lang} section={s} />)}
+    </section>
+  </div>
+</Base>

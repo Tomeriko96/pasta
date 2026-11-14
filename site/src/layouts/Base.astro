@@ -1,45 +1,58 @@
 ---
 import '../styles/global.css';
-import { LANGS, canonical, type Lang } from '../lib/site';
+import { LANGS, canonical, OG_IMAGE, restaurantSchema, type Lang, type RouteKey } from '../lib/site';
 import { copy } from '../i18n/copy';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ActionBar from '../components/ActionBar.astro';
 
 interface Props {
   lang: Lang;
+  route: RouteKey | null; // null for the 404 page
   title: string;
   description: string;
   schema?: object[];
-  noindex?: boolean;
-  alternates?: boolean;
 }
-const { lang, title, description, schema = [], noindex = false, alternates = true } = Astro.props;
-const url = canonical(lang);
+const { lang, route, title, description, schema = [] } = Astro.props;
+const t = copy(lang);
+const jsonld = [restaurantSchema(lang, t.home.schema), ...schema];
 ---
 <!doctype html>
 <html lang={lang}>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content={description}>
-{noindex && <meta name="robots" content="noindex">}
-{alternates && <link rel="canonical" href={url}>}
-{alternates && LANGS.map((l) => <link rel="alternate" hreflang={l} href={canonical(l)}>)}
-{alternates && <link rel="alternate" hreflang="x-default" href={canonical('en')}>}
-<meta property="og:title" content="La Carbonara">
+{route === null && <meta name="robots" content="noindex">}
+{route && <link rel="canonical" href={canonical(route, lang)}>}
+{route && LANGS.map((l) => <link rel="alternate" hreflang={l} href={canonical(route, l)}>)}
+{route && <link rel="alternate" hreflang="x-default" href={canonical(route, 'en')}>}
+<meta property="og:type" content="restaurant">
+<meta property="og:site_name" content="La Carbonara">
+<meta property="og:title" content={title}>
 <meta property="og:description" content={description}>
-<meta property="og:url" content={url}>
-<meta property="og:type" content="website">
-<meta property="og:locale" content={copy(lang).locale}>
+{route && <meta property="og:url" content={canonical(route, lang)}>}
+<meta property="og:image" content={OG_IMAGE}>
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content={t.storefrontAlt}>
+<meta property="og:locale" content={t.locale}>
 {LANGS.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={copy(l).locale}>)}
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="theme-color" content="#1d4634">
 <link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond.woff2" crossorigin>
-{schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s, null, 2)} />)}
+{jsonld.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
 </head>
 <body>
-<a class="skip" href="#main">{copy(lang).skip}</a>
-<div class="wrap">
+<a class="skip" href="#main">{t.skip}</a>
+<Header lang={lang} route={route} />
+<main id="main" tabindex="-1">
   <slot />
-</div>
+</main>
+<Footer lang={lang} route={route} />
+<ActionBar lang={lang} route={route} />
 </body>
 </html>

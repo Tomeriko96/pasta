@@ -1,0 +1,11 @@
+---
+// Home page in every language except English (which lives at /).
+import Home from '../../views/Home.astro';
+import { LANGS, type Lang } from '../../lib/site';
+
+export function getStaticPaths() {
+  return LANGS.filter((l) => l !== 'en').map((lang) => ({ params: { lang } }));
+}
+const lang = Astro.params.lang as Lang;
+---
+<Home lang={lang} />

@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import Storefront from '../components/Storefront.astro';
+import FaqList from '../components/FaqList.astro';
+import { routes, restaurant as r, section, findItem, itemName, itemDesc, formatPrice, type Lang } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = copy(lang);
+const h = t.home;
+const roman = ['La Carbonara', 'Cacio e Pepe', 'Amatriciana', 'Gricia'];
+const dishes = section('pasta').items.filter((i) => roman.includes(i.name));
+const lemonades = section('soft-drinks').items.filter((i) => i.name.startsWith('Fizzy'));
+const drinks = [
+  ...section('spritz').items.map((i) => ({ name: itemName(i, lang), price: i.price })),
+  { name: itemName(findItem('Birra Moretti Zero 0.0'), lang), price: findItem('Birra Moretti Zero 0.0').price },
+  { name: h.lemonades(lemonades.length), price: lemonades[0].price },
+];
+---
+<Base lang={lang} route="home" title={h.title} description={h.description}>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <h1>{h.h1}</h1>
+        <p class="lead">{h.lead}</p>
+        <p class="buttons">
+          <a class="btn btn-green" href={routes.menu[lang]}>{t.actions.menu}</a>
+          <a class="btn btn-outline" href={r.maps.directions}>{t.actions.directions}</a>
+        </p>
+      </div>
+      <div class="hero-photo">
+        <Storefront lang={lang} loading="eager" />
+      </div>
+      <dl class="facts">
+        <div><dt>{t.facts.open}</dt><dd>{t.facts.openValue}</dd></div>
+        <div><dt>{t.facts.address}</dt><dd><a href={r.maps.google}>{r.address.street}</a></dd></div>
+        <div><dt>{t.facts.phone}</dt><dd><a href={`tel:${r.phone.tel}`}>{r.phone.display}</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="pasta-title">
+    <div class="wrap two-col">
+      <div>
+        <h2 id="pasta-title">{h.pastaTitle}</h2>
+        <p class="intro">{h.pastaIntro}</p>
+        <p><a class="more" href={routes.menu[lang]}>{h.fullMenu}</a></p>
+      </div>
+      <ul class="dishes dishes-card">
+        {dishes.map((item) => (
+          <li class:list={['dish', { featured: item.featured }]}>
+            {item.featured && <span class="featured-label" lang="it">{t.menu.featured}</span>}
+            <span class="dish-line">
+              <span class="dish-name">{itemName(item, lang)}</span>
+              <span class="dish-price">{formatPrice(item.price, lang)}</span>
+            </span>
+            {item.desc && <span class="dish-desc">{itemDesc(item, lang)}</span>}
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band band-green" aria-labelledby="drinks-title">
+    <div class="wrap two-col">
+      <div>
+        <h2 id="drinks-title">{h.drinksTitle}</h2>
+        <p class="intro">{h.drinksText}</p>
+      </div>
+      <ul class="dishes dishes-card drinks-card">
+        {drinks.map((d) => (
+          <li class="dish"><span class="dish-line"><span class="dish-name">{d.name}</span><span class="dish-price">{formatPrice(d.price, lang)}</span></span></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="visit-title">
+    <div class="wrap two-col">
+      <div>
+        <h2 id="visit-title">{h.visitTitle}</h2>
+        <p class="intro">{h.visitText}</p>
+        <p class="buttons">
+          <a class="btn btn-green" href={r.maps.google}>{t.actions.google}</a>
+          <a class="btn btn-outline" href={r.maps.apple}>{t.actions.apple}</a>
+        </p>
+        <p><a class="more" href={routes.visit[lang]}>{h.visitMore}</a></p>
+      </div>
+      <table class="walk walk-card">
+        <caption>{t.visit.walkTitle}</caption>
+        <tbody>
+          {t.visit.walk.map((w) => <tr><th scope="row">{w.place}</th><td>{t.visit.minutes(w.min)}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="band band-tint" aria-labelledby="faq-title">
+    <div class="wrap narrow-left">
+      <h2 id="faq-title">{h.faqTitle}</h2>
+      <FaqList items={t.faq.items.slice(0, 3)} level="h3" />
+      <p><a class="more" href={routes.faq[lang]}>{h.faqMore}</a></p>
+    </div>
+  </section>
+</Base>

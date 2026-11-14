@@ -1,0 +1,15 @@
+---
+// Fixed bar at the bottom on phones: the two things a guest on the street needs.
+import { routes, restaurant as r, type Lang, type RouteKey } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang; route: RouteKey | null }
+const { lang, route } = Astro.props;
+const t = copy(lang).actions;
+---
+<nav class="actionbar" aria-label={lang === 'nl' ? 'Snelkoppelingen' : 'Quick links'}>
+  {route === 'menu'
+    ? <a href={`tel:${r.phone.tel}`}>{t.call}</a>
+    : <a href={routes.menu[lang]}>{t.menu}</a>}
+  <a class="primary" href={r.maps.directions}>{t.directions}</a>
+</nav>
