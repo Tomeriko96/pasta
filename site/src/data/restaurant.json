@@ -1,0 +1,25 @@
+{
+  "name": "La Carbonara",
+  "origin": "https://lacarbonara.nl",
+  "phone": { "display": "06 16956710", "international": "+31 6 16956710", "tel": "+31616956710" },
+  "address": {
+    "street": "Lange Niezel 7",
+    "postalCode": "1012 GS",
+    "city": "Amsterdam",
+    "region": "Noord-Holland",
+    "country": "NL"
+  },
+  "hours": { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "12:00", "closes": "23:00" },
+  "priceRange": "€€",
+  "cuisine": ["Italian", "Roman", "Pasta"],
+  "reservations": false,
+  "glutenFreeSurcharge": 3,
+  "_geo": "Fill in lat/lng (decimal degrees) to add geo to the Restaurant schema. Left empty until confirmed.",
+  "geo": null,
+  "_sameAs": "Profile URLs (Google Business Profile, Tripadvisor, Instagram). Each one is added to sameAs in the Restaurant schema.",
+  "sameAs": [],
+  "maps": {
+    "place": "https://www.google.com/maps/search/?api=1&query=Lange+Niezel+7+Amsterdam",
+    "directions": "https://www.google.com/maps/dir/?api=1&destination=Lange+Niezel+7+Amsterdam"
+  }
+}

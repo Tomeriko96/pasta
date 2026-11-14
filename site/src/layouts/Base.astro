@@ -1,0 +1,45 @@
+---
+import '../styles/global.css';
+import { LANGS, canonical, type Lang } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props {
+  lang: Lang;
+  title: string;
+  description: string;
+  schema?: object[];
+  noindex?: boolean;
+  alternates?: boolean;
+}
+const { lang, title, description, schema = [], noindex = false, alternates = true } = Astro.props;
+const url = canonical(lang);
+---
+<!doctype html>
+<html lang={lang}>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<title>{title}</title>
+<meta name="description" content={description}>
+{noindex && <meta name="robots" content="noindex">}
+{alternates && <link rel="canonical" href={url}>}
+{alternates && LANGS.map((l) => <link rel="alternate" hreflang={l} href={canonical(l)}>)}
+{alternates && <link rel="alternate" hreflang="x-default" href={canonical('en')}>}
+<meta property="og:title" content="La Carbonara">
+<meta property="og:description" content={description}>
+<meta property="og:url" content={url}>
+<meta property="og:type" content="website">
+<meta property="og:locale" content={copy(lang).locale}>
+{LANGS.filter((l) => l !== lang).map((l) => <meta property="og:locale:alternate" content={copy(l).locale}>)}
+<link rel="preload" as="font" type="font/woff2" href="/fonts/montserrat.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/cormorant-garamond.woff2" crossorigin>
+{schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s, null, 2)} />)}
+</head>
+<body>
+<a class="skip" href="#main">{copy(lang).skip}</a>
+<div class="wrap">
+  <slot />
+</div>
+</body>
+</html>

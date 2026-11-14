@@ -2,7 +2,7 @@
 
 Website and menus for La Carbonara, a pasta restaurant. Three surfaces, kept in sync manually when dishes or prices change:
 
-1. **Website**: `index.html`, published on https://lacarbonara.nl/ by GitHub Pages on every push to `main`.
+1. **Website**: the Astro project in `site/` (English and Dutch), published on https://lacarbonara.nl/ by GitHub Pages on every push to `main`. Menu data in `site/src/data/menu.json`; run `cd site && npm ci && npm run dev` to preview locally.
 2. **Print / PDF**: a single static A4 HTML (`menu_definitief_hybrid_CLEAN.html`), rendered with weasyprint into `pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf`. Not published online.
 3. **LG signage**: the attract loop MP4, played from USB on the 32SM5J-B display. See `SIGNAGE_PLAN.md`.
 

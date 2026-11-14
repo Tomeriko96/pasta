@@ -2,7 +2,7 @@
 
 > **Current setup (November 2026):** the screen plays `attract-authentic-loop.mp4` from a USB stick (Plug & Play). Play via URL is no longer used, and lacarbonara.nl no longer hosts `attract.html`, the MP4 or `menu_screen.html` (the loop uses stock photos, which must not be served on the website). The attract loop is still built with `scripts/build_attract_video.js`. The URL-mode sections below are history.
 >
-> **Pages deploy:** `.github/workflows/pages.yml` publishes only the website (`index.html`, `404.html`, `favicon.svg`, `robots.txt`, `sitemap.xml`, `CNAME`, `.nojekyll`, `fonts/`). No signage files are online.
+> **Pages deploy:** `.github/workflows/pages.yml` publishes only the website built from `site/`. No signage files are online.
 
 ## Device Confirmed
 
