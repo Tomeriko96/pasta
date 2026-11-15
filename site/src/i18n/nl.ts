@@ -19,7 +19,6 @@ const nl = (f: Facts): Copy => ({
   storefrontCaption: 'Je herkent ons aan het rode neonbord.',
   guests: {
     title: "Foto’s van onze gasten",
-    credit: (name: string) => `Foto: ${name}`,
     pomodoro: "Linguine met tomatensaus en basilicum.",
     ragu: "Rigatoni Bolognese met Parmigiano Reggiano.",
     bruschetta: "Bruschetta Cremosa met stracciatella en tomaat.",

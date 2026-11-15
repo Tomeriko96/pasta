@@ -19,7 +19,6 @@ const de = (f: Facts): Copy => ({
   storefrontCaption: 'Achte auf die rote Leuchtreklame.',
   guests: {
     title: "Fotos unserer Gäste",
-    credit: (name: string) => `Foto: ${name}`,
     pomodoro: "Linguine mit Tomatensauce und Basilikum.",
     ragu: "Bolognese: Rigatoni mit Bolognese-Sauce und Parmigiano Reggiano.",
     bruschetta: "Bruschetta Cremosa mit Stracciatella und Tomaten.",

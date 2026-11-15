@@ -19,7 +19,6 @@ const fr = (f: Facts): Copy => ({
   storefrontCaption: 'Cherchez l’enseigne au néon rouge.',
   guests: {
     title: "Les photos de nos clients",
-    credit: (name: string) => `Photo : ${name}`,
     pomodoro: "Linguine à la sauce tomate et au basilic.",
     ragu: "Bolognese : rigatoni à la sauce bolognaise et au Parmigiano Reggiano.",
     bruschetta: "Bruschetta Cremosa à la stracciatella et à la tomate.",

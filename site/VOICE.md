@@ -21,7 +21,7 @@ Every text on the site, in every language, should sound like someone at the door
 - Carbonara: guanciale, egg yolk, Pecorino Romano, black pepper, no cream, with linguine.
 - Any pasta can be made gluten-free at a surcharge.
 - Most dishes are Roman; Bolognese, pesto and quattro formaggi are from elsewhere in Italy.
-- Photos: the restaurant's own plus credited guest photos from Google reviews (permission needed before going live). Never stock, never recognisable people, never dishes that are not on the menu. Alt text describes what is on the plate.
+- Photos: the restaurant's own plus guest photos from Google reviews (permission given, no credit line needed). Never stock, never recognisable people, never dishes that are not on the menu. Alt text describes what is on the plate.
 - Not confirmed, so not on the site: fresh or homemade pasta, waiting times, group policy, payment methods, accessibility, ratings.
 
 `en.ts` is the source. Translators rewrite in this spirit in their own language rather than translating word for word.

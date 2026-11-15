@@ -20,7 +20,6 @@ const en = (f: Facts) => ({
   storefrontCaption: 'Look for the red neon sign.',
   guests: {
     title: "Photos from our guests",
-    credit: (name: string) => `Photo: ${name}`,
     pomodoro: "Linguine with tomato sauce and basil.",
     ragu: "Bolognese: rigatoni with Bolognese sauce and Parmigiano Reggiano.",
     bruschetta: "Bruschetta Cremosa with stracciatella and tomato.",

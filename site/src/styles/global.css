@@ -305,8 +305,6 @@ h3 { font-size: 1.5rem; }
 .guests { padding-top: 0; }
 .guest-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin-top: 1.25rem; }
 .guest-grid img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 3px; }
-.guest-grid figcaption { margin-top: .4rem; font-size: 13px; color: var(--muted); }
-.storefront figcaption .credit { display: block; margin-top: .2rem; font-size: 13px; }
 @media (max-width: 760px) {
   .guest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 }

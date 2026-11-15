@@ -4,13 +4,6 @@ Een merge naar `main` zet de site direct live. Werk deze lijst van boven naar be
 
 ## 0. Blokkerend: eerst afronden, dan pas mergen
 
-- [ ] **Foto's van gasten.** Vraag schriftelijke toestemming voor gebruik op de website, als uitsnede en als deelafbeelding (`og.jpg`). Lukt dat niet, vervang de foto dan door een eigen foto. Het gaat om:
-  - Maria Dumitru: de carbonara bovenaan Home, en daarmee ook `og.jpg`
-  - Arianna Pulidori: de carbonara en de bruschetta in "Foto's van onze gasten"
-  - Faustine: de pomodoro
-  - Guilherme Assis: de bolognese
-
-  Bron en credit van elke foto staan in `src/data/photos.json`.
 - [ ] **Eigen foto's.** Bevestig dat de foto's van de gevel, de rigatoni en de bruschetta van de zaak zelf zijn (geüpload als "Tomer").
 - [ ] **Glutenvrij.** De site zegt dat elke pasta glutenvrij kan voor de toeslag. Laat de keuken bevestigen hoe dat bereid wordt: apart water, aparte pan, en geen gedeelde saus of kaas. Is het niet veilig bij coeliakie, zet dat er dan in alle zes talen bij.
 - [ ] **Vertalingen.** Laat IT, DE, FR, ES en NL nalezen door moedertaalsprekers. Geef ze `src/i18n/<taal>.ts` en `src/i18n/menu-<taal>.json`, plus `VOICE.md`.
