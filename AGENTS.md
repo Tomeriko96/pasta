@@ -8,8 +8,10 @@
 |------|---------|
 | `menu_definitief_hybrid_CLEAN.html` | **Single current menu** (the only menu HTML): 2-page A4, page 1 = Beverages (Soft Drinks / Alcohol-Free Cocktails / Coffee), page 2 = Antipasti & Pasta & Extras. Hybrid descriptions, manually renamed fizzy line ("Fizzy ... Lemonade"). Locked items & prices. PDF: `pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf` (render via weasyprint, see Commands). |
 | `pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf` | Current weasyprint render of the menu (exactly 2 pages). |
-| `menu_screen.html` | **LG signage page** for the 32SM5J-B (portrait, 1080×1920). Two-column static split: left = Antipasti & Drinks, right = Pasta. Image backgrounds + dark scrim, live clock, 10-min auto-reload. Right column header was renamed from "Pasta & Mare" after the seafood dishes were removed from the menu. |
-| `attract.html` | **Hosted attract page** for the 32SM5J-B, played via Play via URL (no USB). Fullscreen autoplay/loop of `attract-authentic-loop.mp4`; the TV's URL mode points at `https://lacarbonara.nl/attract.html`. 10-min auto-reload re-fetches after a pushed update. Swap the clip via the `<video src>`. |
+| `site/` | **The public website** (lacarbonara.nl), an Astro project. Pages: home, menu, visit (hours and directions), FAQ, in English (`/`) and Dutch, Italian, German, French and Spanish (`/nl/`, `/it/`, `/de/`, `/fr/`, `/es/`, slugs in their own language). Plus `404.html`, `llms.txt`, `robots.txt`, `sitemap.xml` and `og.jpg` (all generated). Only photo: the restaurant's own storefront (`site/src/assets/storefront.jpg`, EXIF stripped). |
+| `site/src/data/menu.json` | **The menu for the website**, in English: sections, items, prices (numbers, in euros), descriptions. Translations in `site/src/i18n/menu-<lang>.json`, keyed by the English text. Pages, FAQ answers, menu schema and `llms.txt` all read from it. |
+| `site/src/data/restaurant.json` | Address, phone, hours, takeaway, gluten-free surcharge, walking times (with source), map links. `geo` and `sameAs` are empty until the owner confirms them; fill them in and they appear in the Restaurant schema. |
+| `attract.html` | Fullscreen player for `attract-authentic-loop.mp4`. **No longer published** on lacarbonara.nl (the clip uses stock photos); the LG screen plays the loop from USB. Kept in the repo for local preview only. |
 | `images/` | Royalty-free food photos (all Unsplash, commercial use, no attribution required). Includes: `pasta-carbonara.jpg` (dark moody carbonara with Pecorino wheel), `focaccia.jpg` (lemon rosemary focaccia, dark bg), `bruschetta.jpg` (bruschetta board, candlelit trattoria), `linguine-mussels.jpg` (seafood pasta with mussels/calamari), `spritz-cocktail.jpg` (Aperol Spritz glasses), `olive-oil.jpg`, `italian-flatlay.jpg`, `qr-lacarbonara.png` (QR code for `menu_QR_alt.html`). `pasta-bowl-dark.jpg`, `cacio-e-pepe.jpg`, and `pasta-tomato.jpg` were deleted as dead files; **references to `pasta-bowl-dark.jpg` in `menu_screen.html` are left broken on purpose** (do not restore broken images). Used as section backgrounds in `menu_screen.html` and hero image in `menu_signage_lc_hero.html`. **Image usage rule for signage**: only use images that accurately represent what the restaurant serves. No wine/alcohol imagery (all drinks are 0.0%), no cheese boards (could misrepresent the actual cheeses). The 4 approved hero images for customer-facing signage rotation are: `pasta-carbonara.jpg`, `spritz-cocktail.jpg`, `bruschetta.jpg`, `focaccia.jpg`. Other images may appear in internal/variant boards but not in the final street-facing selection. |
 | `signage_images/` | Curated set of 4 high-quality royalty-free images selected specifically for the `lg_signage` video output. Files: `pasta-carbonara.jpg` (hero carbonara, plays first), `bruschetta-tomato-close.jpg`, `extra-drink-2.jpg`, `extra-italian-7.jpg`. Used by `scripts/build_attract_video.js` for the attract output (copied into the build alongside `images/`). |
 | `SIGNAGE_PLAN.md` | Full plan for deploying the menu on the LG 32SM5J-B signage display (device setup, layout, hosting, update workflow). Includes Part C2 (USB app) and C2.6 (USB video). **Read this before touching signage.** |
@@ -25,18 +27,37 @@
 
 ### Architecture
 
-- **Two menu surfaces** (the print/PDF menu and the LG signage are separate files; keep them in sync manually when dishes/prices change):
-  1. **Print/PDF**: static A4 HTML (`menu_definitief_hybrid_CLEAN.html` is canonical), generated via weasyprint (see Commands).
-  2. **LG signage**: `menu_screen.html`, a standalone portrait page for the 32SM5J-B. References local images in `images/`, so it must be hosted with the `images/` folder alongside it.
+- **Menu surfaces** (kept in sync manually when dishes or prices change, see issue #10):
+  1. **Website**: `site/src/data/menu.json` (see Website below).
+  2. **Print/PDF**: static A4 HTML (`menu_definitief_hybrid_CLEAN.html` is canonical), generated via weasyprint (see Commands). The PDF is for printing only and is not published on the website.
+  3. **LG signage**: the attract loop MP4, played from USB.
 - A4 page dimensions hardcoded (210mm x 297mm) with `@page { size: A4 }`
 - Two-page structure: Page 1 = Antipasti & Drinks, Page 2 = Pasta & Extras
 - Fonts: Cormorant Garamond (headings/names) + Montserrat (body/prices) via Google Fonts `@import`
 - PDF generation: `uv run weasyprint menu_definitief_hybrid_CLEAN.html pdf-menus-weasyprint/menu_definitief_hybrid_CLEAN.pdf` (requires system GTK libs: present in devcontainer)
-- **Signage display**: LG 32SM5J-B, webOS 6.0, 1920×1080 panel used in **portrait (1080×1920)**. Deployed via the built-in **Play via URL** feature (Settings → EZ Settings → SI Server Setting → URL mode) pointing at a hosted `menu_screen.html`. No external PC. Full deployment plan in `SIGNAGE_PLAN.md`.
+- **Signage display**: LG 32SM5J-B, webOS 6.0, 1920×1080 panel used in **portrait (1080×1920)**. Plays the attract MP4 from USB (Plug & Play). It no longer uses Play via URL, so nothing on lacarbonara.nl is needed for the screen. History in `SIGNAGE_PLAN.md`.
 - **Removed archive**: the `lg_menu/`, `lg_menu_v2/`, `lg_menu_v3/` signage boards and the `build_signage_usb.py`, `build_signage_video.js`, and `gen_signage_*.py` scripts were deleted (A/B-test experiments and the USB signage route). The live signage is now only `menu_screen.html` (deployed via Play via URL, see `SIGNAGE_PLAN.md`), and the attract-loop videos are built with `scripts/build_attract_video.js`.
-- **GitHub Pages (public site)**: serves only a curated subset of the repo via a GitHub Actions workflow (`.github/workflows/pages.yml`): `index.html`, `favicon.svg`, `attract.html`, `menu_screen.html`, `images/`, `pdf-menus-weasyprint/`, `CNAME`, `.nojekyll`. The repo root is no longer the served site, so source files (`scripts/`, the source `attract_*.html` pages, `AGENTS.md`, `SIGNAGE_PLAN.md`, `README.md`, `signage_images/`, the print-menu HTML sources) are not reachable via `lacarbonara.nl`. Render the MP4/PDF locally and commit them; the workflow only copies what is already committed.
-- `menu_screen.html` is **static 2-column** (no rotation): left column = Antipasti & Drinks, right column = Pasta. Includes a live clock and a 10-minute `setTimeout(location.reload)` so price edits appear without a manual reboot. Swap background images by editing the `background-image:url('images/...')` on each `.col .bg`.
+- **GitHub Pages (public site)**: every push to `main` deploys lacarbonara.nl within a minute or two via `.github/workflows/pages.yml`, which builds `site/` and publishes `site/dist/`. Pull requests run the same build and checks without deploying. Nothing outside `site/` is online (signage files, stock images, MP4s, print PDFs, docs). Work on a branch and test locally first (see Website).
+- **Website photos** (`site/src/assets/`, listed with source in `site/src/data/photos.json`): cropped and EXIF stripped from the one consolidated set of Google Maps captures in `images/La_Carbonara_review_images_2026/` (gitignored; earlier captures merged into it). Own photos: shop front (review_027, passers-by cropped out), rigatoni, Bruschetta Cremosa. Guest photos from Google reviews, shown without credit: the hero linguine carbonara and the 'Photos from our guests' strip. Permission to use them has been given, so no credit line is needed. Never use photos that show recognisable people or dishes that are not on the menu.
+- **No stock imagery online**: `images/` and `signage_images/` are stock photos (Unsplash/Pexels). They may be used on in-store signage but never on the website. Website photos must be taken at the restaurant (issue #7).
 - Image licensing: all files in `images/` are royalty-free for commercial use (Unsplash/Pexels), no attribution required.
+
+### Website (`site/`)
+
+```bash
+cd site
+npm ci              # once
+npm run build       # builds dist/ and runs the checks below
+```
+
+To look at the build, serve `site/dist` **from the host** (the repo is bind-mounted): `python3 -m http.server 4321 -d site/dist`. Do not start dev or preview servers inside the devcontainer: background listeners have thrown the user out of the container before.
+
+- **Change a dish or price**: edit `site/src/data/menu.json` **and** `menu_definitief_hybrid_CLEAN.html` (then re-render the PDF). All six languages, the FAQ answers (pasta price range, carbonara price), the Menu schema and `llms.txt` follow `menu.json`. A new or changed description needs a translation in every `site/src/i18n/menu-<lang>.json`; the build fails until it has one. The build fails when the two disagree on a dish, price or English description (`check-print-menu.mjs`), so a price can never change in one place only.
+- **Change page text**: `site/src/i18n/en.ts` is the source, one file per language next to it (`nl.ts`, `it.ts`, ...), all with the same keys. Facts are `${f.…}` placeholders from `facts.ts`. How the copy should sound and which facts are confirmed: `site/VOICE.md`. Italian dish names stay Italian in every language.
+- **URLs per language**: `routes` in `site/src/lib/site.ts`.
+- **Checks after every build** (`site/scripts/`): `check-dashes.mjs` fails on any em-dash or en-dash in the output; `check-links.mjs` fails on a broken internal link or `#anchor`. `check-print-menu.mjs` fails when the print menu and `menu.json` differ.
+- **Structured data**: `site/src/lib/site.ts` builds the Restaurant (every page), Menu (menu page) and FAQPage (FAQ page) JSON-LD from the data files. Test with Google's Rich Results Test after deploying.
+- A Content Security Policy is set as a `<meta>` tag in `site/astro.config.mjs` (GitHub Pages cannot send headers). Adding an external script, image or iframe means allowing its domain there.
 
 ### Agentic Sparring Workflow
 

@@ -1,0 +1,15 @@
+---
+// A photo framed like the arched windows of the shop front.
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props { src: ImageMetadata; alt: string; loading?: 'eager' | 'lazy'; sizes?: string; class?: string }
+const { src, alt, loading = 'lazy', sizes = '(min-width: 960px) 460px, 100vw', class: cls } = Astro.props;
+---
+<figure class:list={['storefront', cls]}>
+  <div class="arch">
+    <Picture src={src} formats={['avif', 'webp']} widths={[480, 760, 1000]} sizes={sizes} alt={alt}
+      loading={loading} fetchpriority={loading === 'eager' ? 'high' : 'auto'} />
+  </div>
+  {Astro.slots.has('default') && <figcaption><slot /></figcaption>}
+</figure>

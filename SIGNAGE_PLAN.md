@@ -1,8 +1,8 @@
 # Plan: Pasta Menu on LG 32SM5J-B Signage Display
 
-> **Note:** The USB app/video signage routes (`build_signage_usb.py`, `build_signage_video.js`) and the `lg_menu_v3/` boards were removed as archive. The live deployment is `menu_screen.html` via **Play via URL**; the attract-loop videos are built with `scripts/build_attract_video.js`. The USB sections below are retained for historical reference only.
+> **Current setup (November 2026):** the screen plays `attract-authentic-loop.mp4` from a USB stick (Plug & Play). Play via URL is no longer used, and lacarbonara.nl no longer hosts `attract.html`, the MP4 or `menu_screen.html` (the loop uses stock photos, which must not be served on the website). The attract loop is still built with `scripts/build_attract_video.js`. The URL-mode sections below are history.
 >
-> **Pages deploy:** GitHub Pages serves only a curated subset of the repo via the GitHub Actions workflow `.github/workflows/pages.yml` (on push to `main`). It copies `index.html`, `favicon.svg`, `attract.html`, `menu_screen.html`, the three `attract-*.mp4`, `images/`, `pdf-menus-weasyprint/`, `CNAME` and `.nojekyll` into the deployed artifact. The repo root is no longer the served site, so source files are not reachable via `lacarbonara.nl`.
+> **Pages deploy:** `.github/workflows/pages.yml` publishes only the website built from `site/`. No signage files are online.
 
 ## Device Confirmed
 
@@ -102,7 +102,7 @@ Derive from `menu_definitief_hybrid_CLEAN.html` content but redesign for a 1920Ã
 
 **Recommended:** Static host (e.g. GitHub Pages) for the URL; keep a USB with a static screenshot/PDF as fail-over.
 
-### Hosted attract loop (Play via URL, no USB)
+### Hosted attract loop (Play via URL, no USB): retired, kept for history
 
 To run the attract video on the screen without ever visiting the device with a USB stick, host one fullscreen player page and point the TV's URL mode at it:
 

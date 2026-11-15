@@ -1,0 +1,78 @@
+{
+  "_comment": "The one menu source, in English. Prices in euros. Translations live in src/i18n/menu-<lang>.json, keyed by the English text. Italian dish names stay as they are.",
+  "sections": [
+    {
+      "id": "antipasti",
+      "title": "Antipasti",
+      "items": [
+        {"name": "Bruschetta La Carbonara", "price": 10, "featured": true, "desc": "Toasted bread with guanciale, egg yolk, Pecorino Romano and black pepper."},
+        {"name": "Bruschetta Classica", "price": 8, "desc": "Toasted bread with tomato, basil, garlic and extra virgin olive oil."},
+        {"name": "Bruschetta Cremosa", "price": 10, "desc": "Toasted bread with stracciatella, tomatoes, fresh basil and extra virgin olive oil."},
+        {"name": "Bruschetta Bolognese", "price": 10, "desc": "Toasted bread with Bolognese sauce and Parmigiano Reggiano."},
+        {"name": "Olive Marinate", "price": 5, "desc": "Italian olives marinated with herbs, garlic and citrus."}
+      ]
+    },
+    {
+      "id": "pasta",
+      "title": "Pasta",
+      "items": [
+        {"name": "La Carbonara", "price": 19, "featured": true, "desc": "Linguine with guanciale, egg yolk, Pecorino Romano and black pepper."},
+        {"name": "Cacio e Pepe", "price": 16, "desc": "Linguine with Pecorino Romano and freshly cracked black pepper."},
+        {"name": "Amatriciana", "price": 18, "desc": "Rigatoni with guanciale, tomato sauce and Pecorino Romano."},
+        {"name": "Bolognese", "price": 18, "desc": "Rigatoni with Bolognese sauce and Parmigiano Reggiano."},
+        {"name": "Arrabbiata", "price": 15, "desc": "Rigatoni with spicy tomato sauce and Parmigiano Reggiano."},
+        {"name": "Al Pomodoro", "price": 14, "desc": "Linguine with tomato sauce, fresh basil and Parmigiano Reggiano."},
+        {"name": "Linguine al Pesto Genovese con Stracciatella", "price": 17, "desc": "Linguine with Genovese pesto and fresh stracciatella."},
+        {"name": "Quattro Formaggi", "price": 20, "desc": "Rigatoni with Parmigiano Reggiano, Pecorino Romano, Gorgonzola Dolce and fresh stracciatella."},
+        {"name": "Gricia", "price": 18, "desc": "Rigatoni with guanciale, Pecorino Romano and black pepper."}
+      ]
+    },
+    {
+      "id": "extras",
+      "title": "Extras",
+      "items": [
+        {"name": "Gluten-Free Pasta", "price": 3},
+        {"name": "Add Pecorino Romano", "price": 4},
+        {"name": "Add Parmigiano Reggiano 22 Month Aged", "price": 4},
+        {"name": "Add Fresh Stracciatella", "price": 4}
+      ]
+    },
+    {
+      "id": "soft-drinks",
+      "title": "Soft Drinks",
+      "items": [
+        {"name": "Fizzy Amarena Fabbri Lemonade", "price": 5},
+        {"name": "Fizzy Mint Lemonade", "price": 5},
+        {"name": "Fizzy Lemon Lemonade", "price": 5},
+        {"name": "Fizzy Strawberry Lemonade", "price": 5},
+        {"name": "Fizzy Ice Tea Lemonade", "price": 5},
+        {"name": "Fizzy Passionfruit Lemonade", "price": 5},
+        {"name": "Still Water 0.70 L", "price": 5},
+        {"name": "Sparkling Water 0.70 L", "price": 5},
+        {"name": "Birra Moretti Zero 0.0", "price": 6}
+      ]
+    },
+    {
+      "id": "spritz",
+      "title": "Spritz 0.0",
+      "items": [
+        {"name": "Aperol Spritz 0.0", "price": 8},
+        {"name": "Bitter Spritz 0.0", "price": 8},
+        {"name": "Limoncello Spritz 0.0", "price": 8}
+      ]
+    },
+    {
+      "id": "coffee",
+      "title": "Coffee",
+      "items": [
+        {"name": "Espresso", "price": 3},
+        {"name": "Coffee", "price": 3},
+        {"name": "Cappuccino", "price": 4},
+        {"name": "Latte Macchiato", "price": 4},
+        {"name": "Iced Coffee Latte Caramel", "price": 5},
+        {"name": "Iced Coffee Latte Vanilla", "price": 5},
+        {"name": "Iced Coffee Latte Hazelnut", "price": 5}
+      ]
+    }
+  ]
+}

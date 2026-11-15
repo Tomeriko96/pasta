@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import MenuSection from '../components/MenuSection.astro';
+import DishPhoto from '../components/DishPhoto.astro';
+import bruschetta from '../assets/bruschetta.jpg';
+import { sections, sectionTitle, menuSchema, type Lang } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const c = copy(lang);
+const t = c.menu;
+const food = sections.filter((s) => ['antipasti', 'pasta', 'extras'].includes(s.id));
+const drinks = sections.filter((s) => !food.includes(s));
+---
+<Base lang={lang} route="menu" title={t.title} description={t.description} schema={[menuSchema(lang)]}>
+  <div class="page-head">
+    <div class="wrap page-head-grid">
+      <div>
+        <h1>{t.h1}</h1>
+        <p class="lead">{t.lead}</p>
+      </div>
+      <DishPhoto src={bruschetta} alt={c.photos.bruschetta} class="head-photo" sizes="(min-width: 960px) 440px, 100vw" />
+    </div>
+  </div>
+  <nav class="wrap menu-jump" aria-label={t.h1}>
+    <ul>{sections.map((s) => <li><a href={`#${s.id}`}>{sectionTitle(s, lang)}</a></li>)}</ul>
+  </nav>
+  <div class="wrap menu-grid">
+    <section aria-labelledby="food-title">
+      <h2 class="menu-col-title" id="food-title">{t.food}</h2>
+      {food.map((s) => <MenuSection lang={lang} section={s} />)}
+    </section>
+    <section aria-labelledby="drinks-title">
+      <h2 class="menu-col-title" id="drinks-title">{t.drinks}</h2>
+      <p class="menu-note">{t.drinksNote}</p>
+      {drinks.map((s) => <MenuSection lang={lang} section={s} />)}
+    </section>
+  </div>
+</Base>

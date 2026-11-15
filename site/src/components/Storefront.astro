@@ -1,0 +1,13 @@
+---
+import ArchPhoto from './ArchPhoto.astro';
+import storefront from '../assets/storefront.jpg';
+import type { Lang } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang; loading?: 'eager' | 'lazy'; caption?: boolean }
+const { lang, loading = 'lazy', caption = true } = Astro.props;
+const t = copy(lang);
+---
+<ArchPhoto src={storefront} alt={t.storefrontAlt} loading={loading} class="photo-storefront">
+  {caption && t.storefrontCaption}
+</ArchPhoto>

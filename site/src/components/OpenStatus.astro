@@ -1,0 +1,38 @@
+---
+// "Open now, until 23:00" in Amsterdam time. Without JavaScript the
+// fallback (the opening hours) stays visible.
+import { restaurant as r, type Lang } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang }
+const t = copy(Astro.props.lang).status;
+---
+<span class="status" data-status data-opens={r.hours.opens} data-closes={r.hours.closes}
+  data-msg-open={t.open} data-msg-before={t.before} data-msg-after={t.after}>
+  <span class="dot" aria-hidden="true"></span><span class="status-text">{t.fallback}</span>
+</span>
+
+<script>
+  const mins = (hhmm: string) => {
+    const [h, m] = hhmm.split(':').map(Number);
+    return h * 60 + m;
+  };
+  function update() {
+    const now = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Europe/Amsterdam', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+    }).format(new Date());
+    const t = mins(now);
+    for (const el of document.querySelectorAll<HTMLElement>('[data-status]')) {
+      const open = mins(el.dataset.opens!);
+      const close = mins(el.dataset.closes!);
+      const state = t < open ? 'before' : t >= close ? 'after' : 'open';
+      el.dataset.state = state;
+      const text = el.querySelector('.status-text');
+      if (text) text.textContent = el.dataset[`msg${state[0].toUpperCase()}${state.slice(1)}`] ?? text.textContent;
+    }
+  }
+  update();
+  // Stay correct across opening and closing time without a reload.
+  setInterval(update, 30_000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) update(); });
+</script>

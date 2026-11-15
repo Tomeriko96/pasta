@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+import { LANGS, routes } from '../lib/site';
+import { copy } from '../i18n/copy';
+const en = copy('en');
+---
+<Base lang="en" route={null} title={en.notFound.title} description={en.notFound.text}>
+  <div class="page-head">
+    <div class="wrap">
+      <h1>{en.notFound.h1}</h1>
+      <p class="lead">{en.notFound.text}</p>
+      <p class="buttons">
+        <a class="btn btn-green" href={routes.menu.en}>{en.actions.menu}</a>
+        <a class="btn btn-outline" href={routes.visit.en}>{en.home.visitMore}</a>
+      </p>
+      <ul class="notfound-langs">
+        {LANGS.filter((l) => l !== 'en').map((l) => (
+          <li lang={l}><a href={routes.home[l]} hreflang={l}>{copy(l).langName}</a>: {copy(l).notFound.h1}</li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</Base>

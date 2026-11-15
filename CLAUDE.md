@@ -28,7 +28,10 @@ All menu HTML files use preconnect + preload for font efficiency:
 
 This ensures fonts load quickly and render correctly across browsers and PDF generators.
 
-### Menu
+### Website
+The public site lives in `site/` (Astro, six languages). Menu data: `site/src/data/menu.json`; page text: `site/src/i18n/en.ts` and one file per language; voice and confirmed facts: `site/VOICE.md`. A push to `main` deploys to lacarbonara.nl, so work on a branch, run `npm run build` in `site/` and serve `site/dist` from the host. Never start servers inside the devcontainer. See AGENTS.md, section Website.
+
+### Print menu
 - `menu_definitief_hybrid_CLEAN.html` - the single current menu (Beverages page 1, Antipasti & Pasta page 2). Edit this file and re-render the PDF. Older variants were removed during the single-menu cleanup.
 
 ### Content Guidelines

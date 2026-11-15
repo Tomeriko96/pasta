@@ -1,0 +1,28 @@
+{
+  "name": "La Carbonara",
+  "origin": "https://lacarbonara.nl",
+  "phone": { "display": "06 16956710", "international": "+31 6 16956710", "tel": "+31616956710" },
+  "address": {
+    "street": "Lange Niezel 7",
+    "postalCode": "1012 GS",
+    "city": "Amsterdam",
+    "region": "Noord-Holland",
+    "country": "NL"
+  },
+  "hours": { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], "opens": "12:00", "closes": "23:00" },
+  "priceRange": "€€",
+  "cuisine": ["Italian", "Roman", "Pasta"],
+  "reservations": false,
+  "takeaway": true,
+  "walkMinutes": { "centraal": 10, "dam": 10, "nieuwmarkt": 5 },
+  "_walkSource": "OSRM foot (routing.openstreetmap.de) + Valhalla pedestrian (OpenStreetMap), checked 2026-11-14 from Lange Niezel 7: Centraal 587-662 m, Dam 594-726 m, Nieuwmarkt 392-419 m. Shown as round, approximate minutes (about 80 m per minute, rounded to 5 or 10).",
+  "_geo": "Fill in lat/lng (decimal degrees) once the owner confirms them; geo then appears in the Restaurant schema.",
+  "geo": null,
+  "_sameAs": "Profile URLs (Google Business Profile, Tripadvisor, Instagram). Each one is added to sameAs in the Restaurant schema.",
+  "sameAs": [],
+  "maps": {
+    "google": "https://www.google.com/maps/search/?api=1&query=La+Carbonara+Lange+Niezel+7+Amsterdam",
+    "directions": "https://www.google.com/maps/dir/?api=1&destination=Lange+Niezel+7+1012+GS+Amsterdam&travelmode=walking",
+    "apple": "https://maps.apple.com/?q=La+Carbonara&address=Lange+Niezel+7,1012+GS+Amsterdam"
+  }
+}

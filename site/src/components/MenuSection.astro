@@ -1,0 +1,24 @@
+---
+import { itemName, itemDesc, sectionTitle, formatPrice, type Lang, type MenuSection } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang; section: MenuSection; level?: 'h2' | 'h3' }
+const { lang, section, level = 'h3' } = Astro.props;
+const H = level;
+const t = copy(lang).menu;
+---
+<section class="menu-section" id={section.id} aria-labelledby={`${section.id}-title`}>
+  <H class="menu-head" id={`${section.id}-title`}>{sectionTitle(section, lang)}</H>
+  <ul class="dishes">
+    {section.items.map((item) => (
+      <li class:list={['dish', { featured: item.featured }]}>
+        {item.featured && <span class="featured-label" lang="it">{t.featured}</span>}
+        <span class="dish-line">
+          <span class="dish-name">{itemName(item, lang)}</span>
+          <span class="dish-price">{formatPrice(item.price, lang)}</span>
+        </span>
+        {item.desc && <span class="dish-desc">{itemDesc(item, lang)}</span>}
+      </li>
+    ))}
+  </ul>
+</section>

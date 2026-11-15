@@ -1,0 +1,22 @@
+{
+  "name": "la-carbonara-site",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "check": "tsc --noEmit",
+    "prebuild": "tsc --noEmit",
+    "build": "astro build",
+    "postbuild": "node scripts/check-dashes.mjs && node scripts/check-links.mjs && node scripts/check-print-menu.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "7.4.12",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "typescript": "^5.6.3"
+  }
+}

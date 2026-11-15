@@ -1,0 +1,33 @@
+---
+import { LANGS, routes, restaurant as r, type Lang, type RouteKey } from '../lib/site';
+import { copy } from '../i18n/copy';
+
+interface Props { lang: Lang; route: RouteKey | null }
+const { lang, route } = Astro.props;
+const t = copy(lang);
+const pages: RouteKey[] = ['home', 'menu', 'visit', 'faq'];
+---
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-brand">La Carbonara</p>
+      <p>{r.address.street}<br>{r.address.postalCode} {r.address.city}</p>
+      <p>{t.facts.openValue}</p>
+      <p><a href={`tel:${r.phone.tel}`}>{r.phone.display}</a></p>
+    </div>
+    <nav aria-labelledby="footer-pages">
+      <p class="footer-head" id="footer-pages">{t.footer.pages}</p>
+      <ul>{pages.map((k) => <li><a href={routes[k][lang]}>{t.nav[k]}</a></li>)}</ul>
+    </nav>
+    <nav aria-labelledby="footer-langs">
+      <p class="footer-head" id="footer-langs">{t.footer.language}</p>
+      <ul>{LANGS.map((l) => (
+        <li><a href={routes[route ?? 'home'][l]} hreflang={l} lang={l} aria-current={l === lang ? 'true' : undefined}>{copy(l).langName}</a></li>
+      ))}</ul>
+    </nav>
+  </div>
+  <div class="wrap footer-bottom">
+    <p>{t.footer.allergy}</p>
+    <p>© {new Date().getFullYear()} La Carbonara</p>
+  </div>
+</footer>
