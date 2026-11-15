@@ -22,7 +22,7 @@ export const GET: APIRoute = () => {
 - Name: ${r.name}
 - Cuisine: Roman and Italian pasta
 - Address: ${r.address.street}, ${r.address.postalCode} ${r.address.city}, Netherlands
-- Walking time: ${r.walkMinutes.centraal} minutes from Amsterdam Central Station (Amsterdam Centraal), ${r.walkMinutes.dam} from Dam Square, ${r.walkMinutes.nieuwmarkt} from Nieuwmarkt
+- Walking time: about ${r.walkMinutes.centraal} minutes from Amsterdam Central Station (Amsterdam Centraal), ${r.walkMinutes.dam} from Dam Square, ${r.walkMinutes.nieuwmarkt} from Nieuwmarkt
 - Opening hours: every day, ${r.hours.opens} to ${r.hours.closes}
 - Reservations: not taken, walk-ins only
 - Takeaway: yes

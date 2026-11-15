@@ -66,7 +66,7 @@ const nl = (f: Facts): Copy => ({
 
   visit: {
     title: 'Openingstijden en route | La Carbonara Amsterdam',
-    description: `We zitten op de Lange Niezel in Amsterdam, op ${f.walk.centraal} minuten lopen van het Centraal Station. Elke dag open van ${f.open} tot ${f.close}, reserveren kan niet.`,
+    description: `We zitten op de Lange Niezel in Amsterdam, op ongeveer ${f.walk.centraal} minuten lopen van het Centraal Station. Elke dag open van ${f.open} tot ${f.close}, reserveren kan niet.`,
     h1: 'Openingstijden en route',
     hoursTitle: 'Openingstijden',
     hoursText: `We zijn elke dag open van ${f.open} tot ${f.close}.`,
@@ -77,7 +77,7 @@ const nl = (f: Facts): Copy => ({
       { place: 'De Dam', min: f.walk.dam },
       { place: 'Nieuwmarkt', min: f.walk.nieuwmarkt },
     ],
-    minutes: (n: number) => `${n} min`,
+    minutes: (n: number) => `ca. ${n} min`,
     comingTitle: 'Binnenlopen of afhalen',
     comingText: 'We werken niet met reserveringen, je loopt gewoon binnen. Afhalen kan ook.',
     phoneTitle: 'Telefoon',

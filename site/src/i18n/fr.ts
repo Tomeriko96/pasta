@@ -66,7 +66,7 @@ const fr = (f: Facts): Copy => ({
 
   visit: {
     title: 'Horaires et accès | La Carbonara Amsterdam',
-    description: `Nous sommes au ${f.street} à Amsterdam, à ${f.walk.centraal} minutes à pied de la gare centrale. Ouvert tous les jours de ${f.open} à ${f.close}, sans réservation.`,
+    description: `Nous sommes au ${f.street} à Amsterdam, à environ ${f.walk.centraal} minutes à pied de la gare centrale. Ouvert tous les jours de ${f.open} à ${f.close}, sans réservation.`,
     h1: 'Horaires et accès',
     hoursTitle: 'Horaires d’ouverture',
     hoursText: `Nous sommes ouverts tous les jours de ${f.open} à ${f.close}.`,
@@ -77,7 +77,7 @@ const fr = (f: Facts): Copy => ({
       { place: 'Place du Dam', min: f.walk.dam },
       { place: 'Nieuwmarkt', min: f.walk.nieuwmarkt },
     ],
-    minutes: (n: number) => `${n} min`,
+    minutes: (n: number) => `ca. ${n} min`,
     comingTitle: 'Sur place ou à emporter',
     comingText: 'Nous ne prenons pas de réservations : passez quand nous sommes ouverts. Vous pouvez aussi emporter vos pâtes.',
     phoneTitle: 'Téléphone',

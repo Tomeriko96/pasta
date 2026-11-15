@@ -29,7 +29,7 @@ Deze blijven werken:
 - Oude ankerlinks van de huidige site: `#top`, `#about` en `#visit` landen op de bijbehorende sectie, `#menu` gaat naar de menupagina.
 
 Controle direct na de deploy:
-- [ ] Alle 24 pagina's geven 200. Een niet-bestaande URL geeft de 404-pagina.
+- [ ] Alle 25 pagina's geven 200. Een niet-bestaande URL geeft de 404-pagina.
 - [ ] `/og.jpg`, `/robots.txt`, `/sitemap.xml` en `/llms.txt` laden.
 - [ ] Google Rich Results Test: Restaurant en Menu zonder fouten.
 - [ ] Linkvoorbeeld in WhatsApp: titel en foto kloppen.

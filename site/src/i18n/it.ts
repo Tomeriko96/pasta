@@ -66,7 +66,7 @@ const it = (f: Facts): Copy => ({
 
   visit: {
     title: 'Orari e come arrivare | La Carbonara Amsterdam',
-    description: `Siamo in ${f.street} ad Amsterdam, a ${f.walk.centraal} minuti a piedi dalla Stazione Centrale. Aperti tutti i giorni dalle ${f.open} alle ${f.close}, senza prenotazione.`,
+    description: `Siamo in ${f.street} ad Amsterdam, a circa ${f.walk.centraal} minuti a piedi dalla Stazione Centrale. Aperti tutti i giorni dalle ${f.open} alle ${f.close}, senza prenotazione.`,
     h1: 'Orari e come arrivare',
     hoursTitle: 'Orari di apertura',
     hoursText: `Siamo aperti tutti i giorni dalle ${f.open} alle ${f.close}.`,
@@ -77,7 +77,7 @@ const it = (f: Facts): Copy => ({
       { place: 'Piazza Dam', min: f.walk.dam },
       { place: 'Nieuwmarkt', min: f.walk.nieuwmarkt },
     ],
-    minutes: (n: number) => `${n} min`,
+    minutes: (n: number) => `circa ${n} min`,
     comingTitle: 'Senza prenotazione o da asporto',
     comingText: 'Non accettiamo prenotazioni: vieni quando siamo aperti. Puoi anche prendere la pasta da asporto.',
     phoneTitle: 'Telefono',
@@ -94,7 +94,7 @@ const it = (f: Facts): Copy => ({
       { q: 'Avete pasta senza glutine?', a: `Sì. Possiamo preparare qualsiasi pasta senza glutine con un supplemento di ${f.gf}. Diccelo quando ordini.` },
       { q: 'Servite alcolici?', a: 'No. Tutte le nostre bevande sono analcoliche (0,0%), compresi gli spritz e la Birra Moretti Zero.' },
       { q: 'Quanto costa la pasta?', a: `I nostri primi costano da ${f.minPasta} a ${f.maxPasta}, la carbonara ${f.carbonara}.` },
-      { q: 'Quanto distate dalla Stazione Centrale?', a: `Circa ${f.walk.centraal} minuti a piedi. Ci trovi in ${f.address}.` },
+      { q: 'Quanto distate dalla Stazione Centrale?', a: `Circa circa ${f.walk.centraal} minuti a piedi. Ci trovi in ${f.address}.` },
     ],
   },
 

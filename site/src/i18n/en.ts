@@ -67,7 +67,7 @@ const en = (f: Facts) => ({
 
   visit: {
     title: 'Opening hours and directions | La Carbonara Amsterdam',
-    description: `We're at ${f.street} in Amsterdam, a ${f.walk.centraal}-minute walk from Central Station. Open every day ${f.open} to ${f.close}, walk-ins only.`,
+    description: `We're at ${f.street} in Amsterdam, about a ${f.walk.centraal}-minute walk from Central Station. Open every day ${f.open} to ${f.close}, walk-ins only.`,
     h1: 'Opening hours and directions',
     hoursTitle: 'Opening hours',
     hoursText: `We're open every day from ${f.open} to ${f.close}.`,
@@ -78,7 +78,7 @@ const en = (f: Facts) => ({
       { place: 'Dam Square', min: f.walk.dam },
       { place: 'Nieuwmarkt', min: f.walk.nieuwmarkt },
     ],
-    minutes: (n: number) => `${n} min`,
+    minutes: (n: number) => `about ${n} min`,
     comingTitle: 'Walk in or take away',
     comingText: "We don't take reservations, so come in whenever we're open. You can also take your pasta away.",
     phoneTitle: 'Phone',
