@@ -93,7 +93,7 @@ Sparring rounds produced `menu_agentic_vN.html` files and the earlier `menu_impr
 - `weasyprint`: HTML/CSS to PDF converter (respects `@page` rules, loads Google Fonts from CDN)
 - `ffmpeg`: renders the looping MP4s (H.264 + yuv420p) from the headless Chromium capture. `scripts/build_attract_video.js` resolves ffmpeg automatically: tries system PATH first, then falls back to the `imageio-ffmpeg` Python package via `uv run --with imageio-ffmpeg`. Install the fallback with `uv run --with imageio-ffmpeg true` (one-time, cached). No `sudo` needed.
 - `node` + `playwright-core` (installed locally via `npm i`): drives headless Chromium for the video capture
-- Chromium binary: cached at `/home/dev/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome` (set via `EXEC` in `scripts/build_attract_video.js`). Install with `node node_modules/playwright-core/cli.js install chromium` if missing.
+- Chromium binary: the build that belongs to the installed `playwright-core`; Playwright finds it on its own. Install it with `node node_modules/playwright-core/cli.js install chromium` (after `npm ci`, and again after a `playwright-core` upgrade). To use another browser, set `CHROMIUM_PATH=/path/to/chrome`; `scripts/build_attract_video.js` and `scripts/screenshot_signage.js` both pass it as `executablePath`.
 
 ### Commands
 
