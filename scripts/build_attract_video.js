@@ -41,7 +41,8 @@ if (fs.existsSync(path.join(ROOT, "images"))) {
   }
 }
 
-const EXEC = "/home/dev/.cache/ms-playwright/chromium-1228/chrome-linux64/chrome";
+// Unset: Playwright uses the browser build that matches the installed playwright-core.
+const EXEC = process.env.CHROMIUM_PATH || undefined;
 const CAPTURE_MS = process.env.CAPTURE_MS ? parseInt(process.env.CAPTURE_MS) : 24000;
 const LEAD_IN = 2;
 const FADE = 1;
@@ -87,10 +88,16 @@ function encodeLoop(webm, mp4, L) {
   const tmp = path.join(BUILD, path.basename(SRC));
   fs.writeFileSync(tmp, patch(path.join(ROOT, SRC)));
 
-  const browser = await chromium.launch({
-    executablePath: EXEC,
-    args: ["--no-sandbox", "--disable-gpu"],
-  });
+  let browser;
+  try {
+    browser = await chromium.launch({
+      executablePath: EXEC,
+      args: ["--no-sandbox", "--disable-gpu"],
+    });
+  } catch (err) {
+    console.error("Could not launch Chromium. Run `node node_modules/playwright-core/cli.js install chromium` or set CHROMIUM_PATH.");
+    throw err;
+  }
   const ctx = await browser.newContext({
     viewport: { width: 1080, height: 1920 },
     deviceScaleFactor: 1,
