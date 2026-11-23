@@ -81,6 +81,9 @@ const nl = (f: Facts): Copy => ({
     comingTitle: 'Binnenlopen of afhalen',
     comingText: 'We werken niet met reserveringen, je loopt gewoon binnen. Afhalen kan ook.',
     phoneTitle: 'Telefoon',
+    deliveryTitle: 'Bezorgen',
+    deliveryText: 'We bezorgen via Uber Eats. Je bestelt en betaalt daar, en Uber Eats bepaalt de bezorgkosten.',
+    deliveryLink: 'Bestel via Uber Eats',
   },
 
   faq: {

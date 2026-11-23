@@ -44,6 +44,13 @@ const v = t.visit;
         <h2 id="coming-title">{v.comingTitle}</h2>
         <p>{v.comingText}</p>
       </section>
+      <section aria-labelledby="delivery-title">
+        <h2 id="delivery-title">{v.deliveryTitle}</h2>
+        <p>{v.deliveryText}</p>
+        <p class="buttons">
+          <a class="btn btn-outline" href={r.delivery.uberEats} rel="noopener">{v.deliveryLink}</a>
+        </p>
+      </section>
       <section aria-labelledby="phone-title">
         <h2 id="phone-title">{v.phoneTitle}</h2>
         <p><a href={`tel:${r.phone.tel}`}>{r.phone.display}</a></p>

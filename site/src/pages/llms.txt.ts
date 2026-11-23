@@ -26,9 +26,11 @@ export const GET: APIRoute = () => {
 - Opening hours: every day, ${r.hours.opens} to ${r.hours.closes}
 - Reservations: not taken, walk-ins only
 - Takeaway: yes
+- Delivery: through Uber Eats (${r.delivery.uberEats})
 - Alcohol: none served, every drink is 0.0%
 - Gluten-free: any pasta can be made gluten-free for ${formatPrice(glutenFreeSurcharge(), 'en')} extra
 - Phone: ${r.phone.international}
+${r.geo ? `- Coordinates: ${(r.geo as any).lat}, ${(r.geo as any).lng}\n` : ''}${r.sameAs.map((u) => `- Profile: ${u}`).join('\n')}
 - Price level: ${r.priceRange} (exact prices in euros in the menu below)
 
 ## Pages

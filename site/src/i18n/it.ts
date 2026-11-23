@@ -81,6 +81,9 @@ const it = (f: Facts): Copy => ({
     comingTitle: 'Senza prenotazione o da asporto',
     comingText: 'Non accettiamo prenotazioni: vieni quando siamo aperti. Puoi anche prendere la pasta da asporto.',
     phoneTitle: 'Telefono',
+    deliveryTitle: 'Consegna a domicilio',
+    deliveryText: 'Consegniamo con Uber Eats. Ordini e paghi lì, e i costi di consegna li stabilisce Uber Eats.',
+    deliveryLink: 'Ordina su Uber Eats',
   },
 
   faq: {

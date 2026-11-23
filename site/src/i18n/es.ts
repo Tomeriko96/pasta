@@ -81,6 +81,9 @@ const es = (f: Facts): Copy => ({
     comingTitle: 'Reservas y comida para llevar',
     comingText: 'No aceptamos reservas, así que ven cuando quieras mientras estemos abiertos. También puedes llevarte la pasta.',
     phoneTitle: 'Teléfono',
+    deliveryTitle: 'Entrega a domicilio',
+    deliveryText: 'Repartimos con Uber Eats. Pides y pagas allí, y Uber Eats fija los gastos de envío.',
+    deliveryLink: 'Pedir en Uber Eats',
   },
 
   faq: {

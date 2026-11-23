@@ -82,6 +82,9 @@ const en = (f: Facts) => ({
     comingTitle: 'Walk in or take away',
     comingText: "We don't take reservations, so come in whenever we're open. You can also take your pasta away.",
     phoneTitle: 'Phone',
+    deliveryTitle: 'Delivery',
+    deliveryText: 'We deliver through Uber Eats. You order and pay there, and Uber Eats sets the delivery costs.',
+    deliveryLink: 'Order on Uber Eats',
   },
 
   faq: {
