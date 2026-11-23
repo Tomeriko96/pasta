@@ -81,6 +81,9 @@ const fr = (f: Facts): Copy => ({
     comingTitle: 'Sur place ou à emporter',
     comingText: 'Nous ne prenons pas de réservations : passez quand nous sommes ouverts. Vous pouvez aussi emporter vos pâtes.',
     phoneTitle: 'Téléphone',
+    deliveryTitle: 'Livraison',
+    deliveryText: 'Nous livrons avec Uber Eats. Vous commandez et payez là-bas, et Uber Eats fixe les frais de livraison.',
+    deliveryLink: 'Commander sur Uber Eats',
   },
 
   faq: {

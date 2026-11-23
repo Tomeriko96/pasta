@@ -81,6 +81,9 @@ const de = (f: Facts): Copy => ({
     comingTitle: 'Vorbeikommen oder mitnehmen',
     comingText: 'Reservieren geht bei uns nicht, komm einfach vorbei. Deine Pasta kannst du auch mitnehmen.',
     phoneTitle: 'Telefon',
+    deliveryTitle: 'Lieferung',
+    deliveryText: 'Wir liefern über Uber Eats. Du bestellst und bezahlst dort, und Uber Eats legt die Lieferkosten fest.',
+    deliveryLink: 'Bei Uber Eats bestellen',
   },
 
   faq: {

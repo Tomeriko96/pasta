@@ -109,6 +109,14 @@ export function restaurantSchema(lang: Lang, description: string) {
     },
     hasMap: r.maps.google,
     ...(r.sameAs.length ? { sameAs: r.sameAs } : {}),
+    potentialAction: {
+      '@type': 'OrderAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: r.delivery.uberEats,
+        actionPlatform: ['http://schema.org/DesktopWebPlatform', 'http://schema.org/MobileWebPlatform'],
+      },
+    },
     amenityFeature: [
       { '@type': 'LocationFeatureSpecification', name: 'Alcohol-free drinks', value: true },
       { '@type': 'LocationFeatureSpecification', name: 'Gluten-free pasta available', value: true },
