@@ -8,7 +8,7 @@ const { lang, route } = Astro.props;
 const t = copy(lang).actions;
 ---
 <nav class="actionbar" aria-label={t.label}>
-  {route !== 'menu' && <a href={routes.menu[lang]}>{t.menu}</a>}
+  <a href={routes.menu[lang]} aria-current={route === 'menu' ? 'page' : undefined}>{t.menu}</a>
   <a href={r.phone.whatsapp}>{t.call}</a>
   <a class="primary" href={r.maps.directions}>{t.directions}</a>
 </nav>
