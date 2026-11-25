@@ -1,7 +1,7 @@
 {
   "name": "La Carbonara",
   "origin": "https://lacarbonara.nl",
-  "phone": { "display": "06 16956710", "international": "+31 6 16956710", "tel": "+31616956710" },
+  "phone": { "display": "06 16956710", "international": "+31 6 16956710", "tel": "+31616956710", "whatsapp": "https://wa.me/31616956710" },
   "address": {
     "street": "Lange Niezel 7",
     "postalCode": "1012 GS",

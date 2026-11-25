@@ -282,7 +282,7 @@ h3 { font-size: 1.5rem; }
   .facts dd { font-size: 1.15rem; text-align: right; margin-top: 0; }
   .buttons .btn { flex: 1 1 auto; }
   .actionbar {
-    display: grid; grid-template-columns: 1fr 1fr;
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
     padding-bottom: env(safe-area-inset-bottom);
     background: var(--white); border-top: 1px solid var(--rule);

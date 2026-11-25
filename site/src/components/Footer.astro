@@ -13,7 +13,7 @@ const pages: RouteKey[] = ['home', 'menu', 'visit', 'faq'];
       <p class="footer-brand">La Carbonara</p>
       <p>{r.address.street}<br>{r.address.postalCode} {r.address.city}</p>
       <p>{t.facts.openValue}</p>
-      <p><a href={`tel:${r.phone.tel}`}>{r.phone.display}</a></p>
+      <p><a href={r.phone.whatsapp}>{r.phone.display}</a></p>
     </div>
     <nav aria-labelledby="footer-pages">
       <p class="footer-head" id="footer-pages">{t.footer.pages}</p>
