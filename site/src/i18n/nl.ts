@@ -35,7 +35,7 @@ const nl = (f: Facts): Copy => ({
   },
 
   home: {
-    title: 'Romeinse carbonara zonder room | La Carbonara Amsterdam',
+    title: 'Romeinse carbonara bij Amsterdam Centraal | La Carbonara',
     description: `Carbonara met guanciale, eidooier en Pecorino Romano, zonder room. Elke dag open van ${f.open} tot ${f.close}, zonder reservering. Afhalen kan ook.`,
     schema: 'Pastarestaurant in Amsterdam met Romeinse klassiekers: carbonara zonder room, Cacio e Pepe, Amatriciana en Gricia. Je loopt zo binnen, afhalen kan ook en alle drankjes zijn alcoholvrij.',
     h1: 'Carbonara zoals ze die in Rome maken',
@@ -45,7 +45,7 @@ const nl = (f: Facts): Copy => ({
     fullMenu: 'Het hele menu',
     drinksTitle: 'Drinken',
     drinksText: `Alles is 0,0%, een keuze die we voor je maken: spritzen en Birra Moretti Zero, limonade met prik en koffie.`,
-    visitTitle: 'Je vindt ons hier',
+    visitTitle: 'Route',
     visitText: 'We zitten aan de Lange Niezel, in de oude binnenstad.',
     lemonades: (n: number) => `Limonade met prik, ${n} smaken`,
     visitMore: 'Openingstijden en route',
@@ -66,15 +66,19 @@ const nl = (f: Facts): Copy => ({
 
   visit: {
     title: 'Openingstijden en route | La Carbonara Amsterdam',
-    description: `Elke dag open van ${f.open} tot ${f.close}, aan de Lange Niezel in Amsterdam. Reserveren kan niet, je loopt zo binnen. Afhalen kan ook.`,
+    description: `Elke dag open van ${f.open} tot ${f.close}, aan de Lange Niezel, ongeveer ${f.walk.centraal} minuten lopen van Centraal. Reserveren kan niet, je loopt zo binnen. Afhalen kan ook.`,
     h1: 'Openingstijden en route',
     hoursTitle: 'Openingstijden',
     hoursText: `We zijn elke dag open van ${f.open} tot ${f.close}.`,
     addressTitle: 'Adres',
-    walkTitle: '',
-    walk: [],
+    walkTitle: 'Lopen vanaf',
+    walk: [
+      { place: 'Centraal Station', min: f.walk.centraal },
+      { place: 'De Dam', min: f.walk.dam },
+      { place: 'Nieuwmarkt', min: f.walk.nieuwmarkt },
+    ],
     minutes: (n: number) => `ca. ${n} min`,
-    comingTitle: 'Zo werkt het',
+    comingTitle: 'Binnenlopen of meenemen',
     comingText: 'Je loopt zo binnen, reserveren kan niet. Je pasta meenemen kan ook.',
     phoneTitle: 'Telefoon',
     deliveryTitle: 'Bezorgen',
@@ -93,7 +97,7 @@ const nl = (f: Facts): Copy => ({
       { q: 'Hebben jullie glutenvrije pasta?', a: `Ja. Elke pasta kunnen we glutenvrij maken, voor ${f.gf} extra. Laat het weten als je bestelt.` },
       { q: 'Schenken jullie alcohol?', a: 'Nee, alles is 0,0%: ook de spritzen en de Birra Moretti Zero.' },
       { q: 'Wat kost een pasta?', a: `Een pasta kost bij ons ${f.minPasta} tot ${f.maxPasta}, de carbonara ${f.carbonara}.` },
-      { q: 'Waar zitten jullie?', a: `Op ${f.address}.` },
+      { q: 'Hoe ver is het lopen vanaf Centraal?', a: `Ongeveer ${f.walk.centraal} minuten. Ons adres is ${f.address}.` },
     ],
   },
 
