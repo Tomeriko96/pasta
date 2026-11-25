@@ -44,7 +44,7 @@ const nl = (f: Facts): Copy => ({
     pastaIntro: 'De meeste pasta’s zijn Romeins. Bolognese, pesto en quattro formaggi komen uit andere streken van Italië.',
     fullMenu: 'Het hele menu',
     drinksTitle: 'Drinken',
-    drinksText: `Bij ons is 0,0 een keuze, geen gemis: spritzen en Birra Moretti Zero, limonade met prik en koffie.`,
+    drinksText: `Alles is 0,0%, een keuze die we voor je maken: spritzen en Birra Moretti Zero, limonade met prik en koffie.`,
     visitTitle: 'Je vindt ons hier',
     visitText: 'We zitten aan de Lange Niezel, in de oude binnenstad.',
     lemonades: (n: number) => `Limonade met prik, ${n} smaken`,
@@ -66,7 +66,7 @@ const nl = (f: Facts): Copy => ({
 
   visit: {
     title: 'Openingstijden en route | La Carbonara Amsterdam',
-    description: `Elke dag open van ${f.open} tot ${f.close}, aan de Lange Niezel in Amsterdam. Je hoeft niet te reserveren en afhalen kan ook.`,
+    description: `Elke dag open van ${f.open} tot ${f.close}, aan de Lange Niezel in Amsterdam. Reserveren kan niet, je loopt zo binnen. Afhalen kan ook.`,
     h1: 'Openingstijden en route',
     hoursTitle: 'Openingstijden',
     hoursText: `We zijn elke dag open van ${f.open} tot ${f.close}.`,
@@ -75,7 +75,7 @@ const nl = (f: Facts): Copy => ({
     walk: [],
     minutes: (n: number) => `ca. ${n} min`,
     comingTitle: 'Zo werkt het',
-    comingText: 'Je loopt zo binnen, een tafel reserveren hoeft niet. Je pasta meenemen kan ook. Alles wat we schenken is alcoholvrij.',
+    comingText: 'Je loopt zo binnen, reserveren kan niet. Je pasta meenemen kan ook.',
     phoneTitle: 'Telefoon',
     deliveryTitle: 'Bezorgen',
     deliveryText: 'Bezorgen doen we via Uber Eats. Je bestelt en betaalt daar, en Uber Eats bepaalt de bezorgkosten.',
@@ -84,7 +84,7 @@ const nl = (f: Facts): Copy => ({
 
   faq: {
     title: 'Veelgestelde vragen | La Carbonara Amsterdam',
-    description: `Reserveren hoeft niet en in onze carbonara zit geen room. Elke pasta kan glutenvrij voor ${f.gf} extra, en meenemen kan ook.`,
+    description: `Reserveren kan niet en in onze carbonara zit geen room. Elke pasta kan glutenvrij voor ${f.gf} extra, en meenemen kan ook.`,
     h1: 'Veelgestelde vragen',
     items: [
       { q: 'Moet ik reserveren?', a: 'Nee, je loopt zo binnen.' },
